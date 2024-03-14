@@ -17,12 +17,9 @@
 
     <!-- Logo -->
     <link rel="icon" href="<?= base_url('assets/img/logo/') . $dc['logo_desa']; ?>" type="image/x-icon">
-    <link href="<?php echo base_url() ?>assets/aset/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <!-- Custom styles for this template-->
     <link href="https://fonts.googleapis.com/css?family=Rubik:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"rel="stylesheet">
-    <link href="<?php echo base_url() ?>assets/aset/css/sb-admin-2.min.css" rel="stylesheet">
-    <!-- Boostrapp icons -->
-    <link rel="stylesheet" href="<?php echo base_url() ?>assets/aset/vendor/bootstrap/icons/bootstrap-icons.min.css">
+    <link href="<?php echo base_url() ?>assets/aset/css/login.min.css" rel="stylesheet">
     <style>
         body {
             font-size: 12px;
@@ -153,7 +150,7 @@
     
 
     <!-- Custom scripts for all pages-->
-    <script src="<?php echo base_url() ?>assets/aset/js/sb-admin-2.min.js"></script>
+    <script src="<?php echo base_url() ?>assets/aset/js/login.min.js"></script>
     <script>
         const togglePassword = document.querySelector('#togglePassword');
         const password = document.querySelector('#password');
