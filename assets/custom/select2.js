@@ -8,10 +8,10 @@ $(document).ready(function()
 	// Select2 dengan fitur pencarian
 	$('.select2').select2({
 		width: '100%',
-		dropdownAutoWidth : true,
-		placeholder: "--  Cari NIK - Nama Penduduk --"
+		dropdownAutoWidth : true
 	});
 
+	//select2 yang sedang digunakan
 	$('.select-filter').select2({
 		dropdownAutoWidth : true
 	});
@@ -109,6 +109,27 @@ $(document).ready(function()
 		$('.select2').trigger('change');
 		$('.select-filter').trigger('change');
 		$('.select2-ikon').trigger('change');
+	});
+
+	//anggota kelompok
+	$('#kelompok_penduduk').select2({
+		ajax: { 
+			url: SITE_URL + 'data_kelompok/apipendudukkelompok',
+			type: "post",
+			dataType: 'json',
+			delay: 250,
+			data: function (params) {
+					return {
+						searchTerm: params.term // search term
+					};
+			},
+			processResults: function (response) {
+			return {
+				results: response
+			};
+		},
+		cache: true
+		}  
 	});
 
 });

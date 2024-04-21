@@ -1,7 +1,4 @@
-
-
 <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
     <section class="content-header">
        <h1 class="tx-judul">
         Pengaturan Grup
@@ -11,7 +8,7 @@
         <li><a href="#"> Grup</a></li>
       </ol>
     </section>
-    <!-- table kelola menu -->
+
 <section class="content">
       <div class="row">
         <div class="col-md-3">
@@ -80,15 +77,15 @@
                   <span aria-hidden="true">&times;</span></button>
                 <h4 class="modal-title" style="font-size: 15px; font-weight: bold;">Tambah Data Grup</h4>
               </div>
-              <form action="<?= base_url('admin/role'); ?>" method="post">
+              <form id="validasi" action="<?= base_url('admin/role'); ?>" method="post">
               <div class="modal-body">
                <div class="form-group">
-                     <input type="text" id="role" name="role" class="input-sm form-control" value="" placeholder="Masukkan Grup" required>
-
+                      <label for="role">Nama Grup</label>
+                     <input type="text" id="role" name="role" class="input-sm form-control required" value="" placeholder="Masukkan Grup">
                  </div>
               </div>
               <div class="modal-footer">
-                <button class="btn btn-social btn-flat btn-default btn-sm" data-dismiss="modal"><i class="fa fa-remove"></i> Close</button>
+                <button class="btn btn-social btn-flat btn-danger btn-sm" data-dismiss="modal" style="float: left;"><i class="fa fa-times"></i> Batal</button>
                 <button type="submit" class="btn btn-social btn-flat btn-info btn-sm"  style="float: right;"><i class="fa fa-check"></i> Simpan</button>
               </div>
             </form>

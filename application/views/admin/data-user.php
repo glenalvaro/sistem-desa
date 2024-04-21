@@ -36,7 +36,7 @@
             <div class="box-header with-border">
                <a href="<?= base_url('admin/add_user'); ?>" class="btn btn-social btn-flat btn-success btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"><i class="fa fa-plus"></i> Tambah Pengguna Baru</a>
             </div>
-            <div class="box-body">
+            <div class="box-body" style="margin-bottom:100px !important;">
                 <div class="table-responsive">
                 <table id="datatables-sistem" class="table table-striped table-hover table-bordered tabel-daftar">
                 <thead class="bg-gray disabled color-palette">

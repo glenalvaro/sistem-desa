@@ -450,6 +450,12 @@ class Data_penduduk_model extends CI_Model
         return $data;
     }
 
+	public function Delete_all($id)
+    {
+        $this->db->where_in('id', $id);
+        $this->db->delete('data_penduduk');
+    }
+
 }
 
 /* End of file Data_penduduk_model.php */

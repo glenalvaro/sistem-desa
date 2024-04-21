@@ -36,7 +36,9 @@
                 <h4 style="font-size: 14px;" class="box-title">Foto Pengguna</h4>
             </div>
             <div class="box-body">
-              <center><img src="<?= base_url('assets/img/profile/') . $ds->image; ?>" class="img-thumbnail" width="150" height="145">
+              <center>
+              <a style="width: 150px; height: 145px;" href="<?= site_url('assets/img/profile/') . $ds->image; ?>" class="progressive replace foto_penduduk img-thumbnail">
+              <img class="preview" loading="lazy" src="<?= site_url('assets/img/load-foto.gif') ?>" alt="Foto"/></a>
               </center>
               <br>     
             </div>  

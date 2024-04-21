@@ -1,6 +1,5 @@
 <style>
  label {
-    font-weight: bold;
     font-size: 11px;
     }
 </style>
@@ -12,7 +11,7 @@
       </h1>
     </section>
 
-<form action="<?= base_url('admin/add_user'); ?>" method="post" enctype="multipart/form-data" autocomplete="off">
+<form id="validasi" action="<?= base_url('admin/add_user'); ?>" method="post" enctype="multipart/form-data" autocomplete="off">
 <section class="content">
       <div class="row">
         <div class="col-md-3">
@@ -53,38 +52,38 @@
                     <label for="name">Nama Lengkap :</label>
                      <input type="hidden" name="date_created" class="form-control"> 
                      <input type="hidden" name="is_active" class="form-control">
-                     <input type="text" name="name" id="name" class="form-control input-sm" placeholder="Nama">
+                     <input type="text" name="name" id="name" class="form-control input-sm required" placeholder="Nama">
                      <?= form_error('name', '<small class="text-danger pl-3">', '</small>'); ?>
                  </div>
                    
                 <div class="form-group">
-                    <label>Telepon :</label>
-                      <input type="number" name="no_hp" id="no_hp" class="form-control input-sm" placeholder="Telepon">
+                    <label for="no_hp">Nomor Telepon :</label>
+                      <input type="text" name="no_hp" id="no_hp" class="form-control input-sm required" placeholder="Telepon">
                       <?= form_error('no_hp', '<small class="text-danger pl-3">', '</small>'); ?>
                 </div>
 
                 <div class="form-group">
-                    <label>Alamat :</label>
-                      <input type="text" name="alamat" id="alamat" class="form-control input-sm" placeholder="Alamat">
+                    <label for="alamat">Alamat :</label>
+                      <input type="text" name="alamat" id="alamat" class="form-control input-sm required" placeholder="Alamat">
                      <?= form_error('alamat', '<small class="text-danger pl-3">', '</small>'); ?>
                   </div>  
              
                   <div class="form-group">
-                    <label>E-mail :</label>              
-                      <input type="text" name="email" id="email" class="form-control input-sm" placeholder="Email">
+                    <label for="email">E-mail :</label>              
+                      <input type="text" name="email" id="email" class="form-control input-sm required" placeholder="Email">
                    <?= form_error('email', '<small class="text-danger pl-3">', '</small>'); ?>
                   </div> 
                   
                   <div class="form-group">
-                    <label>Kata Sandi :</label> 
-                      <input type="password" name="password" id="password" class="form-control input-sm" placeholder="Kata Sandi">
+                    <label for="password">Kata Sandi :</label> 
+                      <input type="password" name="password" id="password" class="form-control input-sm required" placeholder="Kata Sandi">
                   <?= form_error('password', '<small class="text-danger pl-3">', '</small>'); ?>
                 </div>
                
                <div class="form-group">
-                 <label for="last-name">Group :</label>
-                        <br>
-                      <select name="role_id" class="select-filter form-control" style="width: 100%;">
+                 <label for="role_id">Group :</label>
+                      <br>
+                      <select name="role_id" id="role_id" class="select-filter form-control required" style="width: 100%;">
                         <option disabled selected>--Pilih Group--</option>               
                        <?php foreach($role as $row) : ?>
                         <option value="<?= $row['id']; ?>"><?= $row['role']; ?></option>

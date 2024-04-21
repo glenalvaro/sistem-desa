@@ -17,7 +17,7 @@
 		}
 		td,th
 		{
-		  font-size:6.5pt;
+		  font-size:8.5pt;
 		  mso-number-format:"\@";
 		}
 	</style>
@@ -27,7 +27,7 @@
 			<!-- Print Body -->
 			<div id="body">
 				<div class="header" align="center">
-					<label align="left">Desa : <?= $p['sebutan_desa'] ?> Kec. : <?= $p['nama_kecamatan'] ?> Kab. : <?= $p['nama_kabupaten'] ?></label>
+					<label align="left">Desa : <?= $p['nama_desa'] ?> Kec. : <?= $p['nama_kecamatan'] ?> Kab. : <?= $p['nama_kabupaten'] ?></label>
 					<h3> DATA PENDUDUK </h3>
 				</div>
 				<br>

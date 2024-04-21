@@ -22,7 +22,7 @@ class User extends CI_Controller{
 		//ambil data pengaturan dari table setting
 		$data['setting'] = $this->db->get('setting')->result_array();
 
-		$data['title'] = 'Profile';
+		$data['title'] = 'Profil';
 		$this->load->view('templates/header', $data);
 		$this->load->view('templates/sidebar', $data);
 		$this->load->view('user/index', $data);
@@ -51,7 +51,7 @@ class User extends CI_Controller{
 		]);
 
 		if ($this->form_validation->run() == false) {
-			$data['title'] = 'Profile';
+			$data['title'] = 'Profil';
 			$this->load->view('templates/header', $data);
 			$this->load->view('templates/sidebar', $data);
 			$this->load->view('user/edit', $data);
@@ -98,7 +98,7 @@ class User extends CI_Controller{
 
 	public function changePassword()
     {
-        $data['title'] = 'Profile';
+        $data['title'] = 'Profil';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 
         //tampil data dari table identitas desa

@@ -35,15 +35,17 @@
           <div class="box box-primary">
               <div class="box-header with-border">
               <div class="noprint">
-                  <a href="<?= site_url('data_penduduk'); ?>" class="btn btn-social btn-flat btn-info btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"><i class="fa fa-arrow-circle-o-left"></i> Kembali ke Daftar Penduduk</a>
+                  <a href="<?= site_url('data_penduduk'); ?>" class="btn btn-social btn-flat btn-info btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"><i class="fa fa-arrow-circle-left"></i> Kembali ke Daftar Penduduk</a>
 
                   <a href="<?= site_url('data_penduduk/create'); ?>" class="btn btn-social btn-flat btn-success btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"><i class="fa fa-plus"></i> Tambah Penduduk</a>
 
-                  <a href="" class="btn btn-social btn-flat btn-danger btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"><i class="fa fa-users"></i> Anggota Keluarga</a>
+                  <?php if ($hubungan_keluarga_id == 1) : ?>
+                    <a href="<?= site_url("data_keluarga/anggota_keluarga/{$id}/{$no_kk}"); ?>" class="btn btn-social btn-flat btn-danger btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"><i class="fa fa-users"></i> Anggota Keluarga</a>
+                  <?php endif; ?>
 
                   <a target="_blank" href="<?= site_url('data_penduduk/cetak_biodata/'.$id) ?>" class="btn btn-social btn-flat bg-purple btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"><i class="fa fa-print"></i> Cetak Biodata</a>
 
-                  <a href="<?= site_url('data_penduduk/update/'.$id) ?>" class="btn btn-social btn-flat bg-yellow btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"><i class="fa fa-pencil"></i> Ubah Biodata</a>
+                  <a href="<?= site_url('data_penduduk/update/'.$id) ?>" class="btn btn-social btn-flat bg-yellow btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"><i class="fa fa-edit"></i> Ubah Biodata</a>
               </div>
               <br>
               <h4 style="font-size: 15px;" class="box-title">Biodata Penduduk (NIK : <?= $nik; ?>)</h4>
@@ -135,6 +137,10 @@
                   <td><?= $status_warganegara ?></td>
                 </tr>
                 <tr>
+                  <td width="200">Negara Asal</td><td width="1">:</td>
+                  <td><?= $negara_asal ?></td>
+                </tr>
+                <tr>
                   <td width="200">Nomor Paspor</td><td width="1">:</td>
                   <td><?= $dokumen_paspor; ?></td>
                 </tr>
@@ -199,12 +205,8 @@
                   <td width="200">Tgl Perkawinan</td><td width="1">:</td>
                   <td>-</td>
                 </tr>
-                  <tr>
-                  <th colspan="3" class="subtitle_head"><strong>DATA KESEHATAN</strong></th>
-                </tr>
                 <tr>
-                  <td width="200">Golongan Darah</td><td width="1">:</td>
-                  <td><?= $darah_golongan ?></td>
+                  <th colspan="3" class="subtitle_head"><strong>DATA KESEHATAN</strong></th>
                 </tr>
                 <tr>
                   <td width="200">Golongan Darah</td><td width="1">:</td>
@@ -221,6 +223,13 @@
                  <tr>
                   <td width="200">BPJS Ketenagakerjaan</td><td width="1">:</td>
                   <td><?= $bpjs_ketenagakerjaan ?></td>
+                </tr>
+                <tr>
+                  <th colspan="3" class="subtitle_head"><strong>LAIN LAIN</strong></th>
+                </tr>
+                <tr>
+                  <td width="200">Keterangan</td><td width="1">:</td>
+                  <td><?= $keterangan ?></td>
                 </tr>
               </tbody>
             </table>

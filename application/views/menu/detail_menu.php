@@ -1,13 +1,12 @@
 <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
     <section class="content-header">
        <h1 class="tx-judul">
-        Pengaturan Sub Modul
+        Pengaturan Sub Menu
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"> Pengaturan</a></li>
         <li><a href="#"> Modul</a></li>
-        <li class="active"><a href="#"> Sub Modul</a></li>
+        <li class="active"><a href="#"> Sub Menu</a></li>
       </ol>
     </section>
 
@@ -17,9 +16,9 @@
         <div class="col-xs-12">
           <div class="box box-info">
             <div class="box-header with-border">
-               <a href="<?php echo base_url('menu'); ?>" class="btn btn-social btn-flat btn-info btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"><i class="fa fa-arrow-circle-o-left"></i> Kembali Ke Data Menu</a>
+               <a href="<?php echo base_url('menu'); ?>" class="btn btn-social btn-flat btn-info btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"><i class="fa fa-arrow-circle-left"></i> Kembali Ke Data Menu</a>
 
-               <a href="" class="btn btn-social btn-flat bg-purple btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block" data-toggle="modal" data-target="#new-modul"><i class="fa fa-plus"></i> Tambah Modul</a>
+               <a href="" class="btn btn-social btn-flat bg-purple btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block" data-toggle="modal" data-target="#new-modul"><i class="fa fa-plus"></i> Tambah Sub Menu</a>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
@@ -70,39 +69,39 @@
               <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" style="font-size: 15px; font-weight: bold;">Tambah Sub Modul</h4>
+                <h4 class="modal-title" style="font-size: 15px; font-weight: bold;">Tambah Sub Menu</h4>
               </div>
-              <form action="<?= base_url('menu/tambah_modul'); ?>" method="post">
+              <form id="validasi" action="<?= base_url('menu/tambah_modul'); ?>" method="post">
               <div class="modal-body">
                <div class="form-group">
-                    <label>Nama Modul :</label>
+                    <label for="menu_id">Nama Sub Menu :</label>
                     <input type="hidden" id="menu_id" name="menu_id" class="form-control input-sm" value="<?= $nama_menu['id']; ?>">
-                     <input type="text" id="title" name="title" class="form-control input-sm" value="" placeholder="Nama Submenu" required>
+                     <input type="text" id="title" name="title" class="form-control input-sm required" placeholder="Nama Submenu">
                </div>
                <div class="form-group">
-                    <label>Link :</label>
-                     <input type="text" id="url" name="url" class="form-control input-sm" value="" placeholder="Link Submenu" required>
+                    <label for="url">Link :</label>
+                     <input type="text" id="url" name="url" class="form-control input-sm required" value="" placeholder="Link Submenu">
                </div>
                <div class="form-group">
-                    <label>Icon :</label>
+                    <label for="icon">Icon :</label>
                     <br>
-                     <select name="icon" id="icon" class="form-control select2-ikon input-sm" style="width: 100%;">
-                       <option selected="selected">Pilih Icon</option>
+                     <select name="icon" id="icon" class="form-control select2-ikon input-sm required" style="width: 100%;">
+                       <option value="">-- Pilih Icon Menu --</option>
                           <?php foreach ($list_icon as $icon): ?>
                           <option value="fa <?=$icon?>"><?=$icon?></option>
                           <?php endforeach; ?>
                     </select>
                </div>
-             <!--  <div class="form-group">
+              <div class="form-group">
                     <label for="is_active">Aktif Sub Menu ?</label>
                     <br>
                      <div class="checkbox-inline">
                       <label><input type="checkbox" name="is_active" id="is_active" value="1" checked>Ya</label>
                     </div>
-                </div> -->
+                </div>
               </div>
               <div class="modal-footer">
-                <button class="btn btn-social btn-flat bg-navy btn-sm" data-dismiss="modal"><i class="fa fa-remove"></i> Close</button>
+                <button class="btn btn-social btn-flat bg-maroon btn-sm" data-dismiss="modal" style="float: left;"><i class="fa fa-times"></i> Batal</button>
                 <button type="submit" class="btn btn-social btn-flat btn-info btn-sm"  style="float: right;"><i class="fa fa-check"></i> Simpan</button>
               </div>
             </form>

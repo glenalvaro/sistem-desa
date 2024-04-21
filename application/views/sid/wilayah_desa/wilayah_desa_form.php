@@ -19,22 +19,22 @@
             <div class="box-header with-border">
               <a href="<?= site_url('wilayah_desa'); ?>" class="btn btn-social btn-flat btn-info btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"><i class="fa fa-arrow-circle-o-left"></i> Kembali Ke Daftar <?= $k['sebutan_dusun'] ?></a>
             </div>
-            <form action="<?php echo $action; ?>" method="post" class="form-horizontal" autocomplete="off">
+            <form id="validasi" action="<?php echo $action; ?>" method="post" class="form-horizontal" autocomplete="off">
               <div class="box-body">
                  <div class="form-group">
-                    <label class="col-sm-4">Nama <?= $k['sebutan_dusun'] ?></label>
+                    <label for="nama_dusun" class="col-sm-4">Nama <?= $k['sebutan_dusun'] ?></label>
                     <div class="col-sm-6">
                       <input type="hidden" name="id" value="<?php echo $id; ?>">
-                      <input type="text" name="nama_dusun" id="nama_dusun" class="form-control input-sm" value="<?php echo $nama_dusun; ?>" placeholder="Nama <?= $k['sebutan_dusun'] ?>" required>
+                      <input type="text" name="nama_dusun" id="nama_dusun" class="form-control input-sm required" value="<?php echo $nama_dusun; ?>" placeholder="Nama <?= $k['sebutan_dusun'] ?>">
                        <?= form_error('nama_dusun', '<small class="text-danger pl-3">', '</small>'); ?>
                     </div>
                   </div>
 
                    <div class="form-group">
-                    <label class="col-sm-4">NIK / Nama Kepala <?= $k['sebutan_dusun'] ?></label>
+                    <label for="kepala_dusun" class="col-sm-4">NIK / Nama Kepala <?= $k['sebutan_dusun'] ?></label>
                     <div class="col-sm-6">
-                       <select name="kepala_dusun" id="kepala_dusun" class="form-control select2">
-                       		<option value="">Pilih Kepala Wilayah</option>
+                       <select name="kepala_dusun" id="kepala_dusun" class="form-control select-filter required" style="width:100%;">
+                       		<option value="">-- Silakan Masukkan NIK/Nama --</option>
                        		 <?php foreach($list_penduduk as $row) : ?>
                             <option value="<?= $row['nama_penduduk'] ?>" <?=($kepala_dusun==$row['nama_penduduk'])?'selected="selected"':''?>><?= $row['nik']; ?> - <?= $row['nama_penduduk']; ?></option>
                             <?php endforeach; ?>

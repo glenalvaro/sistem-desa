@@ -16,7 +16,7 @@
   <!-- Bootstrap 3.3.7 -->
   <link rel="stylesheet" href="<?php echo base_url() ?>assets/vendor/bootstrap/dist/css/bootstrap.min.css">
   <!-- Select 2 dan input file-->
-  <link href="<?php echo base_url() ?>assets/aset/select2.min.css" rel="stylesheet">
+  <link href="<?php echo base_url() ?>assets/aset/select2/css/select2.min.css" rel="stylesheet">
   <link rel="stylesheet" href="<?php echo base_url() ?>assets/input-file.css">
   <!-- image -->
   <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/custom/jquery.fileupload-ui.css">
@@ -45,8 +45,10 @@
   <!-- Leaflet Draw Polygon for maps-->
   <link rel="stylesheet" href="https://unpkg.com/leaflet-draw@1.0.4/dist/leaflet.draw.css">
   <script src="https://unpkg.com/leaflet-draw@1.0.4/dist/leaflet.draw.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
   <style>
     body {
+      font-family: Rubik, sans-serif;
       font-weight: 400;
       font-size: 11px !important;
     }
@@ -71,6 +73,7 @@
       display: flex;
     }
 
+    /* css select2 yang digunakan */
     .select-filter {
       height: auto;
       width: auto;
@@ -213,7 +216,7 @@
 
    .table-penduduk .foto_penduduk {
         width: auto;
-        max-width: 25px;
+        max-width: 30px;
         height: auto;
         border-radius: 10%;
     }
@@ -289,10 +292,62 @@
     color: #111;
   }
 
-  /* Pagination Custom Table Penduduk */
+  /* Pagination Custom and showing */
   .table-penduduk .dataTables_paginate {
     margin-top: 30px !important;
     position: absolute;
+    right: 0;
+    margin-right : 10px !important;
+  }
+
+  .table-penduduk .dataTables_length {
+    margin-top: 30px !important;
+    position: absolute;
+    left: 0;
+    margin-left : 11px !important;
+  }
+
+  div.dataTables_wrapper div.dataTables_length select 
+  {
+    height: auto;
+    padding: 7px;
+    font-size: 10px;
+    line-height: 1.1;
+    border-radius: 2px;
+    border-color: #d2d6de;
+ }
+
+ /* pagination */
+ .pagination>li>a, .pagination>li>span {
+    height: auto;
+    padding: 8px;
+    font-size: 10px;
+    line-height: 1.2;
+}
+
+  /* button style */
+  .btn-group-sm>.btn, .btn-sm {
+    line-height: 1.1;
+  }
+
+  .btn-social.btn-sm> :first-child {
+    line-height: 21px;
+    width: 28px;
+    font-size: 1.4em;
+  }
+
+  /* input group */
+  .input-group-sm>.form-control, .input-group-sm>.input-group-addon, .input-group-sm>.input-group-btn>.btn {
+    height: 25px;
+    padding: 5px 10px;
+    font-size: 11px;
+    line-height: 1.2;
+  }
+
+  /* modifikasi css has error */
+  .form-group.has-error label {
+    color: #dd4b39;
+    font-size: 10px;
   }
   </style> 
 </head>

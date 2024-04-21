@@ -1,7 +1,4 @@
-
-
 <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
     <section class="content-header">
        <h1 class="tx-judul">
         Menu Management
@@ -12,7 +9,7 @@
       </ol>
     </section>
 
-    <!-- table kelola menu -->
+<!-- table kelola menu -->
 <section class="content">
     <small><?= form_error('menu', '<div class="alert alert-danger" role="alert">', '</div>') ?></small>
       <div class="row">
@@ -61,10 +58,11 @@
                   <span aria-hidden="true">&times;</span></button>
                 <h4 class="modal-title" style="font-size: 15px; font-weight: bold;">Tambah Menu</h4>
               </div>
-              <form action="<?= base_url('menu'); ?>" method="post">
+              <form id="validasi" action="<?= base_url('menu'); ?>" method="post">
               <div class="modal-body">
                <div class="form-group">
-                     <input type="text" id="menu" name="menu" class="input-sm form-control" value="" placeholder="Enter menu..." required>
+                <label for="menu">Nama Menu</label>
+                     <input type="text" id="menu" name="menu" class="input-sm form-control required" value="" placeholder="Nama Menu">
                  </div>
               </div>
               <div class="modal-footer">

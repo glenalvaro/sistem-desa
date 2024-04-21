@@ -10,6 +10,7 @@
     </section>
 
     <section class="content">
+        <form method="post" action="<?= site_url('data_penduduk/delete_all_penduduk') ?>" id="delete_all">
             <div class="row">
             <div class="col-xs-12">
                 <div class="box box-info">
@@ -21,6 +22,12 @@
                             <ul class="dropdown-menu" role="menu">
                                 <li>
                                     <a href="<?= site_url('data_penduduk/cetak_penduduk'); ?>" class="btn btn-social btn-flat btn-block btn-sm" title="Cetak Penduduk" target="_blank"><i class="fa fa-print"></i> Cetak</a>
+                                </li>
+
+                                <li>
+                                    <button type="submit" name="delete_checklistPend" class="btn btn-social btn-flat btn-block btn-sm" title="Ceklis pada data yang akan dihapus" disabled="">
+                                        <i class="fa fa-trash"></i> Hapus Data Terpilih</a>
+                                    </button>
                                 </li>
                             </ul>
                         </div>
@@ -69,16 +76,19 @@
                     <table style="width:100%;" id="filtertable" class="table table-bordered dataTable table-striped table-hover no-footer">
                             <thead class="bg-gray disabled color-palette" style="font-size: 10px;">
                                 <tr>
+                                    <th>
+                                        <input type="checkbox" id="check_pend">
+                                    </th>
                                     <th style="min-width:20px; font-weight: bold;">No</th>
                                     <th style="min-width:50px; text-align: center;">AKSI</th>
                                     <th style="min-width:50px; text-align: center;">FOTO</th>
                                     <th style="min-width:150px; text-align: center;">NIK</th>
-                                    <th style="min-width:150px; text-align: center;">NAMA</th>
-                                    <th style="min-width:100px; text-align: center;">NO. KK</th>
+                                    <th style="min-width:200px; text-align: center;">NAMA</th>
+                                    <th style="min-width:150px; text-align: center;">NO. KK</th>
                                     <th style="min-width:100px; text-align: center;">UMUR</th>
-                                    <th style="min-width:100px; text-align: center;">NAMA AYAH</th>
-                                    <th style="min-width:100px; text-align: center;">NAMA IBU</th>
-                                    <th style="min-width:100px; text-align: center;">ALAMAT</th>
+                                    <th style="min-width:150px; text-align: center;">NAMA AYAH</th>
+                                    <th style="min-width:150px; text-align: center;">NAMA IBU</th>
+                                    <th style="min-width:150px; text-align: center;">ALAMAT</th>
                                     <th style="min-width:100px; text-align: center;">WILAYAH</th>
                                     <th style="min-width:150px; text-align: center;">PENDIDIKAN</th>
                                     <th style="min-width:150px; text-align: center;">PEKERJAAN</th>
@@ -91,6 +101,9 @@
                             <tbody>
                                 <?php foreach($data_penduduk_data as $data) : ?>
                                 <tr>
+                                    <td>
+                                        <input id="data_pend" type="checkbox" class="checklist-pend" name="id[]" value="<?= $data->id ?>">
+                                    </td>
                                     <td><?php echo ++$start ?></td>
                                     <td>
                                         <div class="btn-group">
@@ -100,7 +113,7 @@
                                                     <a href="<?= site_url('data_penduduk/read/'.$data->id) ?>" class="btn btn-social btn-flat btn-block btn-sm" title=" Detail Data Penduduk"><i class="fa fa-eye"></i> Biodata Penduduk</a>
                                                 </li>
                                                 <li>
-                                                    <a href="<?= site_url('data_penduduk/update/'.$data->id) ?>" class="btn btn-social btn-flat btn-block btn-sm" title=" Ubah Data Penduduk"><i class="fa fa-pencil"></i> Ubah Biodata Penduduk</a>
+                                                    <a href="<?= site_url('data_penduduk/update/'.$data->id) ?>" class="btn btn-social btn-flat btn-block btn-sm" title=" Ubah Data Penduduk"><i class="fa fa-edit"></i> Ubah Biodata Penduduk</a>
                                                 </li>
                                                 <li>
                                                     <a href="<?= site_url('data_penduduk/delete/'.$data->id) ?>" class="btn btn-social btn-flat btn-block btn-sm aksi-hapus" title="Hapus Data Penduduk"><i class="fa fa-trash"></i> Hapus Data Penduduk</a>
@@ -148,6 +161,7 @@
             <div class="col-md-6 text-right" style="margin-top: 20px; margin-bottom: 50px;">
             </div>
         </div>
+
         </div>
             </div>
             </div>
@@ -155,20 +169,19 @@
     </section>
 </div>
 
-
 <script>
     $(document).ready(function() {
     var table = $('#filtertable').DataTable({
-        "pageLength": 10,
+        "pageLength": 50,
         "ordering" : false,
         'aoColumnDefs':[{
             'bSortable':false,
             'aTargets':['nosort'],
         }],
-        "bLengthChange":false,
-        "dom":'<"bottom">ct<"right"p><"clear">',
+        "bLengthChange":true,
+        "dom":'<"bottom">ct<"bottom"lp><"clear">',
          initComplete: function () {
-              this.api().columns([15]).every( function () {
+              this.api().columns([16]).every( function () {
                 var column1 = this;
                 var select1 = $('<select class="form-control select-filter2"><option value="">Status Penduduk</option></select>')
                     .appendTo($('#filter_status'))
@@ -185,7 +198,7 @@
                     select1.append('<option value="'+d+'">'+d+'</option>')
                 });
             });
-            this.api().columns([10]).every( function () {
+            this.api().columns([11]).every( function () {
                 var column = this;
                 var select = $('<select class="form-control select-filter2"><option value="">Pilih Wilayah</option></select>')
                     .appendTo($('#filter_dusun'))
@@ -214,7 +227,6 @@
     $("#filter_sex").on("change", function(){
         var sex = $(this).val();
         // alert(sex);
-
         $.ajax({
             url:"<?= base_url('data_penduduk/filter_sex'); ?>", 
             type:"POST",

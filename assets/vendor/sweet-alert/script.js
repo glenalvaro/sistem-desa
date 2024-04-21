@@ -5,7 +5,13 @@ if (flashData) {
     Swal({
         title: 'Sukses',
         text: flashData,
-        type: 'success'
+        type: 'success',
+        showConfirmButton: false,
+        timer: 3000,
+        didOpen: (Swal) => {
+         Swal.onmouseenter = Swal.stopTimer;
+         Swal.onmouseleave = Swal.resumeTimer;
+       }
     });
 }
 
@@ -29,6 +35,28 @@ $('.aksi-hapus').on('click', function (e) {
     Swal({
         title: 'Apakah anda yakin ?',
         text: "Data ini akan dihapus!",
+        type: 'question',
+        showCancelButton: true,
+        confirmButtonColor: '#e74c3c',
+        cancelButtonColor: '#3085d6',
+        confirmButtonText: 'Hapus',
+        cancelButtonText: 'Batal'
+    }).then((result) => {
+        if (result.value) {
+            document.location.href = href;
+        }
+    })
+
+});
+
+$('.hapus-pilihan').on('click', function (e) {
+
+    e.preventDefault();
+    const href = $(this).attr('href');
+
+    Swal({
+        title: 'Hapus Data Yang Diceklis ?',
+        text: "Data yang dipilih akan dihapus?",
         type: 'question',
         showCancelButton: true,
         confirmButtonColor: '#e74c3c',

@@ -64,7 +64,8 @@
               <br/>
 
               <div class="box-body bg-identitas">
-                  <img class="img-identitas img-responsive" src="<?= base_url('assets/img/logo/') . $ids['logo_desa']; ?>" alt="Logo-desa">
+                  <a href="<?= site_url('assets/img/logo/') . $ids['logo_desa']; ?>" class="progressive replace foto_penduduk img-identitas img-responsive">
+                  <img class="preview" loading="lazy" src="<?= site_url('assets/img/load-foto.gif') ?>" alt="Foto"/></a>
                   <h3 class="text-identitas">Desa <?= $ids['nama_desa']; ?></h3>
                   <p class="text-identitas"><b>Kecamatan <?= $ids['nama_kecamatan']; ?>, Kabupaten <?= $ids['nama_kabupaten']; ?>, Provinsi <?= $ids['nama_provinsi']; ?></b></p>
               </div>

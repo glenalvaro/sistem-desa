@@ -42,7 +42,7 @@ class Data_penduduk extends CI_Controller
             $config['first_url']    = base_url() . 'data_penduduk/index';
         }
 
-        $config['per_page']          = 50;
+        $config['per_page']          = 100;
         $config['page_query_string'] = TRUE;
         $config['total_rows']        = $this->Data_penduduk_model->total_rows($q);
         $data_penduduk               = $this->Data_penduduk_model->get_limit_data($config['per_page'], $start, $q);
@@ -101,6 +101,7 @@ class Data_penduduk extends CI_Controller
     		'no_kk' => $row->no_kk,
     		'nama_penduduk' => $row->nama_penduduk,
     		'hubungan' => $row->hubungan,
+            'hubungan_keluarga_id' => $row->hubungan_keluarga_id,
     		'sex' => $row->sex,
             'jenis_kelamin' => $row->jenis_kelamin,
     		'agama' => $row->agama,
@@ -200,7 +201,7 @@ class Data_penduduk extends CI_Controller
 	    'created_by' => set_value('created_by'),
 		);
 
-		// //panggil data get table dari model penduduk
+		//panggil data get table dari model penduduk
         $data['hubungan_penduduk']			= $this->Data_penduduk_model->get_penduduk_hubungan();
         $data['penduduk_sex']        		= $this->Data_penduduk_model->get_jk();
  		$data['penduduk_agama']        		= $this->Data_penduduk_model->get_penduduk_agama();
@@ -228,10 +229,10 @@ class Data_penduduk extends CI_Controller
             $this->create();
         } else {
             $this->Data_penduduk_model->tambah_penduduk();
-            $this->session->set_flashdata('flash', 'Data ditambahkan');
+            $this->session->set_flashdata('flash', 'Data Penduduk ditambahkan');
             redirect(site_url('data_penduduk'));
         }
-      }
+    }
 
     
     public function update($id) 
@@ -324,7 +325,7 @@ class Data_penduduk extends CI_Controller
         } else {
             // $this->Data_penduduk_model->update($this->input->post('id', TRUE), $data);
             $this->Data_penduduk_model->update_penduduk($this->input->post('id', TRUE));
-            $this->session->set_flashdata('flash', 'Data diupdate');
+            $this->session->set_flashdata('flash', 'Data Penduduk diupdate');
             redirect(site_url('data_penduduk'));
         }
     }
@@ -363,8 +364,16 @@ class Data_penduduk extends CI_Controller
         }
 
         $this->Data_penduduk_model->hapus_penduduk($id);
-        $this->session->set_flashdata('flash', 'Data dihapus');
+        $this->session->set_flashdata('flash', 'Data Penduduk dihapus');
         redirect(site_url('data_penduduk'));
+    }
+
+    public function delete_all_penduduk()
+    {
+        $id = $_POST['id']; // Ambil data ID yang dikirim oleh view melalui form submit
+        $this->Data_penduduk_model->Delete_all($id); // Panggil fungsi delete dari model
+        $this->session->set_flashdata('flash','Data Penduduk yang dipilih terhapus');
+        redirect('data_penduduk');
     }
 
     public function _rules() 
@@ -385,19 +394,16 @@ class Data_penduduk extends CI_Controller
 		$this->form_validation->set_rules('status_dasar_id', 'status dasar id', 'trim|required');
 		$this->form_validation->set_rules('tgl_terdaftar', 'tgl terdaftar', 'trim|required');
 		$this->form_validation->set_rules('created_by', 'created by', 'trim|required');
-
 		$this->form_validation->set_rules('id', 'id', 'trim');
 		$this->form_validation->set_error_delimiters('<span class="text-danger">', '</span>');
     }
 
     public function cek_nik()
     {
-        $connect = mysqli_connect("localhost","root","","db_kelurahan");
-
 		if(!empty($_POST["nik"])) {
 		  $query = "SELECT * FROM data_penduduk WHERE nik='" . $_POST["nik"] . "'";
-		  $result = mysqli_query($connect, $query);
-		  $count = mysqli_num_rows($result);
+		  $result = $this->db->query($query);
+		  $count = $result->num_rows();
 		  if($count>0) {
 		    echo "<span> NIK ini sudah terdaftar .</span>";
 		    echo "<script>$('#nik').removeClass('parsley-success');</script>";
@@ -413,16 +419,14 @@ class Data_penduduk extends CI_Controller
 		}
     }
 
+    //filter berdasarkan data jenis kelamin
     public function filter_sex()
     {
-        $connect = mysqli_connect("localhost","root","","db_kelurahan");
-
         $cari = isset($_POST["cek_sex"]);
-
         if($cari) {
           $query = "SELECT * FROM data_penduduk WHERE jenis_kelamin = '$cari'";
-          $result = mysqli_query($connect, $query);
-          $count = mysqli_num_rows($result);
+          $result = $this->db->query($query);
+		  $count = $result->num_rows();
         }
     }
 

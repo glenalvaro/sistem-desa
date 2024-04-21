@@ -27,25 +27,6 @@ $('.custom-file-input').on('change', function () {
     $(this).next('.custom-file-label').addClass("selected").html(fileName);
 });
 
-//jam server
-window.onload = function() { jam(); }
-    function jam() {
-        var e = document.getElementById('jam_server'),
-            d = new Date(), h, m, s;
-            h = d.getHours();
-            m = set(d.getMinutes());
-            s = set(d.getSeconds());
-       
-            e.innerHTML = h +':'+ m +':'+ s;
-       
-            setTimeout('jam()', 1000);
-        }
-       
-    function set(e) {
-            e = e < 10 ? '0'+ e : e;
-            return e;
-    }
-
 //select 2
 $(document).ready(function() {
       $(".select2_single").select2({
@@ -87,14 +68,31 @@ $(document).ready(function() {
 
 //Date picker
  $(document).ready(function() {
-    $('.datepicker').datepicker({
+    //tgl lapor di form penduduk
+    $('#tgl_lapor').datepicker({
       autoclose: true,
+      todayHighlight:true,
       format: 'yyyy-mm-dd',
+      language: 'id',
     });
 
     $('#tgl_lahir').datepicker({
       autoclose: true,
       format: 'dd-mm-yyyy',
+    });
+
+    //tgl di form program bantuan
+    $('#tgl_1').datepicker({
+      autoclose: true,
+      todayHighlight:true,
+      format: 'yyyy-mm-dd',
+      language: 'id',
+    });
+    $('#tgl_2').datepicker({
+      autoclose: true,
+      todayHighlight:true,
+      format: 'yyyy-mm-dd',
+      language: 'id',
     });
 });
 
@@ -108,6 +106,7 @@ $("#status_warganegara").change(function() {
                 $('.form-status-warganegara').prop('hidden', true);
     }
 });
+
 
 $("#asuransi_kesehatan").change(function() {
         console.log($("#asuransi_kesehatan option:selected").val());
@@ -142,3 +141,43 @@ function formAction(idForm, action, target = '')
     $('#'+idForm).attr('action', action);
     $('#'+idForm).submit();
 }
+
+// Hapus Data Ceklis di table data keluarga
+$(document).ready(function(){ // Ketika halaman sudah siap (sudah selesai di load)
+  $("#check_kk").click(function(){ // Ketika user men-cek checkbox all
+      if($(this).is(":checked")) // Jika checkbox all diceklis
+        $(".checklist-kk").prop("checked", true); // ceklis semua checkbox dengan class "check-item"
+      else // Jika checkbox all tidak diceklis
+        $(".checklist-kk").prop("checked", false); // un-ceklis semua checkbox dengan class "check-item"
+    });
+
+//fungsi disabled & enabled tombol
+$("input[type=checkbox]").on("change", function(evt) {
+var data1 = $('input[id=data_kk]:checked');
+if(data1.length == 0){
+  $("button[name=delete_checklist]").prop("disabled", true);
+    }else{
+      $("button[name=delete_checklist]").prop("disabled", false);
+    }
+  });
+});
+
+// Hapus Data Ceklis di table data penduduk
+$(document).ready(function(){ // Ketika halaman sudah siap (sudah selesai di load)
+  $("#check_pend").click(function(){ // Ketika user men-cek checkbox all
+      if($(this).is(":checked")) // Jika checkbox all diceklis
+        $(".checklist-pend").prop("checked", true); // ceklis semua checkbox dengan class "check-item"
+      else // Jika checkbox all tidak diceklis
+        $(".checklist-pend").prop("checked", false); // un-ceklis semua checkbox dengan class "check-item"
+    });
+
+//fungsi disabled & enabled tombol
+$("input[type=checkbox]").on("change", function(evt) {
+var data1 = $('input[id=data_pend]:checked');
+if(data1.length == 0){
+  $("button[name=delete_checklistPend]").prop("disabled", true);
+    }else{
+      $("button[name=delete_checklistPend]").prop("disabled", false);
+    }
+  });
+});

@@ -27,7 +27,7 @@
         <br>
         <div class="info">
           <p style="font-size: 10px;"><?= $data['sebutan_desa'] ?> <?= $dt['nama_desa'] ?></p>
-          <p>Kec. <?= $dt['nama_kecamatan'] ?>, Kab. <?= $dt['nama_kabupaten'] ?></p>
+          <p style="font-size: 9px;">Kec. <?= $dt['nama_kecamatan'] ?>, Kab. <?= $dt['nama_kabupaten'] ?></p>
         </div>
       </div>
       <br>
@@ -55,7 +55,7 @@
                             FROM `user_menu` JOIN `user_access_menu`
                               ON `user_menu`.`id` = `user_access_menu`.`menu_id`
                            WHERE `user_access_menu`.`role_id` = $role_id
-                        ORDER BY `user_access_menu`.`menu_id` ASC
+                        ORDER BY `user_access_menu`.`menu_id` DESC
                         ";
         $menu = $this->db->query($queryMenu)->result_array();
         ?>
