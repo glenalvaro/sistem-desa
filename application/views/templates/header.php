@@ -446,12 +446,6 @@
               </li>
             </ul>
           </li>
-
-          <!-- Info Sistem -->
-          <li style="margin-right: 10px;">
-            <a href="#" data-toggle="control-sidebar"><i class="fa fa-question-circle fa-lg"></i></a>
-          </li>
-
         </ul>
       </div>
     </nav>

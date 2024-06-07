@@ -112,7 +112,6 @@ class Data_kelompok_model extends CI_Model
       // Initialize Array with fetched data
       $data = array();
       foreach($result as $item){
-        //   $data[] = array("id"=>$user['id'], "text"=>$user['nama_penduduk']);
         $data[] = array(
             'id'   => $item->id,
             'text' => 'NIK : ' . $item->nik . ' - ' . strtoupper($item->nama_penduduk) . '-' . strtoupper($item->wilayah_desa),

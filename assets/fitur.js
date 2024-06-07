@@ -96,6 +96,26 @@ $(document).ready(function() {
     });
 });
 
+//show hidden tidak terdata di form perangkat desa
+$(document).ready(function(){
+$("input[type=radio]").on("change", function(evt) {
+var reset1 = document.querySelectorAll(".form_perangkat");
+var data1 = $('input[id=group2]:checked');
+if(data1.val() == 2){
+  $(".pilih_penduduk").prop("hidden", true);
+  $(".form_perangkat").prop("readOnly", false);
+  
+  for (var i = 0; i < reset1.length; i++) {
+    reset1[i].value = "";
+  }
+
+    }else{
+      $(".pilih_penduduk").prop("hidden", false);
+      $(".form_perangkat").prop("readOnly", true);
+    }
+  });
+});
+
 
 //show hidden form di data penduduk
 $("#status_warganegara").change(function() {

@@ -18,15 +18,15 @@
                         <a href="<?= site_url('data_penduduk/create'); ?>" class="btn btn-social btn-flat btn-success btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"><i class="fa fa-plus"></i> Tambah Penduduk</a>
 
                         <div class="btn-group-vertical">
-                            <a class="btn btn-social btn-flat btn-info btn-sm" data-toggle="dropdown"><i class='fa fa-arrow-circle-down'></i> Pilih Aksi Lainnya</a>
+                            <a class="btn btn-social btn-flat bg-navy btn-sm" data-toggle="dropdown"><i class='fa fa-arrow-circle-down'></i> Pilih Aksi Lainnya</a>
                             <ul class="dropdown-menu" role="menu">
                                 <li>
-                                    <a href="<?= site_url('data_penduduk/cetak_penduduk'); ?>" class="btn btn-social btn-flat btn-block btn-sm" title="Cetak Penduduk" target="_blank"><i class="fa fa-print"></i> Cetak</a>
+                                    <a href="<?= site_url('data_penduduk/cetak_penduduk'); ?>" class="btn btn-social btn-flat btn-block btn-sm" title="Cetak Penduduk" target="_blank"><i class="fa fa-print btn-primary"></i> Cetak</a>
                                 </li>
 
                                 <li>
                                     <button type="submit" name="delete_checklistPend" class="btn btn-social btn-flat btn-block btn-sm" title="Ceklis pada data yang akan dihapus" disabled="">
-                                        <i class="fa fa-trash"></i> Hapus Data Terpilih</a>
+                                        <i class="fa fa-trash bg-maroon"></i> Hapus Data Terpilih</a>
                                     </button>
                                 </li>
                             </ul>
@@ -107,7 +107,7 @@
                                     <td><?php echo ++$start ?></td>
                                     <td>
                                         <div class="btn-group">
-                                            <a class="btn btn-social btn-flat btn-info btn-sm" data-toggle="dropdown"><i class='fa fa-arrow-circle-down'></i> Pilih Aksi</a>
+                                            <a class="btn btn-social btn-flat btn-primary btn-sm" data-toggle="dropdown"><i class='fa fa-arrow-circle-down'></i> Pilih Aksi</a>
                                             <ul class="dropdown-menu" role="menu">
                                                 <li>
                                                     <a href="<?= site_url('data_penduduk/read/'.$data->id) ?>" class="btn btn-social btn-flat btn-block btn-sm" title=" Detail Data Penduduk"><i class="fa fa-eye"></i> Biodata Penduduk</a>

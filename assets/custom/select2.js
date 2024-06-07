@@ -125,11 +125,11 @@ $(document).ready(function()
 			},
 			processResults: function (response) {
 			return {
-				results: response
+				results: response,
 			};
+		  }
 		},
-		cache: true
-		}  
+		cache: true, 
 	});
 
 });

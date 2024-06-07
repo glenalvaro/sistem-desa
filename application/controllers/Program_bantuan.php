@@ -42,6 +42,13 @@ class Program_bantuan extends CI_Controller
         $this->load->library('pagination');
         $this->pagination->initialize($config);
 
+         if (isset($_GET['sasaran_prog'])) {
+                $sasaran=$_GET['sasaran_prog'];
+                $sql = "SELECT * FROM program_bantuan WHERE sasaran_program={$sasaran}";
+                $query = $this->db->query($sql);
+                $program_bantuan = $query->result(); 
+        }
+
         $data = array(
             'program_bantuan_data' => $program_bantuan,
             'q' => $q,
@@ -82,13 +89,13 @@ class Program_bantuan extends CI_Controller
         $row = $this->Program_bantuan_model->get_by_id($id);
         if ($row) {
             $data = array(
-		'id' => $row->id,
-		'nama_program' => $row->nama_program,
-		'sasaran_program' => $row->sasaran_program,
-		'keterangan' => $row->keterangan,
-		'asal_dana' => $row->asal_dana,
-		'waktu_program' => $row->waktu_program,
-	    );
+    		'id' => $row->id,
+    		'nama_program' => $row->nama_program,
+    		'sasaran_program' => $row->sasaran_program,
+    		'keterangan' => $row->keterangan,
+    		'asal_dana' => $row->asal_dana,
+    		'waktu_program' => $row->waktu_program,
+    	    );
             $list['title'] = 'Akses';
             $this->load->view('templates/header', $list);
             $this->load->view('templates/sidebar', $list);
@@ -113,13 +120,14 @@ class Program_bantuan extends CI_Controller
         $data = array(
             'button' => 'Create',
             'action' => site_url('program_bantuan/create_action'),
-	    'id' => set_value('id'),
-	    'nama_program' => set_value('nama_program'),
-	    'sasaran_program' => set_value('sasaran_program'),
-	    'keterangan' => set_value('keterangan'),
-	    'asal_dana' => set_value('asal_dana'),
-	    'waktu_program' => set_value('waktu_program'),
-	);
+    	    'id' => set_value('id'),
+    	    'nama_program' => set_value('nama_program'),
+    	    'sasaran_program' => set_value('sasaran_program'),
+    	    'keterangan' => set_value('keterangan'),
+    	    'asal_dana' => set_value('asal_dana'),
+    	    'sdate' => set_value('sdate'),
+            'edate' => set_value('edate'),
+	    );
         $list['title'] = 'Bantuan';
         $this->load->view('templates/header', $list);
         $this->load->view('templates/sidebar', $list);
@@ -135,16 +143,16 @@ class Program_bantuan extends CI_Controller
             $this->create();
         } else {
             $data = array(
-		'nama_program' => $this->input->post('nama_program',TRUE),
-		'sasaran_program' => $this->input->post('sasaran_program',TRUE),
-		'keterangan' => $this->input->post('keterangan',TRUE),
-		'asal_dana' => $this->input->post('asal_dana',TRUE),
-		'sdate' => $this->input->post('sdate',TRUE),
-		'edate' => $this->input->post('edate',TRUE),
+    		'nama_program' => $this->input->post('nama_program',TRUE),
+    		'sasaran_program' => $this->input->post('sasaran_program',TRUE),
+    		'keterangan' => $this->input->post('keterangan',TRUE),
+    		'asal_dana' => $this->input->post('asal_dana',TRUE),
+    		'sdate' => $this->input->post('sdate',TRUE),
+    		'edate' => $this->input->post('edate',TRUE),
 	    );
 
             $this->Program_bantuan_model->insert($data);
-            $this->session->set_flashdata('flash', 'Data Program ditambahkan');
+            $this->session->set_flashdata('flash', 'Data Program Bantuan ditambahkan');
             redirect(site_url('program_bantuan'));
         }
     }
@@ -164,13 +172,14 @@ class Program_bantuan extends CI_Controller
             $data = array(
                 'button' => 'Update',
                 'action' => site_url('program_bantuan/update_action'),
-		'id' => set_value('id', $row->id),
-		'nama_program' => set_value('nama_program', $row->nama_program),
-		'sasaran_program' => set_value('sasaran_program', $row->sasaran_program),
-		'keterangan' => set_value('keterangan', $row->keterangan),
-		'asal_dana' => set_value('asal_dana', $row->asal_dana),
-		'waktu_program' => set_value('waktu_program', $row->waktu_program),
-	    );
+        		'id' => set_value('id', $row->id),
+        		'nama_program' => set_value('nama_program', $row->nama_program),
+        		'sasaran_program' => set_value('sasaran_program', $row->sasaran_program),
+        		'keterangan' => set_value('keterangan', $row->keterangan),
+        		'asal_dana' => set_value('asal_dana', $row->asal_dana),
+        		'sdate' => set_value('sdate', $row->sdate),
+                'edate' => set_value('edate', $row->edate),
+        	);
             $list['title'] = 'Bantuan';
             $this->load->view('templates/header', $list);
             $this->load->view('templates/sidebar', $list);
@@ -191,16 +200,16 @@ class Program_bantuan extends CI_Controller
             $this->update($this->input->post('id', TRUE));
         } else {
             $data = array(
-		'nama_program' => $this->input->post('nama_program',TRUE),
-		'sasaran_program' => $this->input->post('sasaran_program',TRUE),
-		'keterangan' => $this->input->post('keterangan',TRUE),
-		'asal_dana' => $this->input->post('asal_dana',TRUE),
-		'waktu_program' => $this->input->post('waktu_program',TRUE),
-	    );
+        		'nama_program' => $this->input->post('nama_program',TRUE),
+        		'sasaran_program' => $this->input->post('sasaran_program',TRUE),
+        		'keterangan' => $this->input->post('keterangan',TRUE),
+        		'asal_dana' => $this->input->post('asal_dana',TRUE),
+        		'sdate' => $this->input->post('sdate',TRUE),
+                'edate' => $this->input->post('edate',TRUE),
+        	);
 
             $this->Program_bantuan_model->update($this->input->post('id', TRUE), $data);
-            // $this->session->set_flashdata('message', 'Update Record Success');
-            $this->session->set_flashdata('flash', 'Data diupdate');
+            $this->session->set_flashdata('flash', 'Data Program Bantuan diupdate');
             redirect(site_url('program_bantuan'));
         }
     }
@@ -211,8 +220,7 @@ class Program_bantuan extends CI_Controller
 
         if ($row) {
             $this->Program_bantuan_model->delete($id);
-            // $this->session->set_flashdata('message', 'Delete Record Success');
-            $this->session->set_flashdata('flash', 'Data dihapus');
+            $this->session->set_flashdata('flash', 'Data Program Bantuan dihapus');
             redirect(site_url('program_bantuan'));
         } else {
             $this->session->set_flashdata('message', 'Record Not Found');
@@ -276,6 +284,11 @@ class Program_bantuan extends CI_Controller
 
         xlsEOF();
         exit();
+    }
+
+    public function list_peserta($sasaran_program)
+    {
+
     }
 
 }
