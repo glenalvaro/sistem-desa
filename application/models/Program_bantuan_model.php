@@ -28,6 +28,11 @@ class Program_bantuan_model extends CI_Model
         $this->db->where($this->id, $id);
         return $this->db->get($this->table)->row();
     }
+
+    function detail_program($where,$table)
+    {        
+        return $this->db->get_where($table,$where);
+    }
     
     // get total rows
     function total_rows($q = NULL) {
@@ -74,6 +79,43 @@ class Program_bantuan_model extends CI_Model
     {
         $this->db->where($this->id, $id);
         $this->db->delete($this->table);
+    }
+
+    function daftar_PesertaID($id)
+    {
+        $sql = "SELECT k.*, j.no_kk as nomor_kk, p.nama_program as program_nama, dk.nama_kelompok as kelompok_nama, l.nama_penduduk as ketua_kelompok, dk.kode_kelompok as kode_klpk
+        FROM peserta_bantuan k 
+        LEFT JOIN data_penduduk j ON k.id_anggota = j.id
+        LEFT JOIN program_bantuan p ON k.id_program = p.id
+        LEFT JOIN data_kelompok dk ON k.id_anggota = dk.id
+        LEFT JOIN data_penduduk l ON dk.id_ketua = l.id
+        WHERE k.id_program = $id
+        ORDER BY k.id DESC";
+        $result = $this->db->query($sql)->result();
+        return $result;
+    }
+
+    function updatePesertaById($id)
+    {
+        $data = [
+            'no_kartu'    => $this->input->post('no_kartu'),
+            'nik_peserta'       => $this->input->post('nik_peserta'),
+            'nama_peserta'         => $this->input->post('nama_peserta'),
+            'tmp_lahir'    => $this->input->post('tmp_lahir'),
+            'tgl_lahir'    => $this->input->post('tgl_lahir'),
+            'jk'    => $this->input->post('jk'),
+            'alamat_peserta'    => $this->input->post('alamat_peserta'),
+            'keterangan'    => $this->input->post('keterangan')
+        ];
+
+        $this->db->where('id', $this->input->post('id'));
+        $this->db->update('peserta_bantuan', $data);
+    }
+
+    function hapus_data_pes($where,$table)
+    {
+        $this->db->where($where);
+        $this->db->delete($table);
     }
 
 }

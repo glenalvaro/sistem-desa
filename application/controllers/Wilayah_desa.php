@@ -172,8 +172,8 @@ class Wilayah_desa extends CI_Controller
             $this->update($this->input->post('id', TRUE));
         } else {
             $data = array(
-		'nama_dusun' => $this->input->post('nama_dusun',TRUE),
-		'kepala_dusun' => $this->input->post('kepala_dusun',TRUE),
+		      'nama_dusun' => $this->input->post('nama_dusun',TRUE),
+		      'kepala_dusun' => $this->input->post('kepala_dusun',TRUE),
 	    );
 
             $this->Wilayah_desa_model->update($this->input->post('id', TRUE), $data);

@@ -83,12 +83,19 @@
                     echo '  ';
                     echo anchor(site_url('program_bantuan/delete/'.$program_bantuan->id),'<i class="fa fa-trash-o" aria-hidden="true"></i>','class="btn bg-maroon btn-flat btn-sm aksi-hapus"');
                     echo ' ';
-                     echo anchor(site_url('program_bantuan/list_peserta/'.$program_bantuan->sasaran_program),'<i class="fa fa-th-list" aria-hidden="true"></i>','class="btn btn-primary btn-flat btn-sm" title="Daftar Peserta"');
+                     echo anchor(site_url('program_bantuan/list_peserta/'.$program_bantuan->id),'<i class="fa fa-th-list" aria-hidden="true"></i>','class="btn btn-primary btn-flat btn-sm" title="Daftar Peserta"');
                     ?>
 			    </td>
-                <td><?= $program_bantuan->nama_program ?></td>
+                <td><?= strtoupper($program_bantuan->nama_program) ?></td>
                 <td><?= $program_bantuan->asal_dana ?></td>
-                <td>-</td>
+                <td>
+                    <?php 
+                      //hitung jumlah peserta
+                        $query = $this->db->query("SELECT * FROM peserta_bantuan where id_program=$program_bantuan->id");
+                        $count_peserta = $query->num_rows();
+                    ?>
+                    <?= $count_peserta; ?>
+                </td>
                 <td><?= tgl_indo($program_bantuan->sdate); ?> - <?= tgl_indo($program_bantuan->edate); ?></td>
                 <td>
                     <?php 

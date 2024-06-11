@@ -116,6 +116,21 @@ if(data1.val() == 2){
   });
 });
 
+// //show hidden berdasarkan pilihan nik di form peserta bantuan
+// $(document).ready(function(){
+// $(".pilih_NIK").on("change", function(evt) {
+// var data2 = $('input[id=group2]:checked');
+// if(data2.val() == 2){
+//   $(".pilih_penduduk").prop("hidden", true);
+//   $(".form_perangkat").prop("readOnly", false);
+
+//     }else{
+//       $(".pilih_penduduk").prop("hidden", false);
+//       $(".form_perangkat").prop("readOnly", true);
+//     }
+//   });
+// });
+
 
 //show hidden form di data penduduk
 $("#status_warganegara").change(function() {

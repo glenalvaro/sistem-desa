@@ -10,6 +10,9 @@ class Program_bantuan extends CI_Controller
         parent::__construct();
         cek_login();
         $this->load->model('Program_bantuan_model');
+        $this->load->model('Data_penduduk_model', 'penduduk');
+        $this->load->model('Data_keluarga_model', 'keluarga');
+        $this->load->model('Data_kelompok_model', 'kelompok');
         $this->load->library('form_validation');
     }
 
@@ -261,22 +264,22 @@ class Program_bantuan extends CI_Controller
 
         $kolomhead = 0;
         xlsWriteLabel($tablehead, $kolomhead++, "No");
-	xlsWriteLabel($tablehead, $kolomhead++, "Nama Program");
-	xlsWriteLabel($tablehead, $kolomhead++, "Sasaran Program");
-	xlsWriteLabel($tablehead, $kolomhead++, "Keterangan");
-	xlsWriteLabel($tablehead, $kolomhead++, "Asal Dana");
-	xlsWriteLabel($tablehead, $kolomhead++, "Waktu Program");
+    	xlsWriteLabel($tablehead, $kolomhead++, "Nama Program");
+    	xlsWriteLabel($tablehead, $kolomhead++, "Sasaran Program");
+    	xlsWriteLabel($tablehead, $kolomhead++, "Keterangan");
+    	xlsWriteLabel($tablehead, $kolomhead++, "Asal Dana");
+    	xlsWriteLabel($tablehead, $kolomhead++, "Waktu Program");
 
-	foreach ($this->Program_bantuan_model->get_all() as $data) {
+	   foreach ($this->Program_bantuan_model->get_all() as $data) {
             $kolombody = 0;
 
             //ubah xlsWriteLabel menjadi xlsWriteNumber untuk kolom numeric
             xlsWriteNumber($tablebody, $kolombody++, $nourut);
-	    xlsWriteLabel($tablebody, $kolombody++, $data->nama_program);
-	    xlsWriteLabel($tablebody, $kolombody++, $data->sasaran_program);
-	    xlsWriteLabel($tablebody, $kolombody++, $data->keterangan);
-	    xlsWriteLabel($tablebody, $kolombody++, $data->asal_dana);
-	    xlsWriteLabel($tablebody, $kolombody++, $data->waktu_program);
+    	    xlsWriteLabel($tablebody, $kolombody++, $data->nama_program);
+    	    xlsWriteLabel($tablebody, $kolombody++, $data->sasaran_program);
+    	    xlsWriteLabel($tablebody, $kolombody++, $data->keterangan);
+    	    xlsWriteLabel($tablebody, $kolombody++, $data->asal_dana);
+    	    xlsWriteLabel($tablebody, $kolombody++, $data->waktu_program);
 
 	    $tablebody++;
             $nourut++;
@@ -286,9 +289,190 @@ class Program_bantuan extends CI_Controller
         exit();
     }
 
-    public function list_peserta($sasaran_program)
+    public function list_peserta($id)
     {
+        $list['user'] = $this->db->get_where('user', ['email' => 
+        $this->session->userdata('email')])->row_array();
+        $list['desa'] = $this->db->get('identitas_desa')->result_array();
+        $list['setting'] = $this->db->get('setting')->result_array();
+        
+        $row = $this->Program_bantuan_model->get_by_id($id);
+        $data = array(
+            'id' => $row->id,
+            'nama_program' => $row->nama_program,
+            'sasaran_program' => $row->sasaran_program,
+            'keterangan' => $row->keterangan,
+            'asal_dana' => $row->asal_dana,
+            'sdate' => $row->sdate,
+            'edate' => $row->edate
+        );
 
+        $data['peserta_list'] = $this->Program_bantuan_model->daftar_PesertaID($id);
+        $data['list_pesban'] = $this->db->get('peserta_bantuan')->result_array();
+        $data['list_wilayah'] = $this->db->get('wilayah_desa')->result_array();
+        $data['status_pen'] = $this->db->get('status_dasar')->result_array();
+
+        $list['title'] = 'Bantuan';
+        $this->load->view('templates/header', $list);
+        $this->load->view('templates/sidebar', $list);
+        $this->load->view('bantuan/peserta_program/tabel', $data);
+        $this->load->view('templates/footer');
+    }
+
+    public function form_anggotaPeserta($id)
+    {
+        $list['user'] = $this->db->get_where('user', ['email' => 
+        $this->session->userdata('email')])->row_array();
+        $list['desa'] = $this->db->get('identitas_desa')->result_array();
+        $list['setting'] = $this->db->get('setting')->result_array();
+
+         if (isset($_POST['no_nik'])) {
+            $nik_pen=$_POST['no_nik'];
+            $sql = "SELECT u.*, h.nama AS hubungan, k.nama AS sex, a.nama as agama, t.nama as status,
+            p.nama AS pendidikan, s.nama AS pendidikan_sedang, e.nama AS pekerjaan, su.suku as suku_penduduk, sd.nama as status_dasar, j.nama_dusun as dusun, c.nama as darah_golongan
+            FROM data_penduduk u
+            LEFT JOIN penduduk_hubungan h ON u.hubungan_keluarga_id = h.id
+            LEFT JOIN tweb_penduduk_sex k ON u.jenis_kelamin = k.id
+            LEFT JOIN penduduk_agama a ON u.agama_id = a.id
+            LEFT JOIN penduduk_status t ON u.status_penduduk_id = t.id
+            LEFT JOIN penduduk_pendidikan_kk p ON u.pendikan_kk_id = p.id
+            LEFT JOIN penduduk_pendidikan s ON u.pendidikan_sedang_id = s.id
+            LEFT JOIN penduduk_pekerjaan e ON u.pekerjaan_id = e.id
+            LEFT JOIN penduduk_suku su ON u.suku = su.id
+            LEFT JOIN status_dasar sd ON u.status_dasar_id = sd.id
+            LEFT JOIN wilayah_desa j ON u.dusun_id = j.id
+            LEFT JOIN golongan_darah c ON u.golongan_darah = c.id
+            WHERE u.id=$nik_pen";
+            $query = $this->db->query($sql);
+            $data  = $query->row_array();  
+        }
+
+        if (isset($_POST['nomor_kk'])) {
+            $kk_pen=$_POST['nomor_kk'];
+            $sql = "SELECT u.*, h.nama AS hubungan, k.nama AS sex, a.nama as agama, t.nama as status,
+            p.nama AS pendidikan_kk, s.nama AS pendidikan_sedang, e.nama AS pekerjaan, su.suku as suku_penduduk, sd.nama as status_dasar, j.nama_dusun as dusun, c.nama as darah_golongan
+            FROM data_penduduk u
+            LEFT JOIN penduduk_hubungan h ON u.hubungan_keluarga_id = h.id
+            LEFT JOIN tweb_penduduk_sex k ON u.jenis_kelamin = k.id
+            LEFT JOIN penduduk_agama a ON u.agama_id = a.id
+            LEFT JOIN penduduk_status t ON u.status_penduduk_id = t.id
+            LEFT JOIN penduduk_pendidikan_kk p ON u.pendikan_kk_id = p.id
+            LEFT JOIN penduduk_pendidikan s ON u.pendidikan_sedang_id = s.id
+            LEFT JOIN penduduk_pekerjaan e ON u.pekerjaan_id = e.id
+            LEFT JOIN penduduk_suku su ON u.suku = su.id
+            LEFT JOIN status_dasar sd ON u.status_dasar_id = sd.id
+            LEFT JOIN wilayah_desa j ON u.dusun_id = j.id
+            LEFT JOIN golongan_darah c ON u.golongan_darah = c.id
+            WHERE u.no_kk=$kk_pen
+            ORDER BY u.hubungan_keluarga_id";
+            $query = $this->db->query($sql);
+            $data  = $query->row_array();
+        }
+
+        if (isset($_POST['no_klompok'])) {
+            $id_klp=$_POST['no_klompok'];
+            $sql = "SELECT k.*, j.kategori_kelompok as nama_kategori, p.nama_penduduk as nama_penduduk, p.alamat_sekarang as alamat_sekarang, p.tempat_lahir as tempat_lahir, p.tgl_lahir as tgl_lahir, h.nama AS sex, s.nama AS pendidikan_sedang, p.status_warganegara as wg_ketua, a.nama as agama_ketua, w.nama_dusun as dusun, p.nik as nik, sd.nama as status_dasar
+                FROM data_kelompok k 
+                LEFT JOIN kategori_kelompok j ON k.id_kategori = j.id
+                LEFT JOIN data_penduduk p ON k.id_ketua = p.id
+                LEFT JOIN tweb_penduduk_sex h ON p.jenis_kelamin = h.id
+                LEFT JOIN penduduk_pendidikan s ON p.pendidikan_sedang_id = s.id
+                LEFT JOIN penduduk_agama a ON p.agama_id = a.id
+                LEFT JOIN wilayah_desa w ON p.dusun_id = w.id
+                LEFT JOIN status_dasar sd ON p.status_dasar_id = sd.id
+                WHERE k.id=$id_klp";
+            $query = $this->db->query($sql);
+            $data  = $query->row_array();
+        }
+
+        $where = array('id' => $id);
+        $data['detailProgram'] = $this->Program_bantuan_model->detail_program($where, 'program_bantuan')->result();
+        $data['list_kel']   = $this->keluarga->getDataKeluarga();
+        $data['list_klpk']  = $this->kelompok->getDataKelompok();
+
+       
+        $this->form_validation->set_rules('no_kartu', 'Kartu Peserta', 'required',[
+            'required' => 'Kolom ini diperlukan!',
+        ]);
+        $this->form_validation->set_rules('nik_peserta', 'NIK Peserta', 'required',[
+            'required' => 'Kolom ini diperlukan!',
+        ]);
+        $this->form_validation->set_rules('nama_peserta', 'Nama Peserta', 'required',[
+            'required' => 'Kolom ini diperlukan!',
+        ]);
+        $this->form_validation->set_rules('tmp_lahir', 'Tempat Lahir', 'required',[
+            'required' => 'Kolom ini diperlukan!',
+        ]);
+        $this->form_validation->set_rules('tgl_lahir', 'Tgl Lahir', 'required',[
+            'required' => 'Kolom ini diperlukan!',
+        ]);
+        $this->form_validation->set_rules('jk', 'Jenis Kelamin', 'required',[
+            'required' => 'Kolom ini diperlukan!',
+        ]);
+        $this->form_validation->set_rules('alamat_peserta', 'alamat_peserta', 'required',[
+            'required' => 'Kolom ini diperlukan!',
+        ]);
+
+        if ($this->form_validation->run() == FALSE) {
+            $list['title'] = 'Bantuan';
+            $this->load->view('templates/header', $list);
+            $this->load->view('templates/sidebar', $list);
+            $this->load->view('bantuan/peserta_program/form', $data);
+            $this->load->view('templates/footer');
+        } else {
+            $data = [
+                'id_program'    => $this->input->post('id_program'),
+                'id_anggota'    => $this->input->post('id_anggota'),
+                'id_sasaran'   => $this->input->post('id_sasaran'),
+                'no_kartu'    => $this->input->post('no_kartu'),
+                'nik_peserta'       => $this->input->post('nik_peserta'),
+                'nama_peserta'         => $this->input->post('nama_peserta'),
+                'tmp_lahir'    => $this->input->post('tmp_lahir'),
+                'tgl_lahir'    => $this->input->post('tgl_lahir'),
+                'jk'    => $this->input->post('jk'),
+                'alamat_peserta'    => $this->input->post('alamat_peserta'),
+                'keterangan'    => $this->input->post('keterangan')
+            ];
+            $this->db->insert('peserta_bantuan', $data);
+            $this->session->set_flashdata('flash', 'Data Peserta ditambahkan');
+            $link1 = site_url() . "program_bantuan/list_peserta/{$id}";
+            redirect($link1);
+        }
+    }
+
+    public function update_peserta($id)
+    {
+        $this->Program_bantuan_model->updatePesertaById($id);
+        $this->session->set_flashdata('flash', 'Data Peserta Bantuan Diupdate!');
+        $urlpage1 = $_SERVER['HTTP_REFERER'];
+        redirect($urlpage1);
+    }
+
+    public function hapus_peserta($id)
+    {
+        $where = array('id' => $id);
+        $this->Program_bantuan_model->hapus_data_pes($where, 'peserta_bantuan');
+        $this->session->set_flashdata('flash', 'Data Peserta Bantuan Dihapus!');
+        $urlpage2 = $_SERVER['HTTP_REFERER'];
+        redirect($urlpage2);
+    }
+
+    public function cetak_datapeserta($id)
+    {
+        $row = $this->Program_bantuan_model->get_by_id($id);
+        $data = array(
+            'id' => $row->id,
+            'nama_program' => $row->nama_program,
+            'sasaran_program' => $row->sasaran_program,
+            'keterangan' => $row->keterangan,
+            'asal_dana' => $row->asal_dana,
+            'sdate' => $row->sdate,
+            'edate' => $row->edate
+        );
+        $data['desa']               = $this->db->get('identitas_desa')->result_array();
+        $data['setting']            = $this->db->get('setting')->result_array();
+        $data['anggota_list']       = $this->Program_bantuan_model->daftar_PesertaID($id);
+        $this->load->view('bantuan/peserta_program/cetak', $data);
     }
 
 }
