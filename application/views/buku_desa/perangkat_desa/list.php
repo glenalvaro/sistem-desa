@@ -2,7 +2,11 @@
 
     <section class="content-header">
        <h1 class="tx-judul">
+<<<<<<< HEAD
         Buku Administrasi Desa <small>Perangkat Desa</small>
+=======
+        Data Perangkat Desa
+>>>>>>> 985fb331d309cc195f7522724352eb5afd8d9c3d
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"> Buku Desa</a></li>
@@ -16,7 +20,11 @@
                 <div class="box box-primary">
                    <div class="box-header with-border">
                       <div class="btn-group-vertical">
+<<<<<<< HEAD
                         <a href="<?= site_url('perangkat_desa/create'); ?>" class="btn btn-social btn-flat btn-success btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"><i class="fa fa-plus"></i> Tambah</a>
+=======
+                        <a href="<?= site_url('perangkat_desa/create'); ?>" class="btn btn-social btn-flat btn-info btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"><i class="fa fa-plus"></i> Tambah Data Perangkat</a>
+>>>>>>> 985fb331d309cc195f7522724352eb5afd8d9c3d
                       </div>
 
                        <div class="btn-group-vertical">
@@ -37,7 +45,11 @@
                         </div>
 
                          <div class="btn-group-vertical">
+<<<<<<< HEAD
                             <a href="<?= site_url('perangkat_desa/kelola_jabatan'); ?>" class="btn btn-social btn-flat btn-primary btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"><i class="fa fa-list"></i>  Jabatan</a>
+=======
+                            <a href="<?= site_url('perangkat_desa/kelola_jabatan'); ?>" class="btn btn-social btn-flat bg-olive btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"><i class="fa fa-gear"></i> Kategori Jabatan</a>
+>>>>>>> 985fb331d309cc195f7522724352eb5afd8d9c3d
                         </div>
                     </div>
 
@@ -60,7 +72,11 @@
             <div class="col-md-3">
             <form action="<?= site_url('perangkat_desa/index'); ?>" class="form-inline" method="get">
                     <div class="input-group pull-right">
+<<<<<<< HEAD
                         <input type="text" class="input-cari input-sm form-control" name="q" value="<?php echo $q; ?>" placeholder="Cari..." autocomplete="off">
+=======
+                        <input type="text" class="input-cari form-control" name="q" value="<?php echo $q; ?>" placeholder="Cari..." autocomplete="off">
+>>>>>>> 985fb331d309cc195f7522724352eb5afd8d9c3d
                         <span class="input-group-btn">
                             <?php 
                                 if ($q <> '')
@@ -87,6 +103,10 @@
         		<th style="min-width:250px; text-align: center;">NAMA PERANGKAT DESA</th>
         		<th style="min-width:200px; text-align: center;">NIK</th>
         		<th style="min-width:180px; text-align: center;">NIP</th>
+<<<<<<< HEAD
+=======
+        		<th style="min-width:150px; text-align: center;">PANGKAT / GOLONGAN</th>
+>>>>>>> 985fb331d309cc195f7522724352eb5afd8d9c3d
         		<th style="min-width:150px; text-align: center;">JABATAN</th>
         		<th style="min-width:50px; text-align: center;">STATUS</th>
             </tr>
@@ -95,16 +115,28 @@
                 foreach ($perangkat_desa_data as $data)
                     {
                 ?>
+<<<<<<< HEAD
             <tbody style="font-size: 10px;">
+=======
+            <tbody style="font-size: 11px;">
+>>>>>>> 985fb331d309cc195f7522724352eb5afd8d9c3d
             <tr>
     			<td width="10px"><?= ++$start ?></td>
                 <td style="text-align:center" width="200px">
                 <?php 
+<<<<<<< HEAD
                 echo anchor(site_url('perangkat_desa/read/'.$data->id),'<i class="fa fa-eye fa-sm" aria-hidden="true"></i>','class="btn bg-olive btn-sm"'); 
                 echo '  ';
                 echo anchor(site_url('perangkat_desa/update/'.$data->id),'<i class="fa fa-pencil-square-o" aria-hidden="true"></i>','class="btn bg-orange btn-sm"'); 
                 echo '  ';
                 echo anchor(site_url('perangkat_desa/delete/'.$data->id),'<i class="fa fa-trash-o" aria-hidden="true"></i>','class="btn bg-maroon btn-sm aksi-hapus"');
+=======
+                echo anchor(site_url('perangkat_desa/read/'.$data->id),'<i class="fa fa-eye fa-sm" aria-hidden="true"></i>','class="btn bg-olive btn-flat btn-sm"'); 
+                echo '  ';
+                echo anchor(site_url('perangkat_desa/update/'.$data->id),'<i class="fa fa-pencil-square-o" aria-hidden="true"></i>','class="btn bg-orange btn-flat btn-sm"'); 
+                echo '  ';
+                echo anchor(site_url('perangkat_desa/delete/'.$data->id),'<i class="fa fa-trash-o" aria-hidden="true"></i>','class="btn bg-maroon btn-flat btn-sm aksi-hapus"');
+>>>>>>> 985fb331d309cc195f7522724352eb5afd8d9c3d
                 ?>
             </td>
                 <td>
@@ -117,6 +149,10 @@
     			<td><?= strtoupper($data->nama_pegawai); ?>., <?= $data->gelar ?></td>
     			<td><?= $data->nik_pegawai ?></td>
     			<td><?= $data->nip ?></td>
+<<<<<<< HEAD
+=======
+    			<td><?= strtoupper($data->pangkat_golongan); ?></td>
+>>>>>>> 985fb331d309cc195f7522724352eb5afd8d9c3d
     			<td><?= strtoupper($data->jabatan_pegawai); ?></td>
     			<td>
                    <?php

@@ -323,6 +323,10 @@ class Data_penduduk extends CI_Controller
         if ($this->form_validation->run() == FALSE) {
             $this->update($this->input->post('id', TRUE));
         } else {
+<<<<<<< HEAD
+=======
+            // $this->Data_penduduk_model->update($this->input->post('id', TRUE), $data);
+>>>>>>> 985fb331d309cc195f7522724352eb5afd8d9c3d
             $this->Data_penduduk_model->update_penduduk($this->input->post('id', TRUE));
             $this->session->set_flashdata('flash', 'Data Penduduk diupdate');
             redirect(site_url('data_penduduk'));

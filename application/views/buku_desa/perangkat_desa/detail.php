@@ -18,11 +18,28 @@
             <div class="box-header with-border">
                <a href="<?= site_url('perangkat_desa'); ?>" class="btn btn-social btn-flat btn-info btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"><i class="fa fa-arrow-circle-left"></i> Kembali Ke Data Perangkat</a>
             </div>
+<<<<<<< HEAD
           <div class="box-body">
+=======
+            <div class="box-body">
+            <div class="box box-widget widget-user">
+                <div class="widget-user-header bg-aqua-active">
+                  <h3 class="widget-user-username"><?= $nik_pegawai; ?></h3>
+                  <h5 class="widget-user-desc">
+                  	Perangkat Desa
+                  </h5>
+                  </div>
+                  <div class="widget-user-image">
+     					 <img src="<?= site_url("perangkat_desa/ambil_foto_perangkat?foto={$foto_pegawai}&sex={$jenis_kelamin}"); ?>" alt="User Pegawai">
+                  </div>
+            </div>
+          <br>
+>>>>>>> 985fb331d309cc195f7522724352eb5afd8d9c3d
            <div class="table-responsive">
             <table class="table table-bordered table-striped table-hover tabel-rincian">
               <tbody>
                 <tr>
+<<<<<<< HEAD
                   <th colspan="3">
                     <center>
                     <div class="widget-user-image">
@@ -44,6 +61,20 @@
                 </tr>
                 <tr>
                   <td width="200">NIP Perangkat</td><td width="1">:</td>
+=======
+                  <th colspan="3" class="subtitle_head"><strong>BIODATA</strong></th>
+                </tr>
+                <tr>
+                  <td>Nama</td><td>:</td>
+                  <td><?= strtoupper($nama_pegawai); ?>., <?= strtoupper($gelar); ?></td>
+                </tr>
+                <tr>
+                  <td width="200">NIK</td><td width="1">:</td>
+                  <td><?= $nik_pegawai; ?></td>
+                </tr>
+                <tr>
+                  <td width="200">NIP</td><td width="1">:</td>
+>>>>>>> 985fb331d309cc195f7522724352eb5afd8d9c3d
                   <td><?= $nip; ?></td>
                 </tr>
                 <tr>
