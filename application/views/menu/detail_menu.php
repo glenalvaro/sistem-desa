@@ -42,21 +42,12 @@
                   <td width="5%" class="text-center"><?= $i; ?></td>
                   <td width="15%">
                       <?php if($smd->is_active == '0') : ?>
-<<<<<<< HEAD
                         <a href="<?=site_url('menu/submodul_unlock/'.$smd->id)?>" class="btn bg-navy btn-sm"  title="Aktifkan Menu"><i class="fa fa-lock">&nbsp;</i></a>
                       <?php elseif($smd->is_active == '1') : ?>
                         <a href="<?=site_url('menu/submodul_lock/'.$smd->id)?>" class="btn bg-navy btn-sm"  title="Non Aktifkan Menu"><i class="fa fa-unlock"></i></a>
                       <?php endif; ?>
                         <a href="#" class="btn bg-orange btn-sm" data-toggle="modal" data-target="#editModul<?= $smd->id; ?>"><i class="fa fa-edit"></i></a>
                         <a href="<?= site_url('menu/hapus_submodul/'.$smd->id)  ?>" class="btn bg-maroon btn-sm aksi-hapus"><i class="fa fa-trash-o"></i></a>
-=======
-                        <a href="<?=site_url('menu/submodul_unlock/'.$smd->id)?>" class="btn bg-navy btn-flat btn-sm"  title="Aktifkan Menu"><i class="fa fa-lock">&nbsp;</i></a>
-                      <?php elseif($smd->is_active == '1') : ?>
-                        <a href="<?=site_url('menu/submodul_lock/'.$smd->id)?>" class="btn bg-navy btn-flat btn-sm"  title="Non Aktifkan Menu"><i class="fa fa-unlock"></i></a>
-                      <?php endif; ?>
-                        <a href="#" class="btn bg-orange btn-flat btn-sm" data-toggle="modal" data-target="#editModul<?= $smd->id; ?>"><i class="fa fa-edit"></i></a>
-                        <a href="<?= site_url('menu/hapus_submodul/'.$smd->id)  ?>" class="btn bg-maroon btn-flat btn-sm aksi-hapus"><i class="fa fa-trash-o"></i></a>
->>>>>>> 985fb331d309cc195f7522724352eb5afd8d9c3d
                   </td>
                   <td><?= $smd->title; ?></td>
                   <td><code><?= $smd->url; ?></code></td>

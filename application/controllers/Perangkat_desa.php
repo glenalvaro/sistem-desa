@@ -90,7 +90,6 @@ class Perangkat_desa extends CI_Controller
         $row = $this->Perangkat_desa_model->get_by_id($id);
         if ($row) {
             $data = array(
-<<<<<<< HEAD
     		'id' => $row->id,
     		'nama_pegawai' => $row->nama_pegawai,
     		'gelar' => $row->gelar,
@@ -106,23 +105,6 @@ class Perangkat_desa extends CI_Controller
     		'status' => $row->status,
     		'foto_pegawai' => $row->foto_pegawai,
     	    );
-=======
-		'id' => $row->id,
-		'nama_pegawai' => $row->nama_pegawai,
-		'gelar' => $row->gelar,
-		'nik_pegawai' => $row->nik_pegawai,
-		'nip' => $row->nip,
-		'tempat_lahir' => $row->tempat_lahir,
-		'tgl_lahir' => $row->tgl_lahir,
-		'jenis_kelamin' => $row->jenis_kelamin,
-		'pendidikan' => $row->pendidikan,
-		'agama' => $row->agama,
-		'pangkat_golongan' => $row->pangkat_golongan,
-		'jabatan_pegawai' => $row->jabatan_pegawai,
-		'status' => $row->status,
-		'foto_pegawai' => $row->foto_pegawai,
-	    );
->>>>>>> 985fb331d309cc195f7522724352eb5afd8d9c3d
             $list['title'] = 'Perangkat Desa';
             $this->load->view('templates/header', $list);
             $this->load->view('templates/sidebar', $list);
@@ -147,7 +129,6 @@ class Perangkat_desa extends CI_Controller
         $data = array(
             'button' => 'Create',
             'action' => site_url('perangkat_desa/create_action'),
-<<<<<<< HEAD
     	    'id' => set_value('id'),
     	    'nama_pegawai' => set_value('nama_pegawai'),
     	    'gelar' => set_value('gelar'),
@@ -163,23 +144,6 @@ class Perangkat_desa extends CI_Controller
     	    'status' => set_value('status'),
     	    'foto_pegawai' => set_value('foto_pegawai'),
     	);
-=======
-	    'id' => set_value('id'),
-	    'nama_pegawai' => set_value('nama_pegawai'),
-	    'gelar' => set_value('gelar'),
-	    'nik_pegawai' => set_value('nik_pegawai'),
-	    'nip' => set_value('nip'),
-	    'tempat_lahir' => set_value('tempat_lahir'),
-	    'tgl_lahir' => set_value('tgl_lahir'),
-	    'jenis_kelamin' => set_value('jenis_kelamin'),
-	    'pendidikan' => set_value('pendidikan'),
-	    'agama' => set_value('agama'),
-	    'pangkat_golongan' => set_value('pangkat_golongan'),
-	    'jabatan_pegawai' => set_value('jabatan_pegawai'),
-	    'status' => set_value('status'),
-	    'foto_pegawai' => set_value('foto_pegawai'),
-	);
->>>>>>> 985fb331d309cc195f7522724352eb5afd8d9c3d
          // ambil data penduduk
         $data['get_penduduk']       = $this->penduduk->get_all();
         $data['pendidikan_kk']      = $this->penduduk->get_pendidikan_kk();
@@ -242,7 +206,6 @@ class Perangkat_desa extends CI_Controller
             $data = array(
                 'button' => 'Update',
                 'action' => site_url('perangkat_desa/update_action'),
-<<<<<<< HEAD
         		'id' => set_value('id', $row->id),
         		'nama_pegawai' => set_value('nama_pegawai', $row->nama_pegawai),
         		'gelar' => set_value('gelar', $row->gelar),
@@ -258,24 +221,6 @@ class Perangkat_desa extends CI_Controller
         		'status' => set_value('status', $row->status),
         		'foto_pegawai' => set_value('foto_pegawai', $row->foto_pegawai),
 	       );
-=======
-		'id' => set_value('id', $row->id),
-		'nama_pegawai' => set_value('nama_pegawai', $row->nama_pegawai),
-		'gelar' => set_value('gelar', $row->gelar),
-		'nik_pegawai' => set_value('nik_pegawai', $row->nik_pegawai),
-		'nip' => set_value('nip', $row->nip),
-		'tempat_lahir' => set_value('tempat_lahir', $row->tempat_lahir),
-		'tgl_lahir' => set_value('tgl_lahir', $row->tgl_lahir),
-		'jenis_kelamin' => set_value('jenis_kelamin', $row->jenis_kelamin),
-		'pendidikan' => set_value('pendidikan', $row->pendidikan),
-		'agama' => set_value('agama', $row->agama),
-		'pangkat_golongan' => set_value('pangkat_golongan', $row->pangkat_golongan),
-		'jabatan_pegawai' => set_value('jabatan_pegawai', $row->jabatan_pegawai),
-		'status' => set_value('status', $row->status),
-		'foto_pegawai' => set_value('foto_pegawai', $row->foto_pegawai),
-	    );
-            // $this->template->load('template','perangkat_desa/perangkat_desa_form', $data);
->>>>>>> 985fb331d309cc195f7522724352eb5afd8d9c3d
 
             $list['title'] = 'Perangkat Desa';
             $this->load->view('templates/header', $list);
@@ -297,7 +242,6 @@ class Perangkat_desa extends CI_Controller
             $this->update($this->input->post('id', TRUE));
         } else {
             $data = array(
-<<<<<<< HEAD
     		'nama_pegawai' => $this->input->post('nama_pegawai',TRUE),
     		'gelar' => $this->input->post('gelar',TRUE),
     		'nik_pegawai' => $this->input->post('nik_pegawai',TRUE),
@@ -312,22 +256,6 @@ class Perangkat_desa extends CI_Controller
     		'status' => $this->input->post('status',TRUE),
 		    'foto_pegawai' => $this->input->post('foto_pegawai',TRUE),
 	        );
-=======
-		'nama_pegawai' => $this->input->post('nama_pegawai',TRUE),
-		'gelar' => $this->input->post('gelar',TRUE),
-		'nik_pegawai' => $this->input->post('nik_pegawai',TRUE),
-		'nip' => $this->input->post('nip',TRUE),
-		'tempat_lahir' => $this->input->post('tempat_lahir',TRUE),
-		'tgl_lahir' => $this->input->post('tgl_lahir',TRUE),
-		'jenis_kelamin' => $this->input->post('jenis_kelamin',TRUE),
-		'pendidikan' => $this->input->post('pendidikan',TRUE),
-		'agama' => $this->input->post('agama',TRUE),
-		'pangkat_golongan' => $this->input->post('pangkat_golongan',TRUE),
-		'jabatan_pegawai' => $this->input->post('jabatan_pegawai',TRUE),
-		'status' => $this->input->post('status',TRUE),
-		'foto_pegawai' => $this->input->post('foto_pegawai',TRUE),
-	    );
->>>>>>> 985fb331d309cc195f7522724352eb5afd8d9c3d
 
             $this->Perangkat_desa_model->update($this->input->post('id', TRUE), $data);
             $this->session->set_flashdata('flash', 'Data diupdate');
@@ -392,38 +320,38 @@ class Perangkat_desa extends CI_Controller
 
         $kolomhead = 0;
         xlsWriteLabel($tablehead, $kolomhead++, "No");
-	xlsWriteLabel($tablehead, $kolomhead++, "Nama Pegawai");
-	xlsWriteLabel($tablehead, $kolomhead++, "Gelar");
-	xlsWriteLabel($tablehead, $kolomhead++, "Nik Pegawai");
-	xlsWriteLabel($tablehead, $kolomhead++, "Nip");
-	xlsWriteLabel($tablehead, $kolomhead++, "Tempat Lahir");
-	xlsWriteLabel($tablehead, $kolomhead++, "Tgl Lahir");
-	xlsWriteLabel($tablehead, $kolomhead++, "Jenis Kelamin");
-	xlsWriteLabel($tablehead, $kolomhead++, "Pendidikan");
-	xlsWriteLabel($tablehead, $kolomhead++, "Agama");
-	xlsWriteLabel($tablehead, $kolomhead++, "Pangkat Golongan");
-	xlsWriteLabel($tablehead, $kolomhead++, "Jabatan Pegawai");
-	xlsWriteLabel($tablehead, $kolomhead++, "Status");
-	xlsWriteLabel($tablehead, $kolomhead++, "Foto Pegawai");
+    	xlsWriteLabel($tablehead, $kolomhead++, "Nama Pegawai");
+    	xlsWriteLabel($tablehead, $kolomhead++, "Gelar");
+    	xlsWriteLabel($tablehead, $kolomhead++, "Nik Pegawai");
+    	xlsWriteLabel($tablehead, $kolomhead++, "Nip");
+    	xlsWriteLabel($tablehead, $kolomhead++, "Tempat Lahir");
+    	xlsWriteLabel($tablehead, $kolomhead++, "Tgl Lahir");
+    	xlsWriteLabel($tablehead, $kolomhead++, "Jenis Kelamin");
+    	xlsWriteLabel($tablehead, $kolomhead++, "Pendidikan");
+    	xlsWriteLabel($tablehead, $kolomhead++, "Agama");
+    	xlsWriteLabel($tablehead, $kolomhead++, "Pangkat Golongan");
+    	xlsWriteLabel($tablehead, $kolomhead++, "Jabatan Pegawai");
+    	xlsWriteLabel($tablehead, $kolomhead++, "Status");
+	    xlsWriteLabel($tablehead, $kolomhead++, "Foto Pegawai");
 
 	foreach ($this->Perangkat_desa_model->get_all() as $data) {
             $kolombody = 0;
 
             //ubah xlsWriteLabel menjadi xlsWriteNumber untuk kolom numeric
             xlsWriteNumber($tablebody, $kolombody++, $nourut);
-	    xlsWriteLabel($tablebody, $kolombody++, $data->nama_pegawai);
-	    xlsWriteLabel($tablebody, $kolombody++, $data->gelar);
-	    xlsWriteLabel($tablebody, $kolombody++, $data->nik_pegawai);
-	    xlsWriteLabel($tablebody, $kolombody++, $data->nip);
-	    xlsWriteLabel($tablebody, $kolombody++, $data->tempat_lahir);
-	    xlsWriteLabel($tablebody, $kolombody++, $data->tgl_lahir);
-	    xlsWriteLabel($tablebody, $kolombody++, $data->jenis_kelamin);
-	    xlsWriteLabel($tablebody, $kolombody++, $data->pendidikan);
-	    xlsWriteLabel($tablebody, $kolombody++, $data->agama);
-	    xlsWriteLabel($tablebody, $kolombody++, $data->pangkat_golongan);
-	    xlsWriteLabel($tablebody, $kolombody++, $data->jabatan_pegawai);
-	    xlsWriteLabel($tablebody, $kolombody++, $data->status);
-	    xlsWriteLabel($tablebody, $kolombody++, $data->foto_pegawai);
+    	    xlsWriteLabel($tablebody, $kolombody++, $data->nama_pegawai);
+    	    xlsWriteLabel($tablebody, $kolombody++, $data->gelar);
+    	    xlsWriteLabel($tablebody, $kolombody++, $data->nik_pegawai);
+    	    xlsWriteLabel($tablebody, $kolombody++, $data->nip);
+    	    xlsWriteLabel($tablebody, $kolombody++, $data->tempat_lahir);
+    	    xlsWriteLabel($tablebody, $kolombody++, $data->tgl_lahir);
+    	    xlsWriteLabel($tablebody, $kolombody++, $data->jenis_kelamin);
+    	    xlsWriteLabel($tablebody, $kolombody++, $data->pendidikan);
+    	    xlsWriteLabel($tablebody, $kolombody++, $data->agama);
+    	    xlsWriteLabel($tablebody, $kolombody++, $data->pangkat_golongan);
+    	    xlsWriteLabel($tablebody, $kolombody++, $data->jabatan_pegawai);
+    	    xlsWriteLabel($tablebody, $kolombody++, $data->status);
+    	    xlsWriteLabel($tablebody, $kolombody++, $data->foto_pegawai);
 
 	    $tablebody++;
             $nourut++;

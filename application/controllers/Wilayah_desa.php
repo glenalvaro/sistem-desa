@@ -196,7 +196,8 @@ class Wilayah_desa extends CI_Controller
         }
     }
 
-    public function cetak(){
+    public function cetak()
+    {
         //ambil data identitas desa
         $data['desa'] = $this->db->get('identitas_desa')->result_array();
         $data['setting'] = $this->db->get('setting')->result_array();

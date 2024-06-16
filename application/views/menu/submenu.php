@@ -61,7 +61,6 @@
                 <tr>
                   <td width="2%" class="text-center"><?= $i; ?></td>
                   <td width="10%" class="text-center">
-<<<<<<< HEAD
                       <a href="edit_Submenu/<?php echo $sm['id']; ?>" class="btn btn-warning btn-xs"><i class="fa fa-pencil-square-o"></i></a>
                       <?php if($sm['is_active'] == '0') : ?>
                         <a href="<?=site_url('menu/submenu_unlock/'.$sm['id'])?>" class="btn bg-navy btn-xs"  title="Aktifkan Menu"><i class="fa fa-lock">&nbsp;</i></a>
@@ -70,16 +69,6 @@
                       <?php endif; ?>
                       <a onclick="deleteConfirm('<?= site_url('menu/hapus_sub/'.$sm['id'])  ?>')"
                       href="#" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i></a>
-=======
-                      <a href="edit_Submenu/<?php echo $sm['id']; ?>" class="btn btn-warning btn-flat btn-xs"><i class="fa fa-pencil-square-o"></i></a>
-                      <?php if($sm['is_active'] == '0') : ?>
-                        <a href="<?=site_url('menu/submenu_unlock/'.$sm['id'])?>" class="btn bg-navy btn-flat btn-xs"  title="Aktifkan Menu"><i class="fa fa-lock">&nbsp;</i></a>
-                      <?php elseif($sm['is_active'] == '1') : ?>
-                        <a href="<?=site_url('menu/submenu_lock/'.$sm['id'])?>" class="btn bg-navy btn-flat btn-xs"  title="Non Aktifkan Menu"><i class="fa fa-unlock"></i></a>
-                      <?php endif; ?>
-                      <a onclick="deleteConfirm('<?= site_url('menu/hapus_sub/'.$sm['id'])  ?>')"
-                      href="#" class="btn btn-danger btn-flat btn-xs"><i class="fa fa-trash"></i></a>
->>>>>>> 985fb331d309cc195f7522724352eb5afd8d9c3d
                   </td>
                   <td><?= $sm['title']; ?></td>
                   <td class="text-center"><?= $sm['menu']; ?></td>

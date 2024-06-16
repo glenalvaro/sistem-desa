@@ -68,11 +68,7 @@ $(document).ready(function() {
 
 //Date picker
  $(document).ready(function() {
-<<<<<<< HEAD
     //tgl
-=======
-    //tgl lapor di form penduduk
->>>>>>> 985fb331d309cc195f7522724352eb5afd8d9c3d
     $('#tgl_lapor').datepicker({
       autoclose: true,
       todayHighlight:true,
@@ -98,16 +94,12 @@ $(document).ready(function() {
       format: 'yyyy-mm-dd',
       language: 'id',
     });
-<<<<<<< HEAD
-
      $('#tgl_surat').datepicker({
       autoclose: true,
       todayHighlight:true,
       format: 'yyyy-mm-dd',
       language: 'id',
     });
-=======
->>>>>>> 985fb331d309cc195f7522724352eb5afd8d9c3d
 });
 
 //show hidden tidak terdata di form perangkat desa
@@ -130,8 +122,6 @@ if(data1.val() == 2){
   });
 });
 
-<<<<<<< HEAD
-=======
 // //show hidden berdasarkan pilihan nik di form peserta bantuan
 // $(document).ready(function(){
 // $(".pilih_NIK").on("change", function(evt) {
@@ -146,8 +136,6 @@ if(data1.val() == 2){
 //     }
 //   });
 // });
-
->>>>>>> 985fb331d309cc195f7522724352eb5afd8d9c3d
 
 //show hidden form di data penduduk
 $("#status_warganegara").change(function() {

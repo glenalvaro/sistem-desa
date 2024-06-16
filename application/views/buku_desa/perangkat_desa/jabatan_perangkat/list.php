@@ -21,11 +21,7 @@
                       </div>
 
                       <div class="btn-group-vertical">
-<<<<<<< HEAD
                          <a href="#" class="btn btn-social btn-flat btn-primary btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block" data-toggle="modal" data-target="#tambah_jab"><i class="fa fa-plus"></i> Tambah</a>
-=======
-                         <a href="#" class="btn btn-social btn-flat btn-primary btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block" data-toggle="modal" data-target="#tambah_jab"><i class="fa fa-plus"></i> Tambah Data</a>
->>>>>>> 985fb331d309cc195f7522724352eb5afd8d9c3d
                       </div>
                     </div>
 

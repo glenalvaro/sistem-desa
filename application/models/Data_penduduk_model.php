@@ -37,8 +37,6 @@ class Data_penduduk_model extends CI_Model
 		return $result;
     }
 
-<<<<<<< HEAD
-=======
     // get all data penduduk
     function get_penduduk_sementara()
     {
@@ -62,7 +60,6 @@ class Data_penduduk_model extends CI_Model
 		return $result;
     }
 
->>>>>>> 985fb331d309cc195f7522724352eb5afd8d9c3d
     // get data by id
     function get_by_id($id)
     {
@@ -88,46 +85,46 @@ class Data_penduduk_model extends CI_Model
     
     // get total rows
     function total_rows($q = NULL) {
-    $this->db->like('id', $q);
-	$this->db->or_like('nik', $q);
-	$this->db->or_like('no_kk', $q);
-	$this->db->or_like('nama_penduduk', $q);
-	$this->db->or_like('hubungan_keluarga_id', $q);
-	$this->db->or_like('jenis_kelamin', $q);
-	$this->db->or_like('agama_id', $q);
-	$this->db->or_like('status_penduduk_id', $q);
-	$this->db->or_like('tempat_lahir', $q);
-	$this->db->or_like('tgl_lahir', $q);
-	$this->db->or_like('kelahiran_anak_ke', $q);
-	$this->db->or_like('pendikan_kk_id', $q);
-	$this->db->or_like('pendidikan_sedang_id', $q);
-	$this->db->or_like('pekerjaan_id', $q);
-	$this->db->or_like('suku', $q);
-	$this->db->or_like('status_warganegara', $q);
-	$this->db->or_like('dokumen_paspor', $q);
-	$this->db->or_like('tgl_paspor', $q);
-	$this->db->or_like('dokumen_kitas', $q);
-	$this->db->or_like('negara_asal', $q);
-	$this->db->or_like('nik_ayah', $q);
-	$this->db->or_like('nik_ibu', $q);
-	$this->db->or_like('nama_ayah', $q);
-	$this->db->or_like('nama_ibu', $q);
-	$this->db->or_like('dusun_id', $q);
-	$this->db->or_like('alamat_sebelumnya', $q);
-	$this->db->or_like('alamat_sekarang', $q);
-	$this->db->or_like('no_telepon', $q);
-	$this->db->or_like('email', $q);
-	$this->db->or_like('status_kawin', $q);
-	$this->db->or_like('golongan_darah', $q);
-	$this->db->or_like('asuransi_kesehatan', $q);
-	$this->db->or_like('no_asuransi', $q);
-	$this->db->or_like('bpjs_ketenagakerjaan', $q);
-	$this->db->or_like('keterangan', $q);
-	$this->db->or_like('foto', $q);
-	$this->db->or_like('status_dasar_id', $q);
-	$this->db->or_like('tgl_terdaftar', $q);
-	$this->db->or_like('created_by', $q);
-	$this->db->from($this->table);
+	    $this->db->like('id', $q);
+		$this->db->or_like('nik', $q);
+		$this->db->or_like('no_kk', $q);
+		$this->db->or_like('nama_penduduk', $q);
+		$this->db->or_like('hubungan_keluarga_id', $q);
+		$this->db->or_like('jenis_kelamin', $q);
+		$this->db->or_like('agama_id', $q);
+		$this->db->or_like('status_penduduk_id', $q);
+		$this->db->or_like('tempat_lahir', $q);
+		$this->db->or_like('tgl_lahir', $q);
+		$this->db->or_like('kelahiran_anak_ke', $q);
+		$this->db->or_like('pendikan_kk_id', $q);
+		$this->db->or_like('pendidikan_sedang_id', $q);
+		$this->db->or_like('pekerjaan_id', $q);
+		$this->db->or_like('suku', $q);
+		$this->db->or_like('status_warganegara', $q);
+		$this->db->or_like('dokumen_paspor', $q);
+		$this->db->or_like('tgl_paspor', $q);
+		$this->db->or_like('dokumen_kitas', $q);
+		$this->db->or_like('negara_asal', $q);
+		$this->db->or_like('nik_ayah', $q);
+		$this->db->or_like('nik_ibu', $q);
+		$this->db->or_like('nama_ayah', $q);
+		$this->db->or_like('nama_ibu', $q);
+		$this->db->or_like('dusun_id', $q);
+		$this->db->or_like('alamat_sebelumnya', $q);
+		$this->db->or_like('alamat_sekarang', $q);
+		$this->db->or_like('no_telepon', $q);
+		$this->db->or_like('email', $q);
+		$this->db->or_like('status_kawin', $q);
+		$this->db->or_like('golongan_darah', $q);
+		$this->db->or_like('asuransi_kesehatan', $q);
+		$this->db->or_like('no_asuransi', $q);
+		$this->db->or_like('bpjs_ketenagakerjaan', $q);
+		$this->db->or_like('keterangan', $q);
+		$this->db->or_like('foto', $q);
+		$this->db->or_like('status_dasar_id', $q);
+		$this->db->or_like('tgl_terdaftar', $q);
+		$this->db->or_like('created_by', $q);
+		$this->db->from($this->table);
         return $this->db->count_all_results();
     }
 

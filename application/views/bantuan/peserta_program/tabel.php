@@ -106,13 +106,8 @@
                                 <td class="padat"><input type="checkbox" name="id_cb[]" value="5"></td>
                                 <td class="padat"><?= $no++; ?></td>
                                 <td class="aksi">
-<<<<<<< HEAD
                                     <a href="" class="btn bg-orange btn-sm" title="Ubah" data-remote="false" data-toggle="modal" data-target="#edit_pes<?= $value->id; ?>" data-title="Ubah Data Peserta"><i class="fa fa-edit"></i></a>
                                     <a href="#" data-toggle="modal" data-target="#hapus_pes<?= $value->id; ?>" class="btn bg-maroon btn-sm" title="Hapus"><i class="fa fa-trash-o"></i></a>
-=======
-                                    <a href="" class="btn bg-orange btn-flat btn-sm" title="Ubah" data-remote="false" data-toggle="modal" data-target="#edit_pes<?= $value->id; ?>" data-title="Ubah Data Peserta"><i class="fa fa-edit"></i></a>
-                                    <a href="#" data-toggle="modal" data-target="#hapus_pes<?= $value->id; ?>" class="btn bg-maroon btn-flat btn-sm" title="Hapus"><i class="fa fa-trash-o"></i></a>
->>>>>>> 985fb331d309cc195f7522724352eb5afd8d9c3d
                                 </td>
                                  <?php if($sasaran_program == 1) : ?>
                                     <td nowrap=""><a href="#" title="Daftar program untuk peserta"><?= $value->nik_peserta; ?></a></td>
@@ -233,13 +228,10 @@ foreach($list_pesban as $row) : $no++; ?>
                
               </div>
               <div class="modal-footer">
-<<<<<<< HEAD
                 <button class="btn btn-social btn-danger btn-sm" data-dismiss="modal"><i class="fa fa-remove"></i> Batal</button>
                 <button type="submit" class="btn btn-social btn-info btn-sm"  style="float: right;"><i class="fa fa-check"></i> Simpan</button>
-=======
                 <button class="btn btn-social btn-flat btn-danger btn-sm" data-dismiss="modal"><i class="fa fa-remove"></i> Batal</button>
                 <button type="submit" class="btn btn-social btn-flat btn-info btn-sm"  style="float: right;"><i class="fa fa-check"></i> Simpan</button>
->>>>>>> 985fb331d309cc195f7522724352eb5afd8d9c3d
               </div>
             </form>
           </div>

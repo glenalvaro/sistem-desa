@@ -69,7 +69,7 @@
                       <div class="form-group">
                          <label class="col-sm-3">Cari NIK / Nama Penduduk</label>
                             <div class="col-sm-9">
-                            <select name="no_nik" id="kelompok_penduduk" class="form-control pilih_NIK" style="width: 100%;" onchange="this.form.submit()">
+                            <select name="no_nik" id="kelompok_penduduk" class="form-control" style="width: 100%;" onchange="this.form.submit()">
                                 <option value="">NIK : <?= $nik; ?> - <?= $nama_penduduk; ?> -</option>
                                   <?php foreach($get_penduduk as $main) : ?>
                                     <option value="<?= $main->id; ?>">NIK : <?= $main->nik; ?> - <?= strtoupper($main->nama_penduduk); ?> - <?= strtoupper($main->dusun); ?></option>

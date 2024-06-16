@@ -104,7 +104,7 @@
                                     <?php endforeach; ?>
                                     <?php else : ?>
 										<tr>
-											<td class="text-center" colspan="12">Data Tidak Tersedia</td>
+											<td class="text-center" colspan="13">Data Tidak Tersedia</td>
 										</tr>
 									<?php endif; ?>
 								</tbody>
