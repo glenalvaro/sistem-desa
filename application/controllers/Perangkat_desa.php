@@ -90,21 +90,21 @@ class Perangkat_desa extends CI_Controller
         $row = $this->Perangkat_desa_model->get_by_id($id);
         if ($row) {
             $data = array(
-		'id' => $row->id,
-		'nama_pegawai' => $row->nama_pegawai,
-		'gelar' => $row->gelar,
-		'nik_pegawai' => $row->nik_pegawai,
-		'nip' => $row->nip,
-		'tempat_lahir' => $row->tempat_lahir,
-		'tgl_lahir' => $row->tgl_lahir,
-		'jenis_kelamin' => $row->jenis_kelamin,
-		'pendidikan' => $row->pendidikan,
-		'agama' => $row->agama,
-		'pangkat_golongan' => $row->pangkat_golongan,
-		'jabatan_pegawai' => $row->jabatan_pegawai,
-		'status' => $row->status,
-		'foto_pegawai' => $row->foto_pegawai,
-	    );
+    		'id' => $row->id,
+    		'nama_pegawai' => $row->nama_pegawai,
+    		'gelar' => $row->gelar,
+    		'nik_pegawai' => $row->nik_pegawai,
+    		'nip' => $row->nip,
+    		'tempat_lahir' => $row->tempat_lahir,
+    		'tgl_lahir' => $row->tgl_lahir,
+    		'jenis_kelamin' => $row->jenis_kelamin,
+    		'pendidikan' => $row->pendidikan,
+    		'agama' => $row->agama,
+    		'pangkat_golongan' => $row->pangkat_golongan,
+    		'jabatan_pegawai' => $row->jabatan_pegawai,
+    		'status' => $row->status,
+    		'foto_pegawai' => $row->foto_pegawai,
+    	    );
             $list['title'] = 'Perangkat Desa';
             $this->load->view('templates/header', $list);
             $this->load->view('templates/sidebar', $list);
@@ -129,21 +129,21 @@ class Perangkat_desa extends CI_Controller
         $data = array(
             'button' => 'Create',
             'action' => site_url('perangkat_desa/create_action'),
-	    'id' => set_value('id'),
-	    'nama_pegawai' => set_value('nama_pegawai'),
-	    'gelar' => set_value('gelar'),
-	    'nik_pegawai' => set_value('nik_pegawai'),
-	    'nip' => set_value('nip'),
-	    'tempat_lahir' => set_value('tempat_lahir'),
-	    'tgl_lahir' => set_value('tgl_lahir'),
-	    'jenis_kelamin' => set_value('jenis_kelamin'),
-	    'pendidikan' => set_value('pendidikan'),
-	    'agama' => set_value('agama'),
-	    'pangkat_golongan' => set_value('pangkat_golongan'),
-	    'jabatan_pegawai' => set_value('jabatan_pegawai'),
-	    'status' => set_value('status'),
-	    'foto_pegawai' => set_value('foto_pegawai'),
-	);
+    	    'id' => set_value('id'),
+    	    'nama_pegawai' => set_value('nama_pegawai'),
+    	    'gelar' => set_value('gelar'),
+    	    'nik_pegawai' => set_value('nik_pegawai'),
+    	    'nip' => set_value('nip'),
+    	    'tempat_lahir' => set_value('tempat_lahir'),
+    	    'tgl_lahir' => set_value('tgl_lahir'),
+    	    'jenis_kelamin' => set_value('jenis_kelamin'),
+    	    'pendidikan' => set_value('pendidikan'),
+    	    'agama' => set_value('agama'),
+    	    'pangkat_golongan' => set_value('pangkat_golongan'),
+    	    'jabatan_pegawai' => set_value('jabatan_pegawai'),
+    	    'status' => set_value('status'),
+    	    'foto_pegawai' => set_value('foto_pegawai'),
+    	);
          // ambil data penduduk
         $data['get_penduduk']       = $this->penduduk->get_all();
         $data['pendidikan_kk']      = $this->penduduk->get_pendidikan_kk();
@@ -206,22 +206,21 @@ class Perangkat_desa extends CI_Controller
             $data = array(
                 'button' => 'Update',
                 'action' => site_url('perangkat_desa/update_action'),
-		'id' => set_value('id', $row->id),
-		'nama_pegawai' => set_value('nama_pegawai', $row->nama_pegawai),
-		'gelar' => set_value('gelar', $row->gelar),
-		'nik_pegawai' => set_value('nik_pegawai', $row->nik_pegawai),
-		'nip' => set_value('nip', $row->nip),
-		'tempat_lahir' => set_value('tempat_lahir', $row->tempat_lahir),
-		'tgl_lahir' => set_value('tgl_lahir', $row->tgl_lahir),
-		'jenis_kelamin' => set_value('jenis_kelamin', $row->jenis_kelamin),
-		'pendidikan' => set_value('pendidikan', $row->pendidikan),
-		'agama' => set_value('agama', $row->agama),
-		'pangkat_golongan' => set_value('pangkat_golongan', $row->pangkat_golongan),
-		'jabatan_pegawai' => set_value('jabatan_pegawai', $row->jabatan_pegawai),
-		'status' => set_value('status', $row->status),
-		'foto_pegawai' => set_value('foto_pegawai', $row->foto_pegawai),
-	    );
-            // $this->template->load('template','perangkat_desa/perangkat_desa_form', $data);
+        		'id' => set_value('id', $row->id),
+        		'nama_pegawai' => set_value('nama_pegawai', $row->nama_pegawai),
+        		'gelar' => set_value('gelar', $row->gelar),
+        		'nik_pegawai' => set_value('nik_pegawai', $row->nik_pegawai),
+        		'nip' => set_value('nip', $row->nip),
+        		'tempat_lahir' => set_value('tempat_lahir', $row->tempat_lahir),
+        		'tgl_lahir' => set_value('tgl_lahir', $row->tgl_lahir),
+        		'jenis_kelamin' => set_value('jenis_kelamin', $row->jenis_kelamin),
+        		'pendidikan' => set_value('pendidikan', $row->pendidikan),
+        		'agama' => set_value('agama', $row->agama),
+        		'pangkat_golongan' => set_value('pangkat_golongan', $row->pangkat_golongan),
+        		'jabatan_pegawai' => set_value('jabatan_pegawai', $row->jabatan_pegawai),
+        		'status' => set_value('status', $row->status),
+        		'foto_pegawai' => set_value('foto_pegawai', $row->foto_pegawai),
+	       );
 
             $list['title'] = 'Perangkat Desa';
             $this->load->view('templates/header', $list);
@@ -243,20 +242,20 @@ class Perangkat_desa extends CI_Controller
             $this->update($this->input->post('id', TRUE));
         } else {
             $data = array(
-		'nama_pegawai' => $this->input->post('nama_pegawai',TRUE),
-		'gelar' => $this->input->post('gelar',TRUE),
-		'nik_pegawai' => $this->input->post('nik_pegawai',TRUE),
-		'nip' => $this->input->post('nip',TRUE),
-		'tempat_lahir' => $this->input->post('tempat_lahir',TRUE),
-		'tgl_lahir' => $this->input->post('tgl_lahir',TRUE),
-		'jenis_kelamin' => $this->input->post('jenis_kelamin',TRUE),
-		'pendidikan' => $this->input->post('pendidikan',TRUE),
-		'agama' => $this->input->post('agama',TRUE),
-		'pangkat_golongan' => $this->input->post('pangkat_golongan',TRUE),
-		'jabatan_pegawai' => $this->input->post('jabatan_pegawai',TRUE),
-		'status' => $this->input->post('status',TRUE),
-		'foto_pegawai' => $this->input->post('foto_pegawai',TRUE),
-	    );
+    		'nama_pegawai' => $this->input->post('nama_pegawai',TRUE),
+    		'gelar' => $this->input->post('gelar',TRUE),
+    		'nik_pegawai' => $this->input->post('nik_pegawai',TRUE),
+    		'nip' => $this->input->post('nip',TRUE),
+    		'tempat_lahir' => $this->input->post('tempat_lahir',TRUE),
+    		'tgl_lahir' => $this->input->post('tgl_lahir',TRUE),
+    		'jenis_kelamin' => $this->input->post('jenis_kelamin',TRUE),
+    		'pendidikan' => $this->input->post('pendidikan',TRUE),
+    		'agama' => $this->input->post('agama',TRUE),
+    		'pangkat_golongan' => $this->input->post('pangkat_golongan',TRUE),
+    		'jabatan_pegawai' => $this->input->post('jabatan_pegawai',TRUE),
+    		'status' => $this->input->post('status',TRUE),
+		    'foto_pegawai' => $this->input->post('foto_pegawai',TRUE),
+	        );
 
             $this->Perangkat_desa_model->update($this->input->post('id', TRUE), $data);
             $this->session->set_flashdata('flash', 'Data diupdate');

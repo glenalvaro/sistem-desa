@@ -42,7 +42,7 @@
             <div class="col-md-3">
             <form action="<?php echo site_url('program_bantuan/index'); ?>" class="form-inline" method="get">
                     <div class="input-group pull-right">
-                        <input type="text" class="input-cari form-control" name="q" value="<?php echo $q; ?>" placeholder="Cari..." autocomplete="off">
+                        <input type="text" class="input-cari input-sm form-control" name="q" value="<?php echo $q; ?>" placeholder="Cari..." autocomplete="off">
                         <span class="input-group-btn">
                             <?php 
                                 if ($q <> '')
@@ -79,11 +79,11 @@
                 <td width="10px"><?= ++$start ?></td>
                 <td style="text-align:center" width="200px">
 				<?php 
-                    echo anchor(site_url('program_bantuan/update/'.$program_bantuan->id),'<i class="fa fa-pencil-square-o" aria-hidden="true"></i>','class="btn bg-orange btn-flat btn-sm"'); 
+                    echo anchor(site_url('program_bantuan/update/'.$program_bantuan->id),'<i class="fa fa-pencil-square-o" aria-hidden="true"></i>','class="btn bg-orange btn-sm"'); 
                     echo '  ';
-                    echo anchor(site_url('program_bantuan/delete/'.$program_bantuan->id),'<i class="fa fa-trash-o" aria-hidden="true"></i>','class="btn bg-maroon btn-flat btn-sm aksi-hapus"');
+                    echo anchor(site_url('program_bantuan/delete/'.$program_bantuan->id),'<i class="fa fa-trash-o" aria-hidden="true"></i>','class="btn bg-maroon btn-sm aksi-hapus"');
                     echo ' ';
-                     echo anchor(site_url('program_bantuan/list_peserta/'.$program_bantuan->id),'<i class="fa fa-th-list" aria-hidden="true"></i>','class="btn btn-primary btn-flat btn-sm" title="Daftar Peserta"');
+                     echo anchor(site_url('program_bantuan/list_peserta/'.$program_bantuan->id),'<i class="fa fa-th-list" aria-hidden="true"></i>','class="btn btn-primary btn-sm" title="Daftar Peserta"');
                     ?>
 			    </td>
                 <td><?= strtoupper($program_bantuan->nama_program) ?></td>

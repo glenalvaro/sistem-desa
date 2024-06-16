@@ -35,9 +35,9 @@
                 <tr>
                   <td width="5%" class="text-center"><?= $i; ?></td>
                   <td width="30%">
-                      <a href="menu/sub_modul/<?php echo $m['id']; ?>" class="btn bg-olive btn-flat btn-sm" title="Lihat Sub Menu"><i class="fa fa-th-list"></i></a>
-                      <a href="" class="btn bg-orange btn-flat btn-sm" data-toggle="modal" data-target="#editMenu<?= $m['id']; ?>" title="Edit Menu"><i class="fa fa-edit"></i></a>
-                      <a href="<?php echo site_url('menu/hapus_menu/'.$m['id']) ?>" class="btn bg-maroon btn-flat btn-sm aksi-hapus"><i class="fa fa-trash-o"></i></a>
+                      <a href="menu/sub_modul/<?php echo $m['id']; ?>" class="btn bg-olive btn-sm" title="Lihat Sub Menu"><i class="fa fa-th-list"></i></a>
+                      <a href="" class="btn bg-orange btn-sm" data-toggle="modal" data-target="#editMenu<?= $m['id']; ?>" title="Edit Menu"><i class="fa fa-edit"></i></a>
+                      <a href="<?php echo site_url('menu/hapus_menu/'.$m['id']) ?>" class="btn bg-maroon btn-sm aksi-hapus"><i class="fa fa-trash-o"></i></a>
                   </td>
                   <td><?= $m['menu']; ?></td>
                 </tr>

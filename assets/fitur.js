@@ -68,7 +68,7 @@ $(document).ready(function() {
 
 //Date picker
  $(document).ready(function() {
-    //tgl lapor di form penduduk
+    //tgl
     $('#tgl_lapor').datepicker({
       autoclose: true,
       todayHighlight:true,
@@ -89,6 +89,13 @@ $(document).ready(function() {
       language: 'id',
     });
     $('#tgl_2').datepicker({
+      autoclose: true,
+      todayHighlight:true,
+      format: 'yyyy-mm-dd',
+      language: 'id',
+    });
+
+     $('#tgl_surat').datepicker({
       autoclose: true,
       todayHighlight:true,
       format: 'yyyy-mm-dd',
@@ -115,21 +122,6 @@ if(data1.val() == 2){
     }
   });
 });
-
-// //show hidden berdasarkan pilihan nik di form peserta bantuan
-// $(document).ready(function(){
-// $(".pilih_NIK").on("change", function(evt) {
-// var data2 = $('input[id=group2]:checked');
-// if(data2.val() == 2){
-//   $(".pilih_penduduk").prop("hidden", true);
-//   $(".form_perangkat").prop("readOnly", false);
-
-//     }else{
-//       $(".pilih_penduduk").prop("hidden", false);
-//       $(".form_perangkat").prop("readOnly", true);
-//     }
-//   });
-// });
 
 
 //show hidden form di data penduduk

@@ -15,7 +15,7 @@
         </style>
     </head>
     <body>
-        <h2>Perangkat Desa</h2>
+        <h2 style="text-align: center;">Perangkat Desa</h2>
         <table class="word-table" style="margin-bottom: 10px">
             <tr>
                 <th>No</th>
@@ -32,11 +32,11 @@
 				<th>Jabatan Pegawai</th>
 				<th>Status</th>
 		
-            </tr><?php
-            		foreach ($perangkat_desa_data as $perangkat_desa)
-            		{
-                ?>
-                <tr>
+            </tr>
+            <?php
+            	foreach ($perangkat_desa_data as $perangkat_desa) {
+            ?>
+            <tr>
 		      <td><?php echo ++$start ?></td>
 		      <td><?php echo $perangkat_desa->nama_pegawai ?></td>
 		      <td><?php echo $perangkat_desa->gelar ?></td>
@@ -66,10 +66,8 @@
                          } 
                     ?>  
 		      </td>
-                </tr>
-                <?php
-            }
-            ?>
+            </tr>
+            <?php } ?>
         </table>
     </body>
 </html>
