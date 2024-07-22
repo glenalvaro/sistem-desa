@@ -135,28 +135,9 @@
                </tr>
             </tbody></table>
          </td>
-         <td width="25%">
-         <br>
-         <table width="100%">
-               <tbody><tr>
-                  <td align="left">
-                  <span id="" style="display:none"></span>
-                  <span><?= $s['sebutan_desa'] ?> <?= $p['nama_desa'] ?>, <?php echo date('d M Y'); ?></span>
-                     <br>
-                     <span>Kepala <?= $s['sebutan_desa'] ?>, </span><br>
-                  </td>
-               </tr>
-               <tr>
-                  <td align="left" valign="bottom" nowrap="nowrap" height="81">
-                     <span><u><?= $p['nama_kepdes'] ?></u></span><br>
-                     <span>NIP. <?= $p['nip_kepdes'] ?></span>
-                  </td>
-               </tr>
-            </tbody>
+         <table width="100%" cellpadding="3" cellspacing="4">
+             <?php $this->load->view('buku_desa/ttd_single'); ?>
          </table>
-
-         
-         </td>
       </tr>
    </tbody>
 </table>

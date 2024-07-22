@@ -18,15 +18,34 @@ class Perangkat_desa_model extends CI_Model
     // get all
     function get_all()
     {
-        $this->db->order_by($this->id, $this->order);
-        return $this->db->get($this->table)->result();
+        $sql = "SELECT p.*, j.nama as jabatan
+        FROM perangkat_desa p 
+        LEFT JOIN jabatan_perangkat j ON p.jabatan_pegawai = j.id
+        ORDER BY p.id ASC";
+        $result = $this->db->query($sql)->result();
+        return $result;
+    }
+
+    //ambil hanya data jabatan kepala desa
+    function get_kepdes()
+    {
+        $sql = "SELECT p.*, j.nama as jabatan
+        FROM perangkat_desa p 
+        LEFT JOIN jabatan_perangkat j ON p.jabatan_pegawai = j.id
+        WHERE p.jabatan_pegawai=1";
+        $result = $this->db->query($sql)->result();
+        return $result;
     }
 
     // get data by id
     function get_by_id($id)
     {
-        $this->db->where($this->id, $id);
-        return $this->db->get($this->table)->row();
+        $sql = "SELECT p.*, j.nama as jabatan
+        FROM perangkat_desa p 
+        LEFT JOIN jabatan_perangkat j ON p.jabatan_pegawai = j.id
+        WHERE p.id = $id";
+        $result = $this->db->query($sql)->row();
+        return $result;
     }
     
     // get total rows
@@ -51,23 +70,16 @@ class Perangkat_desa_model extends CI_Model
 
     // get data with limit and search
     function get_limit_data($limit, $start = 0, $q = NULL) {
-        $this->db->order_by($this->id, $this->order);
-        $this->db->like('id', $q);
-    	$this->db->or_like('nama_pegawai', $q);
-    	$this->db->or_like('gelar', $q);
-    	$this->db->or_like('nik_pegawai', $q);
-    	$this->db->or_like('nip', $q);
-    	$this->db->or_like('tempat_lahir', $q);
-    	$this->db->or_like('tgl_lahir', $q);
-    	$this->db->or_like('jenis_kelamin', $q);
-    	$this->db->or_like('pendidikan', $q);
-    	$this->db->or_like('agama', $q);
-    	$this->db->or_like('pangkat_golongan', $q);
-    	$this->db->or_like('jabatan_pegawai', $q);
-    	$this->db->or_like('status', $q);
-    	$this->db->or_like('foto_pegawai', $q);
-    	$this->db->limit($limit, $start);
-        return $this->db->get($this->table)->result();
+        $this->db
+             ->select('p.*, j.nama as jabatan')
+             ->from('perangkat_desa p')
+             ->join('jabatan_perangkat j', 'p.jabatan_pegawai = j.id', 'left')
+             ->order_by('p.jabatan_pegawai')
+             ->like('nip', $q)
+             ->or_like('nama_pegawai', $q)
+             ->limit($limit, $start);
+
+     return $this->db->get()->result();
     }
 
     // insert data
@@ -100,7 +112,7 @@ class Perangkat_desa_model extends CI_Model
             $config['allowed_types'] = 'jpg|png|jpeg';
             $config['max_size']     = '2048';
             $config['upload_path'] = './assets/img/pic_penduduk/';
-            $config['file_name'] = $this->input->post('nip', true); //beri nama nik pada foto yang diupload
+            $config['file_name'] = $this->input->post('nip', true); //beri nama nip pada foto yang diupload
             $this->load->library('upload', $config);
 
             if (!$this->upload->do_upload('image')) {
@@ -153,7 +165,75 @@ class Perangkat_desa_model extends CI_Model
                 $this->db->insert($this->table, $data);
             }
         }
-    }
+  }
+
+  function update_perangkat($id)
+  {
+        $data['perangkat'] = $this->db->get_where($this->table, ['id' => $id])->row_array();
+
+        // cek jika ada gambar yang di upload/diupdate
+        $update_image = $_FILES['image'];
+
+        if ($update_image) {
+            $config['allowed_types'] = 'jpg|jpeg|png';
+            $config['max_size']     = '2048';
+            $config['upload_path'] = './assets/img/pic_penduduk/';
+            $config['file_name'] = $data['perangkat']['nip']; //beri nama nip pada foto perangkat yang diupdate
+
+            $this->load->library('upload', $config);
+
+            // upload foto baru
+            if ($this->upload->do_upload('image')) {
+                $old_image = $data['perangkat']['foto_pegawai'];
+                $path = './assets/img/pic_penduduk/';
+
+                // hapus foto lama
+                if ($old_image) {
+                    unlink(FCPATH . $path . $old_image);
+                }
+                // ganti foto lama dengan baru
+                $new_image = $this->upload->data('file_name');
+                $this->db->set('foto_pegawai', $new_image);
+            } else {
+
+                $data = [
+                    'nama_pegawai'      => $this->input->post('nama_pegawai',TRUE),
+                    'gelar'             => $this->input->post('gelar',TRUE),
+                    'nik_pegawai'       => $this->input->post('nik_pegawai',TRUE),
+                    'nip'               => $this->input->post('nip',TRUE),
+                    'tempat_lahir'      => $this->input->post('tempat_lahir',TRUE),
+                    'tgl_lahir'         => $this->input->post('tgl_lahir',TRUE),
+                    'jenis_kelamin'     => $this->input->post('jenis_kelamin',TRUE),
+                    'pendidikan'        => $this->input->post('pendidikan',TRUE),
+                    'agama'             => $this->input->post('agama',TRUE),
+                    'pangkat_golongan'  => $this->input->post('pangkat_golongan',TRUE),
+                    'jabatan_pegawai'   => $this->input->post('jabatan_pegawai',TRUE),
+                    'status'            => $this->input->post('status',TRUE)
+                ];
+
+                $this->db->where('id', $this->input->post('id'));
+                $this->db->update($this->table, $data);
+            }
+        }
+
+        $data = [
+             'nama_pegawai'      => $this->input->post('nama_pegawai',TRUE),
+                    'gelar'             => $this->input->post('gelar',TRUE),
+                    'nik_pegawai'       => $this->input->post('nik_pegawai',TRUE),
+                    'nip'               => $this->input->post('nip',TRUE),
+                    'tempat_lahir'      => $this->input->post('tempat_lahir',TRUE),
+                    'tgl_lahir'         => $this->input->post('tgl_lahir',TRUE),
+                    'jenis_kelamin'     => $this->input->post('jenis_kelamin',TRUE),
+                    'pendidikan'        => $this->input->post('pendidikan',TRUE),
+                    'agama'             => $this->input->post('agama',TRUE),
+                    'pangkat_golongan'  => $this->input->post('pangkat_golongan',TRUE),
+                    'jabatan_pegawai'   => $this->input->post('jabatan_pegawai',TRUE),
+                    'status'            => $this->input->post('status',TRUE)
+        ];
+
+        $this->db->where('id', $this->input->post('id'));
+        $this->db->update($this->table, $data);
+  }
 
   function updateJabatanById($id)
   {
@@ -172,6 +252,14 @@ class Perangkat_desa_model extends CI_Model
     $this->db->where($where);
     $this->db->delete($table);
   }
+
+  //fungsi aktif nonaktif status perangkat desa
+  function status_perangkat($id = '', $val = 0)
+ {
+        $sql = "UPDATE perangkat_desa SET status = ? WHERE id = ?";
+        $hasil = $this->db->query($sql, array($val, $id));
+        $this->session->success = ($hasil === TRUE ? 1 : -1);
+ }
     
 
 }

@@ -22,6 +22,16 @@ class Buku_surat_masuk_model extends CI_Model
         return $this->db->get($this->table)->result();
     }
 
+    function get_surat_masuk()
+    {
+        $sql = "SELECT s.*, j.nama as pegawai_disposisi
+        FROM buku_surat_masuk s 
+        LEFT JOIN jabatan_perangkat j ON s.disposisi_ke = j.id
+        ORDER BY s.id DESC";
+        $result = $this->db->query($sql)->result();
+        return $result;
+    }
+
     // get data by id
     function get_by_id($id)
     {

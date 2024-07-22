@@ -23,6 +23,12 @@ class Home extends CI_Controller{
 		//ambil data pengaturan dari table setting
 		$data['setting'] = $this->db->get('setting')->result_array();
 
+		$data['total_penduduk'] = $this->home->jmlPenduduk();
+		$data['total_kk'] = $this->home->jmlKK();
+		$data['total_kelompok'] = $this->home->jmlKelompok();
+		$data['total_wilayah'] = $this->home->jmlWilayah();
+		$data['total_pengguna'] = $this->home->jmlPengguna();
+
 		$data['title'] = 'Home';
 		$this->load->view('templates/header', $data);
 		$this->load->view('templates/sidebar', $data);

@@ -31,7 +31,8 @@ class Data_penduduk_model extends CI_Model
 			LEFT JOIN penduduk_suku su ON u.suku = su.id
 			LEFT JOIN status_dasar sd ON u.status_dasar_id = sd.id
 			LEFT JOIN wilayah_desa j ON u.dusun_id = j.id
-			LEFT JOIN golongan_darah c ON u.golongan_darah = c.id";
+			LEFT JOIN golongan_darah c ON u.golongan_darah = c.id
+			ORDER BY u.id DESC";
 
 		$result = $this->db->query($query)->result();
 		return $result;
@@ -55,6 +56,51 @@ class Data_penduduk_model extends CI_Model
 			LEFT JOIN wilayah_desa j ON u.dusun_id = j.id
 			LEFT JOIN golongan_darah c ON u.golongan_darah = c.id
 			WHERE status_penduduk_id=2";
+
+		$result = $this->db->query($query)->result();
+		return $result;
+    }
+
+    // get all data penduduk tunjangan iuran
+    function get_data_asuransi()
+    {
+        $query = "SELECT u.*, h.nama AS hubungan, k.nama AS sex, a.nama as agama, t.nama as status,
+			p.nama AS pendidikan_kk, s.nama AS pendidikan_sedang, e.nama AS pekerjaan, su.suku as suku_penduduk, sd.nama as status_dasar, j.nama_dusun as dusun, c.nama as darah_golongan
+			FROM data_penduduk u
+			LEFT JOIN penduduk_hubungan h ON u.hubungan_keluarga_id = h.id
+			LEFT JOIN tweb_penduduk_sex k ON u.jenis_kelamin = k.id
+			LEFT JOIN penduduk_agama a ON u.agama_id = a.id
+			LEFT JOIN penduduk_status t ON u.status_penduduk_id = t.id
+			LEFT JOIN penduduk_pendidikan_kk p ON u.pendikan_kk_id = p.id
+			LEFT JOIN penduduk_pendidikan s ON u.pendidikan_sedang_id = s.id
+			LEFT JOIN penduduk_pekerjaan e ON u.pekerjaan_id = e.id
+			LEFT JOIN penduduk_suku su ON u.suku = su.id
+			LEFT JOIN status_dasar sd ON u.status_dasar_id = sd.id
+			LEFT JOIN wilayah_desa j ON u.dusun_id = j.id
+			LEFT JOIN golongan_darah c ON u.golongan_darah = c.id
+			WHERE asuransi_kesehatan!='TIDAK/BELUM PUNYA'";
+
+		$result = $this->db->query($query)->result();
+		return $result;
+    }
+
+    // get all data penduduk
+    function get_data_buku_ktp_kk()
+    {
+        $query = "SELECT u.*, h.nama AS hubungan, k.nama AS sex, a.nama as agama, t.nama as status,
+			p.nama AS pendidikan_kk, s.nama AS pendidikan_sedang, e.nama AS pekerjaan, su.suku as suku_penduduk, sd.nama as status_dasar, j.nama_dusun as dusun, c.nama as darah_golongan
+			FROM data_penduduk u
+			LEFT JOIN penduduk_hubungan h ON u.hubungan_keluarga_id = h.id
+			LEFT JOIN tweb_penduduk_sex k ON u.jenis_kelamin = k.id
+			LEFT JOIN penduduk_agama a ON u.agama_id = a.id
+			LEFT JOIN penduduk_status t ON u.status_penduduk_id = t.id
+			LEFT JOIN penduduk_pendidikan_kk p ON u.pendikan_kk_id = p.id
+			LEFT JOIN penduduk_pendidikan s ON u.pendidikan_sedang_id = s.id
+			LEFT JOIN penduduk_pekerjaan e ON u.pekerjaan_id = e.id
+			LEFT JOIN penduduk_suku su ON u.suku = su.id
+			LEFT JOIN status_dasar sd ON u.status_dasar_id = sd.id
+			LEFT JOIN wilayah_desa j ON u.dusun_id = j.id
+			LEFT JOIN golongan_darah c ON u.golongan_darah = c.id";
 
 		$result = $this->db->query($query)->result();
 		return $result;
@@ -279,7 +325,7 @@ class Data_penduduk_model extends CI_Model
             $config['allowed_types'] = 'jpg|jpeg|png';
             $config['max_size']     = '2048';
             $config['upload_path'] = './assets/img/pic_penduduk/';
-            $config['file_name'] = $data['penduduk']['nik']; //beri nama nik pada foto penduduk yang diupload
+            $config['file_name'] = $data['penduduk']['nik']; //beri nama nik pada foto penduduk yang diupdate
 
             $this->load->library('upload', $config);
 
@@ -333,7 +379,6 @@ class Data_penduduk_model extends CI_Model
 					'bpjs_ketenagakerjaan' 	=> $this->input->post('bpjs_ketenagakerjaan',TRUE),
 					'keterangan' 			=> $this->input->post('keterangan',TRUE),
 					'status_dasar_id' 		=> $this->input->post('status_dasar_id',TRUE),
-					'tgl_terdaftar' 		=> $this->input->post('tgl_terdaftar',TRUE),
 					'created_by' 			=> $this->input->post('created_by',TRUE)
                 ];
 
@@ -378,7 +423,6 @@ class Data_penduduk_model extends CI_Model
 			'bpjs_ketenagakerjaan' 	=> $this->input->post('bpjs_ketenagakerjaan',TRUE),
 			'keterangan' 			=> $this->input->post('keterangan',TRUE),
 			'status_dasar_id' 		=> $this->input->post('status_dasar_id',TRUE),
-			'tgl_terdaftar' 		=> $this->input->post('tgl_terdaftar',TRUE),
 			'created_by' 			=> $this->input->post('created_by',TRUE)
         ];
 

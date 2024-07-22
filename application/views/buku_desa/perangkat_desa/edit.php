@@ -1,15 +1,13 @@
-
-
-
 <div class="content-wrapper">
      <section class="content-header">
      <h1 class="tx-judul">
-       Edit Perangkat Desa
+      Perangkat Desa
+      <small>Ubah Data</small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"> Buku Desa</a></li>
+        <li><a href="#"> Administrasi Umum</a></li>
         <li><a href="#"> Perangkat Desa</a></li>
-        <li class="active">Edit</li>
+        <li class="active">Ubah Data</li>
       </ol>
     </section>
 
@@ -45,6 +43,7 @@
 
             <input type="hidden" name="id" value="<?= $id; ?>">
             <input type="hidden" name="foto_pegawai" value="<?= $foto_pegawai; ?>">
+            <input type="hidden" name="status" value="<?= $status; ?>">
             <div class="col-sm-7">
                 <div class="form-group">
                     <label>Nama Pegawai Desa</label> 
@@ -140,12 +139,11 @@
              <div class="col-sm-7">
                 <div class="form-group">
                   <label>Jabatan</label>
-                    <select name="jabatan_pegawai" class="form-control select-filter2" style="width: 100%;" data-parsley-required-message="Kolom ini diperlukan." required>
-                    <option value="<?= $jabatan_pegawai; ?>">Pilih Jabatan</option> 
-                        <option value="Sekertaris Desa">Sekertaris Desa</option>
-                        <option value="Kaur Pembangunan">Kaur Pembangunan</option>
+                    <select name="jabatan_pegawai" class="form-control select-filter" style="width: 100%;" data-parsley-required-message="Kolom ini diperlukan." required> 
+                      <?php foreach ($jab_perangkat as $value) : ?>
+                            <option <?= $value['id'] === $jabatan_pegawai ? 'selected' : '' ?> value="<?= $value['id'] ?>"><?= $value['nama'] ?></option>
+                    <?php endforeach; ?>
                     </select>
-                  
                 </div>
             </div>
 
@@ -153,22 +151,8 @@
                  <div class="form-group">
                   <label>Pangkat/Golongan</label>
                     <input type="text" name="pangkat_golongan" class="form-control input-sm" value="<?= $pangkat_golongan; ?>" placeholder="Pangkat/Golongan" data-parsley-trigger="keyup" data-parsley-validation-threshold="1" data-parsley-required-message="Kolom ini diperlukan." required>
-                 
               </div>    
             </div>
-
-            <div class="form-group">
-              <label class="col-xs-12 col-sm-3 col-lg-3 control-label" for="status">Status Pegawai Desa</label>
-                 <div class="btn-group col-xs-12 col-sm-8" data-toggle="buttons">
-                    <label id="sx3" class="btn btn-info btn-sm col-xs-6 col-sm-5 col-lg-3 form-check-label active">
-                        <input type="radio" name="status" class="form-check-input" value="1" checked="" autocomplete="off"> Aktif
-                    </label>
-                    <label id="sx4" class="btn btn-info btn-sm col-xs-6 col-sm-5 col-lg-3 form-check-label ">
-                        <input type="radio" name="status" class="form-check-input" value="2" autocomplete="off"> Tidak Aktif
-                    </label>
-                </div>
-            </div>
-
 	
            </div>
              <div class="box-footer">

@@ -4,7 +4,7 @@
        Detail Data Perangkat
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#">Buku Desa</a></li>
+        <li><a href="#">Administrasi Umum</a></li>
         <li><a href="#">Perangkat Desa</a></li>
         <li><a href="#">Detail</a></li>
       </ol>
@@ -23,7 +23,7 @@
                 <div class="widget-user-header bg-aqua-active">
                   <h3 class="widget-user-username"><?= $nik_pegawai; ?></h3>
                   <h5 class="widget-user-desc">
-                  	Perangkat Desa
+                  	<?= $jabatan; ?>
                   </h5>
                   </div>
             </div>
@@ -89,7 +89,7 @@
                 </tr>
                 <tr>
                   <td width="200">Jabatan Pegawai</td><td width="1">:</td>
-                  <td><?= $jabatan_pegawai; ?></td>
+                  <td><?= $jabatan; ?></td>
                 </tr>
                 <tr>
                   <td width="200">Status</td><td width="1">:</td>

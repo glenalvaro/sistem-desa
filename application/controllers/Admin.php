@@ -405,8 +405,6 @@ class Admin extends CI_Controller{
 
 			'nama_desa' => $nama_desa,
 			'kode_pos' => $kode_pos,
-			'nama_kepdes' => $nama_kepdes,
-			'nip_kepdes' => $nip_kepdes,
 			'alamat_kantor' => $alamat_kantor,
 			'email_desa' => $email_desa,
 			'no_hp' => $no_hp,

@@ -7,7 +7,7 @@
 <?php foreach($setting as $st) : ?>
   <?php foreach($desa as $ds) : ?>
   <title>
-    <?= $st['title_admin']; ?> <?= $st['sebutan_desa']; ?> <?= $ds['nama_desa']; ?> - <?= $title; ?>
+    <?= $st['title_admin']; ?> <?= $st['sebutan_desa']; ?> <?= $ds['nama_desa']; ?> | <?= $title; ?>
   </title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
@@ -65,7 +65,7 @@
       height: auto;
       padding: 5px 7px;
       font-size: 10px;
-      line-height: 1.5;
+      line-height: 1;
       border-radius: 2px;
     } 
 
@@ -172,6 +172,7 @@
     .table-bordered>thead>tr>th,
     .table-bordered>thead>tr>td {
         vertical-align: middle;
+        font-size: 10px;
     }
 
     table.table-bordered.dataTable th:last-child,
@@ -349,6 +350,21 @@
     color: #dd4b39;
     font-size: 10px;
   }
+
+  /* ukuran gambar */
+  img.penduduk_kecil {
+    width: auto;
+    max-width: 45px;
+    height: auto;
+    border-radius: 10%;
+    margin: 5px 0;
+  }
+
+  /* ukuran text card menu pada view umkm  */
+  .progress-description, .info-box-text {
+    font-size: 12px;
+  }
+ 
   </style> 
 </head>
 
@@ -390,7 +406,7 @@
     <!-- Logo -->
     <a style="font-size: 15px;" href="#" class="logo">
       <span class="logo-mini"><b>S</b>I</span>
-      <span class="logo-lg"><p>Aplikasi <?= $st['sebutan_desa']; ?></p></span>
+      <span class="logo-lg"><p style="font-weight: bold; font-size: 17px;"><?= $st['sebutan_desa']; ?> Digital</p></span>
    </a>
 
     <nav class="navbar navbar-static-top">
@@ -400,7 +416,6 @@
 
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
-          
           <li class="notifications-menu">
             <a href="#" title="Cetak Surat">
               <i class="fa fa-print"></i>

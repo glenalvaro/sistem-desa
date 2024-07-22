@@ -5,7 +5,7 @@
 <?php foreach($setting as $s) : ?>
    <?php foreach($desa as $p) { ?>
 <title>
-    <?= $title; ?> | <?= $s['sebutan_desa'] ?> <?= $p['nama_desa'] ?>
+   Data Kelompok | <?= $s['sebutan_desa'] ?> <?= $p['nama_desa'] ?>
 </title>
 <link rel="icon" href="<?= base_url('assets/img/logo/') . $p['logo_desa']; ?>">
 <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/aset/cetak.css">
@@ -101,7 +101,7 @@
             <td align="center" width="8%"><?php echo $no++ ?></td>
             <td class="text-center"><?= $row->kode_kelompok; ?></td>
             <td class="text-center"><?= $row->nama_kelompok; ?></td>
-            <td class="text-center"><?= $row->ketua_kelompok; ?></td>
+            <td class="text-center"><?= $row->nama_ketua; ?></td>
             <td class="text-center"><?= $row->nama_kategori; ?></td>
             <td class="text-center">
             <?php 

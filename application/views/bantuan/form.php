@@ -1,12 +1,13 @@
 <div class="content-wrapper">
     <section class="content-header">
        <h1 class="tx-judul">
-        Form Program Bantuan
+        Bantuan
+         <small><?= ($id ? 'Ubah' : 'Tambah') ?> Data</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"> Menu</a></li>
         <li><a href="#"> Bantuan</a></li>
-        <li><a href="#"> Form</a></li>
+        <li class="active"><?= ($id ? 'Ubah' : 'Tambah') ?> Data</li>
       </ol>
     </section>
 
@@ -26,7 +27,7 @@
                     <div class="col-sm-3">
                       <select id="sasaran_program" name="sasaran_program" class="select-filter2 form-control required"> 
                             <option value="">Pilih Sasaran Program</option>
-                            <option value="1" <?=($sasaran_program=='1')?'selected="selected"':''?>>Penduduk Perorangan</option>
+                            <option value="1" <?=($sasaran_program=='1')?'selected="selected"':''?>>Penduduk</option>
                             <option value="2" <?=($sasaran_program=='2')?'selected="selected"':''?>>Keluarga/KK</option>
                             <option value="3" <?=($sasaran_program=='3')?'selected="selected"':''?>>Kelompok/Organisasi</option>
                       </select>

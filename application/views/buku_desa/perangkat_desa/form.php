@@ -1,17 +1,15 @@
 <div class="content-wrapper">
      <section class="content-header">
      <h1 class="tx-judul">
-       Form Staff Perangkat Desa
+       Perangkat Desa
+       <small>Tambah Data</small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"> Buku Desa</a></li>
+        <li><a href="#">Administrasi Umum</a></li>
         <li><a href="#"> Perangkat Desa</a></li>
-        <li class="active">Tambah Perangkat</li>
+        <li class="active">Tambah Data</li>
       </ol>
     </section>
-
-
-
 
   <section class="content">
     <div class="box box-primary">
@@ -22,14 +20,14 @@
         <div class="box-body">
             <div class="form-group">
                <label class="col-sm-2">Data Staff</label>
-                 <div class="btn-group col-xs-12 col-sm-8" data-toggle="buttons">
+                <div class="btn-group col-xs-12 col-sm-8" data-toggle="buttons">
                     <label id="sx3" class="btn btn-info btn-sm col-xs-6 col-sm-5 col-lg-3 form-check-label active">
                         <input id="group1" type="radio" name="staf_data"  class="form-check-input" value="1" checked="" autocomplete="off"> Dari Database Penduduk
                     </label>
                     <label id="sx4" class="btn btn-info btn-sm col-xs-6 col-sm-5 col-lg-3 form-check-label ">
                         <input id="group2" type="radio" name="staf_data"  class="form-check-input2" value="2" autocomplete="off"> Tidak Terdata
                     </label>
-            </div>
+                </div>
             </div>
 
          <div class="form-group pilih_penduduk">
@@ -170,10 +168,10 @@
              <div class="col-sm-7">
                 <div class="form-group">
                   <label>Jabatan</label>
-                    <select name="jabatan_pegawai" class="form-control select-filter2" style="width: 100%;" data-parsley-required-message="Kolom ini diperlukan." required>
+                    <select name="jabatan_pegawai" class="form-control select-filter" style="width: 100%;" data-parsley-required-message="Kolom ini diperlukan." required>
                     <option value="">Pilih Jabatan</option> 
                         <?php foreach($jab_perangkat as $row) : ?>
-                            <option value="<?= $row['nama']; ?>"><?= $row['nama']; ?></option>
+                            <option value="<?= $row['id']; ?>"><?= $row['nama']; ?></option>
                         <?php endforeach; ?>
                     </select>
                   

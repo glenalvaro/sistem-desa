@@ -172,6 +172,8 @@
 						<td><?= $penduduk['bpjs_ketenagakerjaan']?></td>
 					</tr>
 				</table>
+				<?php $get_perangkat = ttd_perangkat(); ?>
+				<?php foreach($get_perangkat as $main): ?>
 				<table width="100%" border="0" cellspacing="0" cellpadding="0">
 					<tr>
 						<td align="center" scope="col" width="40%">Yang Bersangkutan</td>
@@ -181,7 +183,7 @@
 					<tr>
 						<td align="center">&nbsp;</td>
 						<td align="center">&nbsp;</td>
-						<td align="center">Kepala Desa <?= ucwords($p['nama_desa']); ?></td>
+						<td align="center"><?= ucwords($main->jabatan); ?> <?= ucwords($p['nama_desa']); ?></td>
 					</tr>
 					<tr>
 						<td align="center" colspan="3" height="90px">&nbsp;</td>
@@ -189,9 +191,10 @@
 					<tr>
 						<td align="center"><b>( <?= strtoupper($penduduk['nama_penduduk'])?> )</b></td>
 						<td align="center">&nbsp;</td>
-						<td align="center"><b>( <?= $p['nama_kepdes']?> )</b></td>
+						<td align="center"><b>( <?= ucwords($main->nama_pegawai); ?> )</b></td>
 					</tr>
 				</table>
+				<?php endforeach; ?>
 				<br>
 		</div>
 		<div id="aside">

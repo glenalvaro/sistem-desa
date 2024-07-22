@@ -1,7 +1,7 @@
 <div class="content-wrapper">
     <section class="content-header">
        <h1 class="tx-judul">
-        Data Kelompok
+        Data Kelompok 
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"> Kependudukan</a></li>
@@ -56,7 +56,7 @@
             </div>
             <div class="table-responsive" style="margin-bottom: 70px;">
                 <table id="table-kelompok" class="table table-striped table-hover table-bordered tabel-daftar">
-                <thead class="bg-gray disabled color-palette" style="font-size: 10px;">
+                <thead class="color-palette" style="font-size: 10px;">
                 <tr>
                   <th class="text-center">No</th>
                   <th style="min-width:150px;" class="text-center">Aksi</th>
@@ -68,6 +68,7 @@
                 </tr>
                 </thead>
                 <tbody>
+                   <?php if($list_kelompok) : ?>
                     <?php 
                     $no=1;
                     foreach($list_kelompok as $data) : ?>
@@ -76,7 +77,7 @@
                   <td width="10%" class="text-center">
                       <a href="<?= site_url('data_kelompok/anggota_kelompok/') . $data->id; ?>" class="btn bg-purple btn-flat btn-sm" title="Rincian Kelompok"><i class="fa fa-list-ol"></i></a>
                       <a href="<?= site_url('data_kelompok/edit_kelompok/') . $data->id; ?>" class="btn btn-warning btn-flat btn-sm" title="Edit Kelompok"><i class="fa fa-edit"></i></a>
-                      <a href="<?= site_url('data_kelompok/hapus_kelompok/') . $data->id; ?>" class="btn bg-maroon btn-flat btn-sm aksi-hapus" title="Hapus Kategori Kelompok"><i class="fa fa-trash-o"></i></a>
+                      <a href="<?= site_url('data_kelompok/hapus_kelompok/') . $data->id; ?>" class="btn bg-maroon btn-flat btn-sm aksi-hapus" title="Hapus Kategori Kelompok"><i class="fa fa-trash"></i></a>
                   </td>
                   <td width="5%"><?= $data->kode_kelompok; ?></td>
                   <td><?= $data->nama_kelompok; ?></td>
@@ -92,6 +93,11 @@
                   </td>
                 </tr>
                 <?php endforeach; ?>
+                 <?php else : ?>
+                 <tr>
+                    <td class="text-center" colspan="12">Data Tidak Tersedia</td>
+                </tr>
+            <?php endif; ?>
             </tbody>
             </table>
           </div>

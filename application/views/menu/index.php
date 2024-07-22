@@ -1,7 +1,7 @@
 <div class="content-wrapper">
     <section class="content-header">
        <h1 class="tx-judul">
-        Menu Management
+        Modul
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"> Pengaturan</a></li>
@@ -11,18 +11,17 @@
 
 <!-- table kelola menu -->
 <section class="content">
-    <small><?= form_error('menu', '<div class="alert alert-danger" role="alert">', '</div>') ?></small>
       <div class="row">
         <div class="col-xs-12">
           <div class="box box-info">
             <div class="box-header with-border">
-               <a href="" class="btn btn-social btn-flat bg-purple btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block" data-toggle="modal" data-target="#new-menu"><i class="fa fa-plus"></i> Tambah Menu</a>
+               <a href="" class="btn btn-social btn-success btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block" data-toggle="modal" data-target="#new-menu"><i class="fa fa-plus"></i> Tambah</a>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
                 <div class="table-responsive">
                 <table id="datatables-sistem" class="table table-striped table-hover table-bordered tabel-daftar">
-                <thead class="bg-gray disabled color-palette">
+                <thead class="bg-gray color-palette">
                 <tr>
                   <th class="text-center">No</th>
                   <th style="min-width:150px;" class="text-center">Aksi</th>
@@ -34,10 +33,10 @@
                     <?php foreach($menu as $m) : ?>
                 <tr>
                   <td width="5%" class="text-center"><?= $i; ?></td>
-                  <td width="20%">
+                  <td width="15%" class="text-center">
                       <a href="menu/sub_modul/<?php echo $m['id']; ?>" class="btn bg-olive btn-flat btn-sm" title="Lihat Sub Menu"><i class="fa fa-th-list"></i></a>
                       <a href="" class="btn bg-orange btn-flat btn-sm" data-toggle="modal" data-target="#editMenu<?= $m['id']; ?>" title="Edit Menu"><i class="fa fa-edit"></i></a>
-                      <a href="<?php echo site_url('menu/hapus_menu/'.$m['id']) ?>" class="btn bg-maroon btn-flat btn-sm aksi-hapus"><i class="fa fa-trash-o"></i></a>
+                      <a href="<?php echo site_url('menu/hapus_menu/'.$m['id']) ?>" class="btn bg-maroon btn-flat btn-sm aksi-hapus"><i class="fa fa-trash"></i></a>
                   </td>
                   <td><?= $m['menu']; ?></td>
                 </tr>

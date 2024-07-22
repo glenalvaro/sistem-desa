@@ -39,7 +39,7 @@
             <div class="box-body" style="margin-bottom:100px !important;">
                 <div class="table-responsive">
                 <table id="datatables-sistem" class="table table-striped table-hover table-bordered tabel-daftar">
-                <thead class="bg-gray disabled color-palette">
+                <thead class="bg-gray color-palette">
                 <tr>
                   <th class="text-center">No</th>
                   <th style="min-width:150px;" class="text-center">Aksi</th>
@@ -55,14 +55,14 @@
                 <tr>
                   <td width="5%" class="text-center"><?= $no++; ?></td>
                   <td width="23%">
-                    <!-- Hilangkan aksi untuk admin -->
+                    <!-- Hilangkan aksi untuk admin --> 
                     <?php if($d['id']!=1) : ?>
                       <?php if($d['is_active'] == '0') : ?>
                         <a href="<?=site_url('admin/user_unlock/'.$d['id'])?>" class="btn bg-navy btn-flat btn-sm"  title="Aktifkan Pengguna"><i class="fa fa-lock">&nbsp;</i></a>
                       <?php elseif($d['is_active'] == '1') : ?>
                         <a href="<?=site_url('admin/user_lock/'.$d['id'])?>" class="btn bg-navy btn-flat btn-sm"  title="Non Aktifkan Pengguna"><i class="fa fa-unlock"></i></a>
                       <?php endif; ?>
-                      <a href="<?= site_url("admin/hapus_user/"). $d['id']; ?>" class="btn bg-maroon btn-flat btn-sm aksi-hapus" title="Hapus Pengguna"><i class="fa fa-trash-o"></i></a>
+                      <a href="<?= site_url("admin/hapus_user/"). $d['id']; ?>" class="btn bg-maroon btn-flat btn-sm aksi-hapus" title="Hapus Pengguna"><i class="fa fa-trash"></i></a>
                        <a href="<?= base_url('admin/update_password/') . $d['id']; ?>" class="btn bg-olive btn-flat btn-sm" title="Reset Password"><i class="fa fa-key"></i></a>
                       <?php endif; ?>
                       <a href="<?= base_url('admin/edit_UserAdmin/') . $d['id']; ?>" class="btn bg-orange btn-flat btn-sm" title="Edit Pengguna"><i class="fa fa-edit"></i></a>

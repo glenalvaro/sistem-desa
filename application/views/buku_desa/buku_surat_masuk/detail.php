@@ -4,7 +4,7 @@
         Surat Masuk<small>Detail</small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"> Buku Administrasi Desa</a></li>
+        <li><a href="#"> Administrasi Umum</a></li>
         <li><a href="#"> Surat Masuk</a></li>
         <li class="active">Detail</li>
       </ol>
@@ -45,7 +45,7 @@
                 </tr>
                  <tr>
                   <td width="35%"><strong>Disposisi Kepada</strong></td>
-                  <td> :
+                  <td>
            				<?php foreach ($list_jab as $rw) : ?>
                     	 		<div class="col-sm-12 col-lg-6 checkbox">
                                 	<label style="padding: 5px;">

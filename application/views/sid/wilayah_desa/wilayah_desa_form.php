@@ -1,14 +1,14 @@
 <div class="content-wrapper">
-
   <?php foreach($setting as $k) : ?>
     <section class="content-header">
      <h1 class="tx-judul">
-       Form Data <?= $k['sebutan_dusun'] ?>
+       Wilayah Administratif <?= $k['sebutan_dusun'] ?>
+            <small><?= ($id ? 'Ubah' : 'Tambah') ?> Data</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"> Menu</a></li>
         <li><a href="#"> Wilayah Administratif</a></li>
-        <li class="active">Tambah <?= $k['sebutan_dusun'] ?></li>
+        <li class="active"><?= ($id ? 'Ubah' : 'Tambah') ?> Data</li>
       </ol>
     </section>
 

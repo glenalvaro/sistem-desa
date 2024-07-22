@@ -1,5 +1,4 @@
 <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
     <section class="content-header">
        <h1 class="tx-judul">
        Buku Administrasi Penduduk
@@ -10,44 +9,23 @@
       </ol>
     </section>
 
-    <!-- menu -->
+
 <section class="content">
       <div class="row">
-        <div class="col-md-3">
-          <div class="box box-solid">
-            <div class="box-header with-border">
-              <h4 style="font-size: 14px;" class="box-title">Menu</h4>
-              <div class="box-tools">
-                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-                </button>
-              </div>
-            </div>
-            <div class="box-body no-padding">
-              <ul class="nav nav-pills nav-stacked">
-                <li class="active"><a href="<?= base_url('bumindes/buku_induk_penduduk'); ?>"><i class="fa fa-book"></i> Buku Induk Penduduk</a></li>
-                <li><a href="<?= base_url('admin/role'); ?>"><i class="fa fa-pie-chart"></i> Buku Rekapitulasi Jumlah Penduduk</a></li>
-                <li><a href="<?= base_url('bumindes/penduduk_sementara'); ?>"><i class="fa fa-list"></i> Buku Penduduk Sementara</a></li>
-                <li><a href="<?= base_url('admin/role'); ?>"><i class="fa fa-money"></i> Buku Penduduk Asuransi</a></li>
-                <li><a href="<?= base_url('admin/role'); ?>"><i class="fa fa-id-card"></i> Buku KTP dan KK</a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-
-        <div class="col-md-9">
+        <?php $this->load->view('buku_desa/bumindes_penduduk'); ?>
+      <div class="col-md-9">
           <div class="box box-info">
             <div class="box-header with-border">
-               <a target="_blank" href="<?= base_url('bumindes/cetak_buku_induk'); ?>" class="btn btn-social btn-flat btn-success btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"><i class="fa fa-print"></i> Cetak</a>
+               <a target="_blank" href="<?= base_url('bumindes/cetak_buku_induk'); ?>" class="btn btn-social btn-success btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"><i class="fa fa-print"></i> Cetak</a>
 
-               <a href="" class="btn btn-social btn-flat bg-navy btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"><i class="fa fa-download"></i> Unduh</a>
+               <a href="" class="btn btn-social bg-navy btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"><i class="fa fa-download"></i> Unduh</a>
 
-               <a href="" class="btn btn-social btn-flat bg-purple btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"><i class="fa fa-repeat"></i> Bersihkan</a>
+               <a href="" class="btn btn-social bg-purple btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"><i class="fa fa-repeat"></i> Bersihkan</a>
             </div>
             <div class="box-body" style="margin-bottom:100px !important;">
                 <div class="table-responsive">
                 <table id="datatables-sistem" class="table table-striped table-hover table-bordered tabel-daftar">
-                <thead class="bg-gray disabled color-palette">
+                <thead class="bg-gray color-palette">
                 <tr>
                   <th class="text-center">No</th>
                   <th style="min-width:200px;" class="text-center">Nama Lengkap/Panggilan</th>
@@ -65,7 +43,7 @@
                   <th class="text-center">Ket</th>
                 </tr>
                 </thead>
-                <tbody>
+                <tbody style="font-size: 10px;">
                     <?php $no = 1; 
                     foreach($get_data as $val) : ?>
                 <tr>

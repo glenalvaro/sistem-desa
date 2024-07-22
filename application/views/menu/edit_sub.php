@@ -1,19 +1,8 @@
-<style>
-  select {
-    font-family: fontAwesome
-  } 
-    .control-label{
-      text-align: left;
-    }
-    label {
-    display: inline-block;
-    max-width: 100%;
-    margin-bottom: 5px;
-    font-weight: 700;
-    font-size: 11px;
-    margin-left: 15px;
-}
-</style>
+
+
+<!-- ######################### -->
+
+<!-- view ini tidak digunakan -->
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">

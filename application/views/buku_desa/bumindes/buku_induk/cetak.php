@@ -1,5 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<html>
 	<head>
     <?php foreach($setting as $j) : ?>
   	<?php foreach($desa as $n) : ?>
@@ -36,7 +35,7 @@
 			<link href="<?= base_url()?>assets/lib/print/report.css" rel="stylesheet" type="text/css">
 		<div id="body">
 			<div align="center">
-				<img src="<?= base_url('assets/img/logo/') . $n['logo_desa']; ?>" alt="" style="width:50px; height:auto">
+				<img src="<?= base_url('assets/img/logo/') . $n['logo_desa']; ?>" alt="" style="width:70px; height:auto">
 				<h1>PEMERINTAH <?= strtoupper($n['nama_kabupaten']); ?> </h1>
 				<h1>KECAMATAN <?= strtoupper($n['nama_kecamatan']); ?> </h1>
 				<h1><?= strtoupper($j['sebutan_desa'] . ' ' . $n['nama_desa']); ?></h1>
@@ -93,29 +92,7 @@
 			</table>
 			<br>
 			<table width="100%" cellpadding="3" cellspacing="4">
-				<tr>
-					<td width="25%"></td>
-					<td width="50%"></td>
-					<td width="25%" align="center"><?= strtoupper($n['nama_desa']); ?>, <?= tgl_indo(date('Y m d')); ?></td>
-					</tr>
-					<td width="25%" align="center">CAMAT <?= strtoupper($n['nama_kecamatan']); ?></td>
-					<td width="50%"></td>
-					<td align="center" width="150">KEPALA <?= strtoupper($j['sebutan_desa']); ?> <?= strtoupper($n['nama_desa']); ?></td>
-				</tr>
-				<tr><td>&nbsp;</td></tr>
-				<tr><td>&nbsp;</td></tr>
-				<tr><td>&nbsp;</td></tr>
-				<tr><td>&nbsp;</td></tr>
-				<tr>
-					<td width="25%" align="center"><u><?= strtoupper($n['nama_camat']); ?></u></td>
-					<td width="50%"></td>
-					<td width="25%" align="center" width="150"><u><?= strtoupper($n['nama_kepdes']); ?></u></td>
-				</tr>
-				<tr>
-					<td width="25%" align="center">NIP. <?= $n['nip_camat'] ?></td>
-					<td width="50%"></td>
-					<td width="25%" align="center" width="150">NIP. <?= strtoupper($n['nip_kepdes']); ?></td>
-				</tr>
+				 <?php $this->load->view('buku_desa/ttd_lengkap'); ?>
 			</table>
 		</div>
 			<div id="aside"></div>

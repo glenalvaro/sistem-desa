@@ -1560,3 +1560,27 @@ function tgl_indo($tgl, $replace_with = '-')
     return $tanggal . ' ' . $bulan . ' ' . $tahun;
 }
 
+function rupiah($angka)
+{ 
+    $hasil_rupiah = "Rp. " . number_format($angka,2,',','.');
+    return $hasil_rupiah;
+}
+
+//ambil data hanya kepala desa di model perangkat desa
+function ttd_perangkat()
+{
+    $CI =& get_instance();
+    $CI->load->model('perangkat_desa_model');
+
+    $membres = $CI->perangkat_desa_model->get_kepdes();  
+    return $membres;      
+}
+
+//digunakan untuk mengambil nama class dicontroller
+
+function nama_class($text)
+{
+    // Replace underscores with spaces
+    $new_text = str_replace('_', ' ', htmlentities($text));
+    return set_ucwords($new_text); // Output: hello world php
+}

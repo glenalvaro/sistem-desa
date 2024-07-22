@@ -1,6 +1,4 @@
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<html>
 	<head>
     <?php foreach($setting as $j) : ?>
   	<?php foreach($desa as $n) : ?>
@@ -141,6 +139,8 @@
 				</tbody>
 			</table>
 			<br>
+			<?php $get_perangkat = ttd_perangkat(); ?>
+			<?php foreach($get_perangkat as $main): ?>
 			<table width="100%" cellpadding="3" cellspacing="4">
 				<tr>
 					<td width="25%"></td>
@@ -149,7 +149,7 @@
 					</tr>
 					<td width="25%" align="center">KEPALA KELUARGA</td>
 					<td width="50%"></td>
-					<td align="center" width="150">KEPALA <?= strtoupper($j['sebutan_desa'] . ' ' . $n['nama_desa']); ?></td>
+					<td align="center" width="150"><?= strtoupper($main->jabatan); ?> <?= strtoupper($n['nama_desa']); ?></td>
 				</tr>
 				<tr><td>&nbsp;</td></tr>
 				<tr><td>&nbsp;</td></tr>
@@ -158,14 +158,15 @@
 				<tr>
 					<td width="25%" align="center"><u><?= strtoupper($kepala_kk); ?></u></td>
 					<td width="50%"></td>
-					<td width="25%" align="center" width="150"><u><?= strtoupper($n['nama_kepdes']); ?></u></td>
+					<td width="25%" align="center" width="150"><u><?= strtoupper($main->nama_pegawai); ?></u></td>
 				</tr>
 				<tr>
 					<td width="25%" align="center"></td>
 					<td width="50%"></td>
-					<td width="25%" align="center" width="150">NIP. <?= strtoupper($n['nip_kepdes']); ?></td>
+					<td width="25%" align="center" width="150">NIP. <?= strtoupper($main->nip); ?></td>
 				</tr>
 			</table>
+			<?php endforeach; ?>
 		</div>
 			<div id="aside"></div>
 		</div>

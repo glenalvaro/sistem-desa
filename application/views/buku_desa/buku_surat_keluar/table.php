@@ -1,18 +1,19 @@
 <div class="content-wrapper">
-
     <section class="content-header">
        <h1 class="tx-judul">
-       Buku Administrasi Desa - Surat Keluar
+     Administrasi Umum - Surat Keluar
+         <?php echo set_ucwords($title); ?> 
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"> Buku Administrasi Desa</a></li>
-        <li class="active"><a href="#"> Surat Keluar</a></li>
+        <li><a href="#"> Administrasi Umum</a></li>
+        <li class="active"><a href="#"> Surat Keluar <?= $tipe; ?></a></li>
       </ol>
     </section>
 
     <section class="content">
             <div class="row">
-            <div class="col-xs-12">
+            <?php $this->load->view('buku_desa/bumindes_umum'); ?>
+            <div class="col-md-9">
                 <div class="box box-info">
                    <div class="box-header with-border">
                       <div>
@@ -33,7 +34,7 @@
             <div class="col-md-3">
             <form action="<?php echo site_url('buku_surat_keluar/index'); ?>" class="form-inline" method="get">
                     <div class="input-group pull-right">
-                        <input type="text" class="input-cari input-sm form-control" name="q" value="<?php echo $q; ?>" placeholder="Cari..." autocomplete="off">
+                        <input type="text" class="input-cari form-control" name="q" value="<?php echo $q; ?>" placeholder="Cari..." autocomplete="off">
                         <span class="input-group-btn">
                             <?php 
                                 if ($q <> '')
@@ -52,7 +53,7 @@
         
         <div class="table-responsive" style="margin-bottom: 10px;">
         <table class="table table-hover table-bordered tabel-daftar" style="margin-bottom: 15px">
-            <thead class="bg-gray disabled color-palette" style="font-size: 10px;">
+            <thead class="bg-gray color-palette" style="font-size: 10px;">
             <tr>
                 <th>No.</th>
                 <th style="min-width:170px; text-align: center;">Aksi</th>
@@ -67,14 +68,14 @@
                 foreach ($buku_surat_keluar_data as $data)
                 {
             ?>
-            <tbody>
+            <tbody style="font-size: 11px;">
             <tr>
     			<td style="text-align:center"><?= ++$start ?></td>
                 <td style="text-align:center" width="150px">
                     <a href="<?= site_url('buku_surat_keluar/read/'.$data->id) ?>" class="btn btn-info btn-sm" title="Lihat"><i class="fa fa-eye"></i></a>
                     <a href="<?= base_url(); ?>/folder_arsip/surat_keluar/<?= $data->file_surat; ?>" class="btn bg-maroon btn-sm" title="Download" download><i class="fa fa-file-pdf-o"></i></a>
                     <a href="<?= site_url('buku_surat_keluar/update/'.$data->id) ?>" class="btn bg-orange btn-sm" title="Ubah Data"><i class="fa fa-edit"></i></a>
-                    <a href="<?= site_url('buku_surat_keluar/delete/'.$data->id) ?>" class="btn btn-danger btn-sm aksi-hapus" title="Hapus Surat"><i class="fa fa-trash-o"></i></a>
+                    <a href="<?= site_url('buku_surat_keluar/delete/'.$data->id) ?>" class="btn btn-danger btn-sm aksi-hapus" title="Hapus Surat"><i class="fa fa-trash"></i></a>
                  </td>
     			<td><?= $data->no_surat_kel ?></td>
                 <td><?= $data->nama_surat ?></td>

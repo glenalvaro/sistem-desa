@@ -41,10 +41,32 @@
                                     <td>:</td>
                                     <td>RT 000 / RW 000 - <?= $dusun; ?></td>
                                 </tr>
+                                <?php 
+                                  //ambil data bantuan berdasarkan sasaran program
+                                  //sasaran 2 = keluarga/kk
+                                  $sql = "SELECT u.*, b.id_program as id_prog_ban, y.nama_program as nama_prog, y.sdate as tgl_mulai_prog, y.edate as tgl_akhir_prog, y.keterangan as ket_prog
+                                      FROM data_penduduk u
+                                      LEFT JOIN peserta_bantuan b ON u.id = b.id_anggota
+                                      LEFT JOIN program_bantuan y ON b.id_program = y.id
+                                      WHERE u.id = {$id}
+                                      AND b.id_sasaran = 2";
+                                  $result = $this->db->query($sql)->result_array();
+                                 ?>
                                 <tr>
                                     <td>Program Bantuan</td>
                                     <td>:</td>
+                                    <?php if($result) : ?>
+                                    <td>
+                                       <div class="btn-group">
+                                            <?php $no=1;
+                                            foreach($result as $val) : ?>
+                                                <a href=""><small class='label label-success'> <?= strtoupper($val['nama_prog']); ?></small></a>
+                                            <?php endforeach; ?>
+                                        </div>
+                                    </td>
+                                    <?php else : ?>
                                     <td>-</td>
+                                   <?php endif; ?>
                                 </tr>
                             </tbody>
                         </table>
@@ -53,8 +75,8 @@
                 <div class="box-body">
                     <h5><b>Daftar Anggota Keluarga</b></h5>
                     <div class="table-responsive">
-                    <table class="table table-bordered dataTable table-striped table-hover tabel-daftar">
-								<thead class="bg-gray disabled color-palette" style="font-size: 10px;">
+                    <table id="datatables-sistem" class="table table-bordered dataTable table-striped table-hover tabel-daftar">
+								<thead class="color-palette" style="font-size: 10px;">
 									<tr>
 										<th>No</th>
 										<th>Aksi</th>

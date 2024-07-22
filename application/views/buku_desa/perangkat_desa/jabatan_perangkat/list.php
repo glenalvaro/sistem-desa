@@ -1,5 +1,4 @@
 <div class="content-wrapper">
-
     <section class="content-header">
        <h1 class="tx-judul">
          Jabatan Perangkat Desa
@@ -17,40 +16,40 @@
                 <div class="box box-primary">
                    <div class="box-header with-border">
                       <div class="btn-group-vertical">
-                         <a href="<?= site_url('perangkat_desa'); ?>" class="btn btn-social btn-flat btn-info btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"><i class="fa fa-arrow-circle-left"></i> Kembali Ke Data Perangkat</a>
+                         <a href="<?= site_url('perangkat_desa'); ?>" class="btn btn-social btn-info btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"><i class="fa fa-arrow-circle-left"></i> Kembali Ke Data Perangkat</a>
                       </div>
 
                       <div class="btn-group-vertical">
-                         <a href="#" class="btn btn-social btn-flat btn-primary btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block" data-toggle="modal" data-target="#tambah_jab"><i class="fa fa-plus"></i> Tambah</a>
+                         <a href="#" class="btn btn-social btn-success btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block" data-toggle="modal" data-target="#tambah_jab"><i class="fa fa-plus"></i> Tambah</a>
                       </div>
                     </div>
 
 
         <div class="box-body">
         <div class="table-responsive" style="margin-bottom: 10px;">
-        <table id="datatables-sistem" class="table table-bordered table-striped table-hover no-footer" style="margin-bottom: 15px">
-            <thead class="bg-gray disabled color-palette" style="font-size: 10px;">
+        <table id="datatables-sistem" class="table table-bordered table-hover" style="margin-bottom: 15px">
+            <thead class="bg-gray color-palette" style="font-size: 10px;">
             <tr>
                 <th style="min-width:10px; text-align: center;">No</th>
                 <th style="min-width:150px; text-align: center;">ACTION</th>
                 <th style="min-width:150px; text-align: center;">NAMA JABATAN</th>
             </tr>
             </thead>
-               <?php
+            <tbody style="font-size: 10px;">
+             <?php
                $no = 1;
-                foreach ($list_jabatan as $data)
-                    {
-                ?>
-            <tbody style="font-size: 11px;">
+             foreach ($list_jabatan as $data) : ?>
             <tr>
     			<td width="10px"><?= $no++; ?></td>
                 <td style="text-align:center" width="200px">
-                    <a href="" class="btn bg-orange btn-flat btn-sm" data-toggle="modal" data-target="#edit_jab<?= $data['id']; ?>" title="Edit Jabatan"><i class="fa fa-edit"></i></a>
-                    <a href="<?php echo site_url('perangkat_desa/hapus_jabatan/'.$data['id']) ?>" class="btn bg-maroon btn-flat btn-sm aksi-hapus"><i class="fa fa-trash-o"></i></a>
+                    <a href="" class="btn bg-orange btn-sm" data-toggle="modal" data-target="#edit_jab<?= $data['id']; ?>" title="Edit Jabatan"><i class="fa fa-edit"></i></a>
+                <?php if($data['id']!=1) : ?>
+                    <a href="<?php echo site_url('perangkat_desa/hapus_jabatan/'.$data['id']) ?>" class="btn bg-maroon btn-sm aksi-hapus"><i class="fa fa-trash"></i></a>
+                <?php endif; ?>
                 </td>
     			<td><?= strtoupper($data['nama']); ?></td>
 		    </tr>
-                <?php } ?>
+                <?php endforeach; ?>
         </tbody>
         </table>
         <div>
@@ -80,8 +79,8 @@
                  </div>
               </div>
               <div class="modal-footer">
-                <button class="btn btn-social btn-flat btn-warning btn-sm" data-dismiss="modal"><i class="fa fa-remove"></i> Close</button>
-                <button type="submit" class="btn btn-social btn-flat btn-info btn-sm"  style="float: right;"><i class="fa fa-check"></i> Simpan</button>
+                <button type="reset" class="btn btn-social btn-flat btn-danger btn-sm" style="float: left;"><i class="fa fa-remove"></i> Batal</button>
+                <button type="submit" class="btn btn-social btn-flat btn-primary btn-sm" style="float: right;"><i class="fa fa-check"></i> Simpan</button>
               </div>
             </form>
         </div>

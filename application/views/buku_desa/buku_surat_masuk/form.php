@@ -2,12 +2,12 @@
     <section class="content-header">
      <h1 class="tx-judul">
        Surat Masuk
-       <small>Form</small>
+      <small><?= ($id ? 'Ubah' : 'Tambah') ?> Data</small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"> Buku Administrasi Desa</a></li>
+        <li><a href="#"> Administrasi Umum</a></li>
         <li><a href="#"> Surat Masuk</a></li>
-        <li class="active">Tambah</li>
+        <li class="active"><?= ($id ? 'Ubah' : 'Tambah') ?> Data</li>
       </ol>
     </section>
 
@@ -49,7 +49,7 @@
                     	<input type="file" id="file" name="file" value="" class="custom-file-input">
                     	<label class="custom-file-label" for="file"></label>
                 	  </div>
-                       <p class="text-danger" style="margin-top:10px;">(Kosongkan jika tidak ingin mengubah berkas, Type pdf, jpg)</p>
+                       <span class="help-block" style="margin-top:10px;">(Kosongkan jika tidak ingin mengubah berkas, Type pdf, jpg)</span>
                     </div>
                   </div>
 

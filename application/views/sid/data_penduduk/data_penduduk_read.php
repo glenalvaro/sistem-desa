@@ -99,6 +99,10 @@
                   <td><?= $tgl_lahir; ?></td>
                 </tr>
                 <tr>
+                  <td width="200">Umur</td><td width="1">:</td>
+                  <td><?= umur($tgl_lahir); ?> Tahun</td>
+                </tr>
+                <tr>
                   <td width="200">Anak Ke-</td><td width="1">:</td>
                   <td><?= $kelahiran_anak_ke; ?></td>
                 </tr>
@@ -188,11 +192,11 @@
                 </tr>
                 <tr>
                   <td width="200">No Telepon</td><td width="1">:</td>
-                  <td><?= $no_telepon; ?></td>
+                  <td><?= format_telpon($no_telepon); ?></td>
                 </tr>
                 <tr>
                   <td width="200">Alamat Email</td><td width="1">:</td>
-                  <td><?= $email; ?></td>
+                  <td><?= email($email); ?></td>
                 </tr>
                  <tr>
                   <th colspan="3" class="subtitle_head"><strong>STATUS KAWIN</strong></th>
@@ -236,19 +240,39 @@
           </div>
               <div class="table-responsive">
                <table class="table table-bordered">
-                <tr>
-                  <th colspan="3" class="subtitle_head"><strong>PROGRAM BANTUAN</strong></th>
+                <thead>
+                  <tr>
+                  <th colspan="4" class="subtitle_head"><strong>PROGRAM BANTUAN</strong></th>
                 </tr>
-                <tr>
-                  <th>No</th>
-                  <th>Persyaratan</th>
-                  <th>File</th>
+                <tr style="font-size: 10px;">
+                  <th class="padat">NO</th>
+                  <th class="text-center">WAKTU / TANGGAL</th>
+                  <th class="text-center">NAMA PROGRAM</th>
+                  <th class="text-center">KETERANGAN</th>
                 </tr>
+               </thead>
+               <tbody style="font-size: 11px;">
+                <?php 
+                  //ambil data bantuan berdasarkan sasaran program
+                  //sasaran 1 = penduduk
+                  $sql = "SELECT u.*, b.id_program as id_prog_ban, y.nama_program as nama_prog, y.sdate as tgl_mulai_prog, y.edate as tgl_akhir_prog, y.keterangan as ket_prog
+                      FROM data_penduduk u
+                      LEFT JOIN peserta_bantuan b ON u.id = b.id_anggota
+                      LEFT JOIN program_bantuan y ON b.id_program = y.id
+                      WHERE u.id = $id
+                      AND b.id_sasaran = 1";
+                  $hasil = $this->db->query($sql)->result_array();
+                 ?>
+                <?php $no=1;
+                foreach($hasil as $main) : ?>
                 <tr>
-                      <td></td>
-                      <td></td>
-                      <td></td>
+                    <td class="text-center"><?= $no++; ?></td>
+                    <td width="20%"><?= tgl_indo($main['tgl_mulai_prog']) ?> - <?= tgl_indo($main['tgl_akhir_prog']) ?></td>
+                    <td width="25%"><?= set_ucwords($main['nama_prog']); ?></td>
+                    <td><?= set_ucwords($main['ket_prog']); ?></td>
                 </tr>
+              <?php endforeach; ?>
+              </tbody>
              </table>
              </div>
               <div class="noprint">  

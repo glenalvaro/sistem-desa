@@ -37,13 +37,13 @@
 
         <div class="box-body table-penduduk">
             <div class="row">   
-            <div class="col-sm-9">
+            <div class="col-sm-10">
             <div class="form-inline">
                  <span id="filter_jk"></span>  
                  <span id="filter_wilayah"></span>  
             </div>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-2">
             <div class="input-group pull-right">
                 <input type="search" class="input-cari form-control" id="search_data" placeholder="Cari...">
                 <span class="input-group-btn">
@@ -54,7 +54,7 @@
             </div>
             <div class="table-responsive" style="margin-top: 10px;">
                     <table style="width:100%;" id="table_keluarga" class="table table-bordered dataTable table-striped table-hover no-footer">
-                            <thead class="bg-gray disabled color-palette" style="font-size: 10px;">
+                            <thead class="color-palette" style="font-size: 10px;">
                                 <tr>
                                     <th>
                                         <input type="checkbox" id="check_kk">
@@ -67,7 +67,7 @@
                                     <th style="min-width:100px; text-align: center;">NIK</th>
                                     <th style="min-width:100px; text-align: center;">JUMLAH ANGGOTA</th>
                                     <th style="min-width:100px; text-align: center;">JENIS KELAMIN</th>
-                                    <th style="min-width:100px; text-align: center;">ALAMAT</th>
+                                    <th style="min-width:150px; text-align: center;">ALAMAT</th>
                                     <th style="min-width:100px; text-align: center;">DUSUN</th>
                                     <th style="min-width:100px; text-align: center;">TGL TERDAFTAR</th>
                                 </tr>

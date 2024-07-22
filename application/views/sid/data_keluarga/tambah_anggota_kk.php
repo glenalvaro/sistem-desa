@@ -1,12 +1,13 @@
 <div class="content-wrapper">
      <section class="content-header">
      <h1 class="tx-judul">
-      Biodata Anggota Keluarga
+      Anggota Keluarga
+       <small>Tambah Data</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"> Kependudukan</a></li>
         <li><a href="#"> Data keluarga</a></li>
-        <li class="active">Form Anggota Keluarga</li>
+        <li class="active">Tambah Data</li>
       </ol>
     </section>
 

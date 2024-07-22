@@ -4,11 +4,16 @@
     }
 </style>
 <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
+   <section class="content-header">
        <h1 class="tx-judul">
-        Tambah Pengguna
+        Pengguna
+         <small>Tambah Data</small>
       </h1>
+      <ol class="breadcrumb">
+        <li><a href="#"> Pengaturan</a></li>
+        <li><a href="#"> Pengguna</a></li>
+        <li class="active">Tambah Data</li>
+      </ol>
     </section>
 
 <form id="validasi" action="<?= base_url('admin/add_user'); ?>" method="post" enctype="multipart/form-data" autocomplete="off">

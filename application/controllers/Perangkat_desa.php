@@ -58,7 +58,7 @@ class Perangkat_desa extends CI_Controller
             'start' => $start,
         );
       
-            $list['title'] = 'Perangkat Desa';
+            $list['title'] = 'Administrasi Umum';
             $this->load->view('templates/header', $list);
             $this->load->view('templates/sidebar', $list);
             $this->load->view('buku_desa/perangkat_desa/list', $data);
@@ -104,8 +104,9 @@ class Perangkat_desa extends CI_Controller
     		'jabatan_pegawai' => $row->jabatan_pegawai,
     		'status' => $row->status,
     		'foto_pegawai' => $row->foto_pegawai,
+            'jabatan' => $row->jabatan,
     	    );
-            $list['title'] = 'Perangkat Desa';
+            $list['title'] = 'Administrasi Umum';
             $this->load->view('templates/header', $list);
             $this->load->view('templates/sidebar', $list);
             $this->load->view('buku_desa/perangkat_desa/detail', $data);
@@ -144,11 +145,6 @@ class Perangkat_desa extends CI_Controller
     	    'status' => set_value('status'),
     	    'foto_pegawai' => set_value('foto_pegawai'),
     	);
-         // ambil data penduduk
-        $data['get_penduduk']       = $this->penduduk->get_all();
-        $data['pendidikan_kk']      = $this->penduduk->get_pendidikan_kk();
-        $data['penduduk_agama']     = $this->penduduk->get_penduduk_agama();
-        $data['jab_perangkat']      = $this->db->get('jabatan_perangkat')->result_array();
 
          if (isset($_GET['id_peg'])) {
             $id_pen=$_GET['id_peg'];
@@ -171,7 +167,13 @@ class Perangkat_desa extends CI_Controller
             $data  = $query->row_array();  
         }
 
-        $list['title'] = 'Perangkat Desa';
+        // ambil data penduduk
+        $data['get_penduduk']       = $this->penduduk->get_all();
+        $data['pendidikan_kk']      = $this->penduduk->get_pendidikan_kk();
+        $data['penduduk_agama']     = $this->penduduk->get_penduduk_agama();
+        $data['jab_perangkat']      = $this->db->get('jabatan_perangkat')->result_array();
+
+        $list['title'] = 'Administrasi Umum';
         $this->load->view('templates/header', $list);
         $this->load->view('templates/sidebar', $list);
         $this->load->view('buku_desa/perangkat_desa/form', $data);
@@ -218,11 +220,13 @@ class Perangkat_desa extends CI_Controller
         		'agama' => set_value('agama', $row->agama),
         		'pangkat_golongan' => set_value('pangkat_golongan', $row->pangkat_golongan),
         		'jabatan_pegawai' => set_value('jabatan_pegawai', $row->jabatan_pegawai),
-        		'status' => set_value('status', $row->status),
+                'status' => set_value('status', $row->status),
         		'foto_pegawai' => set_value('foto_pegawai', $row->foto_pegawai),
 	       );
 
-            $list['title'] = 'Perangkat Desa';
+            $data['jab_perangkat']      = $this->db->get('jabatan_perangkat')->result_array();
+
+            $list['title'] = 'Administrasi Umum';
             $this->load->view('templates/header', $list);
             $this->load->view('templates/sidebar', $list);
             $this->load->view('buku_desa/perangkat_desa/edit', $data);
@@ -241,26 +245,24 @@ class Perangkat_desa extends CI_Controller
         if ($this->form_validation->run() == FALSE) {
             $this->update($this->input->post('id', TRUE));
         } else {
-            $data = array(
-    		'nama_pegawai' => $this->input->post('nama_pegawai',TRUE),
-    		'gelar' => $this->input->post('gelar',TRUE),
-    		'nik_pegawai' => $this->input->post('nik_pegawai',TRUE),
-    		'nip' => $this->input->post('nip',TRUE),
-    		'tempat_lahir' => $this->input->post('tempat_lahir',TRUE),
-    		'tgl_lahir' => $this->input->post('tgl_lahir',TRUE),
-    		'jenis_kelamin' => $this->input->post('jenis_kelamin',TRUE),
-    		'pendidikan' => $this->input->post('pendidikan',TRUE),
-    		'agama' => $this->input->post('agama',TRUE),
-    		'pangkat_golongan' => $this->input->post('pangkat_golongan',TRUE),
-    		'jabatan_pegawai' => $this->input->post('jabatan_pegawai',TRUE),
-    		'status' => $this->input->post('status',TRUE),
-		    'foto_pegawai' => $this->input->post('foto_pegawai',TRUE),
-	        );
-
-            $this->Perangkat_desa_model->update($this->input->post('id', TRUE), $data);
+            $this->Perangkat_desa_model->update_perangkat($this->input->post('id', TRUE));
             $this->session->set_flashdata('flash', 'Data diupdate');
             redirect(site_url('perangkat_desa'));
         }
+    }
+
+    public function perangkat_lock($id = '')
+    {
+        $this->Perangkat_desa_model->status_perangkat($id, 0);
+        $this->session->set_flashdata('flash', 'Perangkat Dinon-aktifkan');
+        redirect("perangkat_desa");
+    }
+
+    public function perangkat_unlock($id = '')
+    {
+        $this->Perangkat_desa_model->status_perangkat($id, 1);
+        $this->session->set_flashdata('flash', 'Perangkat Diaktifkan');
+        redirect("perangkat_desa");
     }
     
     public function delete($id) 
@@ -334,7 +336,7 @@ class Perangkat_desa extends CI_Controller
     	xlsWriteLabel($tablehead, $kolomhead++, "Status");
 	    xlsWriteLabel($tablehead, $kolomhead++, "Foto Pegawai");
 
-	foreach ($this->Perangkat_desa_model->get_all() as $data) {
+	       foreach ($this->Perangkat_desa_model->get_all() as $data) {
             $kolombody = 0;
 
             //ubah xlsWriteLabel menjadi xlsWriteNumber untuk kolom numeric
@@ -349,7 +351,7 @@ class Perangkat_desa extends CI_Controller
     	    xlsWriteLabel($tablebody, $kolombody++, $data->pendidikan);
     	    xlsWriteLabel($tablebody, $kolombody++, $data->agama);
     	    xlsWriteLabel($tablebody, $kolombody++, $data->pangkat_golongan);
-    	    xlsWriteLabel($tablebody, $kolombody++, $data->jabatan_pegawai);
+    	    xlsWriteLabel($tablebody, $kolombody++, $data->jabatan);
     	    xlsWriteLabel($tablebody, $kolombody++, $data->status);
     	    xlsWriteLabel($tablebody, $kolombody++, $data->foto_pegawai);
 
@@ -400,7 +402,7 @@ class Perangkat_desa extends CI_Controller
 
         $list['list_jabatan'] = $this->db->get('jabatan_perangkat')->result_array();
 
-        $list['title'] = 'Perangkat Desa';
+        $list['title'] = 'Administrasi Umum';
         $this->load->view('templates/header', $list);
         $this->load->view('templates/sidebar', $list);
         $this->load->view('buku_desa/perangkat_desa/jabatan_perangkat/list', $data);

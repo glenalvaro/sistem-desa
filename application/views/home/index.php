@@ -15,7 +15,7 @@
             <span class="info-box-icon bg-aqua"><ion-icon name="man-outline"></ion-icon></span>
             <div class="info-box-content">
               <span class="info-box-text">Penduduk</span>
-              <span class="info-box-number"></span>
+              <span class="info-box-number"><?= $total_penduduk; ?></span>
             </div>
         </div>
         </div>
@@ -25,7 +25,17 @@
 
             <div class="info-box-content">
               <span class="info-box-text">Keluarga</span>
-              <span class="info-box-number"></span>
+              <span class="info-box-number"><?= $total_kk; ?></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-3 col-sm-6 col-xs-12">
+          <div class="info-box">
+            <span class="info-box-icon bg-olive"><ion-icon name="options-outline"></ion-icon></span>
+            <div class="info-box-content">
+              <span class="info-box-text">Kelompok</span>
+              <span class="info-box-number"><?= $total_kelompok; ?></span>
             </div>
           </div>
         </div>
@@ -35,9 +45,7 @@
             <span class="info-box-icon bg-gray"><ion-icon name="navigate-circle-outline"></ion-icon></span>
             <div class="info-box-content">
               <span class="info-box-text">Wilayah Desa</span>
-              <span class="info-box-number">
-              
-              </span>
+              <span class="info-box-number"><?= $total_wilayah; ?></span>
             </div>
           </div>
         </div>
@@ -77,7 +85,7 @@
             <div class="info-box-content">
               <span class="info-box-text">Pengguna</span>
               <span class="info-box-number">
-              
+                <?= $total_pengguna; ?>
               </span>
             </div>
           </div>

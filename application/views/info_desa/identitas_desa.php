@@ -33,31 +33,46 @@
     text-shadow: 2px 2px 2px #0c83c5;
   }
 </style>
-
+<?php foreach($setting as $stg) : ?>
 <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
     <section class="content-header">
        <h1 class="tx-judul">
-        Kelola Profil Desa
+        Info <?= $stg['sebutan_desa']; ?>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"> Menu</a></li>
-        <li><a href="#"> Informasi Desa</a></li>
+        <li><a href="#"> Informasi <?= $stg['sebutan_desa']; ?></a></li>
       </ol>
     </section>
 
 <form class="form-horizontal" method="post" enctype="multipart/form-data">
 <section class="content">
+
+   <?php 
+    //cek apakah data kepala desa atau kelurahan sudah tersedia di buku pemerintah desa
+    $query = $this->db->query("SELECT * FROM perangkat_desa WHERE jabatan_pegawai =1");
+    $cek_jab = $query->row();
+   ?>
+
+<?php if($cek_jab->jabatan_pegawai != 1) : ?>
+<div class="col">
+  <div class="callout callout-danger">
+      <h4>Perhatian !</h4>
+      <p>Data Kepala <?= $stg['sebutan_desa']; ?> belum terdaftar pada buku pemerintah desa, silakan isi terlebih dahulu. <a href="<?= base_url('perangkat_desa'); ?>" class="btn btn-social btn-primary btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"><i class="fa fa-book"></i> Buku Pemerintah Desa</a></p>
+  </div>
+</div>
+<?php endif; ?>
+
       <div class="row">
         <div class="col-md-12">
           <div class="box box-danger">
             <div class="box-header with-border">
-                <a href="<?= base_url('admin/edit_identitas_desa/'). $ids['id']; ?>" class="btn btn-social btn-flat btn-warning btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"><i class="fa fa-edit"></i> Ubah Data Desa</a>
+                <a href="<?= base_url('admin/edit_identitas_desa/'). $ids['id']; ?>" class="btn btn-social btn-warning btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"><i class="fa fa-edit"></i> Ubah Data <?= $stg['sebutan_desa']; ?></a>
 
-                <a href="<?= base_url('admin/lokasi_kantor/'). $ids['id']; ?>" class="btn btn-social btn-flat bg-purple btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"><i class="fa fa-map-marker"></i> Lokasi Kantor Desa</a>
+                <a href="<?= base_url('admin/lokasi_kantor/'). $ids['id']; ?>" class="btn btn-social bg-purple btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"><i class="fa fa-map-marker"></i> Lokasi Kantor <?= $stg['sebutan_desa']; ?></a>
 
              
-                <a href="<?= base_url('admin/wilayah_desa/'). $ids['id']; ?>" class="btn btn-social btn-flat btn-info btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"><i class="fa fa-map"></i> Peta Wilayah Desa</a>
+                <a href="<?= base_url('admin/wilayah_desa/'). $ids['id']; ?>" class="btn btn-social btn-info btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"><i class="fa fa-map"></i> Peta Wilayah <?= $stg['sebutan_desa']; ?></a>
              
             </div>
             <div class="box-body">
@@ -66,7 +81,7 @@
               <div class="box-body bg-identitas">
                   <a href="<?= site_url('assets/img/logo/') . $ids['logo_desa']; ?>" class="progressive replace foto_penduduk img-identitas img-responsive">
                   <img class="preview" loading="lazy" src="<?= site_url('assets/img/load-foto.gif') ?>" alt="Foto"/></a>
-                  <h3 class="text-identitas">Desa <?= $ids['nama_desa']; ?></h3>
+                  <h3 class="text-identitas"><?= $stg['sebutan_desa']; ?> <?= $ids['nama_desa']; ?></h3>
                   <p class="text-identitas"><b>Kecamatan <?= $ids['nama_kecamatan']; ?>, Kabupaten <?= $ids['nama_kabupaten']; ?>, Provinsi <?= $ids['nama_provinsi']; ?></b></p>
               </div>
                
@@ -77,38 +92,38 @@
               <table class="table table-bordered table-striped table-hover tabel-rincian">
               <tbody>
                 <tr>
-                  <th colspan="3" class="subtitle_head"><strong>DESA</strong></th>
+                  <th colspan="3" class="subtitle_head"><strong>DATA <?= strtoupper($stg['sebutan_desa']); ?></strong></th>
                 </tr>
                 <tr>
-                  <td width="200">Nama Desa/Kelurahan</td><td width="1">:</td>
+                  <td width="200">Nama <?= $stg['sebutan_desa']; ?></td><td width="1">:</td>
                   <td><?= $ids['nama_desa']; ?></td>
                 </tr>
                 <tr>
-                  <td width="200">Kode Pos Desa</td><td width="1">:</td>
+                  <td width="200">Kode Pos</td><td width="1">:</td>
                   <td><?= $ids['kode_pos']; ?></td>
                 </tr>
                 <tr>
-                  <td>Nama Kepala Desa</td><td>:</td>
-                  <td><?= $ids['nama_kepdes']; ?></td>
+                  <td>Nama Kepala <?= $stg['sebutan_desa']; ?></td><td>:</td>
+                  <td><?= strtoupper($cek_jab->nama_pegawai) ?></td>
                 </tr>
                 <tr>
-                  <td>NIP Kepala Desa </td><td>:</td>
-                  <td><?= $ids['nip_kepdes']; ?></td>
+                  <td>NIP Kepala <?= $stg['sebutan_desa']; ?> </td><td>:</td>
+                  <td><?= strtoupper($cek_jab->nip) ?></td>
                 </tr>
                 <tr>
-                  <td>Alamat Kantor Desa </td><td>:</td>
+                  <td>Alamat Kantor <?= $stg['sebutan_desa']; ?> </td><td>:</td>
                   <td><?= $ids['alamat_kantor']; ?></td>
                 </tr>
                 <tr>
-                  <td>E-mail Desa </td><td>:</td>
+                  <td>E-mail <?= $stg['sebutan_desa']; ?> </td><td>:</td>
                   <td><a href="#"><?= $ids['email_desa']; ?></a></td>
                 </tr>
                 <tr>
-                  <td>Nomor Telepon Desa </td><td>:</td>
-                  <td><?= $ids['no_hp']; ?></td>
+                  <td>Nomor Telepon <?= $stg['sebutan_desa']; ?> </td><td>:</td>
+                  <td><?= format_telpon($ids['no_hp']); ?></td>
                 </tr>
                 <tr>
-                  <td>Website Desa </td><td>:</td>
+                  <td>Website <?= $stg['sebutan_desa']; ?> </td><td>:</td>
                   <td><code><?= $ids['website_desa']; ?></code></td>
                 </tr>
 
@@ -154,3 +169,4 @@
   <?php endforeach; ?>
 </section>
 </div>
+<?php endforeach; ?>

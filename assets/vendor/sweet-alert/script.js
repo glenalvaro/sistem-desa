@@ -1,21 +1,42 @@
-// Sweet Alert
+// Sweet Alert Tambah Data
 const flashData = $('.flash-data').data('flashdata');
 
+// if (flashData) {
+//     Swal({
+//         title: 'Sukses',
+//         text: flashData,
+//         type: 'success',
+//         showConfirmButton: false,
+//         timer: 3000,
+//         didOpen: (Swal) => {
+//          Swal.onmouseenter = Swal.stopTimer;
+//          Swal.onmouseleave = Swal.resumeTimer;
+//        }
+//     });
+// }
+
+//Loading with success
 if (flashData) {
-    Swal({
+    swal({
+    title: 'Sedang Memproses...',
+    allowEscapeKey: false,
+    allowOutsideClick: false,
+    timer: 2000,
+    onOpen: () => {
+      swal.showLoading();
+    }
+  }).then((result) => {
+    swal({ 
         title: 'Sukses',
         text: flashData,
         type: 'success',
-        showConfirmButton: false,
-        timer: 3000,
-        didOpen: (Swal) => {
-         Swal.onmouseenter = Swal.stopTimer;
-         Swal.onmouseleave = Swal.resumeTimer;
-       }
+        timer: 2000,
+        showConfirmButton: false
     });
-}
+  })
+};
 
-// Sweet Alert
+// Sweet Alert Error
 const flashGagal = $('.flash-data-gagal').data('flashdata');
 
 if (flashGagal) {
@@ -26,7 +47,7 @@ if (flashGagal) {
     });
 }
 
-// tombol-hapus
+// Hapus Data
 $('.aksi-hapus').on('click', function (e) {
 
     e.preventDefault();

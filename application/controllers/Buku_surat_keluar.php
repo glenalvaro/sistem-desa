@@ -50,7 +50,7 @@ class Buku_surat_keluar extends CI_Controller
             'start' => $start,
         );
 
-        $list['title'] = 'Surat Keluar';
+        $list['title'] = 'Administrasi Umum';
         $this->load->view('templates/header', $list);
         $this->load->view('templates/sidebar', $list);
         $this->load->view('buku_desa/buku_surat_keluar/table', $data);
@@ -78,7 +78,7 @@ class Buku_surat_keluar extends CI_Controller
 		'isi_singkat' => $row->isi_singkat,
 	    );
 
-        $list['title'] = 'Surat Keluar';
+        $list['title'] = 'Administrasi Umum';
         $this->load->view('templates/header', $list);
         $this->load->view('templates/sidebar', $list);
         $this->load->view('buku_desa/buku_surat_keluar/detail', $data);
@@ -110,7 +110,7 @@ class Buku_surat_keluar extends CI_Controller
     	    'tujuan' => set_value('tujuan'),
     	    'isi_singkat' => set_value('isi_singkat'),
     	);
-        $list['title'] = 'Surat Keluar';
+        $list['title'] = 'Administrasi Umum';
         $this->load->view('templates/header', $list);
         $this->load->view('templates/sidebar', $list);
         $this->load->view('buku_desa/buku_surat_keluar/form', $data);
@@ -154,7 +154,7 @@ class Buku_surat_keluar extends CI_Controller
                 'file_surat' => set_value('file_surat', $row->file_surat),
         	    );
 
-            $list['title'] = 'Surat Keluar';
+            $list['title'] = 'Administrasi Umum';
             $this->load->view('templates/header', $list);
             $this->load->view('templates/sidebar', $list);
             $this->load->view('buku_desa/buku_surat_keluar/form', $data);

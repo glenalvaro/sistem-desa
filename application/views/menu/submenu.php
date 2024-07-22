@@ -1,18 +1,9 @@
-<style>
-  select {
-    font-family: fontAwesome
-  }
-  label {
-    display: inline-block;
-    max-width: 100%;
-    margin-bottom: 5px;
-    font-weight: 700;
-    font-size: 12px;
-    padding: 5px 10px;
-    }
-</style>
+
+
+<!-- ######################### -->
+
+<!-- view ini tidak digunakan -->
 <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
     <section class="content-header">
        <h1 class="tx-judul">
        Kelola sub menu
@@ -37,14 +28,14 @@
           <div class="box box-info">
             <div class="box-header">
             <div>
-               <a href="" class="btn btn-social btn-flat bg-purple btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block" data-toggle="modal" data-target="#new-submenu"><i class="fa fa-plus"></i> Tambah Data</a>
+               <a href="" class="btn btn-social btn-success btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block" data-toggle="modal" data-target="#new-submenu"><i class="fa fa-plus"></i> Tambah</a>
             </div>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
                 <div class="table-responsive">
                  <table id="datatables" class="table table-striped table-hover table-bordered">
-                <thead class="bg-gray disabled color-palette">
+                <thead class="bg-gray color-palette">
                 <tr style="text-transform: uppercase;">
                   <th class="text-center">No</th>
                   <th class="text-center">Aksi</th>

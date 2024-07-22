@@ -20,7 +20,7 @@
             <div class="box-body">
                 <div class="table-responsive">
                 <table id="datatables-sistem" class="table table-striped table-hover table-bordered tabel-daftar">
-                <thead class="bg-gray disabled color-palette">
+                <thead class="color-palette">
                 <tr>
                   <th class="text-center">No</th>
                   <th style="min-width:150px;" class="text-center">Aksi</th>
@@ -37,7 +37,7 @@
                   <td width="5%" class="text-center"><?= $no++; ?></td>
                   <td width="10%" class="text-center">
                       <a href="<?= base_url('data_kelompok/edit_kategori/') . $data['id']; ?>" class="btn btn-warning btn-flat btn-sm" title="Edit Kelompok"><i class="fa fa-edit"></i></a>
-                      <a href="<?= base_url('data_kelompok/hapus_kategori/') . $data['id']; ?>" class="btn btn-danger btn-flat btn-sm aksi-hapus" title="Hapus Kategori Kelompok"><i class="fa fa-trash-o"></i></a>
+                      <a href="<?= base_url('data_kelompok/hapus_kategori/') . $data['id']; ?>" class="btn btn-danger btn-flat btn-sm aksi-hapus" title="Hapus Kategori Kelompok"><i class="fa fa-trash"></i></a>
                   </td>
                   <td width="5%"><?= $data['kategori_kelompok']; ?></td>
                   <td><?= $data['deskripsi_kategori']; ?></td>

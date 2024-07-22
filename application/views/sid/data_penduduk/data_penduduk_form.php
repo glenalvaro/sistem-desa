@@ -1,12 +1,13 @@
 <div class="content-wrapper">
      <section class="content-header">
      <h1 class="tx-judul">
-       Form Data Penduduk
+       Penduduk
+        <small><?= ($id ? 'Ubah' : 'Tambah') ?> Data</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"> Kependudukan</a></li>
         <li><a href="#"> Data Penduduk</a></li>
-        <li class="active">Biodata Penduduk</li>
+        <li class="active"><?= ($id ? 'Ubah' : 'Tambah') ?> Data</li>
       </ol>
     </section>
 
@@ -47,10 +48,10 @@
             <div class="col-sm-4">
 				<div class="form-group">
 					<label>Tanggal Daftar </label>
-						<div class="input-group input-group-sm">
-                <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                <input type="text" name="tgl_terdaftar" id="tgl_lapor" class="form-control input-sm pull-right" value="<?= date('Y-m-d') ?>">
-            </div>
+					<div class="input-group input-group-sm">
+                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                        <input type="text" name="tgl_terdaftar" id="tgl_lapor" class="form-control input-sm pull-right" value="<?= date('Y-m-d') ?>">
+                    </div>
 				</div>
 			</div>
 
@@ -205,7 +206,7 @@
             <div class="col-sm-4">
                 <div class="form-group">
                   <label>Pekerjaan</label>
-                    <select name="pekerjaan_id" class="form-control select-filter2" style="width: 100%;">
+                    <select name="pekerjaan_id" class="form-control select-filter" style="width: 100%;">
                     <option value="<?= $pekerjaan_id; ?>">Pilih Pekerjaan</option> 
                         <?php foreach($pekerjaan_penduduk as $row) : ?>
                             <option value="<?= $row['id']; ?>" <?=($pekerjaan_id==$row['id'])?'selected="selected"':''?>><?= $row['nama']; ?></option>
@@ -383,10 +384,10 @@
                   <label>Status Perkawinan</label>
                   <select name="status_kawin" class="form-control select-filter2" style="width: 100%;">
                     <option value="<?= $status_kawin; ?>">Pilih Status Perkawinan</option> 
-                            <option value="BELUM KAWIN">BELUM KAWIN</option>
-                            <option value="KAWIN">KAWIN</option>
-                            <option value="CERAI HIDUP">CERAI HIDUP</option>
-                            <option value="CERAI MATI">CERAI MATI</option>
+                    <option value="BELUM KAWIN" <?=($status_kawin=='BELUM KAWIN')?'selected="selected"':''?>>BELUM KAWIN</option>
+                    <option value="KAWIN" <?=($status_kawin=='KAWIN')?'selected="selected"':''?>>KAWIN</option>
+                    <option value="CERAI HIDUP" <?=($status_kawin=='CERAI HIDUP')?'selected="selected"':''?>>CERAI HIDUP</option>
+                    <option value="CERAI MATI" <?=($status_kawin=='CERAI MATI')?'selected="selected"':''?>>CERAI MATI</option>
                     </select>
                 </div>
             </div>
@@ -419,13 +420,12 @@
 
              <div class="col-sm-6">
                 <div class="form-group">
-                  <label>Asuransi Kesehatan</label>
-                  <select name="asuransi_kesehatan" id="asuransi_kesehatan" class="form-control select-filter2" style="width: 100%;">
-                    <option value="<?= $asuransi_kesehatan; ?>" disabled>Pilih Asuransi Kesehatan</option> 
-                            <option value="TIDAK/BELUM PUNYA">TIDAK/BELUM PUNYA</option>
-                            <option value="BPJS PENERIMA BANTUAN IURAN">BPJS PENERIMA BANTUAN IURAN</option>
-                            <option value="BPJS NON PENERIMA BANTUAN IURAN">BPJS NON PENERIMA BANTUAN IURAN</option>
-                            <option value="BPJS BANTUAN DAERAH">BPJS BANTUAN DAERAH</option>
+                  <label for="asuransi_kesehatan">Asuransi Kesehatan</label>
+                  <select name="asuransi_kesehatan" id="asuransi_kesehatan" class="form-control select-filter2" style="width: 100%;"> 
+                            <option value="TIDAK/BELUM PUNYA" <?=($asuransi_kesehatan=='TIDAK/BELUM PUNYA')?'selected="selected"':''?>>TIDAK/BELUM PUNYA</option>
+                            <option value="BPJS PENERIMA BANTUAN IURAN" <?=($asuransi_kesehatan=='BPJS PENERIMA BANTUAN IURAN')?'selected="selected"':''?>>BPJS PENERIMA BANTUAN IURAN</option>
+                            <option value="BPJS NON PENERIMA BANTUAN IURAN" <?=($asuransi_kesehatan=='BPJS NON PENERIMA BANTUAN IURAN')?'selected="selected"':''?>>BPJS NON PENERIMA BANTUAN IURAN</option>
+                            <option value="BPJS BANTUAN DAERAH" <?=($asuransi_kesehatan=='BPJS BANTUAN DAERAH')?'selected="selected"':''?>>BPJS BANTUAN DAERAH</option>
                     </select>
                 </div>
             </div>
@@ -433,7 +433,7 @@
              <div class="col-sm-6">
                 <div class="form-group">
                   <label>Nomor Asuransi</label>
-                  <input type="text" name="no_asuransi" id="no_asuransi" class="form-control input-sm" value="<?= $no_asuransi; ?>" placeholder="Nomor Asuransi" disabled>
+                  <input type="text" name="no_asuransi" id="no_asuransi" class="form-control input-sm" value="<?= $no_asuransi; ?>" placeholder="Nomor Asuransi" readonly>
                 </div>
             </div>
 

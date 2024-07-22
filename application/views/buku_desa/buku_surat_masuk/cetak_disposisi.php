@@ -103,14 +103,20 @@
 			<?php 
 		        if (isset($_POST['lap_di'])) {
 		            $id_l=$_POST['lap_di'];
-		            $sql = "SELECT * FROM perangkat_desa WHERE id={$id_l}";
+		            $sql = "SELECT p.*, j.nama as jabatan
+			        FROM perangkat_desa p 
+			        LEFT JOIN jabatan_perangkat j ON p.jabatan_pegawai = j.id
+			        WHERE p.id = {$id_l}";
 		            $query = $this->db->query($sql);
 		            $pamong_1 = $query->row_array();
 		        }
 
 		         if (isset($_POST['lap_dik'])) {
 		            $id_l=$_POST['lap_dik'];
-		            $sql = "SELECT * FROM perangkat_desa WHERE id={$id_l}";
+		            $sql = "SELECT p.*, j.nama as jabatan
+			        FROM perangkat_desa p 
+			        LEFT JOIN jabatan_perangkat j ON p.jabatan_pegawai = j.id
+			        WHERE p.id = {$id_l}";
 		            $query = $this->db->query($sql);
 		            $pamong_2 = $query->row_array();
 		        }
@@ -125,9 +131,9 @@
 					<td width="50%"></td>
 					<td width="25%" align="center"><?= strtoupper($n['nama_desa']); ?>, <?= tgl_indo(date('Y m d')); ?></td>
 					</tr>
-					<td width="25%" align="center"><?= strtoupper($pamong_2['jabatan_pegawai']); ?></td>
+					<td width="25%" align="center"><?= strtoupper($pamong_2['jabatan']); ?></td>
 					<td width="50%"></td>
-					<td align="center" width="150"><?= strtoupper($pamong_1['jabatan_pegawai']); ?></td>
+					<td align="center" width="150"><?= strtoupper($pamong_1['jabatan']); ?></td>
 				</tr>
 				<tr><td>&nbsp;</td></tr>
 				<tr><td>&nbsp;</td></tr>

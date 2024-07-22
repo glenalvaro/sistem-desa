@@ -50,7 +50,7 @@
              <form method="POST" action="<?= base_url('admin/wilayah_desa/'); ?><?= $wilayah_edit['id']; ?>" enctype="multipart/form-data" class="form-horizontal">
             <div class="box-body" style="margin-left: 10px;">
 
-             <!-- panggil map leafvar -->
+             <!-- panggil map -->
               <div id="map_wilayah1" style="height:420px;"></div>
 
               <br>

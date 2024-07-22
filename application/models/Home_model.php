@@ -44,4 +44,62 @@ class Home_model extends CI_Model{
     $this->db->update('user_role', $data);
   }
 
+  function jmlKK()
+  {
+     $query = $this->db->query("SELECT * FROM data_penduduk where hubungan_keluarga_id =1");
+     return $query->num_rows();
+  }
+
+  function jmlPenduduk()
+  {   
+    $query = $this->db->get('data_penduduk');
+    if($query->num_rows()>0)
+    {
+      return $query->num_rows();
+    }
+    else
+    {
+      return 0;
+    }
+  }
+
+  function jmlKelompok()
+  {   
+    $query = $this->db->get('data_kelompok');
+    if($query->num_rows()>0)
+    {
+      return $query->num_rows();
+    }
+    else
+    {
+      return 0;
+    }
+  }
+
+  function jmlWilayah()
+  {   
+    $query = $this->db->get('wilayah_desa');
+    if($query->num_rows()>0)
+    {
+      return $query->num_rows();
+    }
+    else
+    {
+      return 0;
+    }
+  }
+
+  function jmlPengguna()
+  {   
+    $query = $this->db->get('user');
+    if($query->num_rows()>0)
+    {
+      return $query->num_rows();
+    }
+    else
+    {
+      return 0;
+    }
+  }
+
 }

@@ -13,15 +13,15 @@
 }
 </style>
 <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-      <h1 class="tx-judul">
-        Edit Data Pengguna
+     <section class="content-header">
+       <h1 class="tx-judul">
+        Pengguna
+         <small>Ubah Data</small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#">Pengaturan</a></li>
-        <li><a href="#">Kelola Data Pengguna</a></li>
-        <li class="active">Edit</li>
+        <li><a href="#"> Pengaturan</a></li>
+        <li><a href="#"> Pengguna</a></li>
+        <li class="active">Ubah Data</li>
       </ol>
     </section>
 

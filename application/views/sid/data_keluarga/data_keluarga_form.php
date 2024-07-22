@@ -2,11 +2,12 @@
      <section class="content-header">
      <h1 class="tx-judul">
        Data Keluarga
+        <small><?= ($id ? 'Ubah' : 'Tambah') ?> Data</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"> Kependudukan</a></li>
         <li><a href="#"> Data Keluarga</a></li>
-        <li class="active">Tambah Keluarga</li>
+        <li class="active"><?= ($id ? 'Ubah' : 'Tambah') ?> Data</li>
       </ol>
     </section>
 

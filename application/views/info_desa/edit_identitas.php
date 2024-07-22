@@ -19,19 +19,25 @@
     border-radius: 2px;
 }
 </style>
-
+<?php foreach($setting as $main) : ?>
 <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1 class="tx-judul">
-        Edit Profil Desa
+        Info <?= $main['sebutan_desa']; ?>
+        <small>Ubah Data</small>
       </h1>
       <ol class="breadcrumb">
         <li>&nbsp;Menu</li>
-        <li><a href="#">Informasi Desa</a></li>
-        <li class="active">Edit Data</li>
+        <li><a href="#">Informasi <?= $main['sebutan_desa']; ?></a></li>
+        <li class="active">Ubah Data</li>
       </ol>
     </section>
+
+<?php 
+    //ambil dan tampilkan data kepala desa atau kelurahan
+    $query = $this->db->query("SELECT * FROM perangkat_desa WHERE jabatan_pegawai =1");
+    $get_perdes = $query->row();
+?>
 
 <?php foreach($tampilData as $key) : ?>
 <form action="<?php echo base_url('admin/update_identitasDesa'); ?>" method="post" enctype="multipart/form-data" class="form-horizontal" autocomplete="off">
@@ -43,7 +49,7 @@
              <center><img class="img-thumbnail img-preview" src="<?= base_url('assets/img/logo/') . $key->logo_desa; ?>" width="118px" height="110px" value="<?= $key->logo_desa; ?>">
               </center>
               <br/>  
-              <p class="text-center text-bold">Logo Desa</p>
+              <p class="text-center text-bold">Logo <?= $main['sebutan_desa']; ?></p>
               <p class="text-muted text-center text-red">(Kosongkan, jika logo tidak berubah)</p>
               <center>
               <div class="custom-file">
@@ -60,7 +66,7 @@
                <center><img height="110px" src="<?= base_url('assets/img/kantor/') . $key->gambar_desa; ?>" class="img-thumbnail img-preview" value="<?= $key->gambar_desa; ?>">
               </center>
               <br/>
-             <p class="text-center text-bold">Kantor Desa</p>
+             <p class="text-center text-bold">Kantor <?= $main['sebutan_desa']; ?></p>
               <p class="text-muted text-center text-red">(Kosongkan, jika gambar tidak berubah)</p>
               <center>
                 <div class="custom-file">
@@ -76,15 +82,15 @@
         <div class="col-md-9">
           <div class="box box-primary">
              <div class="box-header with-border">
-              <a href="<?php echo base_url('admin/identitas_desa'); ?>" class="btn btn-social btn-flat btn-info btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"><i class="fa fa-arrow-circle-o-left"></i> Kembali Ke Identitas Desa</a>
+              <a href="<?php echo base_url('admin/identitas_desa'); ?>" class="btn btn-social btn-flat btn-info btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"><i class="fa fa-arrow-circle-o-left"></i> Kembali Ke Identitas <?= $main['sebutan_desa']; ?></a>
             </div>
             <div class="box-body" style="margin-left: 10px;">
               <div class="form-group">
-                    <label class="col-sm-3 control-label"><u>DESA</u></label>
+                    <label class="col-sm-3 control-label"><u>DATA</u></label>
               </div>
                   
                    <div class="form-group">
-                    <label class="col-sm-3 control-label">Nama Desa</label>
+                    <label class="col-sm-3 control-label">Nama <?= $main['sebutan_desa']; ?></label>
                     <div class="col-sm-8">
                       <input type="text" name="nama_desa" class="form-control input-sm" value="<?= $key->nama_desa; ?>">
                     </div>
@@ -99,42 +105,42 @@
                   </div>
 
                    <div class="form-group">
-                    <label class="col-sm-3 control-label">Nama Kepala Desa</label>
+                    <label class="col-sm-3 control-label">Kepala <?= $main['sebutan_desa']; ?></label>
                     <div class="col-sm-8">
-                      <input type="text" name="nama_kepdes" class="form-control input-sm" value="<?= $key->nama_kepdes; ?>">
+                      <input type="text" class="form-control input-sm" value="<?= $get_perdes->nama_pegawai; ?>" readonly>
                     </div>
                   </div>
 
                    <div class="form-group">
-                    <label class="col-sm-3 control-label">NIP Kepala Desa</label>
+                    <label class="col-sm-3 control-label">NIP Kepala <?= $main['sebutan_desa']; ?></label>
                     <div class="col-sm-8">
-                       <input type="text" name="nip_kepdes" class="form-control input-sm" value="<?= $key->nip_kepdes; ?>">
+                       <input type="text" class="form-control input-sm" value="<?= $get_perdes->nip; ?>" readonly>
                     </div>
                   </div>
 
                   <div class="form-group">
-                    <label class="col-sm-3 control-label">Alamat Kantor Desa</label>
+                    <label class="col-sm-3 control-label">Alamat Kantor <?= $main['sebutan_desa']; ?></label>
                     <div class="col-sm-8">
                        <input type="text" name="alamat_kantor" class="form-control input-sm" value="<?= $key->alamat_kantor; ?>">
                     </div>
                   </div>
 
                   <div class="form-group">
-                    <label class="col-sm-3 control-label">E-mail Desa</label>
+                    <label class="col-sm-3 control-label">E-mail <?= $main['sebutan_desa']; ?></label>
                     <div class="col-sm-8">
                        <input type="text" name="email_desa" class="form-control input-sm" value="<?= $key->email_desa; ?>">
                     </div>
                   </div>
 
                   <div class="form-group">
-                    <label class="col-sm-3 control-label">Nomor Telepon Desa</label>
+                    <label class="col-sm-3 control-label">Nomor Telepon <?= $main['sebutan_desa']; ?></label>
                     <div class="col-sm-8">
                        <input type="text" name="no_hp" class="form-control input-sm" value="<?= $key->no_hp; ?>">
                     </div>
                   </div>
 
                   <div class="form-group">
-                    <label class="col-sm-3 control-label">Website Desa</label>
+                    <label class="col-sm-3 control-label">Website <?= $main['sebutan_desa']; ?></label>
                     <div class="col-sm-8">
                        <input type="text" name="website_desa" class="form-control input-sm" value="<?= $key->website_desa; ?>">
                     </div>
@@ -199,6 +205,7 @@
 <?php endforeach; ?>
 </section>
 </div>
+<?php endforeach; ?>
 
 
 

@@ -43,7 +43,7 @@
     </section>
 
 <!-- Hitung size folder -->
-<!-- <?php
+<?php
     function sizeFormat($bytes){
       $kb = 1024;
       $mb = $kb * 1024;
@@ -92,7 +92,7 @@
 
       $dir = "C:xampp\htdocs";
       $folder_name = $dir.$result;
-?> -->
+?>
 
 <?php foreach($database_list as $db_ls) : ?>    
 <section class="content">
@@ -118,9 +118,9 @@
 
                 <tr>
                   <td class="col-sm-10"><b>Backup Seluruh Folder SID (.zip)</b></td>
-                 <!--  <td class="col-sm-2">
+                  <td class="col-sm-2">
                      <a href="<?= base_url('admin/backup_files_sid'); ?>" class="btn btn-social btn-flat btn-block btn-info btn-sm btn-unduh aksi-download" title="Folder desa dalam format zip berukuran <?= sizeFormat(folderSize($folder_name)); ?> "><i class="fa fa-download"></i> Unduh Folder Desa  <b><code><?= sizeFormat(folderSize($folder_name)); ?></code></b></a>
-                  </td> -->
+                  </td>
                 </tr>
               </tbody>
             </table>

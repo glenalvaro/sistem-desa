@@ -38,7 +38,7 @@
             <div class="box-body">
               <div class="table-responsive">
               <table id="datatables-sistem" class="table table-striped table-hover table-bordered tabel-daftar" cellspacing="0" width="100%">
-                <thead class="bg-gray disabled color-palette">
+                <thead class="bg-gray color-palette">
                 <tr>
                   <th width="10%" class="text-center">No</th>
                   <th style="min-width:150px;" class="text-center">Aksi</th>
@@ -53,7 +53,7 @@
                   <td width="30%">
                       <a href="<?= base_url('admin/roleaccess/') .$r['id']; ?>" class="btn bg-navy btn-flat btn-sm"><i class="fa fa-tv fa-sm" title="Atur Akses Group"></i></a>
                       <a href="" class="btn bg-orange btn-flat btn-sm" data-toggle="modal" data-target="#editRole<?= $r['id']; ?>"><i class="fa fa-edit"></i></a>
-                      <a href="<?php echo site_url('admin/hapus_role/'.$r['id']) ?>" class="btn bg-maroon btn-flat btn-sm aksi-hapus"><i class="fa fa-trash-o"></i></a>
+                      <a href="<?php echo site_url('admin/hapus_role/'.$r['id']) ?>" class="btn bg-maroon btn-flat btn-sm aksi-hapus"><i class="fa fa-trash"></i></a>
                   </td>
                   <td><?= $r['role']; ?></td>
                 </tr>

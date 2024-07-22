@@ -1,7 +1,7 @@
 <div class="content-wrapper">
     <section class="content-header">
        <h1 class="tx-judul">
-        Pengaturan Sub Menu
+        Sub Modul<small style="font-size :14px;"><?= $nama_menu['menu']; ?></small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"> Pengaturan</a></li>
@@ -16,16 +16,15 @@
         <div class="col-xs-12">
           <div class="box box-info">
             <div class="box-header with-border">
-               <a href="<?php echo base_url('menu'); ?>" class="btn btn-social btn-flat btn-info btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"><i class="fa fa-arrow-circle-left"></i> Kembali Ke Data Menu</a>
+               <a href="<?php echo base_url('menu'); ?>" class="btn btn-social btn-info btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"><i class="fa fa-arrow-circle-left"></i> Kembali Ke Data Menu</a>
 
-               <a href="" class="btn btn-social btn-flat bg-purple btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block" data-toggle="modal" data-target="#new-modul"><i class="fa fa-plus"></i> Tambah Sub Menu</a>
+               <a href="" class="btn btn-social btn-success btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block" data-toggle="modal" data-target="#new-modul"><i class="fa fa-plus"></i> Tambah</a>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-                <h5 style="margin-bottom: 15px;">Menu : <?= $nama_menu['menu']; ?></h5>
                 <div class="table-responsive">
                 <table id="datatables-sistem" class="table table-striped table-hover table-bordered tabel-daftar">
-                <thead class="bg-gray disabled color-palette">
+                <thead class="bg-gray color-palette">
                 <tr>
                   <th class="text-center">No</th>
                   <th style="min-width:150px;" class="text-center">Aksi</th>
@@ -40,14 +39,16 @@
                     <?php foreach($sub_Modul as $smd) : ?>
                 <tr>
                   <td width="5%" class="text-center"><?= $i; ?></td>
-                  <td width="15%">
+                  <td width="15%" class="text-center">
+                  <?php if($smd->title != 'Modul') : ?>
                       <?php if($smd->is_active == '0') : ?>
                         <a href="<?=site_url('menu/submodul_unlock/'.$smd->id)?>" class="btn bg-navy btn-sm"  title="Aktifkan Menu"><i class="fa fa-lock">&nbsp;</i></a>
                       <?php elseif($smd->is_active == '1') : ?>
                         <a href="<?=site_url('menu/submodul_lock/'.$smd->id)?>" class="btn bg-navy btn-sm"  title="Non Aktifkan Menu"><i class="fa fa-unlock"></i></a>
                       <?php endif; ?>
                         <a href="#" class="btn bg-orange btn-sm" data-toggle="modal" data-target="#editModul<?= $smd->id; ?>"><i class="fa fa-edit"></i></a>
-                        <a href="<?= site_url('menu/hapus_submodul/'.$smd->id)  ?>" class="btn bg-maroon btn-sm aksi-hapus"><i class="fa fa-trash-o"></i></a>
+                        <a href="<?= site_url('menu/hapus_submodul/'.$smd->id)  ?>" class="btn bg-maroon btn-sm aksi-hapus"><i class="fa fa-trash"></i></a>
+                  <?php endif; ?>
                   </td>
                   <td><?= $smd->title; ?></td>
                   <td><code><?= $smd->url; ?></code></td>

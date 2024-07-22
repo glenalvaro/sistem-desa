@@ -91,10 +91,10 @@
                       </div>
                     <?php else : ?>
                     <div class="form-group">
-                         <label class="col-sm-3">Cari Nama Kelompok / Nama Kepala Keluarga</label>
+                         <label class="col-sm-3">Cari Nama Kelompok / Nama Ketua Kelompok</label>
                             <div class="col-sm-9">
                             <select name="no_klompok" id="" class="form-control select2" style="width: 100%;" onchange="this.form.submit()" required>
-                                <option value="">- Silakan Pilih Nama Kelompok / Nama Kepala Keluarga -</option>
+                                <option value="">- Silakan Pilih Nama Kelompok / Nama Ketua Kelompok -</option>
                                   <?php foreach($list_klpk as $row) : ?>
                                     <option value="<?= $row->id; ?>">NAMA KELOMPOK : <?= strtoupper($row->nama_kelompok); ?> - KETUA KELOMPOK : <?= strtoupper($row->nama_ketua); ?></option>
                                   <?php endforeach; ?>

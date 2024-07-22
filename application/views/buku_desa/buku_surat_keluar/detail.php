@@ -4,7 +4,7 @@
         Surat Keluar<small>Detail</small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"> Buku Administrasi Desa</a></li>
+        <li><a href="#"> Administrasi Umum</a></li>
         <li><a href="#"> Surat Keluar</a></li>
         <li class="active">Detail</li>
       </ol>

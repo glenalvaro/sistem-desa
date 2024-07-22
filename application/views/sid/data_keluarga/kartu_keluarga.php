@@ -95,7 +95,7 @@
 						<div class="col-sm-12">
 							<div class="table-responsive">
 								<table class="table table-bordered table-hover">
-									<thead class="bg-gray disabled color-palette" style="font-size: 11px;">
+									<thead class="bg-gray color-palette" style="font-size: 11px;">
 										<tr>
 											<th class="text-center">No</th>
 											<th class="text-center">Nama Lengkap</th>
@@ -160,8 +160,8 @@
 											<td><?= $data->status_warganegara; ?></td>
 											<td><?= $data->dokumen_paspor; ?></td>
 											<td><?= $data->dokumen_kitas; ?></td>
-											<td><?= strtoupper($data->nama_ibu); ?></td>
 											<td><?= strtoupper($data->nama_ayah); ?></td>
+											<td><?= strtoupper($data->nama_ibu); ?></td>
 										</tr>
 										<?php endforeach ?>					
 									</tbody>
@@ -170,6 +170,8 @@
 						 </div>
 					</div>
 					<div class="table-responsive">
+						<?php $get_perangkat = ttd_perangkat(); ?>
+						<?php foreach($get_perangkat as $main): ?>
 						<table class="table no-border">
 							<tbody>
 							<?php foreach ($desa as $value) : ?>
@@ -182,7 +184,7 @@
 								<tr>
 									<td class="text-center">KEPALA KELUARGA</td>
 									<td>&nbsp;</td>
-									<td class="text-center">PJ KEPALA <?= strtoupper($data['sebutan_desa']); ?> <?= strtoupper($value['nama_desa']); ?></td>
+									<td class="text-center"><?= strtoupper($main->jabatan); ?> <?= strtoupper($value['nama_desa']); ?></td>
 								</tr>
 								<?php endforeach; ?>
 								<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
@@ -191,11 +193,12 @@
 								<tr>
 									<td class="text-center"><?= strtoupper($kepala_kk); ?></td>
 									<td width="50%">&nbsp;</td>
-									<td class="text-center"><?= strtoupper($value['nama_kepdes']); ?></td>
+									<td class="text-center"><?= strtoupper($main->nama_pegawai); ?></td>
 								</tr>
 							<?php endforeach; ?>
 							</tbody>
 						</table>
+						<?php endforeach; ?>
 					</div>
                 </div>
             </div>

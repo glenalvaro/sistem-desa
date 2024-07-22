@@ -74,7 +74,7 @@
             </div>
             <div class="table-responsive" style="margin-top: 10px;">
                     <table style="width:100%;" id="filtertable" class="table table-bordered dataTable table-striped table-hover no-footer">
-                            <thead class="bg-gray disabled color-palette" style="font-size: 10px;">
+                            <thead class="color-palette" style="font-size: 10px;">
                                 <tr>
                                     <th>
                                         <input type="checkbox" id="check_pend">
@@ -110,7 +110,7 @@
                                             <a class="btn btn-social btn-flat btn-primary btn-sm" data-toggle="dropdown"><i class='fa fa-arrow-circle-down'></i> Pilih Aksi</a>
                                             <ul class="dropdown-menu" role="menu">
                                                 <li>
-                                                    <a href="<?= site_url('data_penduduk/read/'.$data->id) ?>" class="btn btn-social btn-flat btn-block btn-sm" title=" Detail Data Penduduk"><i class="fa fa-eye"></i> Biodata Penduduk</a>
+                                                    <a href="<?= site_url('data_penduduk/read/'.$data->id) ?>" class="btn btn-social btn-flat btn-block btn-sm" title=" Detail Data Penduduk"><i class="fa fa-list"></i> Biodata Penduduk</a>
                                                 </li>
                                                 <li>
                                                     <a href="<?= site_url('data_penduduk/update/'.$data->id) ?>" class="btn btn-social btn-flat btn-block btn-sm" title=" Ubah Data Penduduk"><i class="fa fa-edit"></i> Ubah Biodata Penduduk</a>
@@ -138,7 +138,7 @@
                                     <td>
                                         <a href=""><?= $data->no_kk; ?></a>
                                     </td>
-                                    <td><?= hitung_umur($data->tgl_lahir); ?></td>
+                                    <td><?= umur($data->tgl_lahir); ?> Tahun</td>
                                     <td><?= set_ucwords($data->nama_ayah); ?></td>
                                     <td><?= set_ucwords($data->nama_ibu); ?></td>
                                     <td><?= set_ucwords($data->alamat_sekarang); ?></td>

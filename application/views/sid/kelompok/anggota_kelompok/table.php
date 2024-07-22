@@ -15,7 +15,7 @@
         <div class="col-md-12">
             <div class="box box-info">
                 <div class="box-header with-border">
-                    <a href="<?= site_url('data_kelompok/form_anggota/') . $id; ?>" class="btn btn-social btn-flat btn-success btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"><i class="fa fa-plus"></i> Tambah Anggota Kelompok</a>
+                    <a href="<?= site_url('data_kelompok/form_anggota/') . $id; ?>" class="btn btn-social btn-flat btn-success btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"><i class="fa fa-plus"></i> Tambah</a>
 
                     <a target="_blank" href="<?= site_url('data_kelompok/cetak_anggota/') . $id; ?>" class="btn btn-social btn-flat bg-purple btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"><i class="fa fa-print"></i> Cetak</a>
 
@@ -51,6 +51,33 @@
                                     <td>:</td>
                                     <td><?= strtoupper($deskripsi_kelompok); ?></td>
                                 </tr>
+                                 <?php 
+                                  //ambil data bantuan berdasarkan sasaran program
+                                  //sasaran 3 = kelompok/organisasi
+                                  $sql = "SELECT u.*, b.id_program as id_prog_ban, y.nama_program as nama_prog, y.sdate as tgl_mulai_prog, y.edate as tgl_akhir_prog, y.keterangan as ket_prog
+                                      FROM data_penduduk u
+                                      LEFT JOIN peserta_bantuan b ON u.id = b.id_anggota
+                                      LEFT JOIN program_bantuan y ON b.id_program = y.id
+                                      WHERE u.id = {$id}
+                                      AND b.id_sasaran = 3";
+                                  $result = $this->db->query($sql)->result_array();
+                                 ?>
+                                <tr>
+                                    <td>Program Bantuan</td>
+                                    <td>:</td>
+                                    <?php if($result) : ?>
+                                    <td>
+                                       <div class="btn-group">
+                                            <?php $no=1;
+                                            foreach($result as $val) : ?>
+                                                <a href=""><small class='label label-success'> <?= set_ucwords($val['nama_prog']); ?></small></a>
+                                            <?php endforeach; ?>
+                                        </div>
+                                    </td>
+                                    <?php else : ?>
+                                    <td>-</td>
+                                   <?php endif; ?>
+                                </tr>
                             </tbody>
                         </table>
                     </div>
@@ -58,8 +85,8 @@
                 <div class="box-body">
                     <h5><b>Daftar Anggota Kelompok</b></h5>
                     <div class="table-responsive">
-                    <table class="table table-bordered dataTable table-striped table-hover tabel-daftar">
-								<thead class="bg-gray disabled color-palette" style="font-size: 10px;">
+                    <table id="datatables-sistem" class="table table-bordered dataTable table-striped table-hover tabel-daftar">
+								<thead class="color-palette" style="font-size: 10px;">
 									<tr>
 										<th>No</th>
 										<th>Aksi</th>
@@ -77,18 +104,17 @@
 									</tr>
 								</thead>
 								<tbody>
-                                <?php if ($list_anggota_kel) : ?>
                                 <?php 
                                     $no=1;
                                     foreach($list_anggota_kel as $data) : ?>
 									<tr>
 										<td class="padat"><?= $no++; ?></td>
 										<td class="aksi">
-											<a href="<?= site_url("data_kelompok/edit_anggota/{$data->id_kelompok}/{$data->id}"); ?>" class="btn bg-orange btn-flat btn-sm" title="Ubah Anggota Kelompok"><i class="fa fa-edit"></i></a>
-											<a href="<?= site_url('data_kelompok/hapus_anggota/') . $data->id; ?>" title="Hapus Anggota Kelompok" class="btn bg-maroon btn-flat btn-sm aksi-hapus"><i class='fa fa-trash-o'></i></a>
+											<a href="<?= site_url("data_kelompok/edit_anggota/{$data->id_kelompok}/{$data->id}"); ?>" class="btn bg-orange btn-sm" title="Ubah Anggota Kelompok"><i class="fa fa-edit"></i></a>
+											<a href="<?= site_url('data_kelompok/hapus_anggota/') . $data->id; ?>" title="Hapus Anggota Kelompok" class="btn bg-maroon btn-sm aksi-hapus"><i class='fa fa-trash'></i></a>
 										</td>
 										<td>
-                                                <img style="width:40px;" src="<?= site_url("data_keluarga/ambil_foto_keluarga?foto={$data->foto_anggota}&sex={$data->jenis_kelamin}"); ?>" alt="Foto Anggota"/>
+                                            <img style="width:30px;" src="<?= site_url("data_keluarga/ambil_foto_keluarga?foto={$data->foto_anggota}&sex={$data->jenis_kelamin}"); ?>" alt="Foto Anggota"/>
                                         </td>
 										<td><?= $data->no_anggota; ?></td>
 										<td><?= $data->nik_anggota; ?></td>
@@ -102,11 +128,6 @@
 										<td nowrap><?= $data->keterangan; ?></td>
 									</tr>
                                     <?php endforeach; ?>
-                                    <?php else : ?>
-										<tr>
-											<td class="text-center" colspan="13">Data Tidak Tersedia</td>
-										</tr>
-									<?php endif; ?>
 								</tbody>
 							</table>
                     </div>

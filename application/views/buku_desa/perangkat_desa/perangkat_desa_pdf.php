@@ -55,7 +55,7 @@
 		      <td><?php echo $perangkat_desa->pendidikan ?></td>
 		      <td><?php echo $perangkat_desa->agama ?></td>
 		      <td><?php echo $perangkat_desa->pangkat_golongan ?></td>
-		      <td><?php echo $perangkat_desa->jabatan_pegawai ?></td>
+		      <td><?php echo $perangkat_desa->jabatan ?></td>
 		      <td>
 		      	 <?php
                         if ($perangkat_desa->status == 1) {

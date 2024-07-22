@@ -1,12 +1,13 @@
 <div class="content-wrapper">
     <section class="content-header">
      <h1 class="tx-judul">
-       Edit Kelompok
+       Kelompok
+       <small>Ubah Data</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"> Kependudukan</a></li>
         <li><a href="#"> Kelompok</a></li>
-        <li class="active">Edit Kelompok</li>
+        <li class="active">Ubah Data</li>
       </ol>
     </section>
 

@@ -10,6 +10,7 @@ class Buku_surat_masuk extends CI_Controller
         parent::__construct();
         cek_login();
         $this->load->model('Buku_surat_masuk_model');
+        $this->load->model('Perangkat_desa_model', 'perangkat');
         $this->load->library('form_validation');
     }
 
@@ -52,9 +53,9 @@ class Buku_surat_masuk extends CI_Controller
 
         $data['list_jabt'] = $this->db->get('jabatan_perangkat')->result_array();
         $data['list_suratID'] = $this->db->get('buku_surat_masuk')->result_array();
-        $data['list_per'] = $this->db->get('perangkat_desa')->result_array();
+        $data['list_per'] = $this->perangkat->get_all();
 
-        $list['title'] = 'Surat Masuk';
+        $list['title'] = 'Administrasi Umum';
         $this->load->view('templates/header', $list);
         $this->load->view('templates/sidebar', $list);
         $this->load->view('buku_desa/buku_surat_masuk/table', $data);
@@ -87,7 +88,7 @@ class Buku_surat_masuk extends CI_Controller
 
         $data['list_jab'] = $this->db->get('jabatan_perangkat')->result_array();
 
-        $list['title'] = 'Surat Masuk';
+        $list['title'] = 'Administrasi Umum';
         $this->load->view('templates/header', $list);
         $this->load->view('templates/sidebar', $list);
         $this->load->view('buku_desa/buku_surat_masuk/detail', $data);
@@ -125,7 +126,7 @@ class Buku_surat_masuk extends CI_Controller
 
         $data['list_jab'] = $this->db->get('jabatan_perangkat')->result_array();
 
-        $list['title'] = 'Surat Masuk';
+        $list['title'] = 'Administrasi Umum';
         $this->load->view('templates/header', $list);
         $this->load->view('templates/sidebar', $list);
         $this->load->view('buku_desa/buku_surat_masuk/form', $data);
@@ -174,7 +175,7 @@ class Buku_surat_masuk extends CI_Controller
 
         $data['list_jab'] = $this->db->get('jabatan_perangkat')->result_array();
           
-        $list['title'] = 'Surat Masuk';
+        $list['title'] = 'Administrasi Umum';
         $this->load->view('templates/header', $list);
         $this->load->view('templates/sidebar', $list);
         $this->load->view('buku_desa/buku_surat_masuk/form', $data);
@@ -257,6 +258,17 @@ class Buku_surat_masuk extends CI_Controller
         $where = array('id' => $id);
         $list['detailSurat'] = $this->Buku_surat_masuk_model->detail_surat($where, 'buku_surat_masuk')->result();
          $this->load->view('buku_desa/buku_surat_masuk/cetak_disposisi', $list);
+    }
+
+    function cetak_all()
+    {
+        $data = array(
+            'surat_masuk' => $this->Buku_surat_masuk_model->get_surat_masuk(),
+            'start' => 0
+        );
+        $data['desa']           = $this->db->get('identitas_desa')->result_array();
+        $data['setting']        = $this->db->get('setting')->result_array();
+        $this->load->view('buku_desa/buku_surat_masuk/cetak', $data);
     }
 
 }

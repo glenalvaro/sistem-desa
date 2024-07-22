@@ -1,6 +1,5 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<html>
 	<head>
     <?php foreach($setting as $j) : ?>
   	<?php foreach($desa as $n) : ?>
@@ -37,7 +36,7 @@
 			<link href="<?= base_url()?>assets/lib/print/report.css" rel="stylesheet" type="text/css">
 		<div id="body">
 			<div align="center">
-				<img src="<?= base_url('assets/img/logo/') . $n['logo_desa']; ?>" alt="" style="width:100px; height:auto">
+				<img src="<?= base_url('assets/img/logo/') . $n['logo_desa']; ?>" alt="" style="width:70px; height:auto">
 				<h1>PEMERINTAH <?= strtoupper($n['nama_kabupaten']); ?> </h1>
 				<h1>KECAMATAN <?= strtoupper($n['nama_kecamatan']); ?> </h1>
 				<h1><?= strtoupper($j['sebutan_desa'] . ' ' . $n['nama_desa']); ?></h1>
@@ -67,7 +66,7 @@
 						<td class="text-center" width="2"><?= $no++; ?></td>
                         <td width="5%"><?= $data->kode_kelompok; ?></td>
 						<td><?= strtoupper($data->nama_kelompok); ?></td>
-						<td><?= strtoupper($data->ketua_kelompok); ?></td>
+						<td><?= strtoupper($data->nama_ketua); ?></td>
 						<td><?= strtoupper($data->nama_kategori); ?></td>
 						<td>
 						<?php 
@@ -83,30 +82,7 @@
 			</table>
 			<br>
 			<table width="100%" cellpadding="3" cellspacing="4">
-				<tr>
-					<td width="25%"></td>
-					<td width="50%"></td>
-					<td width="25%" align="center"><?= strtoupper($n['nama_desa']); ?>, <?= tgl_indo(date('Y m d')); ?></td>
-					</tr>
-					<td width="25%" align="center">KETUA KELOMPOK</td>
-					<td width="50%"></td>
-					<td align="center" width="150">KEPALA <?= strtoupper($j['sebutan_desa']); ?> 
-					<?= strtoupper($n['nama_desa']); ?></td>
-				</tr>
-				<tr><td>&nbsp;</td></tr>
-				<tr><td>&nbsp;</td></tr>
-				<tr><td>&nbsp;</td></tr>
-				<tr><td>&nbsp;</td></tr>
-				<tr>
-					<td width="25%" align="center"><u>........</u></td>
-					<td width="50%"></td>
-					<td width="25%" align="center" width="150"><u><?= strtoupper($n['nama_kepdes']); ?></u></td>
-				</tr>
-				<tr>
-					<td width="25%" align="center">NIP.</td>
-					<td width="50%"></td>
-					<td width="25%" align="center" width="150">NIP. <?= strtoupper($n['nip_kepdes']); ?></td>
-				</tr>
+				  <?php $this->load->view('buku_desa/ttd_single'); ?>
 			</table>
 		</div>
 			<div id="aside"></div>

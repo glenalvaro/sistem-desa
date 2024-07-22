@@ -1,7 +1,7 @@
 <div class="content-wrapper">
     <section class="content-header">
        <h1 class="tx-judul">
-        Daftar Program Bantuan
+         Bantuan
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"> Menu</a></li>
@@ -15,13 +15,13 @@
                 <div class="box box-info">
                    <div class="box-header with-border">
                       <div>
-                        <a href="<?= site_url('program_bantuan/create'); ?>" class="btn btn-social btn-flat bg-olive btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"><i class="fa fa-plus"></i> Tambah Data</a>
+                        <a href="<?= site_url('program_bantuan/create'); ?>" class="btn btn-social btn-success btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"><i class="fa fa-plus"></i> Tambah</a>
 
-                        <a href="<?= site_url('program_bantuan/excel'); ?>" class="btn btn-social btn-flat bg-navy btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"><i class="fa fa-download"></i> Unduh</a>
+                        <a href="<?= site_url('program_bantuan/excel'); ?>" class="btn btn-social bg-navy btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"><i class="fa fa-download"></i> Unduh</a>
 
-                        <a href="<?= site_url('program_bantuan/panduan'); ?>" class="btn btn-social btn-flat btn-info btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"><i class="fa fa-question-circle"></i> Panduan</a>
+                        <a href="<?= site_url('program_bantuan/panduan'); ?>" class="btn btn-social btn-info btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"><i class="fa fa-question-circle"></i> Panduan</a>
 
-                        <a href="<?= site_url('program_bantuan'); ?>" class="btn btn-social btn-flat bg-purple btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"><i class="fa fa-repeat"></i> Bersihkan</a>
+                        <a href="<?= site_url('program_bantuan'); ?>" class="btn btn-social bg-purple btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"><i class="fa fa-repeat"></i> Bersihkan</a>
                       </div>
                     </div>
 
@@ -32,7 +32,7 @@
             <div class="form-inline">
             <select name="sasaran_prog" class="form-control select-filter2" onchange="this.form.submit()">
                 <option hidden selected value="">Pilih Sasaran Program</option>
-                <option value="1">Penduduk Perorangan</option>
+                <option value="1">Penduduk</option>
                 <option value="2">Keluarga/KK</option>
                 <option value="3">Kelompok/Organisasi</option>
             </select>
@@ -61,7 +61,7 @@
         
         <div class="table-responsive">
         <table class="table table-hover table-bordered" style="margin-bottom: 15px">
-            <thead class="bg-gray disabled color-palette" style="font-size: 10px;">
+            <thead class="bg-gray color-palette" style="font-size: 10px;">
             <tr>
                 <th style="min-width:10px; text-align: center;">No</th>
                 <th style="min-width:150px; text-align: center;" class="text-center">AKSI</th>
@@ -72,18 +72,18 @@
                 <th style="min-width:150px; text-align: center;">SASARAN PROGRAM</th>
             </tr>
             </thead>
-            <tbody>
+            <tbody style="font-size: 10px;">
             <?php
                 foreach ($program_bantuan_data as $program_bantuan) : ?>
             <tr>
                 <td width="10px"><?= ++$start ?></td>
                 <td style="text-align:center" width="200px">
 				<?php 
-                    echo anchor(site_url('program_bantuan/update/'.$program_bantuan->id),'<i class="fa fa-pencil-square-o" aria-hidden="true"></i>','class="btn bg-orange btn-flat btn-sm"'); 
+                    echo anchor(site_url('program_bantuan/update/'.$program_bantuan->id),'<i class="fa fa-pencil-square-o" aria-hidden="true"></i>','class="btn bg-orange btn-sm"'); 
                     echo '  ';
-                    echo anchor(site_url('program_bantuan/delete/'.$program_bantuan->id),'<i class="fa fa-trash-o" aria-hidden="true"></i>','class="btn bg-maroon btn-flat btn-sm aksi-hapus"');
+                    echo anchor(site_url('program_bantuan/delete/'.$program_bantuan->id),'<i class="fa fa-trash" aria-hidden="true"></i>','class="btn bg-maroon btn-sm aksi-hapus"');
                     echo ' ';
-                     echo anchor(site_url('program_bantuan/list_peserta/'.$program_bantuan->id),'<i class="fa fa-th-list" aria-hidden="true"></i>','class="btn btn-primary btn-flat btn-sm" title="Daftar Peserta"');
+                     echo anchor(site_url('program_bantuan/list_peserta/'.$program_bantuan->id),'<i class="fa fa-th-list" aria-hidden="true"></i>','class="btn btn-primary btn-sm" title="Daftar Peserta"');
                     ?>
 			    </td>
                 <td><?= strtoupper($program_bantuan->nama_program) ?></td>
@@ -101,7 +101,7 @@
                     <?php 
 
                         if($program_bantuan->sasaran_program == 1){
-                            echo 'Penduduk Perorangan';
+                            echo 'Penduduk';
                         } elseif ($program_bantuan->sasaran_program == 2) {
                             echo 'Keluarga/KK';
                         } else {

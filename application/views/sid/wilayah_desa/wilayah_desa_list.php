@@ -50,7 +50,7 @@
             </div>
         
         <table class="table table-hover table-bordered tabel-daftar" style="margin-bottom: 15px">
-            <thead class="bg-gray disabled color-palette">
+            <thead class="bg-gray color-palette">
             <tr>
                 <th>No</th>
         		<th>Aksi</th>
@@ -68,7 +68,7 @@
                 <a href="<?= site_url('wilayah_desa/update/'.$wilayah_desa->id) ?>" class="btn bg-orange btn-flat btn-sm" title="Edit"><i class="fa fa-edit"></i></a>
 
                 <a href="<?php echo site_url('wilayah_desa/delete/'.$wilayah_desa->id) ?>"
-                class="btn bg-maroon btn-flat btn-sm aksi-hapus"><i class="fa fa-trash-o"></i></a>
+                class="btn bg-maroon btn-flat btn-sm aksi-hapus"><i class="fa fa-trash"></i></a>
             </td>
 			<td><?php echo $wilayah_desa->nama_dusun ?></td>
 			<td><?php echo $wilayah_desa->kepala_dusun ?></td>

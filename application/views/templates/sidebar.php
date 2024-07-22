@@ -20,17 +20,28 @@
       <div class="user-panel">
         <div class="pull-left image">
         <center>
-          <img style="width: 20%; margin-top: 5px; margin-bottom: 30px;" src="<?= base_url('assets/img/logo/') . $dt['logo_desa']; ?>" class="img-responsive" alt="User Image">
+          <img style="width: 22%; margin-top: 5px; margin-bottom: 30px;" src="<?= base_url('assets/img/logo/') . $dt['logo_desa']; ?>" class="img-responsive" alt="User Image">
         </center>
         </div>
         <br>
         <br>
-        <div class="info">
-          <p style="font-size: 10px;"><?= $data['sebutan_desa'] ?> <?= $dt['nama_desa'] ?></p>
-          <p style="font-size: 9px;">Kec. <?= $dt['nama_kecamatan'] ?>, Kab. <?= $dt['nama_kabupaten'] ?></p>
+        <div class="info" style="margin-top:38px;">
+          <p style="font-size: 9px; letter-spacing: 0.5px;"><?= $data['sebutan_desa'] ?> <?= $dt['nama_desa'] ?></p>
+          <p class="text-left" style="font-size: 9px;">Kec. <?= $dt['nama_kecamatan'] ?>, Kab. <?= $dt['nama_kabupaten'] ?></p>
         </div>
       </div>
       <br>
+
+       <form action="#" method="get" class="sidebar-form">
+        <div class="input-group">
+          <input type="text" name="q" class="input-sm form-control" placeholder="Search...">
+          <span class="input-group-btn">
+                <button type="submit" name="search" id="search-btn" class="btn btn-flat btn-sm">
+                  <i class="fa fa-search"></i>
+                </button>
+              </span>
+        </div>
+      </form>
         
         <ul class="sidebar-menu" data-widget="tree">
 
@@ -81,9 +92,9 @@
 
         <?php foreach($subMenu as $sm) : ?>
           <?php if($title == $sm['title']) : ?>
-             <li class="active" style="font-size: 12px;">
+             <li class="active" style="font-size: 11px;">
           <?php else : ?>
-                 <li style="font-size: 12px;">
+                 <li style="font-size: 11px;">
           <?php endif; ?>
                     <a href="<?= base_url($sm['url']); ?>">
                       <?php if($title == $sm['title']) : ?>

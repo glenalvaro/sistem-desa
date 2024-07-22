@@ -15,11 +15,11 @@
         <div class="col-md-12">
             <div class="box box-info">
                 <div class="box-header with-border">
-                    <a href="<?= site_url('program_bantuan/form_anggotaPeserta/') . $id; ?>" class="btn btn-social btn-flat btn-success btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"><i class="fa fa-plus"></i> Tambah Peserta</a>
+                    <a href="<?= site_url('program_bantuan/form_anggotaPeserta/') . $id; ?>" class="btn btn-social btn-success btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"><i class="fa fa-plus"></i> Tambah Peserta</a>
 
-                    <a target="_blank" href="<?= site_url('program_bantuan/cetak_datapeserta/') . $id; ?>" class="btn btn-social btn-flat bg-purple btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"><i class="fa fa-print"></i> Cetak</a>
+                    <a target="_blank" href="<?= site_url('program_bantuan/cetak_datapeserta/') . $id; ?>" class="btn btn-social bg-purple btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"><i class="fa fa-print"></i> Cetak</a>
 
-                    <a href="<?= site_url('program_bantuan'); ?>" class="btn btn-social btn-flat btn-info btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"><i class="fa fa-arrow-circle-left"></i> Kembali Ke Daftar Program Bantuan</a>
+                    <a href="<?= site_url('program_bantuan'); ?>" class="btn btn-social btn-info btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"><i class="fa fa-arrow-circle-left"></i> Kembali Ke Daftar Program Bantuan</a>
                 </div>
                 <div class="box-body">
                     <h5><b>Rincian Program</b></h5>
@@ -33,7 +33,7 @@
                                     <?php 
 
                                         if($sasaran_program == 1){
-                                                echo 'Penduduk Perorangan';
+                                                echo 'Penduduk';
                                         } elseif ($sasaran_program == 2) {
                                                 echo 'Keluarga/KK';
                                         } else {
@@ -65,8 +65,8 @@
                 <div class="box-body">
                     <h5><b>Daftar Peserta</b></h5>
                    <div class="table-responsive">
-                       <table class="table table-bordered table-striped dataTable table-hover tabel-daftar">
-                         <thead class="bg-gray disabled color-palette">
+                       <table id="datatables-sistem" class="table table-bordered table-striped dataTable table-hover tabel-daftar">
+                         <thead class="bg-gray color-palette">
                          <tr>
                             <th rowspan="2" class="padat"><input type="checkbox" id="checkall"></th>
                             <th rowspan="2" class="padat">No</th>
@@ -98,7 +98,6 @@
                         </tr>
                         </thead>
                         <tbody>
-                             <?php if ($peserta_list) : ?>
                              <?php
                              $no = 1;
                             foreach ($peserta_list as $value) : ?>
@@ -107,18 +106,18 @@
                                 <td class="padat"><?= $no++; ?></td>
                                 <td class="aksi">
                                     <a href="" class="btn bg-orange btn-sm" title="Ubah" data-remote="false" data-toggle="modal" data-target="#edit_pes<?= $value->id; ?>" data-title="Ubah Data Peserta"><i class="fa fa-edit"></i></a>
-                                    <a href="#" data-toggle="modal" data-target="#hapus_pes<?= $value->id; ?>" class="btn bg-maroon btn-sm" title="Hapus"><i class="fa fa-trash-o"></i></a>
+                                    <a href="#" data-toggle="modal" data-target="#hapus_pes<?= $value->id; ?>" class="btn bg-maroon btn-sm" title="Hapus"><i class="fa fa-trash"></i></a>
                                 </td>
                                  <?php if($sasaran_program == 1) : ?>
-                                    <td nowrap=""><a href="#" title="Daftar program untuk peserta"><?= $value->nik_peserta; ?></a></td>
+                                    <td nowrap=""><a href="#"><?= $value->nik_peserta; ?></a></td>
                                     <td nowrap=""><?= $value->nomor_kk; ?></td>
                                     <td nowrap=""><?= $value->nama_peserta; ?></td>
                                 <?php elseif($sasaran_program == 2) : ?>
-                                     <td nowrap=""><a href="#" title="Daftar program untuk peserta"><?= $value->nik_peserta; ?></a></td>
+                                     <td nowrap=""><a href="#"><?= $value->nik_peserta; ?></a></td>
                                     <td nowrap=""><?= $value->nomor_kk; ?></td>
                                     <td nowrap=""><?= $value->nama_peserta; ?></td>
                                 <?php else : ?>
-                                     <td nowrap=""><a href="#" title="Daftar program untuk peserta"><?= $value->ketua_kelompok; ?></a></td>
+                                     <td nowrap=""><a href="#"><?= $value->ketua_kelompok; ?></a></td>
                                      <td nowrap=""><?= $value->kelompok_nama; ?></td>
                                      <td nowrap=""><?= $value->kode_klpk; ?></td>
                                  <?php endif; ?>
@@ -132,11 +131,6 @@
                                 <td nowrap=""><?= $value->keterangan; ?></td>
                             </tr>
                         <?php endforeach; ?>
-                          <?php else : ?>
-                                <tr>
-                                    <td class="text-center" colspan="14">Data Tidak Tersedia</td>
-                                </tr>
-                            <?php endif; ?>
                         </tbody>
                     </table>
                     </div>
@@ -230,8 +224,6 @@ foreach($list_pesban as $row) : $no++; ?>
               <div class="modal-footer">
                 <button class="btn btn-social btn-danger btn-sm" data-dismiss="modal"><i class="fa fa-remove"></i> Batal</button>
                 <button type="submit" class="btn btn-social btn-info btn-sm"  style="float: right;"><i class="fa fa-check"></i> Simpan</button>
-                <button class="btn btn-social btn-flat btn-danger btn-sm" data-dismiss="modal"><i class="fa fa-remove"></i> Batal</button>
-                <button type="submit" class="btn btn-social btn-flat btn-info btn-sm"  style="float: right;"><i class="fa fa-check"></i> Simpan</button>
               </div>
             </form>
           </div>
@@ -264,8 +256,8 @@ foreach($list_pesban as $row) : $no++; ?>
                  </div>
               </div>
               <div class="modal-footer">
-                <button class="btn btn-social btn-flat btn-info btn-sm" data-dismiss="modal"><i class="fa fa-remove"></i> Batal</button>
-                <button type="submit" class="btn btn-social btn-flat btn-danger btn-sm"  style="float: right;"><i class="fa fa-check"></i> Hapus</button>
+                <button class="btn btn-social btn-info btn-sm" data-dismiss="modal"><i class="fa fa-remove"></i> Batal</button>
+                <button type="submit" class="btn btn-social btn-danger btn-sm"  style="float: right;"><i class="fa fa-check"></i> Hapus</button>
               </div>
             </form>
           </div>

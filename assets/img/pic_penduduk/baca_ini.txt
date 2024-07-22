@@ -1,0 +1,4 @@
+Lokasi Folder img/pic_penduduk berisi file-file foto penduduk yang diupload oleh user.
+Identitas file foto :
+1. Foto dengan nama nik mengidentifikasikan data penduduk
+2. foto dengan nama nip mengindentifikasikan data perangkat desa
