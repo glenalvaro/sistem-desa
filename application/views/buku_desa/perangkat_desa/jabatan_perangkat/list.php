@@ -1,11 +1,11 @@
 <div class="content-wrapper">
     <section class="content-header">
        <h1 class="tx-judul">
-         Jabatan Perangkat Desa
+         Jabatan Perangkat
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"> Buku Desa</a></li>
-        <li><a href="#"> Perangkat Desa</a></li>
+        <li><a href="#"> Buku Administrasi</a></li>
+        <li><a href="#"> Perangkat</a></li>
         <li><a href="#"> Jabatan</a></li>
       </ol>
     </section>

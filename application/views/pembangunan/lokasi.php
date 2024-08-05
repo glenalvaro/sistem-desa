@@ -21,7 +21,7 @@
             <div class="box-body" style="margin-left: 10px;">
 
              <!-- panggil map -->
-              <div id="lok_pembangunan1" style="height:420px;"></div>
+              <div id="lok_pembangunan" style="height:420px;"></div>
 
               <br>
                   <div class="form-group">
@@ -52,21 +52,35 @@
 </section>
 </div>
 
+
+<?= $this->load->view('aplikasi/peta'); ?>
+
+<?php foreach($setting as $val ) : ?>
 <script>
+
 var curLocation=[0,0];
 if (curLocation[0]==0 && curLocation[1]==0) {
   curLocation =[<?= $latitude; ?>, <?= $longitude; ?>]; 
 }
 
-var edit_map = L.map('lok_pembangunan').setView([<?= $latitude; ?>, <?= $longitude; ?>], 14);
-L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a>,' +
-      'Sistem Desa © <a href="https://www.mapbox.com/">Mapbox</a>'
-}).addTo(edit_map);
+
+ var edit_map = L.map('lok_pembangunan', {
+    center: [<?= $latitude; ?>, <?= $longitude; ?>],
+    zoom: <?= $val['zoom_peta']; ?>,
+    <?php if($val['jenis_peta'] == 'mapbox') : ?>
+     layers: [peta1]
+    <?php elseif($val['jenis_peta'] == 'leaflet') : ?>
+     layers: [peta4]
+    <?php endif; ?>
+});
+
+
+L.control.layers(baseMaps).addTo(edit_map);
 
 edit_map.attributionControl.setPrefix(false);
 var marker = new L.marker(curLocation, {
-  draggable:'true'
+  draggable:'true',
+  icon:icon_marker
 });
 
 marker.on('dragend', function(event) {
@@ -86,4 +100,6 @@ $("#Lok1, #Lok2").change(function(){
   edit_map.panTo(position);
 });
 edit_map.addLayer(marker);
+
 </script>
+<?php endforeach; ?>

@@ -67,12 +67,12 @@
         <div class="col-md-12">
           <div class="box box-danger">
             <div class="box-header with-border">
-                <a href="<?= base_url('admin/edit_identitas_desa/'). $ids['id']; ?>" class="btn btn-social btn-warning btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"><i class="fa fa-edit"></i> Ubah Data <?= $stg['sebutan_desa']; ?></a>
+                <a href="<?= base_url('identitas_desa/edit_identitas_desa/'). $ids['id']; ?>" class="btn btn-social btn-warning btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"><i class="fa fa-edit"></i> Ubah Data <?= $stg['sebutan_desa']; ?></a>
 
-                <a href="<?= base_url('admin/lokasi_kantor/'). $ids['id']; ?>" class="btn btn-social bg-purple btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"><i class="fa fa-map-marker"></i> Lokasi Kantor <?= $stg['sebutan_desa']; ?></a>
+                <a href="<?= base_url('identitas_desa/lokasi_kantor/'). $ids['id']; ?>" class="btn btn-social bg-purple btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"><i class="fa fa-map-marker"></i> Lokasi Kantor <?= $stg['sebutan_desa']; ?></a>
 
              
-                <a href="<?= base_url('admin/wilayah_desa/'). $ids['id']; ?>" class="btn btn-social btn-info btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"><i class="fa fa-map"></i> Peta Wilayah <?= $stg['sebutan_desa']; ?></a>
+                <a href="<?= base_url('identitas_desa/wilayah_desa/'). $ids['id']; ?>" class="btn btn-social btn-info btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"><i class="fa fa-map"></i> Peta Wilayah <?= $stg['sebutan_desa']; ?></a>
              
             </div>
             <div class="box-body">
@@ -104,7 +104,7 @@
                 </tr>
                 <tr>
                   <td>Nama Kepala <?= $stg['sebutan_desa']; ?></td><td>:</td>
-                  <td><?= strtoupper($cek_jab->nama_pegawai) ?></td>
+                  <td><?= set_ucwords($cek_jab->nama_pegawai) ?>, <?= $cek_jab->gelar ?></td>
                 </tr>
                 <tr>
                   <td>NIP Kepala <?= $stg['sebutan_desa']; ?> </td><td>:</td>

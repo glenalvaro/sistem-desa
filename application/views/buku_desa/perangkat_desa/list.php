@@ -1,11 +1,11 @@
 <div class="content-wrapper">
     <section class="content-header">
        <h1 class="tx-judul">
-        Administrasi Umum <small>Perangkat Desa</small>
+        Administrasi Umum <small>Perangkat</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#">  Administrasi Umum</a></li>
-        <li><a href="#"> Perangkat Desa</a></li>
+        <li><a href="#"> Perangkat</a></li>
       </ol>
     </section>
 
@@ -84,7 +84,7 @@
                 <th style="min-width:10px; text-align: center;">No</th>
                 <th style="min-width:200px; text-align: center;">ACTION</th>
                 <th style="min-width:30px; text-align: center;">FOTO</th>
-        		<th style="min-width:250px; text-align: center;">NAMA PERANGKAT DESA</th>
+        		<th style="min-width:250px; text-align: center;">NAMA PERANGKAT</th>
         		<th style="min-width:200px; text-align: center;">NIK</th>
         		<th style="min-width:180px; text-align: center;">NIP</th>
         		<th style="min-width:150px; text-align: center;">PANGKAT / GOLONGAN</th>

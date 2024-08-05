@@ -15,17 +15,17 @@
             <div class="col-xs-12">
                 <div class="box box-info">
                    <div class="box-header with-border">
-                        <a href="<?= site_url('data_penduduk/create'); ?>" class="btn btn-social btn-flat btn-success btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"><i class="fa fa-plus"></i> Tambah Penduduk</a>
+                        <a href="<?= site_url('data_penduduk/create'); ?>" class="btn btn-social btn-success btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"><i class="fa fa-plus"></i> Tambah Penduduk</a>
 
                         <div class="btn-group-vertical">
-                            <a class="btn btn-social btn-flat bg-navy btn-sm" data-toggle="dropdown"><i class='fa fa-arrow-circle-down'></i> Pilih Aksi Lainnya</a>
+                            <a class="btn btn-social bg-navy btn-sm" data-toggle="dropdown"><i class='fa fa-arrow-circle-down'></i> Pilih Aksi Lainnya</a>
                             <ul class="dropdown-menu" role="menu">
                                 <li>
-                                    <a href="<?= site_url('data_penduduk/cetak_penduduk'); ?>" class="btn btn-social btn-flat btn-block btn-sm" title="Cetak Penduduk" target="_blank"><i class="fa fa-print btn-primary"></i> Cetak</a>
+                                    <a href="<?= site_url('data_penduduk/cetak_penduduk'); ?>" class="btn btn-social btn-block btn-sm" title="Cetak Penduduk" target="_blank"><i class="fa fa-print btn-primary"></i> Cetak</a>
                                 </li>
 
                                 <li>
-                                    <button type="submit" name="delete_checklistPend" class="btn btn-social btn-flat btn-block btn-sm" title="Ceklis pada data yang akan dihapus" disabled="">
+                                    <button type="submit" name="delete_checklistPend" class="btn btn-social btn-block btn-sm" title="Ceklis pada data yang akan dihapus" disabled="">
                                         <i class="fa fa-trash bg-maroon"></i> Hapus Data Terpilih</a>
                                     </button>
                                 </li>
@@ -33,19 +33,19 @@
                         </div>
 
                         <div class="btn-group-vertical">
-                            <a class="btn btn-social btn-flat bg-maroon btn-sm" data-toggle="dropdown"><i class='fa fa-arrow-circle-down'></i> Impor / Ekspor</a>
+                            <a class="btn btn-social bg-maroon btn-sm" data-toggle="dropdown"><i class='fa fa-arrow-circle-down'></i> Impor / Ekspor</a>
                             <ul class="dropdown-menu" role="menu">
                                 <li>
-                                    <a href="<?= site_url('data_penduduk/export_excel'); ?>" class="btn btn-social btn-flat btn-block btn-sm" title="Eksport Penduduk"><i class="fa fa-download"></i> Eksport Penduduk</a>
+                                    <a href="<?= site_url('data_penduduk/export_excel'); ?>" class="btn btn-social btn-block btn-sm" title="Eksport Penduduk"><i class="fa fa-download"></i> Eksport Penduduk</a>
                                 </li>
 
                                 <li>
-                                    <a href="<?= site_url('data_penduduk/export_PDF'); ?>" class="btn btn-social btn-flat btn-block btn-sm" title="Eksport Penduduk PDF"><i class="fa fa-download"></i> Export Penduduk PDF</a>
+                                    <a href="<?= site_url('data_penduduk/export_PDF'); ?>" class="btn btn-social btn-block btn-sm" title="Eksport Penduduk PDF"><i class="fa fa-download"></i> Export Penduduk PDF</a>
                                 </li>
                             </ul>
                         </div>
 
-                        <a href="" class="btn btn-social btn-flat bg-purple btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"><i class="fa fa-refresh"></i>Bersihkan</a>
+                        <a href="" class="btn btn-social bg-purple btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"><i class="fa fa-refresh"></i>Bersihkan</a>
                     </div>
 
 
@@ -107,19 +107,19 @@
                                     <td><?php echo ++$start ?></td>
                                     <td>
                                         <div class="btn-group">
-                                            <a class="btn btn-social btn-flat btn-primary btn-sm" data-toggle="dropdown"><i class='fa fa-arrow-circle-down'></i> Pilih Aksi</a>
+                                            <a class="btn btn-social btn-primary btn-sm" data-toggle="dropdown"><i class='fa fa-arrow-circle-down'></i> Pilih Aksi</a>
                                             <ul class="dropdown-menu" role="menu">
                                                 <li>
-                                                    <a href="<?= site_url('data_penduduk/read/'.$data->id) ?>" class="btn btn-social btn-flat btn-block btn-sm" title=" Detail Data Penduduk"><i class="fa fa-list"></i> Biodata Penduduk</a>
+                                                    <a href="<?= site_url('data_penduduk/read/'.$data->id) ?>" class="btn btn-social btn-block btn-sm" title=" Detail Data Penduduk"><i class="fa fa-list"></i> Biodata Penduduk</a>
                                                 </li>
                                                 <li>
-                                                    <a href="<?= site_url('data_penduduk/update/'.$data->id) ?>" class="btn btn-social btn-flat btn-block btn-sm" title=" Ubah Data Penduduk"><i class="fa fa-edit"></i> Ubah Biodata Penduduk</a>
+                                                    <a href="<?= site_url('data_penduduk/update/'.$data->id) ?>" class="btn btn-social btn-block btn-sm" title=" Ubah Data Penduduk"><i class="fa fa-edit"></i> Ubah Biodata Penduduk</a>
                                                 </li>
                                                 <li>
-                                                    <a href="<?= site_url('data_penduduk/delete/'.$data->id) ?>" class="btn btn-social btn-flat btn-block btn-sm aksi-hapus" title="Hapus Data Penduduk"><i class="fa fa-trash"></i> Hapus Data Penduduk</a>
+                                                    <a href="<?= site_url('data_penduduk/delete/'.$data->id) ?>" class="btn btn-social btn-block btn-sm aksi-hapus" title="Hapus Data Penduduk"><i class="fa fa-trash"></i> Hapus Data Penduduk</a>
                                                 </li>
                                                  <li>
-                                                    <a href="<?= site_url('data_penduduk/cetak_biodata/'.$data->id) ?>" class="btn btn-social btn-flat btn-block btn-sm" title="Cetak Data Penduduk" target="_blank"><i class="fa fa-print"></i> Cetak Biodata Penduduk</a>
+                                                    <a href="<?= site_url('data_penduduk/cetak_biodata/'.$data->id) ?>" class="btn btn-social btn-block btn-sm" title="Cetak Data Penduduk" target="_blank"><i class="fa fa-print"></i> Cetak Biodata Penduduk</a>
                                                 </li>
                                             </ul>
                                         </div>

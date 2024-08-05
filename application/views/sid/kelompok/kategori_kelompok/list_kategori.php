@@ -14,8 +14,8 @@
         <div class="col-md-12">
           <div class="box box-info">
             <div class="box-header with-border"> 
-               <a href="<?= site_url('data_kelompok/kategori_form'); ?>" class="btn btn-social btn-flat btn-success btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"><i class="fa fa-plus"></i> Tambah Kategori Kelompok</a>
-               <a href="<?= site_url('data_kelompok'); ?>" class="btn btn-social btn-flat btn-info btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"><i class="fa fa-arrow-circle-left"></i> Kembali Ke Daftar Kelompok</a>
+               <a href="<?= site_url('data_kelompok/kategori_form'); ?>" class="btn btn-social btn-success btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"><i class="fa fa-plus"></i> Tambah</a>
+               <a href="<?= site_url('data_kelompok'); ?>" class="btn btn-social btn-info btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"><i class="fa fa-arrow-circle-left"></i> Kembali Ke Daftar Kelompok</a>
             </div>
             <div class="box-body">
                 <div class="table-responsive">
@@ -36,8 +36,8 @@
                 <tr>
                   <td width="5%" class="text-center"><?= $no++; ?></td>
                   <td width="10%" class="text-center">
-                      <a href="<?= base_url('data_kelompok/edit_kategori/') . $data['id']; ?>" class="btn btn-warning btn-flat btn-sm" title="Edit Kelompok"><i class="fa fa-edit"></i></a>
-                      <a href="<?= base_url('data_kelompok/hapus_kategori/') . $data['id']; ?>" class="btn btn-danger btn-flat btn-sm aksi-hapus" title="Hapus Kategori Kelompok"><i class="fa fa-trash"></i></a>
+                      <a href="<?= base_url('data_kelompok/edit_kategori/') . $data['id']; ?>" class="btn btn-warning btn-sm" title="Edit Kelompok"><i class="fa fa-edit"></i></a>
+                      <a href="<?= base_url('data_kelompok/hapus_kategori/') . $data['id']; ?>" class="btn btn-danger btn-sm aksi-hapus" title="Hapus Kategori Kelompok"><i class="fa fa-trash"></i></a>
                   </td>
                   <td width="5%"><?= $data['kategori_kelompok']; ?></td>
                   <td><?= $data['deskripsi_kategori']; ?></td>

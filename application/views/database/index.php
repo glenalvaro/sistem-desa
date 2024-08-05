@@ -112,14 +112,14 @@
                  <tr>
                   <td class="col-sm-10"><b>Backup Seluruh Database SID (.sql)</b></td>
                   <td class="col-sm-2">
-                     <a href="<?= base_url('admin/backup_database'); ?>" class="btn btn-social btn-flat btn-block btn-info btn-sm btn-unduh aksi-download" title="Unduh database <?= $db_ls['list_db'] ?>"><i class="fa fa-download"></i> Unduh Database  <b><code><?= $db_ls['size_db'] ?> MB</code></b></a>
+                     <a href="<?= base_url('database/backup_database'); ?>" class="btn btn-social btn-flat btn-block btn-info btn-sm btn-unduh aksi-download" title="Unduh database <?= $db_ls['list_db'] ?>"><i class="fa fa-download"></i> Unduh Database  <b><code><?= $db_ls['size_db'] ?> MB</code></b></a>
                   </td>
                 </tr>
 
                 <tr>
                   <td class="col-sm-10"><b>Backup Seluruh Folder SID (.zip)</b></td>
                   <td class="col-sm-2">
-                     <a href="<?= base_url('admin/backup_files_sid'); ?>" class="btn btn-social btn-flat btn-block btn-info btn-sm btn-unduh aksi-download" title="Folder desa dalam format zip berukuran <?= sizeFormat(folderSize($folder_name)); ?> "><i class="fa fa-download"></i> Unduh Folder Desa  <b><code><?= sizeFormat(folderSize($folder_name)); ?></code></b></a>
+                     <a href="<?= base_url('database/backup_files_sid'); ?>" class="btn btn-social btn-flat btn-block btn-info btn-sm btn-unduh aksi-download" title="Folder desa dalam format zip berukuran <?= sizeFormat(folderSize($folder_name)); ?> "><i class="fa fa-download"></i> Unduh Folder Desa  <b><code><?= sizeFormat(folderSize($folder_name)); ?></code></b></a>
                   </td>
                 </tr>
               </tbody>

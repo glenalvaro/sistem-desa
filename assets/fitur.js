@@ -142,6 +142,16 @@ $("#asuransi_kesehatan").change(function() {
     }
 });
 
+//show hidden form token di aplikasi
+$("#jenis_peta").change(function() {
+        console.log($("#jenis_peta option:selected").val());
+        if ($("#jenis_peta option:selected").val() == 'mapbox') {
+                $('#token_peta').prop('readOnly', false);
+        } else {
+                $('#token_peta').prop('readOnly', true);
+    }
+});
+
 
 // Fetch all the forms we want to apply custom Bootstrap validation styles to
 var forms = document.getElementsByClassName('validation-form');
@@ -206,3 +216,87 @@ if(data1.length == 0){
     }
   });
 });
+
+
+// Editor 
+ $(function () {
+    tinymce.init({
+    selector: 'textarea#basic-example',
+    license_key: 'gpl',
+    height: 500,
+    visualblocks_default_state: true,
+    image_title: true,
+    automatic_uploads: true,
+    file_picker_types: 'image',
+    file_picker_callback: (cb, value, meta) => {
+    const input = document.createElement('input');
+    input.setAttribute('type', 'file');
+    input.setAttribute('accept', 'image/*');
+
+    input.addEventListener('change', (e) => {
+      const file = e.target.files[0];
+
+      const reader = new FileReader();
+      reader.addEventListener('load', () => {
+        /*
+          Note: Now we need to register the blob in TinyMCEs image blob
+          registry. In the next release this part hopefully won't be
+          necessary, as we are looking to handle it internally.
+        */
+        const id = 'blobid' + (new Date()).getTime();
+        const blobCache =  tinymce.activeEditor.editorUpload.blobCache;
+        const base64 = reader.result.split(',')[1];
+        const blobInfo = blobCache.create(id, file, base64);
+        blobCache.add(blobInfo);
+
+        /* call the callback and populate the Title field with the file name */
+        cb(blobInfo.blobUri(), { title: file.name });
+      });
+      reader.readAsDataURL(file);
+    });
+      input.click();
+    },
+    plugins: [
+      'advlist', 'autolink', 'lists', 'link', 'image', 'charmap', 'preview',
+      'anchor', 'searchreplace', 'visualblocks', 'code', 'fullscreen',
+      'insertdatetime', 'media', 'table', 'help'
+    ],
+    toolbar: 'undo redo | link image | blocks | ' +
+    'bold italic backcolor | alignleft aligncenter ' +
+    'alignright alignjustify | bullist numlist outdent indent | ' +
+    'removeformat | help',
+    content_style: 'body { font-family:Rubik,sans-serif; font-size:12px }'
+    });
+});
+
+
+ /* Tanpa Rupiah */
+// var tanpa_rupiah = document.getElementById('tanpa-rupiah');
+//     tanpa_rupiah.addEventListener('keyup', function(e){
+//     tanpa_rupiah.value = formatRupiah(this.value);
+// });
+    
+/* Dengan Rupiah */
+// var dengan_rupiah = document.getElementById('dengan-rupiah');
+//     dengan_rupiah.addEventListener('keyup', function(e){
+//     dengan_rupiah.value = formatRupiah(this.value, 'Rp. ');
+// });
+    
+/* Fungsi */
+function formatRupiah(angka, prefix){
+  var number_string = angka.replace(/[^,\d]/g, '').toString(),
+      split    = number_string.split(','),
+      sisa     = split[0].length % 3,
+      rupiah   = split[0].substr(0, sisa),
+      ribuan   = split[0].substr(sisa).match(/\d{3}/gi);
+            
+      if (ribuan) {
+        separator = sisa ? '.' : '';
+        rupiah += separator + ribuan.join('.');
+      }
+        
+      rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
+      return prefix == undefined ? rupiah : (rupiah ? 'Rp. ' + rupiah : '');
+}
+
+ 

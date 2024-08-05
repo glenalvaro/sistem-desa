@@ -4,7 +4,7 @@
         Kategori
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"> Menu</a></li>
+        <li><a href="#"> Usaha Mikro</a></li>
         <li><a href="#"> Kategori</a></li>
       </ol>
     </section>

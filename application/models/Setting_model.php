@@ -22,11 +22,16 @@ class Setting_model extends CI_Model
         $artikel_page          = $this->input->post('artikel_page');
         $vendor                = $this->input->post('vendor');
         $cek_internet          = $this->input->post('cek_internet');
+        $jenis_peta            = $this->input->post('jenis_peta');
+        $token_peta            = $this->input->post('token_peta');
+        $zoom_peta             = $this->input->post('zoom_peta');
     
         //latar website
         $latar1 = $_FILES['latar_website']['name'];
         //latar login admin
         $latar2 = $_FILES['latar_login_admin']['name'];
+        //marker peta custom
+        $icon_peta = $_FILES['icon_peta']['name'];
 
         //fungsi gambar latar website 1
          if ($latar1) {
@@ -48,7 +53,7 @@ class Setting_model extends CI_Model
                     $this->db->set('latar_website', $new_image);
                 } else {
                      $this->session->set_flashdata('flash-error', 'Gambar latar website gagal di upload ukuran melebihi 2 MB.');
-                     redirect('admin/setting');
+                     redirect('aplikasi');
                 }
             }
 
@@ -72,7 +77,31 @@ class Setting_model extends CI_Model
                     $this->db->set('latar_login_admin', $new_image1);
                 } else {
                    $this->session->set_flashdata('flash-error', 'Gambar latar login admin gagal di upload ukuran melebihi 2 MB.');
-                     redirect('admin/setting');
+                     redirect('aplikasi');
+                }
+            }
+
+        //fungsi upload icon
+         if ($icon_peta) {
+                $config['allowed_types'] = 'png';
+                $config['max_size']      = '2048';
+                $config['upload_path'] = './assets/img/icon/';
+
+                $this->load->library('upload', $config);
+
+                if ($this->upload->do_upload('icon_peta')) {
+                    $old_image3 = $data['setting']['icon_peta'];
+                    $path = './assets/img/icon/';
+
+                    // hapus foto lama
+                    if ($old_image3) {
+                        unlink(FCPATH . $path . $old_image3);
+                    }
+                    $new_image3 = $this->upload->data('file_name');
+                    $this->db->set('icon_peta', $new_image3);
+                } else {
+                   $this->session->set_flashdata('flash-error', 'Icon gagal di upload ukuran melebihi 2 MB.');
+                     redirect('aplikasi');
                 }
             }
 
@@ -87,7 +116,10 @@ class Setting_model extends CI_Model
             'tema_modul'        => $tema_modul,
             'artikel_page'      => $artikel_page,
             'vendor'            => $vendor,
-            'cek_internet'      => $cek_internet
+            'cek_internet'      => $cek_internet,
+            'jenis_peta'        => $jenis_peta,
+            'token_peta'        => $token_peta,
+            'zoom_peta'         => $zoom_peta
 
         ];
 

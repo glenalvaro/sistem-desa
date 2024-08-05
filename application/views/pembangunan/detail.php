@@ -97,7 +97,7 @@
 
               <h4>Lokasi Pembangunan</h4>
                <!-- panggil map -->
-              <div id="detail_lok1" style="height:300px;"></div>
+              <div id="detail_lok" style="height:300px;"></div>
 
              </div>
             </div>
@@ -109,17 +109,26 @@
 </div>
 
 
+<?= $this->load->view('aplikasi/peta'); ?>
+
+<?php foreach($setting as $val ) : ?>
 <script>
-  var map = L.map('detail_lok1').setView([<?= $latitude; ?>,<?= $longitude; ?>], 14);
+ var map = L.map('detail_lok', {
+    center: [<?= $latitude; ?>,<?= $longitude; ?>],
+    zoom: <?= $val['zoom_peta']; ?>,
+    <?php if($val['jenis_peta'] == 'mapbox') : ?>
+     layers: [peta1]
+    <?php elseif($val['jenis_peta'] == 'leaflet') : ?>
+     layers: [peta4]
+    <?php endif; ?>
+});
 
-  var tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    maxZoom: 14,
-    attribution: '&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a>,' +
-      'Sistem Desa © <a href="https://www.mapbox.com/">Mapbox</a>',
-  }).addTo(map);
 
-  var marker = L.marker([<?= $latitude; ?>,<?= $longitude; ?>]).addTo(map)
+L.control.layers(baseMaps).addTo(map);
+
+ L.marker([<?= $latitude; ?>,<?= $longitude; ?>], {icon:icon_marker}).addTo(map)
     .bindPopup("<b>Nama Kegiatan : <?= $nama_kegiatan; ?></b><br/>"+
     "Alamat : <?= $lokasi_pembangunan; ?><br>"+
     "Volume Pembangunan : <?= $volume; ?>");
 </script>
+<?php endforeach; ?>

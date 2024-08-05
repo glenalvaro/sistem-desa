@@ -27,16 +27,18 @@
  }
 </style>
 
+
+<?php foreach($setting as $main) : ?>
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1 class="tx-judul">
-        Lakasi Wilayah Desa
+        Lokasi Wilayah <?= $main['sebutan_desa']; ?>
       </h1>
       <ol class="breadcrumb">
         <li> Menu</li>
-        <li><a href="#">Informasi Desa</a></li>
-        <li class="active">Wilayah Desa</li>
+        <li><a href="#">Informasi <?= $main['sebutan_desa']; ?></a></li>
+        <li class="active">Wilayah <?= $main['sebutan_desa']; ?></li>
       </ol>
     </section>
 
@@ -45,13 +47,13 @@
         <div class="col-md-12">
           <div class="box box-primary">
              <div class="box-header with-border">
-              <a href="<?php echo base_url('admin/identitas_desa'); ?>" class="btn btn-social btn-flat btn-info btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"><i class="fa fa-arrow-circle-o-left"></i> Kembali Ke Identitas Desa</a>
+              <a href="<?php echo base_url('identitas_desa'); ?>" class="btn btn-social btn-flat btn-info btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"><i class="fa fa-arrow-circle-o-left"></i> Kembali Ke Identitas <?= $main['sebutan_desa']; ?></a>
             </div>
-             <form method="POST" action="<?= base_url('admin/wilayah_desa/'); ?><?= $wilayah_edit['id']; ?>" enctype="multipart/form-data" class="form-horizontal">
+             <form method="POST" action="<?= base_url('identitas_desa/wilayah_desa/'); ?><?= $wilayah_edit['id']; ?>" enctype="multipart/form-data" class="form-horizontal">
             <div class="box-body" style="margin-left: 10px;">
 
              <!-- panggil map -->
-              <div id="map_wilayah1" style="height:420px;"></div>
+              <div id="map_wilayah" style="height:420px;"></div>
 
               <br>
               <input type="hidden" name="id" value="<?= $wilayah_edit['id']; ?>">
@@ -70,7 +72,11 @@
 </section>
 </div>
 
+<?php endforeach; ?>
 
+<?= $this->load->view('aplikasi/peta'); ?>
+
+<?php foreach($setting as $val ) : ?>
 <script type="text/javascript">
    function createAreaTooltip(layer) {
             if(layer.areaTooltip) {
@@ -110,11 +116,18 @@
 
 
   <?php foreach($desa as $ds) : ?>
-    var map = L.map('map_wilayah').setView([<?= $ds['latitude']; ?>, <?= $ds['longitude']; ?>], 14);
 
-        L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; <a href="http://openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        }).addTo(map);
+         var map = L.map('map_wilayah', {
+                center: [<?= $ds['latitude']; ?>, <?= $ds['longitude']; ?>],
+                zoom: <?= $val['zoom_peta']; ?>,
+                <?php if($val['jenis_peta'] == 'mapbox') : ?>
+                 layers: [peta1]
+                <?php elseif($val['jenis_peta'] == 'leaflet') : ?>
+                 layers: [peta4]
+                <?php endif; ?>
+            });
+
+        L.control.layers(baseMaps).addTo(map);
 
          var drawnItems = L.featureGroup().addTo(map);
 
@@ -174,3 +187,4 @@
 
   <?php endforeach; ?>
 </script>
+<?php endforeach; ?>

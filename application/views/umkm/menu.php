@@ -41,3 +41,16 @@
           </div>
           </a>
         </div>
+
+
+        <div class="col-md-4 col-sm-6 col-xs-12">
+        <a href="<?= site_url('umkm/peta_umkm') ?>">
+           <div class="info-box bg-maroon">
+            <span class="info-box-icon"><ion-icon name="map-outline"></span>
+            <div class="info-box-content">
+              <br>
+              <h4 style="font-family: rubik, sans-serif;">PETA</h4>
+            </div>
+          </div>
+          </a>
+        </div>

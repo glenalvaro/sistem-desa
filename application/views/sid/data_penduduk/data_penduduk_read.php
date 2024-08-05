@@ -35,17 +35,17 @@
           <div class="box box-primary">
               <div class="box-header with-border">
               <div class="noprint">
-                  <a href="<?= site_url('data_penduduk'); ?>" class="btn btn-social btn-flat btn-info btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"><i class="fa fa-arrow-circle-left"></i> Kembali ke Daftar Penduduk</a>
+                  <a href="<?= site_url('data_penduduk'); ?>" class="btn btn-social btn-info btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"><i class="fa fa-arrow-circle-left"></i> Kembali ke Daftar Penduduk</a>
 
-                  <a href="<?= site_url('data_penduduk/create'); ?>" class="btn btn-social btn-flat btn-success btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"><i class="fa fa-plus"></i> Tambah Penduduk</a>
+                  <a href="<?= site_url('data_penduduk/create'); ?>" class="btn btn-social btn-success btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"><i class="fa fa-plus"></i> Tambah Penduduk</a>
 
                   <?php if ($hubungan_keluarga_id == 1) : ?>
-                    <a href="<?= site_url("data_keluarga/anggota_keluarga/{$id}/{$no_kk}"); ?>" class="btn btn-social btn-flat btn-danger btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"><i class="fa fa-users"></i> Anggota Keluarga</a>
+                    <a href="<?= site_url("data_keluarga/anggota_keluarga/{$id}/{$no_kk}"); ?>" class="btn btn-social btn-danger btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"><i class="fa fa-users"></i> Anggota Keluarga</a>
                   <?php endif; ?>
 
-                  <a target="_blank" href="<?= site_url('data_penduduk/cetak_biodata/'.$id) ?>" class="btn btn-social btn-flat bg-purple btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"><i class="fa fa-print"></i> Cetak Biodata</a>
+                  <a target="_blank" href="<?= site_url('data_penduduk/cetak_biodata/'.$id) ?>" class="btn btn-social bg-purple btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"><i class="fa fa-print"></i> Cetak Biodata</a>
 
-                  <a href="<?= site_url('data_penduduk/update/'.$id) ?>" class="btn btn-social btn-flat bg-yellow btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"><i class="fa fa-edit"></i> Ubah Biodata</a>
+                  <a href="<?= site_url('data_penduduk/update/'.$id) ?>" class="btn btn-social bg-yellow btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"><i class="fa fa-edit"></i> Ubah Biodata</a>
               </div>
               <br>
               <h4 style="font-size: 15px;" class="box-title">Biodata Penduduk (NIK : <?= $nik; ?>)</h4>

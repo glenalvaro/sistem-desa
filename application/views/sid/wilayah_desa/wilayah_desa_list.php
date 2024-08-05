@@ -17,11 +17,11 @@
                <div class="box box-info">
                  <div class="box-header with-border">
                     <div>
-                        <a href="<?= site_url('wilayah_desa/create'); ?>" class="btn btn-social btn-flat btn-success btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"><i class="fa fa-plus"></i> Tambah <?= $dta['sebutan_dusun'] ?></a>
+                        <a href="<?= site_url('wilayah_desa/create'); ?>" class="btn btn-social btn-success btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"><i class="fa fa-plus"></i> Tambah <?= $dta['sebutan_dusun'] ?></a>
 
-                         <a target="_blank" href="<?= site_url('wilayah_desa/cetak'); ?>" class="btn btn-social btn-flat bg-orange btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"><i class="fa fa-print"></i> Cetak</a>
+                         <a target="_blank" href="<?= site_url('wilayah_desa/cetak'); ?>" class="btn btn-social bg-orange btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"><i class="fa fa-print"></i> Cetak</a>
 
-                          <a href="<?= site_url('wilayah_desa'); ?>" class="btn btn-social btn-flat bg-purple btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"><i class="fa fa-repeat"></i> Bersihkan</a>
+                          <a href="<?= site_url('wilayah_desa'); ?>" class="btn btn-social bg-purple btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"><i class="fa fa-repeat"></i> Bersihkan</a>
                   </div>
             </div>
         <div class="box-body">
@@ -65,10 +65,10 @@
             <tr>
 			<td width="10px"><?php echo ++$start ?></td>
             <td style="text-align:center" width="100px">
-                <a href="<?= site_url('wilayah_desa/update/'.$wilayah_desa->id) ?>" class="btn bg-orange btn-flat btn-sm" title="Edit"><i class="fa fa-edit"></i></a>
+                <a href="<?= site_url('wilayah_desa/update/'.$wilayah_desa->id) ?>" class="btn bg-orange btn-sm" title="Edit"><i class="fa fa-edit"></i></a>
 
                 <a href="<?php echo site_url('wilayah_desa/delete/'.$wilayah_desa->id) ?>"
-                class="btn bg-maroon btn-flat btn-sm aksi-hapus"><i class="fa fa-trash"></i></a>
+                class="btn bg-maroon btn-sm aksi-hapus"><i class="fa fa-trash"></i></a>
             </td>
 			<td><?php echo $wilayah_desa->nama_dusun ?></td>
 			<td><?php echo $wilayah_desa->kepala_dusun ?></td>

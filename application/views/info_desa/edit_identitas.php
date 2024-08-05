@@ -40,7 +40,7 @@
 ?>
 
 <?php foreach($tampilData as $key) : ?>
-<form action="<?php echo base_url('admin/update_identitasDesa'); ?>" method="post" enctype="multipart/form-data" class="form-horizontal" autocomplete="off">
+<form action="<?php echo base_url('identitas_desa/update_identitasDesa'); ?>" method="post" enctype="multipart/form-data" class="form-horizontal" autocomplete="off">
 <section class="content">
       <div class="row">
          <div class="col-md-3">
@@ -82,7 +82,7 @@
         <div class="col-md-9">
           <div class="box box-primary">
              <div class="box-header with-border">
-              <a href="<?php echo base_url('admin/identitas_desa'); ?>" class="btn btn-social btn-flat btn-info btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"><i class="fa fa-arrow-circle-o-left"></i> Kembali Ke Identitas <?= $main['sebutan_desa']; ?></a>
+              <a href="<?php echo base_url('identitas_desa/identitas_desa'); ?>" class="btn btn-social btn-flat btn-info btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"><i class="fa fa-arrow-circle-o-left"></i> Kembali Ke Identitas <?= $main['sebutan_desa']; ?></a>
             </div>
             <div class="box-body" style="margin-left: 10px;">
               <div class="form-group">

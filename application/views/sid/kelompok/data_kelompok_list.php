@@ -12,7 +12,7 @@
     <section class="content">
       <div class="row">
       <div class="col-md-3">
-      <a href="<?= base_url('data_kelompok/kelola_kategori'); ?>" class="btn btn-social btn-flat btn-primary btn-sm btn-block margin-bottom"><i class="fa fa-sort"></i> KELOLA KATEGORI KELOMPOK</a>
+      <a href="<?= base_url('data_kelompok/kelola_kategori'); ?>" class="btn btn-social btn-primary btn-sm btn-block margin-bottom"><i class="fa fa-sort"></i> KELOLA KATEGORI KELOMPOK</a>
           <div class="box box-solid">
             <div class="box-header with-border">
               <h4 style="font-size: 14px;" class="box-title">FILTER KELOMPOK</h4>
@@ -38,9 +38,9 @@
         <div class="col-md-9">
           <div class="box box-info">
             <div class="box-header with-border"> 
-               <a href="<?= site_url('data_kelompok/tambah_kelompok'); ?>" class="btn btn-social btn-flat bg-olive btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"><i class="fa fa-plus"></i> Tambah Kelompok Baru</a>
-               <a target="_blank" href="<?= site_url('data_kelompok/cetak_kelompok'); ?>" class="btn btn-social btn-flat bg-purple btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"><i class="fa fa-print"></i> Cetak</a>
-               <a href="<?= site_url('data_kelompok/export_pdf'); ?>" class="btn btn-social btn-flat bg-navy btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"><i class="fa fa-download"></i> Unduh</a>
+               <a href="<?= site_url('data_kelompok/tambah_kelompok'); ?>" class="btn btn-social bg-olive btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"><i class="fa fa-plus"></i> Tambah</a>
+               <a target="_blank" href="<?= site_url('data_kelompok/cetak_kelompok'); ?>" class="btn btn-social bg-purple btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"><i class="fa fa-print"></i> Cetak</a>
+               <a href="<?= site_url('data_kelompok/export_pdf'); ?>" class="btn btn-social bg-navy btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"><i class="fa fa-download"></i> Unduh</a>
             </div>
         <div class="box-body table-penduduk" >
             <div class="row">   
@@ -75,9 +75,9 @@
                 <tr>
                   <td width="5%" class="text-center"><?= $no++; ?></td>
                   <td width="10%" class="text-center">
-                      <a href="<?= site_url('data_kelompok/anggota_kelompok/') . $data->id; ?>" class="btn bg-purple btn-flat btn-sm" title="Rincian Kelompok"><i class="fa fa-list-ol"></i></a>
-                      <a href="<?= site_url('data_kelompok/edit_kelompok/') . $data->id; ?>" class="btn btn-warning btn-flat btn-sm" title="Edit Kelompok"><i class="fa fa-edit"></i></a>
-                      <a href="<?= site_url('data_kelompok/hapus_kelompok/') . $data->id; ?>" class="btn bg-maroon btn-flat btn-sm aksi-hapus" title="Hapus Kategori Kelompok"><i class="fa fa-trash"></i></a>
+                      <a href="<?= site_url('data_kelompok/anggota_kelompok/') . $data->id; ?>" class="btn bg-purple btn-sm" title="Rincian Kelompok"><i class="fa fa-list-ol"></i></a>
+                      <a href="<?= site_url('data_kelompok/edit_kelompok/') . $data->id; ?>" class="btn btn-warning btn-sm" title="Edit Kelompok"><i class="fa fa-edit"></i></a>
+                      <a href="<?= site_url('data_kelompok/hapus_kelompok/') . $data->id; ?>" class="btn bg-maroon btn-sm aksi-hapus" title="Hapus Kategori Kelompok"><i class="fa fa-trash"></i></a>
                   </td>
                   <td width="5%"><?= $data->kode_kelompok; ?></td>
                   <td><?= $data->nama_kelompok; ?></td>

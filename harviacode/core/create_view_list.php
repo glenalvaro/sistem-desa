@@ -85,11 +85,11 @@ foreach ($non_pk as $row) {
 
 $string .= "\n\t\t\t<td style=\"text-align:center\" width=\"200px\">"
         . "\n\t\t\t\t<?php "
-        . "\n\t\t\t\techo anchor(site_url('".$c_url."/read/'.$".$c_url."->".$pk."),'<i class=\"fa fa-eye fa-sm\" aria-hidden=\"true\"></i>','class=\"btn bg-info btn-flat btn-sm\"'); "
+        . "\n\t\t\t\techo anchor(site_url('".$c_url."/read/'.$".$c_url."->".$pk."),'<i class=\"fa fa-eye fa-sm\" aria-hidden=\"true\"></i>','class=\"btn btn-info btn-flat btn-sm\"'); "
         . "\n\t\t\t\techo '  ';"
         . "\n\t\t\t\techo anchor(site_url('".$c_url."/update/'.$".$c_url."->".$pk."),'<i class=\"fa fa-pencil-square-o\" aria-hidden=\"true\"></i>','class=\"btn bg-orange btn-flat btn-sm\"'); "
         . "\n\t\t\t\techo '  ';"
-        . "\n\t\t\t\techo anchor(site_url('".$c_url."/delete/'.$".$c_url."->".$pk."),'<i class=\"fa fa-trash-o\" aria-hidden=\"true\"></i>','class=\"btn bg-maroon btn-flat btn-sm\" Delete','onclick=\"javasciprt: return confirm(\\'Are You Sure ?\\')\"');"
+        . "\n\t\t\t\techo anchor(site_url('".$c_url."/delete/'.$".$c_url."->".$pk."),'<i class=\"fa fa-trash\" aria-hidden=\"true\"></i>','class=\"btn bg-maroon btn-flat btn-sm\" Delete','onclick=\"javasciprt: return confirm(\\'Are You Sure ?\\')\"');"
         . "\n\t\t\t\t?>"
         . "\n\t\t\t</td>";
 

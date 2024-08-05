@@ -20,9 +20,9 @@
                 </button>
               </div>
             </div>
-            <div class="box-body no-padding">
+           <div class="box-body no-padding">
               <ul class="nav nav-pills nav-stacked">
-                <li><a href="<?= base_url('admin/list_user'); ?>"><i class="fa fa-user"></i> Pengguna</a></li>
+                <li><a href="<?= base_url('admin'); ?>"><i class="fa fa-user"></i> Pengguna</a></li>
                 <li class="active"><a href="<?= base_url('admin/role'); ?>"><i class="fa fa-list"></i> Pengaturan Grup</a></li>
               </ul>
             </div>
@@ -33,7 +33,7 @@
         <div class="col-md-9">
           <div class="box box-info">
             <div class="box-header with-border">
-                <a href="" class="btn btn-social btn-flat btn-success btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block" data-toggle="modal" data-target="#new-role"><i class="fa fa-plus"></i> Tambah Grup Baru</a>
+                <a href="" class="btn btn-social btn-flat btn-success btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block" data-toggle="modal" data-target="#new-role"><i class="fa fa-plus"></i> Tambah</a>
             </div>
             <div class="box-body">
               <div class="table-responsive">
@@ -51,9 +51,9 @@
                 <tr>
                   <td class="text-center"><?= $i; ?></td>
                   <td width="30%">
-                      <a href="<?= base_url('admin/roleaccess/') .$r['id']; ?>" class="btn bg-navy btn-flat btn-sm"><i class="fa fa-tv fa-sm" title="Atur Akses Group"></i></a>
-                      <a href="" class="btn bg-orange btn-flat btn-sm" data-toggle="modal" data-target="#editRole<?= $r['id']; ?>"><i class="fa fa-edit"></i></a>
-                      <a href="<?php echo site_url('admin/hapus_role/'.$r['id']) ?>" class="btn bg-maroon btn-flat btn-sm aksi-hapus"><i class="fa fa-trash"></i></a>
+                      <a href="<?= base_url('admin/roleaccess/') .$r['id']; ?>" class="btn btn-primary btn-sm"><i class="fa fa-cogs fa-sm" title="Atur Akses Group"></i></a>
+                      <a href="" class="btn bg-orange btn-sm" data-toggle="modal" data-target="#editRole<?= $r['id']; ?>"><i class="fa fa-edit"></i></a>
+                      <a href="<?php echo site_url('admin/hapus_role/'.$r['id']) ?>" class="btn bg-maroon btn-sm aksi-hapus"><i class="fa fa-trash"></i></a>
                   </td>
                   <td><?= $r['role']; ?></td>
                 </tr>
@@ -85,8 +85,8 @@
                  </div>
               </div>
               <div class="modal-footer">
-                <button class="btn btn-social btn-flat btn-danger btn-sm" data-dismiss="modal" style="float: left;"><i class="fa fa-times"></i> Batal</button>
-                <button type="submit" class="btn btn-social btn-flat btn-info btn-sm"  style="float: right;"><i class="fa fa-check"></i> Simpan</button>
+                <button class="btn btn-social btn-danger btn-sm" data-dismiss="modal" style="float: left;"><i class="fa fa-times"></i> Batal</button>
+                <button type="submit" class="btn btn-social btn-info btn-sm"  style="float: right;"><i class="fa fa-check"></i> Simpan</button>
               </div>
             </form>
           </div>
@@ -112,8 +112,8 @@ foreach($getGroup as $gp) : $no++; ?>
                  </div>
               </div>
               <div class="modal-footer">
-                <button class="btn btn-social btn-flat btn-danger btn-sm" data-dismiss="modal"><i class="fa fa-remove"></i> Batal</button>
-                <button type="submit" class="btn btn-social btn-flat btn-info btn-sm"  style="float: right;"><i class="fa fa-check"></i> Simpan</button>
+                <button class="btn btn-social btn-danger btn-sm" data-dismiss="modal"><i class="fa fa-remove"></i> Batal</button>
+                <button type="submit" class="btn btn-social btn-info btn-sm"  style="float: right;"><i class="fa fa-check"></i> Simpan</button>
               </div>
             </form>
           </div>

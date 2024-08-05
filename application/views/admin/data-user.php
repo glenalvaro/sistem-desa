@@ -23,7 +23,7 @@
             </div>
             <div class="box-body no-padding">
               <ul class="nav nav-pills nav-stacked">
-                <li class="active"><a href="<?= base_url('admin/list_user'); ?>"><i class="fa fa-user"></i> Pengguna</a></li>
+                <li class="active"><a href="<?= base_url('admin'); ?>"><i class="fa fa-user"></i> Pengguna</a></li>
                 <li><a href="<?= base_url('admin/role'); ?>"><i class="fa fa-list"></i> Pengaturan Grup</a></li>
               </ul>
             </div>
@@ -34,7 +34,7 @@
         <div class="col-md-9">
           <div class="box box-info">
             <div class="box-header with-border">
-               <a href="<?= base_url('admin/add_user'); ?>" class="btn btn-social btn-flat btn-success btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"><i class="fa fa-plus"></i> Tambah Pengguna Baru</a>
+               <a href="<?= base_url('admin/add_user'); ?>" class="btn btn-social btn-flat btn-success btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"><i class="fa fa-plus"></i> Tambah</a>
             </div>
             <div class="box-body" style="margin-bottom:100px !important;">
                 <div class="table-responsive">

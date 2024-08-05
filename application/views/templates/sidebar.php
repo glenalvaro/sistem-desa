@@ -15,7 +15,6 @@
 <?php foreach($setting as $data) : ?>
   <?php foreach($desa as $dt) : ?>
 <aside class="main-sidebar">
-    <!-- sidebar: style can be found in sidebar.less -->
     <section class="sidebar">
       <div class="user-panel">
         <div class="pull-left image">
@@ -46,17 +45,10 @@
         <ul class="sidebar-menu" data-widget="tree">
 
         <?php if($user['role_id'] == 1) : ?>
-          <?php if($title == 'Home') : ?>
-            <li class="active">
+            <li class="<?php if ($this->uri->segment('1') == 'home') {echo 'active';} ?>">
               <a href="<?= base_url('home'); ?>">
-                <i class="fa fa-home text-red"></i> <span>Home</span></a>
+                <i class="<?php if ($this->uri->segment('1') == 'home') {echo 'text-blue';} ?> fa fa-home"></i> <span>Home</span></a>
             </li>
-          <?php else : ?>
-            <li>
-              <a href="<?= base_url('home'); ?>">
-                <i class="fa fa-home"></i> <span>Home</span></a>
-            </li>
-          <?php endif; ?>
         <?php endif; ?>
 
         <!-- QUERY MENU  -->
@@ -91,19 +83,10 @@
         ?>
 
         <?php foreach($subMenu as $sm) : ?>
-          <?php if($title == $sm['title']) : ?>
-             <li class="active" style="font-size: 11px;">
-          <?php else : ?>
-                 <li style="font-size: 11px;">
-          <?php endif; ?>
+             <li class="<?php if ($this->uri->segment('1') == $sm['url']) {echo 'active';} ?>" style="font-size: 11px;">
                     <a href="<?= base_url($sm['url']); ?>">
-                      <?php if($title == $sm['title']) : ?>
-                            <i class="<?= $sm['icon'] ?> text-red"></i>
-                            <span> <?= $sm['title'] ?></span>
-                      <?php else : ?>
-                             <i class="<?= $sm['icon'] ?>"></i>
-                             <span> <?= $sm['title'] ?></span>
-                       <?php endif; ?>
+                     <i class="<?php if ($this->uri->segment('1') == $sm['url']) {echo 'text-blue';} ?> <?= $sm['icon'] ?>"></i>
+                     <span> <?= $sm['title'] ?></span>
                     </a>
                   </li>
         <?php endforeach; ?>

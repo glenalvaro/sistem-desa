@@ -2,7 +2,7 @@
 
     <section class="content-header">
        <h1 class="tx-judul">
-         Administrasi Umum - Surat Masuk 
+         Administrasi Umum <small>Surat Masuk</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"> Administrasi Umum</a></li>

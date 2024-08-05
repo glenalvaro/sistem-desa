@@ -1,12 +1,12 @@
 <div class="content-wrapper">
      <section class="content-header">
      <h1 class="tx-judul">
-      Perangkat Desa
+      Perangkat
       <small>Ubah Data</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"> Administrasi Umum</a></li>
-        <li><a href="#"> Perangkat Desa</a></li>
+        <li><a href="#"> Perangkat</a></li>
         <li class="active">Ubah Data</li>
       </ol>
     </section>

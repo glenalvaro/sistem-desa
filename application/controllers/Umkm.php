@@ -69,17 +69,24 @@ class Umkm extends CI_Controller
         $row = $this->Umkm_model->get_by_id($id);
         if ($row) {
             $data = array(
-		'id' => $row->id,
-		'nama' => $row->nama,
-		'no_tlp' => $row->no_tlp,
-		'nama_usaha' => $row->nama_usaha,
-		'id_kategori' => $row->id_kategori,
-		'deskripsi' => $row->deskripsi,
-		'latitude' => $row->latitude,
-		'longitude' => $row->longitude,
-		'tgl_posting' => $row->tgl_posting,
-		'gambar' => $row->gambar,
-	    );
+    		'id' => $row->id,
+    		'nik' => $row->nik,
+    		'no_tlp' => $row->no_tlp,
+            'alamat' => $row->alamat,
+            'harga_produk' => $row->harga_produk,
+            'satuan_produk' => $row->satuan_produk,
+    		'nama_usaha' => $row->nama_usaha,
+            'nama_pemilik' => $row->nama_pemilik,
+            'nama_kat' => $row->nama_kat,
+    		'id_kategori' => $row->id_kategori,
+    		'deskripsi' => $row->deskripsi,
+    		'latitude' => $row->latitude,
+    		'longitude' => $row->longitude,
+    		'tgl_posting' => $row->tgl_posting,
+    		'gambar' => $row->gambar,
+    	);
+
+            $data['get_foto']  = $this->Umkm_model->gambar_UmkmById($id);
           
             $list['title'] = 'Usaha Mikro';
             $this->load->view('templates/header', $list);
@@ -106,8 +113,11 @@ class Umkm extends CI_Controller
             'button' => 'Create',
             'action' => site_url('umkm/create_action'),
     	    'id' => set_value('id'),
-    	    'nama' => set_value('nama'),
+    	    'nik' => set_value('nik'),
     	    'no_tlp' => set_value('no_tlp'),
+            'alamat' => set_value('alamat'),
+            'harga_produk' => set_value('harga_produk'),
+            'satuan_produk' => set_value('satuan_produk'),
     	    'nama_usaha' => set_value('nama_usaha'),
     	    'id_kategori' => set_value('id_kategori'),
     	    'deskripsi' => set_value('deskripsi'),
@@ -116,6 +126,9 @@ class Umkm extends CI_Controller
     	    'tgl_posting' => set_value('tgl_posting'),
     	    'gambar' => set_value('gambar'),
 	       );
+
+        $data['kategori_usaha'] = $this->db->get('kategori_umkm')->result_array();
+        $data['nama_penduduk'] = $this->db->get('data_penduduk')->result_array();
       
         $list['title'] = 'Usaha Mikro';
         $this->load->view('templates/header', $list);
@@ -131,20 +144,8 @@ class Umkm extends CI_Controller
         if ($this->form_validation->run() == FALSE) {
             $this->create();
         } else {
-            $data = array(
-    		'nama' => $this->input->post('nama',TRUE),
-    		'no_tlp' => $this->input->post('no_tlp',TRUE),
-    		'nama_usaha' => $this->input->post('nama_usaha',TRUE),
-    		'id_kategori' => $this->input->post('id_kategori',TRUE),
-    		'deskripsi' => $this->input->post('deskripsi',TRUE),
-    		'latitude' => $this->input->post('latitude',TRUE),
-    		'longitude' => $this->input->post('longitude',TRUE),
-    		'tgl_posting' => $this->input->post('tgl_posting',TRUE),
-    		'gambar' => $this->input->post('gambar',TRUE),
-    	    );
-
-            $this->Umkm_model->insert($data);
-            $this->session->set_flashdata('flash', 'Data ditambahkan');
+            $this->Umkm_model->tambah_umkm();
+            $this->session->set_flashdata('flash', 'Data Ditambahkan');
             redirect(site_url('umkm'));
         }
     }
@@ -165,8 +166,11 @@ class Umkm extends CI_Controller
             'button' => 'Update',
             'action' => site_url('umkm/update_action'),
     		'id' => set_value('id', $row->id),
-    		'nama' => set_value('nama', $row->nama),
+    		'nik' => set_value('nik', $row->nik),
     		'no_tlp' => set_value('no_tlp', $row->no_tlp),
+            'alamat' => set_value('alamat', $row->alamat),
+            'harga_produk' => set_value('harga_produk', $row->harga_produk),
+            'satuan_produk' => set_value('satuan_produk', $row->satuan_produk),
     		'nama_usaha' => set_value('nama_usaha', $row->nama_usaha),
     		'id_kategori' => set_value('id_kategori', $row->id_kategori),
     		'deskripsi' => set_value('deskripsi', $row->deskripsi),
@@ -175,6 +179,9 @@ class Umkm extends CI_Controller
     		'tgl_posting' => set_value('tgl_posting', $row->tgl_posting),
     		'gambar' => set_value('gambar', $row->gambar),
     	    );
+
+            $data['kategori_usaha'] = $this->db->get('kategori_umkm')->result_array();
+            $data['nama_penduduk'] = $this->db->get('data_penduduk')->result_array();
            
             $list['title'] = 'Usaha Mikro';
             $this->load->view('templates/header', $list);
@@ -195,19 +202,8 @@ class Umkm extends CI_Controller
         if ($this->form_validation->run() == FALSE) {
             $this->update($this->input->post('id', TRUE));
         } else {
-            $data = array(
-    		'nama' => $this->input->post('nama',TRUE),
-    		'no_tlp' => $this->input->post('no_tlp',TRUE),
-    		'nama_usaha' => $this->input->post('nama_usaha',TRUE),
-    		'id_kategori' => $this->input->post('id_kategori',TRUE),
-    		'deskripsi' => $this->input->post('deskripsi',TRUE),
-    		'latitude' => $this->input->post('latitude',TRUE),
-    		'longitude' => $this->input->post('longitude',TRUE),
-    		'tgl_posting' => $this->input->post('tgl_posting',TRUE),
-    		'gambar' => $this->input->post('gambar',TRUE),
-	    );
-            $this->Umkm_model->update($this->input->post('id', TRUE), $data);
-            $this->session->set_flashdata('flash', 'Data diupdate');
+            $this->Umkm_model->update_umkm($this->input->post('id', TRUE));
+            $this->session->set_flashdata('flash', 'Data Diupdate');
             redirect(site_url('umkm'));
         }
     }
@@ -216,8 +212,31 @@ class Umkm extends CI_Controller
     {
         $row = $this->Umkm_model->get_by_id($id);
 
+        $foto_umkm = $row->gambar;
+        $path = './assets/img/foto_umkm/';
+
+        // hapus foto yg diupload
+        if ($foto_umkm != '404-image-not-found.jpg') {
+            unlink(FCPATH . $path . $foto_umkm);
+        }
+
+        // cek jika ada foto yang diupload pada galeri
+        $get_foto = $this->Umkm_model->get_gambar($id);
+
+        $lokasi = './assets/img/foto_umkm/galeri/';
+
+        foreach ($get_foto as $row)
+        {
+           $galeri = $row['foto'];
+
+            if ($galeri) {
+                unlink(FCPATH . $lokasi . $galeri);
+            }
+        }
+
         if ($row) {
             $this->Umkm_model->delete($id);
+            $this->db->delete('galeri_umkm', array('id_umkm' => $id));
             $this->session->set_flashdata('flash', 'Data dihapus');
             redirect(site_url('umkm'));
         } else {
@@ -228,88 +247,18 @@ class Umkm extends CI_Controller
 
     public function _rules() 
     {
-	$this->form_validation->set_rules('nama', 'nama', 'trim|required');
+	$this->form_validation->set_rules('nik', 'nik', 'trim|required');
 	$this->form_validation->set_rules('no_tlp', 'no tlp', 'trim|required');
+    $this->form_validation->set_rules('alamat', 'alamat', 'trim|required');
+    $this->form_validation->set_rules('harga_produk', 'harga produk', 'trim|required');
+    $this->form_validation->set_rules('satuan_produk', 'satuan produk', 'trim|required');
 	$this->form_validation->set_rules('nama_usaha', 'nama usaha', 'trim|required');
 	$this->form_validation->set_rules('id_kategori', 'id kategori', 'trim|required');
-	$this->form_validation->set_rules('deskripsi', 'deskripsi', 'trim|required');
 	$this->form_validation->set_rules('latitude', 'latitude', 'trim|required');
 	$this->form_validation->set_rules('longitude', 'longitude', 'trim|required');
-	$this->form_validation->set_rules('tgl_posting', 'tgl posting', 'trim|required');
-	$this->form_validation->set_rules('gambar', 'gambar', 'trim|required');
 
 	$this->form_validation->set_rules('id', 'id', 'trim');
 	$this->form_validation->set_error_delimiters('<span class="text-danger">', '</span>');
-    }
-
-    public function excel()
-    {
-        $this->load->helper('exportexcel');
-        $namaFile = "umkm.xls";
-        $judul = "umkm";
-        $tablehead = 0;
-        $tablebody = 1;
-        $nourut = 1;
-        //penulisan header
-        header("Pragma: public");
-        header("Expires: 0");
-        header("Cache-Control: must-revalidate, post-check=0,pre-check=0");
-        header("Content-Type: application/force-download");
-        header("Content-Type: application/octet-stream");
-        header("Content-Type: application/download");
-        header("Content-Disposition: attachment;filename=" . $namaFile . "");
-        header("Content-Transfer-Encoding: binary ");
-
-        xlsBOF();
-
-        $kolomhead = 0;
-        xlsWriteLabel($tablehead, $kolomhead++, "No");
-    	xlsWriteLabel($tablehead, $kolomhead++, "Nama");
-    	xlsWriteLabel($tablehead, $kolomhead++, "No Tlp");
-    	xlsWriteLabel($tablehead, $kolomhead++, "Nama Usaha");
-    	xlsWriteLabel($tablehead, $kolomhead++, "Id Kategori");
-    	xlsWriteLabel($tablehead, $kolomhead++, "Deskripsi");
-    	xlsWriteLabel($tablehead, $kolomhead++, "Latitude");
-    	xlsWriteLabel($tablehead, $kolomhead++, "Longitude");
-    	xlsWriteLabel($tablehead, $kolomhead++, "Tgl Posting");
-    	xlsWriteLabel($tablehead, $kolomhead++, "Gambar");
-
-	foreach ($this->Umkm_model->get_all() as $data) {
-            $kolombody = 0;
-
-            //ubah xlsWriteLabel menjadi xlsWriteNumber untuk kolom numeric
-            xlsWriteNumber($tablebody, $kolombody++, $nourut);
-    	    xlsWriteLabel($tablebody, $kolombody++, $data->nama);
-    	    xlsWriteLabel($tablebody, $kolombody++, $data->no_tlp);
-    	    xlsWriteLabel($tablebody, $kolombody++, $data->nama_usaha);
-    	    xlsWriteLabel($tablebody, $kolombody++, $data->id_kategori);
-    	    xlsWriteLabel($tablebody, $kolombody++, $data->deskripsi);
-    	    xlsWriteLabel($tablebody, $kolombody++, $data->latitude);
-    	    xlsWriteLabel($tablebody, $kolombody++, $data->longitude);
-    	    xlsWriteLabel($tablebody, $kolombody++, $data->tgl_posting);
-    	    xlsWriteLabel($tablebody, $kolombody++, $data->gambar);
-
-	    $tablebody++;
-            $nourut++;
-        }
-
-        xlsEOF();
-        exit();
-    }
-
-    function pdf()
-    {
-        $data = array(
-            'umkm_data' => $this->Umkm_model->get_all(),
-            'start' => 0
-        );
-        
-        ini_set('memory_limit', '32M');
-        $html = $this->load->view('umkm/umkm_pdf', $data, true);
-        $this->load->library('pdf');
-        $pdf = $this->pdf->load();
-        $pdf->WriteHTML($html);
-        $pdf->Output('umkm.pdf', 'D'); 
     }
 
 
@@ -351,6 +300,109 @@ class Umkm extends CI_Controller
         $this->Umkm_model->hapus_data_kat($where, 'kategori_umkm');
         $this->session->set_flashdata('flash', 'Kategori Dihapus!');
         redirect('umkm/kategori');
+    }
+
+
+    public function peta_umkm() 
+    {
+        $list['user'] = $this->db->get_where('user', ['email' => 
+        $this->session->userdata('email')])->row_array();
+
+        $list['desa'] = $this->db->get('identitas_desa')->result_array();
+
+        $list['setting'] = $this->db->get('setting')->result_array();
+
+        $data['data_umkm'] = $this->Umkm_model->get_all();
+        $data['get_kategori'] = $this->db->get('kategori_umkm')->result_array();
+          
+        $list['title'] = 'Usaha Mikro';
+        $this->load->view('templates/header', $list);
+        $this->load->view('templates/sidebar', $list);
+        $this->load->view('umkm/peta_umkm', $data);
+        $this->load->view('templates/footer');
+    }
+
+    public function get_gambarById()
+    {
+        if(isset($_POST["gambar_id"])){
+            $query = "SELECT * FROM galeri_umkm WHERE id_umkm='" . $_POST["gambar_id"] . "'";
+            $result = $this->db->query($query)->result_array();
+            echo json_encode($result);
+        }
+    }
+
+
+    public function unggah_gambar($id) 
+    {
+        $list['user'] = $this->db->get_where('user', ['email' => 
+        $this->session->userdata('email')])->row_array();
+
+        $list['desa'] = $this->db->get('identitas_desa')->result_array();
+
+        $list['setting'] = $this->db->get('setting')->result_array();
+
+        $row = $this->Umkm_model->get_by_id($id);
+        if ($row) {
+            $data = array(
+            'id' => $row->id,
+            'nama_usaha' => $row->nama_usaha,
+            'nama_pemilik' => $row->nama_pemilik
+        );
+          
+            $list['title'] = 'Usaha Mikro';
+            $this->load->view('templates/header', $list);
+            $this->load->view('templates/sidebar', $list);
+            $this->load->view('umkm/unggah_gambar', $data);
+            $this->load->view('templates/footer');
+            
+        } else {
+            $this->session->set_flashdata('message', 'Record Not Found');
+            redirect(site_url('umkm'));
+        }
+    }
+
+    function proses_unggah()
+    {
+        $config['upload_path']   = './assets/img/foto_umkm/galeri/';
+        $config['allowed_types'] = 'jpeg|jpg|png';
+        $this->load->library('upload',$config);
+
+        if($this->upload->do_upload('userfile')){
+            $token      = $this->input->post('token_foto');
+            $id_umkm    = $this->input->post('id_umkm');
+            $nama       = $this->upload->data('file_name');
+            $this->db->insert('galeri_umkm',array(
+                'id_umkm'  => $id_umkm,
+                'token'    => $token,
+                'foto'     => $nama
+            ));
+        }
+    }
+
+    //Untuk menghapus gambar yang diunggah
+    function hapus_gambar()
+    {
+        //Ambil token foto
+        $token     = $this->input->post('token');
+        $id_foto   = $this->db->get_where('galeri_umkm',array('token'=>$token));
+
+        if($id_foto->num_rows()>0){
+            $hasil = $id_foto->row();
+            $nama_foto = $hasil->foto;
+            if(file_exists($file = FCPATH.'/assets/img/foto_umkm/galeri/'.$nama_foto)){
+                unlink($file);
+            }
+            $this->db->delete('galeri_umkm',array('token'=>$token));
+        }
+        echo "{}";
+    }
+
+    function cetak()
+    {
+        $data['desa'] = $this->db->get('identitas_desa')->result_array();
+        $data['setting'] = $this->db->get('setting')->result_array();
+        $data['list_umkm'] = $this->Umkm_model->get_all();
+        $this->load->view('umkm/cetak', $data);
     }
 
 }

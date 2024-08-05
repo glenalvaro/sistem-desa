@@ -20,16 +20,17 @@
 }
 </style>
 
+<?php foreach($setting as $main) : ?>
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1 class="tx-judul">
-        Lakasi Kantor Desa
+        Lakasi Kantor <?= $main['sebutan_desa']; ?>
       </h1>
       <ol class="breadcrumb">
         <li> Menu</li>
-        <li><a href="#"> Informasi Desa</a></li>
-        <li class="active">Lokasi Kantor Desa</li>
+        <li><a href="#"> Informasi <?= $main['sebutan_desa']; ?></a></li>
+        <li class="active">Lokasi Kantor <?= $main['sebutan_desa']; ?></li>
       </ol>
     </section>
 
@@ -38,13 +39,13 @@
         <div class="col-md-12">
           <div class="box box-primary">
              <div class="box-header with-border">
-              <a href="<?php echo base_url('admin/identitas_desa'); ?>" class="btn btn-social btn-flat btn-info btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"><i class="fa fa-arrow-circle-o-left"></i> Kembali Ke Identitas Desa</a>
+              <a href="<?php echo base_url('identitas_desa'); ?>" class="btn btn-social btn-flat btn-info btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"><i class="fa fa-arrow-circle-left"></i> Kembali Ke Identitas <?= $main['sebutan_desa']; ?></a>
             </div>
-             <form method="POST" action="<?= base_url('admin/lokasi_kantor/'); ?><?= $lokasi_edit['id']; ?>" enctype="multipart/form-data" class="form-horizontal">
+             <form method="POST" action="<?= base_url('identitas_desa/lokasi_kantor/'); ?><?= $lokasi_edit['id']; ?>" enctype="multipart/form-data" class="form-horizontal">
             <div class="box-body" style="margin-left: 10px;">
 
-             <!-- panggil map leafvar -->
-              <div id="lokasi_kantor1" style="height:420px;"></div>
+             <!-- panggil map -->
+              <div id="lokasi_kantor" style="height:420px;"></div>
 
               <br>
                   <div class="form-group">
@@ -75,21 +76,37 @@
 </section>
 </div>
 
+<?php endforeach; ?>
+
+
+<?= $this->load->view('aplikasi/peta'); ?>
+
+<?php foreach($setting as $val ) : ?>
 <script>
+
 var curLocation=[0,0];
 if (curLocation[0]==0 && curLocation[1]==0) {
   curLocation =[<?= $lokasi_edit['latitude']; ?>, <?= $lokasi_edit['longitude']; ?>]; 
 }
 
-var edit_map = L.map('lokasi_kantor').setView([<?= $lokasi_edit['latitude']; ?>, <?= $lokasi_edit['longitude']; ?>], 14);
-L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a>,' +
-      'Sistem Desa © <a href="https://www.mapbox.com/">Mapbox</a>'
-}).addTo(edit_map);
+
+ var edit_map = L.map('lokasi_kantor', {
+    center: [<?= $lokasi_edit['latitude']; ?>, <?= $lokasi_edit['longitude']; ?>],
+    zoom: <?= $val['zoom_peta']; ?>,
+    <?php if($val['jenis_peta'] == 'mapbox') : ?>
+     layers: [peta1]
+    <?php elseif($val['jenis_peta'] == 'leaflet') : ?>
+     layers: [peta4]
+    <?php endif; ?>
+});
+
+
+L.control.layers(baseMaps).addTo(edit_map);
 
 edit_map.attributionControl.setPrefix(false);
 var marker = new L.marker(curLocation, {
-  draggable:'true'
+  draggable:'true',
+  icon:icon_marker
 });
 
 marker.on('dragend', function(event) {
@@ -111,3 +128,4 @@ $("#Lat, #Long").change(function(){
 edit_map.addLayer(marker);
 
 </script>
+<?php endforeach; ?>

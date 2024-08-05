@@ -36,6 +36,8 @@
 <script src="<?php echo base_url() ?>assets/vendor/jquery-slimscroll/jquery.slimscroll.min.js"></script>
 <!-- FastClick -->
 <script src="<?php echo base_url() ?>assets/vendor/fastclick/lib/fastclick.js"></script>
+<!-- TinyMCE -->
+<script src="<?= base_url() ?>assets/vendor/tinymce/tinymce.min.js"></script>
 <!-- Datatables -->
 <script src="<?php echo base_url() ?>assets/vendor/datatables.net/js/jquery.dataTables.min.js"></script>
 <script src="<?php echo base_url() ?>assets/vendor/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
@@ -47,7 +49,7 @@
 <script src="<?php echo base_url() ?>assets/fitur.js"></script>
 
 <!-- fungsi untuk menghapus user_role_access -->
-  <script>
+<script>
     $('.custom-file-input').on('change', function() {
         let fileName = $(this).val().split('\\').pop();
         $(this).next('.custom-file-label').addClass("selected").html(fileName);
@@ -68,9 +70,8 @@
             document.location.href = "<?= base_url('admin/roleaccess/'); ?>" + roleId;
           }
         });
-
     });
-  </script>
+</script>
 
 <script>
   var status = 'online';

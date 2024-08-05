@@ -1,8 +1,7 @@
 <div class="content-wrapper">
     <section class="content-header">
        <h1 class="tx-judul">
-     Administrasi Umum - Surat Keluar
-         <?php echo set_ucwords($title); ?> 
+     Administrasi Umum <small>Surat Keluar</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"> Administrasi Umum</a></li>

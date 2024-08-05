@@ -14,25 +14,25 @@
             <div class="col-xs-12">
                 <div class="box box-info">
                    <div class="box-header with-border">
-                        <a href="<?= site_url('data_keluarga/create'); ?>" class="btn btn-social btn-flat btn-success btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"><i class="fa fa-plus"></i> Tambah KK Baru</a>
+                        <a href="<?= site_url('data_keluarga/create'); ?>" class="btn btn-social btn-success btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"><i class="fa fa-plus"></i> Tambah</a>
 
-                        <a target="_blank" href="<?= site_url('data_keluarga/cetak_keluarga'); ?>" class="btn btn-social btn-flat bg-purple btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"><i class="fa fa-print"></i> Cetak</a>
+                        <a target="_blank" href="<?= site_url('data_keluarga/cetak_keluarga'); ?>" class="btn btn-social bg-purple btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"><i class="fa fa-print"></i> Cetak</a>
 
-                        <a href="<?= site_url('data_keluarga/unduh_keluarga'); ?>" class="btn btn-social btn-flat bg-navy btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"><i class="fa fa-download"></i> Unduh</a>
+                        <a href="<?= site_url('data_keluarga/unduh_keluarga'); ?>" class="btn btn-social bg-navy btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"><i class="fa fa-download"></i> Unduh</a>
 
 
                         <div class="btn-group-vertical">
-                            <a class="btn btn-social btn-flat bg-maroon btn-sm" data-toggle="dropdown"><i class='fa fa-arrow-circle-down'></i> Aksi Data Terpilih</a>
+                            <a class="btn btn-social bg-maroon btn-sm" data-toggle="dropdown"><i class='fa fa-arrow-circle-down'></i> Aksi Data Terpilih</a>
                             <ul class="dropdown-menu" role="menu">
                                 <li>
-                                    <button type="submit" name="delete_checklist" class="btn btn-social btn-flat btn-block btn-sm" title="Ceklis pada data yang akan dihapus" disabled="">
+                                    <button type="submit" name="delete_checklist" class="btn btn-social btn-block btn-sm" title="Ceklis pada data yang akan dihapus" disabled="">
                                         <i class="fa fa-trash"></i> Hapus Data Terpilih</a>
                                     </button>
                                 </li>
                             </ul>
                         </div>
 
-                        <a href="" class="btn btn-social btn-flat bg-purple btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"><i class="fa fa-refresh"></i>Bersihkan</a>
+                        <a href="" class="btn btn-social bg-purple btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"><i class="fa fa-refresh"></i>Bersihkan</a>
                     </div>
 
         <div class="box-body table-penduduk">
@@ -83,9 +83,9 @@
                                     <td><?= $no++; ?></td>
                                     <td>
                                     <center>
-                                    <a href="<?= site_url("data_keluarga/anggota_keluarga/{$data->id}/{$data->no_kk}"); ?>" class="btn bg-purple btn-flat btn-sm" title="Anggota Keluarga"><i class="fa fa-list-ol"></i></a>
-                                    <a href="<?= site_url("data_keluarga/form_peristiwa/{$data->id}/{$data->no_kk}"); ?>" class="btn bg-olive btn-flat btn-sm" title="Tambah Anggota"><i class="fa fa-plus"></i></a>
-                                    <a href="#" class="btn bg-yellow btn-flat btn-sm" title="Edit Data" data-toggle="modal" data-target="#editKK<?= $data->id; ?>"><i class="fa fa-edit"></i></a>
+                                    <a href="<?= site_url("data_keluarga/anggota_keluarga/{$data->id}/{$data->no_kk}"); ?>" class="btn bg-purple btn-sm" title="Anggota Keluarga"><i class="fa fa-list-ol"></i></a>
+                                    <a href="<?= site_url("data_keluarga/form_peristiwa/{$data->id}/{$data->no_kk}"); ?>" class="btn bg-olive btn-sm" title="Tambah Anggota"><i class="fa fa-plus"></i></a>
+                                    <a href="#" class="btn bg-yellow btn-sm" title="Edit Data" data-toggle="modal" data-target="#editKK<?= $data->id; ?>"><i class="fa fa-edit"></i></a>
                                     </center>
                                     </td>
                                     <td>
@@ -187,8 +187,8 @@ foreach($list_keluarga as $lk) : $no++; ?>
 			    </div>
               </div>
               <div class="modal-footer">
-                <button type="reset" class="btn btn-social btn-flat btn-danger btn-sm"  style="float: left;"><i class="fa fa-times"></i> Batal</button>
-                <button type="submit" class="btn btn-social btn-flat btn-info btn-sm"  style="float: right;"><i class="fa fa-check"></i> Simpan</button>
+                <button type="reset" class="btn btn-social btn-danger btn-sm"  style="float: left;"><i class="fa fa-times"></i> Batal</button>
+                <button type="submit" class="btn btn-social btn-info btn-sm"  style="float: right;"><i class="fa fa-check"></i> Simpan</button>
               </div>
             </form>
         </div>

@@ -35,6 +35,9 @@
   <link rel="stylesheet" href="<?php echo base_url() ?>assets/dist/css/skins/_all-skins.min.css">
   <!-- Jquery -->
   <script src="<?php echo base_url() ?>assets/vendor/jquery/dist/jquery.min.js"></script>
+  <!-- Dropzone File -->
+  <link rel="stylesheet" href="<?php echo base_url() ?>assets/vendor/dropzone/min/dropzone.min.css">
+  <script src="<?php echo base_url() ?>assets/vendor/dropzone/min/dropzone.min.js"></script>
   <!-- Google Font -->
   <link rel="stylesheet" href="<?php echo base_url() ?>assets/aset/font_family.css">
   <!-- Leaflet Js for maps -->
@@ -45,7 +48,25 @@
   <!-- Leaflet Draw Polygon for maps-->
   <link rel="stylesheet" href="https://unpkg.com/leaflet-draw@1.0.4/dist/leaflet.draw.css">
   <script src="https://unpkg.com/leaflet-draw@1.0.4/dist/leaflet.draw.js"></script>
+  <!-- Font Sistem -->
   <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+  <!-- Mapbox -->
+  <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.5.0/mapbox-gl.js'></script>
+  <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.5.0/mapbox-gl.css' rel='stylesheet' />
+  <!-- GeoCoder -->
+  <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.3.0/mapbox-gl-geocoder.min.js'></script>
+  <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.3.0/mapbox-gl-geocoder.css' type='text/css' />
+  <!-- Direction API -->
+  <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.js"></script>
+  <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.css">
+  <!-- Route leaflet -->
+  <link rel="stylesheet" href="<?php echo base_url() ?>assets/vendor/leaflet-routing-machine/dist/leaflet-routing-machine.css">
+  <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+  <script src="<?php echo base_url() ?>assets/vendor/leaflet-routing-machine/dist/leaflet-routing-machine.js"></script>
+  <!-- Sidebar leaflet -->
+  <link rel="stylesheet" href="<?php echo base_url() ?>assets/custom/control-sidebar-map.css">
+  <script src="<?php echo base_url() ?>assets/custom/control-sidebar-map.js"></script>
+
   <style>
     body {
       font-family: Rubik, sans-serif;
@@ -363,6 +384,75 @@
   /* ukuran text card menu pada view umkm  */
   .progress-description, .info-box-text {
     font-size: 12px;
+  }
+
+  .peta-judul{
+    position: absolute;
+    top: 65px;
+    left: 65px;
+    z-index: 1000;
+    background-color: #fff;
+    border-bottom: 1px solid #ccc;
+    padding: 10px 20px;
+   
+  }
+  .peta-judul h2{
+    padding: 0;
+    margin: 0;
+    font-family: 'Rubik', sans-serif;
+  }
+
+  /* hide text tinymce */
+  .tox-promotion{
+    display: none;
+  }
+
+  .leaflet-sidebar {
+    z-index: 1000;
+  }
+
+  .leaflet-sidebar .tab-detail-map .list-icon {
+    text-align: center;
+  }
+
+  .leaflet-sidebar .tab-detail-map ion-icon {
+    color: #1a73e8;
+  }
+
+  .leaflet-sidebar .tab-detail-map ion-icon {
+  --ionicon-stroke-width: 16px;
+  }
+
+  .leaflet-sidebar .tab-detail-map ion-icon:hover {
+    color: #106ff3;
+    --ionicon-stroke-width: 25px;
+  }
+
+  .leaflet-sidebar .tab-detail-map .list-icon span{
+    position: absolute;
+    margin-top: 40px;
+    left: 0;
+    right: 0;
+    font-size: 10px;
+    color: #1a73e8;
+  }
+
+  .leaflet-sidebar .chat .item>.message {
+    margin-left: 40px;
+    margin-top: -22px;
+  }
+
+  .leaflet-sidebar .chat .item > img {
+    border: 2px solid transparent;
+    border-radius: unset;
+    width: unset;
+    height: unset;
+  }
+
+  .leaflet-sidebar > .leaflet-control {
+    padding: 0px 5px;
+    font-size: 11px;
+    font-family: 'Rubik', sans-serif;
   }
  
   </style> 
