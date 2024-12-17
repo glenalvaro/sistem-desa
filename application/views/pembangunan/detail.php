@@ -1,14 +1,14 @@
 <div class="content-wrapper">
-    <section class="content-header">
-      <h1 class="tx-judul">
+  <section class="content-header">
+    <h1 class="tx-judul">
         Detail <?= ucwords($nama_kegiatan); ?>
-      </h1>
-      <ol class="breadcrumb">
+    </h1>
+    <ol class="breadcrumb">
         <li> Menu</li>
         <li><a href="#"> Pembangunan</a></li>
         <li class="active">Detail</li>
-      </ol>
-    </section>
+    </ol>
+</section>
 
 <section class="content">
       <div class="row">

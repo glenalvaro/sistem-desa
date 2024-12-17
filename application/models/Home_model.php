@@ -102,4 +102,17 @@ class Home_model extends CI_Model{
     }
   }
 
+  function jmlLayananPenduduk()
+  {   
+    $query = $this->db->get('layanan_penduduk');
+    if($query->num_rows()>0)
+    {
+      return $query->num_rows();
+    }
+    else
+    {
+      return 0;
+    }
+  }
+
 }

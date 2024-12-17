@@ -50,12 +50,11 @@ class Wilayah_desa extends CI_Controller
             'total_rows' => $config['total_rows'],
             'start' => $start,
         );
-        // $this->template->load('template','wilayah_desa/wilayah_desa_list', $data);
-            $list['title'] = 'Wilayah Administratif';
-            $this->load->view('templates/header', $list);
-            $this->load->view('templates/sidebar', $list);
-            $this->load->view('sid/wilayah_desa/wilayah_desa_list', $data);
-            $this->load->view('templates/footer');
+        $list['title'] = 'Wilayah Administratif';
+        $this->load->view('templates/header', $list);
+        $this->load->view('templates/sidebar', $list);
+        $this->load->view('sid/wilayah_desa/wilayah_desa_list', $data);
+        $this->load->view('templates/footer');
     }
 
     public function read($id) 
@@ -70,10 +69,11 @@ class Wilayah_desa extends CI_Controller
         $row = $this->Wilayah_desa_model->get_by_id($id);
         if ($row) {
             $data = array(
-		'id' => $row->id,
-		'nama_dusun' => $row->nama_dusun,
-		'kepala_dusun' => $row->kepala_dusun,
-	    );
+    		'id' => $row->id,
+    		'nama_dusun' => $row->nama_dusun,
+    		'kepala_dusun' => $row->kepala_dusun,
+    	    );
+            
             $list['title'] = 'Wilayah Administratif';
             $this->load->view('templates/header', $list);
             $this->load->view('templates/sidebar', $list);

@@ -35,15 +35,15 @@
 </style>
 <?php foreach($setting as $stg) : ?>
 <div class="content-wrapper">
-    <section class="content-header">
-       <h1 class="tx-judul">
-        Info <?= $stg['sebutan_desa']; ?>
-      </h1>
-      <ol class="breadcrumb">
+<section class="content-header">
+    <h1 class="tx-judul">
+      Info <?= $stg['sebutan_desa']; ?>
+    </h1>
+    <ol class="breadcrumb">
         <li><a href="#"> Menu</a></li>
         <li><a href="#"> Informasi <?= $stg['sebutan_desa']; ?></a></li>
-      </ol>
-    </section>
+    </ol>
+</section>
 
 <form class="form-horizontal" method="post" enctype="multipart/form-data">
 <section class="content">
@@ -82,7 +82,7 @@
                   <a href="<?= site_url('assets/img/logo/') . $ids['logo_desa']; ?>" class="progressive replace foto_penduduk img-identitas img-responsive">
                   <img class="preview" loading="lazy" src="<?= site_url('assets/img/load-foto.gif') ?>" alt="Foto"/></a>
                   <h3 class="text-identitas"><?= $stg['sebutan_desa']; ?> <?= $ids['nama_desa']; ?></h3>
-                  <p class="text-identitas"><b>Kecamatan <?= $ids['nama_kecamatan']; ?>, Kabupaten <?= $ids['nama_kabupaten']; ?>, Provinsi <?= $ids['nama_provinsi']; ?></b></p>
+                  <p style="font-size: 13px;" class="text-identitas"><b>Kecamatan <?= $ids['nama_kecamatan']; ?>, <?= $stg['sebutan_kabupaten']; ?> <?= $ids['nama_kabupaten']; ?>, Provinsi <?= $ids['nama_provinsi']; ?></b></p>
               </div>
                
               <div class="box-header with-border">
@@ -126,6 +126,10 @@
                   <td>Website <?= $stg['sebutan_desa']; ?> </td><td>:</td>
                   <td><code><?= $ids['website_desa']; ?></code></td>
                 </tr>
+                <tr>
+                  <td>Kode Wilayah <?= $stg['sebutan_desa']; ?> </td><td>:</td>
+                  <td><code><?= $ids['kode_wilayah']; ?></code></td>
+                </tr>
 
                 <tr>
                   <th colspan="3" class="subtitle_head"><strong>KECAMATAN</strong></th>
@@ -144,10 +148,10 @@
                 </tr>
                
                 <tr>
-                  <th colspan="3" class="subtitle_head"><strong>KABUPATEN</strong></th>
+                  <th colspan="3" class="subtitle_head"><strong><?= strtoupper($stg['sebutan_kabupaten']); ?></strong></th>
                 </tr>
                 <tr>
-                  <td>Kabupaten </td><td>:</td>
+                  <td><?= $stg['sebutan_kabupaten']; ?> </td><td>:</td>
                   <td><?= $ids['nama_kabupaten']; ?></td>
                 </tr>
   

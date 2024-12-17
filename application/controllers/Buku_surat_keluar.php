@@ -69,14 +69,14 @@ class Buku_surat_keluar extends CI_Controller
         $row = $this->Buku_surat_keluar_model->get_by_id($id);
         if ($row) {
         $data = array(
-		'id' => $row->id,
-		'nama_surat' => $row->nama_surat,
-		'file_surat' => $row->file_surat,
-		'no_surat_kel' => $row->no_surat_kel,
-		'tgl_surat' => $row->tgl_surat,
-		'tujuan' => $row->tujuan,
-		'isi_singkat' => $row->isi_singkat,
-	    );
+        		'id' => $row->id,
+        		'nama_surat' => $row->nama_surat,
+        		'file_surat' => $row->file_surat,
+        		'no_surat_kel' => $row->no_surat_kel,
+        		'tgl_surat' => $row->tgl_surat,
+        		'tujuan' => $row->tujuan,
+        		'isi_singkat' => $row->isi_singkat,
+        	    );
 
         $list['title'] = 'Administrasi Umum';
         $this->load->view('templates/header', $list);

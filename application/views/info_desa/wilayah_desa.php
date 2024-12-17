@@ -3,7 +3,7 @@
     text-align: left;
 }
 
-  label {
+label {
     display: inline-block;
     max-width: 100%;
     margin-bottom: 5px;
@@ -27,20 +27,18 @@
  }
 </style>
 
-
-<?php foreach($setting as $main) : ?>
 <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-      <h1 class="tx-judul">
-        Lokasi Wilayah <?= $main['sebutan_desa']; ?>
-      </h1>
-      <ol class="breadcrumb">
+<?php foreach($setting as $main) : ?>
+<section class="content-header">
+    <h1 class="tx-judul">
+    Lokasi Wilayah <?= $main['sebutan_desa']; ?>
+    </h1>
+    <ol class="breadcrumb">
         <li> Menu</li>
         <li><a href="#">Informasi <?= $main['sebutan_desa']; ?></a></li>
         <li class="active">Wilayah <?= $main['sebutan_desa']; ?></li>
-      </ol>
-    </section>
+    </ol>
+</section>
 
 <section class="content">
       <div class="row">

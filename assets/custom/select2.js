@@ -16,6 +16,12 @@ $(document).ready(function()
 		dropdownAutoWidth : true
 	});
 
+	//select dengan input
+	$('.select-input').select2({
+		dropdownAutoWidth : true,
+		minimumInputLength: 1 
+	});
+
 	// Select2 tanpadrowdown width
 	$('.select2-non-auto').select2({
 	});

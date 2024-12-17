@@ -1,13 +1,13 @@
 <div class="content-wrapper">
-    <section class="content-header">
-       <h1 class="tx-judul">
-         Bantuan
-      </h1>
-      <ol class="breadcrumb">
+  <section class="content-header">
+    <h1 class="tx-judul">
+        Bantuan
+    </h1>
+    <ol class="breadcrumb">
         <li><a href="#"> Menu</a></li>
         <li><a href="#"> Bantuan</a></li>
-      </ol>
-    </section>
+    </ol>
+</section>
 
 <section class="content">
         <div class="row">
@@ -60,16 +60,16 @@
             </div>
         
         <div class="table-responsive">
-        <table class="table table-hover table-bordered" style="margin-bottom: 15px">
-            <thead class="bg-gray color-palette" style="font-size: 10px;">
+        <table class="table table-hover table-bordered table-daftar" style="margin-bottom: 15px">
+            <thead>
             <tr>
-                <th style="min-width:10px; text-align: center;">No</th>
-                <th style="min-width:150px; text-align: center;" class="text-center">AKSI</th>
-                <th style="min-width:200px; text-align: center;">NAMA PROGRAM</th>
-                <th style="min-width:150px; text-align: center;">ASAL DANA</th>
-                <th style="min-width:50px; text-align: center;">JUMLAH PESERTA</th>
-                <th style="min-width:150px; text-align: center;">MASA BERLAKU</th>
-                <th style="min-width:150px; text-align: center;">SASARAN PROGRAM</th>
+                <th style="min-width:10px;">No</th>
+                <th style="min-width:150px;" class="text-center">Aksi</th>
+                <th style="min-width:200px;">Nama Program</th>
+                <th style="min-width:150px;">Asal Dana</th>
+                <th style="min-width:50px;">Jumlah Peserta</th>
+                <th style="min-width:150px;">Masa Berlaku</th>
+                <th style="min-width:150px;">Sasaran Program</th>
             </tr>
             </thead>
             <tbody style="font-size: 10px;">
@@ -79,11 +79,11 @@
                 <td width="10px"><?= ++$start ?></td>
                 <td style="text-align:center" width="200px">
 				<?php 
+                     echo anchor(site_url('program_bantuan/list_peserta/'.$program_bantuan->id),'<i class="fa fa-bars" aria-hidden="true"></i>','class="btn btn-primary btn-sm" title="Daftar Peserta"');
+                    echo ' ';
                     echo anchor(site_url('program_bantuan/update/'.$program_bantuan->id),'<i class="fa fa-pencil-square-o" aria-hidden="true"></i>','class="btn bg-orange btn-sm"'); 
                     echo '  ';
                     echo anchor(site_url('program_bantuan/delete/'.$program_bantuan->id),'<i class="fa fa-trash" aria-hidden="true"></i>','class="btn bg-maroon btn-sm aksi-hapus"');
-                    echo ' ';
-                     echo anchor(site_url('program_bantuan/list_peserta/'.$program_bantuan->id),'<i class="fa fa-th-list" aria-hidden="true"></i>','class="btn btn-primary btn-sm" title="Daftar Peserta"');
                     ?>
 			    </td>
                 <td><?= strtoupper($program_bantuan->nama_program) ?></td>

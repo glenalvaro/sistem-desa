@@ -19,20 +19,18 @@
     border-radius: 2px;
 }
 </style>
-
-<?php foreach($setting as $main) : ?>
 <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-      <h1 class="tx-judul">
-        Lakasi Kantor <?= $main['sebutan_desa']; ?>
-      </h1>
-      <ol class="breadcrumb">
-        <li> Menu</li>
-        <li><a href="#"> Informasi <?= $main['sebutan_desa']; ?></a></li>
-        <li class="active">Lokasi Kantor <?= $main['sebutan_desa']; ?></li>
-      </ol>
-    </section>
+<?php foreach($setting as $main) : ?>
+<section class="content-header">
+    <h1 class="tx-judul">
+      Lakasi Kantor <?= $main['sebutan_desa']; ?>
+    </h1>
+    <ol class="breadcrumb">
+      <li> Menu</li>
+      <li><a href="#"> Informasi <?= $main['sebutan_desa']; ?></a></li>
+      <li class="active">Lokasi Kantor <?= $main['sebutan_desa']; ?></li>
+    </ol>
+</section>
 
 <section class="content">
       <div class="row">

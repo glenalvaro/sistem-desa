@@ -76,7 +76,7 @@ class Buku_surat_keluar_model extends CI_Model
         $this->db->delete($this->table);
     }
 
-    //add data surat keluar
+    //add data surat keluar 
     function tambah_surat_keluar()
     {
         $nama_surat = $this->input->post('nama_surat');
@@ -88,13 +88,13 @@ class Buku_surat_keluar_model extends CI_Model
         if ($file=''){
         }else{
             $config['upload_path']      ='./folder_arsip/surat_keluar';
-            $config['allowed_types']    ='pdf|jpg|png';
-            $config['max_size']         = 5000;
+            $config['allowed_types']    ='pdf';
+            $config['max_size']         = 4000;
             $config['file_name']        = $this->input->post('no_surat_kel', true);
 
             $this->load->library('upload',$config);
             if (!$this->upload->do_upload('file')){
-                $this->session->set_flashdata('flash-error', 'Type Atau Ukuran File Tidak Sesuai');
+                $this->session->set_flashdata('flash-error', 'File yang diunggah maksimal 4 MB Type Pdf');
                 redirect(site_url('buku_surat_keluar'));
             }else{
                 $file = $this->upload->data('file_name');
@@ -122,8 +122,8 @@ class Buku_surat_keluar_model extends CI_Model
 
         if ($upload_file) {
              $config['upload_path']     ='./folder_arsip/surat_keluar/';
-            $config['allowed_types']    ='pdf|jpg|png';
-            $config['max_size']         = 5000;
+            $config['allowed_types']    ='pdf';
+            $config['max_size']         = 4000;
             $config['file_name']        = $data['surat_keluar']['no_surat_kel'];
 
             $this->load->library('upload', $config);

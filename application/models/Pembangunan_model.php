@@ -111,7 +111,7 @@ class Pembangunan_model extends CI_Model
         if ($gambar_pembangunan ='') {
         } else {
             $config['allowed_types'] = 'jpg|png|jpeg';
-            $config['max_size']     = '5048';
+            $config['max_size']     = '2048';
             $config['upload_path'] = './assets/img/pembangunan/';
             $this->load->library('upload', $config);
 

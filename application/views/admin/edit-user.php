@@ -3,7 +3,7 @@
     text-align: left;
 }
 
-  label {
+label {
     display: inline-block;
     max-width: 100%;
     margin-bottom: 5px;
@@ -13,18 +13,16 @@
 }
 </style>
 <div class="content-wrapper">
-     <section class="content-header">
-       <h1 class="tx-judul">
-        Pengguna
-         <small>Ubah Data</small>
-      </h1>
-      <ol class="breadcrumb">
-        <li><a href="#"> Pengaturan</a></li>
-        <li><a href="#"> Pengguna</a></li>
-        <li class="active">Ubah Data</li>
-      </ol>
-    </section>
-
+<section class="content-header">
+<h1 class="tx-judul">
+    Pengguna<small>Ubah Data</small>
+</h1>
+    <ol class="breadcrumb">
+      <li><a href="#"> Pengaturan</a></li>
+      <li><a href="#"> Pengguna</a></li>
+      <li class="active">Ubah Data</li>
+    </ol>
+</section>
 
 <section class="content form-horizontal">
   <form action=" <?= base_url('admin/edit_UserAdmin/'); ?><?= $user_data['id']; ?>" method="POST" enctype="multipart/form-data">

@@ -1,10 +1,10 @@
 <div class="content-wrapper">
-    <section class="content-header">
+  <section class="content-header">
        <h1 class="tx-judul">
         Administrasi Umum <small>Perangkat</small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#">  Administrasi Umum</a></li>
+        <li><a href="#"> Administrasi Umum</a></li>
         <li><a href="#"> Perangkat</a></li>
       </ol>
     </section>
@@ -78,18 +78,18 @@
             </div>
         
         <div class="table-responsive" style="margin-bottom: 10px;">
-        <table class="table table-bordered table-striped table-hover no-footer" style="margin-bottom: 15px">
-            <thead class="color-palette" style="font-size: 10px;">
+        <table class="table table-bordered table-striped table-hover table-daftar" style="margin-bottom: 15px">
+            <thead class="color-palette">
             <tr>
                 <th style="min-width:10px; text-align: center;">No</th>
-                <th style="min-width:200px; text-align: center;">ACTION</th>
-                <th style="min-width:30px; text-align: center;">FOTO</th>
-        		<th style="min-width:250px; text-align: center;">NAMA PERANGKAT</th>
-        		<th style="min-width:200px; text-align: center;">NIK</th>
-        		<th style="min-width:180px; text-align: center;">NIP</th>
-        		<th style="min-width:150px; text-align: center;">PANGKAT / GOLONGAN</th>
-        		<th style="min-width:150px; text-align: center;">JABATAN</th>
-        		<th style="min-width:50px; text-align: center;">STATUS</th>
+                <th style="min-width:150px; text-align: center;">Aksi</th>
+                <th style="min-width:30px; text-align: center;">Foto</th>
+        		<th style="min-width:250px; text-align: center;">Nama, NIPD/NIP, NIK</th>
+        		<th style="min-width:150px; text-align: center;">Tempat, Tanggal Lahir</th>
+                <th style="min-width:150px; text-align: center;">Jenis Kelamin</th>
+        		<th style="min-width:150px; text-align: center;">Agama</th>
+                <th style="min-width:150px; text-align: center;">Jabatan</th>
+        		<th style="min-width:50px; text-align: center;">Status</th>
             </tr>
             </thead>
             <tbody style="font-size: 10px;">
@@ -97,17 +97,16 @@
             <?php foreach ($perangkat_desa_data as $data) : ?>
             <tr>
     			<td width="10px"><?= ++$start ?></td>
-                <td style="text-align:center" width="200px">
-                <?php if($data->status == 0) : ?>
-                <a href="<?= base_url('perangkat_desa/perangkat_unlock/') . $data->id; ?>" class="btn bg-navy btn-sm"  title="Aktifkan"><i class="fa fa-lock">&nbsp;</i></a>
-                <?php elseif($data->status == 1) : ?>
-                <a href="<?= base_url('perangkat_desa/perangkat_lock/') . $data->id; ?>" class="btn bg-navy btn-sm"  title="Nonaktifkan"><i class="fa fa-unlock"></i></a>
-                <?php endif; ?>
-                <a href="<?= base_url('perangkat_desa/read/') . $data->id; ?>" class="btn bg-olive btn-sm"  title="Detail"><i class="fa fa-eye"></i></a>
-                <a href="<?= base_url('perangkat_desa/update/') . $data->id; ?>" class="btn bg-orange btn-sm"  title="Edit"><i class="fa fa-pencil-square-o"></i></a>
-                <?php if($data->jabatan_pegawai != 1) : ?>
-                    <a href="<?= base_url('perangkat_desa/delete/') . $data->id; ?>" class="btn bg-maroon btn-sm aksi-hapus"  title="Hapus"><i class="fa fa-trash"></i></a>
-                <?php endif; ?>
+                <td style="text-align:center" width="150px">
+                        <a href="<?= base_url('perangkat_desa/update/') . $data->id; ?>" class="btn bg-orange btn-sm"  title="Edit"><i class="fa fa-pencil-square-o"></i></a>
+                    <?php if($data->status == 0) : ?>
+                        <a href="<?= base_url('perangkat_desa/perangkat_unlock/') . $data->id; ?>" class="btn bg-navy btn-sm"  title="Aktifkan"><i class="fa fa-lock">&nbsp;</i></a>
+                    <?php elseif($data->status == 1) : ?>
+                        <a href="<?= base_url('perangkat_desa/perangkat_lock/') . $data->id; ?>" class="btn bg-navy btn-sm"  title="Nonaktifkan"><i class="fa fa-unlock"></i></a>
+                    <?php endif; ?>
+                    <?php if($data->jabatan_pegawai != 1) : ?>
+                        <a href="<?= base_url('perangkat_desa/delete/') . $data->id; ?>" class="btn bg-maroon btn-sm aksi-hapus"  title="Hapus"><i class="fa fa-trash"></i></a>
+                    <?php endif; ?>
             </td>
                 <td>
                     <center>
@@ -116,10 +115,24 @@
                         </a>
                     </center>
                 </td>
-    			<td><?= set_ucwords($data->nama_pegawai); ?>., <?= $data->gelar ?></td>
-    			<td><?= $data->nik_pegawai ?></td>
-    			<td><?= $data->nip ?></td>
-    			<td><?= strtoupper($data->pangkat_golongan); ?></td>
+    			<td>
+                    <a href="<?= base_url('perangkat_desa/read/') . $data->id; ?>">
+                        <span style="color: black; font-size: 11px;"><?= set_ucwords($data->nama_pegawai); ?>., <?= $data->gelar ?></span><br>
+                        NIP : <?= $data->nip ?><br>
+                        NIK : <?= $data->nik_pegawai ?>
+                    </a>
+                </td>
+    			<td><?= set_ucwords($data->tempat_lahir); ?>, <?= $data->tgl_lahir; ?></td>
+                <td> 
+                    <?php
+                        if ($data->jenis_kelamin == 1) {
+                             echo "Laki-Laki";
+                         } else {
+                            echo "Perempuan";
+                         } 
+                    ?>  
+                </td>
+                <td><?= set_ucwords($data->agama); ?></td>
     			<td><?= strtoupper($data->jabatan); ?></td>
     			<td>
                    <?php

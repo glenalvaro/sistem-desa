@@ -58,11 +58,14 @@ $(document).ready(function() {
  $(function () {
     $('#datatables-sistem').DataTable({
       'paging'      : true,
-      'lengthChange': false,
+      'lengthChange': true,
       'searching'   : true,
       'ordering'    : false,
       'info'        : true,
-      'autoWidth'   : true
+      'autoWidth'   : true,
+      "language": {
+          "url": "https://cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Indonesian.json"
+      }
     })
 });
 
@@ -94,10 +97,23 @@ $(document).ready(function() {
       format: 'yyyy-mm-dd',
       language: 'id',
     });
-     $('#tgl_surat').datepicker({
+    $('#tgl_surat').datepicker({
       autoclose: true,
       todayHighlight:true,
       format: 'yyyy-mm-dd',
+      language: 'id',
+    });
+    // tgl berlaku surat
+    $('#tgl-dari').datepicker({
+      autoclose: true,
+      todayHighlight:true,
+      format: 'dd-mm-yyyy',
+      language: 'id',
+    });
+    $('#tgl-sampai').datepicker({
+      autoclose: true,
+      todayHighlight:true,
+      format: 'dd-mm-yyyy',
       language: 'id',
     });
 });
@@ -217,14 +233,13 @@ if(data1.length == 0){
   });
 });
 
-
-// Editor 
+// Editor Surat
  $(function () {
     tinymce.init({
-    selector: 'textarea#basic-example',
+    selector: 'textarea#isian_surat',
     license_key: 'gpl',
     height: 500,
-    visualblocks_default_state: true,
+    visualblocks_default_state: false,
     image_title: true,
     automatic_uploads: true,
     file_picker_types: 'image',
@@ -265,24 +280,87 @@ if(data1.length == 0){
     'bold italic backcolor | alignleft aligncenter ' +
     'alignright alignjustify | bullist numlist outdent indent | ' +
     'removeformat | help',
-    content_style: 'body { font-family:Rubik,sans-serif; font-size:12px }'
+    content_style: 
+    'body { background-color: #fff;box-shadow: 0 0 4px rgb(0 0 0 / 15%);box-sizing: border-box;margin: 1rem auto 0;max-width: 820px;min-height: calc(100vh - 1rem);padding: 4rem; }'
     });
 });
 
 
- /* Tanpa Rupiah */
-// var tanpa_rupiah = document.getElementById('tanpa-rupiah');
-//     tanpa_rupiah.addEventListener('keyup', function(e){
-//     tanpa_rupiah.value = formatRupiah(this.value);
-// });
-    
-/* Dengan Rupiah */
-// var dengan_rupiah = document.getElementById('dengan-rupiah');
-//     dengan_rupiah.addEventListener('keyup', function(e){
-//     dengan_rupiah.value = formatRupiah(this.value, 'Rp. ');
-// });
-    
-/* Fungsi */
+// Fungsi Checkbox
+$(document).ready(function(){ 
+  $("#cek_box").click(function(){ 
+      if($(this).is(":checked")) 
+        $(".checklist-data").prop("checked", true);
+      else // Jika checkbox all tidak diceklis
+        $(".checklist-data").prop("checked", false); 
+    });
+//disabled & enabled tombol
+$("input[type=checkbox]").on("change", function(evt) {
+var data1 = $('input[id=data-ceklis]:checked');
+if(data1.length == 0){
+  $("button[name=hapus-ceklis]").prop("disabled", true);
+    }else{
+      $("button[name=hapus-ceklis]").prop("disabled", false);
+    }
+  });
+});
+
+//Show tipe di view teks berjalan
+$(document).ready(function(){
+$("#pilih_tipe").change(function() {
+      console.log($("#pilih_tipe option:selected").val());
+      if ($("#pilih_tipe option:selected").val() == 'external') {
+        $('.external_tipe').prop('hidden', false);
+      } else {
+        $('.external_tipe').prop('hidden', true);
+      }
+    });
+});
+
+// https://stackoverflow.com/questions/26018756/bootstrap-button-drop-down-inside-responsive-table-not-visible-because-of-scroll
+$("document").ready(function() {
+    $(".table-responsive").on("show.bs.dropdown", function(e) {
+        var table = $(this),
+            menu = $(e.target).find(".dropdown-menu"),
+            tableOffsetHeight = table.offset().top + table.height(),
+            menuOffsetHeight =
+            $(e.target).offset().top +
+            $(e.target).outerHeight(true) +
+            menu.outerHeight(true);
+
+        if (menuOffsetHeight > tableOffsetHeight) {
+            table.css("padding-bottom", menuOffsetHeight - tableOffsetHeight);
+            $(".table-responsive")[0].scrollIntoView(false);
+        }
+    });
+
+    $(".table-responsive").on("hide.bs.dropdown", function() {
+        $(this).css("padding-bottom", 0);
+    });
+});
+
+
+//validasi di modal
+$(function() {
+  var formModal = $(".modal form");
+  $(document).on("keydown", ":input:not(textarea):not(:submit)", function(event) {
+          if (event.key === "Enter") {
+            if ((formModal.is(":visible") && !formModal.valid()) || !$("#validasi").valid()) {
+                event.preventDefault();
+                return false;
+          }
+        }
+    });
+});
+
+
+/* Format Uang */
+var tanpa_rupiah = document.querySelector('#tanpa-rupiah');
+    tanpa_rupiah.addEventListener('keyup', function(e){
+    tanpa_rupiah.value = formatRupiah(this.value);
+});
+
+/* Fungsi Format Uang*/
 function formatRupiah(angka, prefix){
   var number_string = angka.replace(/[^,\d]/g, '').toString(),
       split    = number_string.split(','),
@@ -298,5 +376,3 @@ function formatRupiah(angka, prefix){
       rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
       return prefix == undefined ? rupiah : (rupiah ? 'Rp. ' + rupiah : '');
 }
-
- 

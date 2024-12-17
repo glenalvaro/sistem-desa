@@ -1,8 +1,6 @@
 
-
 <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
+<section class="content-header">
        <h1 class="tx-judul">
          Hak Akses Grup
       </h1>
@@ -11,9 +9,8 @@
         <li><a href="#"> Grup</a></li>
         <li class="active">Akses Grup</li>
       </ol>
-    </section>
+</section>
 
-    <!-- table kelola menu -->
 <section class="content">
       <div class="row">
         <div class="col-xs-12">

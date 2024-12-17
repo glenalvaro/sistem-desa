@@ -40,16 +40,6 @@ class User_model extends CI_Model
 		$this->db->delete($table);
 	}
 
-	function delete_semua($id){
-    $this->db->where_in('id', $id);
-    $this->db->delete('data_pemohon');
-  }
-
-  function delete_terpilih($id){
-    $this->db->where_in('id', $id);
-    $this->db->delete('perizinan');
-  }
-
 	function user_lock($id = '', $val = 0)
 	{
 		$sql = "UPDATE user SET is_active = ? WHERE id = ?";

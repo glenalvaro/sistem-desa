@@ -1,5 +1,5 @@
 <div class="content-wrapper">
-    <section class="content-header">
+  <section class="content-header">
        <h1 class="tx-judul">
      Administrasi Umum <small>Surat Keluar</small>
       </h1>
@@ -62,19 +62,18 @@
         		<th style="min-width:100px; text-align: center;">DItujukan Kepada</th>
             </tr>
             </thead>
+            <tbody style="font-size: 10px;">
             <?php if($buku_surat_keluar_data) : ?>
             <?php
-                foreach ($buku_surat_keluar_data as $data)
-                {
+                foreach ($buku_surat_keluar_data as $data) {
             ?>
-            <tbody style="font-size: 11px;">
             <tr>
     			<td style="text-align:center"><?= ++$start ?></td>
                 <td style="text-align:center" width="150px">
                     <a href="<?= site_url('buku_surat_keluar/read/'.$data->id) ?>" class="btn btn-info btn-sm" title="Lihat"><i class="fa fa-eye"></i></a>
-                    <a href="<?= base_url(); ?>/folder_arsip/surat_keluar/<?= $data->file_surat; ?>" class="btn bg-maroon btn-sm" title="Download" download><i class="fa fa-file-pdf-o"></i></a>
+                    <a href="<?= base_url(); ?>/folder_arsip/surat_keluar/<?= $data->file_surat; ?>" class="btn bg-maroon btn-sm pdf-preview" title="Lihat Surat"><i class="fa fa-file-pdf-o"></i></a>
                     <a href="<?= site_url('buku_surat_keluar/update/'.$data->id) ?>" class="btn bg-orange btn-sm" title="Ubah Data"><i class="fa fa-edit"></i></a>
-                    <a href="<?= site_url('buku_surat_keluar/delete/'.$data->id) ?>" class="btn btn-danger btn-sm aksi-hapus" title="Hapus Surat"><i class="fa fa-trash"></i></a>
+                    <a href="<?= site_url('buku_surat_keluar/delete/'.$data->id) ?>" class="btn bg-maroon btn-sm aksi-hapus" title="Hapus Surat"><i class="fa fa-trash"></i></a>
                  </td>
     			<td><?= $data->no_surat_kel ?></td>
                 <td><?= $data->nama_surat ?></td>

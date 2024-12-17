@@ -53,6 +53,9 @@ class Identitas_desa extends CI_Controller{
 
 	public function update_identitasDesa()
 	{
+		//Siapkan nama gambar acak
+        $name_rand = random_bytes(5);
+        $logo_name = bin2hex($name_rand);
 
 		$id = $this->input->post('id');
 		$nama_desa = $this->input->post('nama_desa');
@@ -68,6 +71,9 @@ class Identitas_desa extends CI_Controller{
 		$nip_camat = $this->input->post('nip_camat');
 		$nama_kabupaten = $this->input->post('nama_kabupaten');
 		$nama_provinsi = $this->input->post('nama_provinsi');
+		$kode_wilayah = $this->input->post('kode_wilayah');
+
+		$get['config_desa'] = $this->db->get_where('identitas_desa', ['id' => $id])->row_array();
 
 		//logo desa
 		$logo_desa = $_FILES['logo_desa']['name'];
@@ -87,38 +93,57 @@ class Identitas_desa extends CI_Controller{
 			'nip_camat' => $nip_camat,
 			'nama_kabupaten' => $nama_kabupaten,
 			'nama_provinsi' => $nama_provinsi,
+			'kode_wilayah' => $kode_wilayah,
 		];
 
 		//fungsi upload logo web
 		 if ($logo_desa) {
-                $config['allowed_types'] = 'gif|jpg|png';
-                $config['max_size']      = '2048';
-                $config['upload_path'] = './assets/img/logo/';
+                $config['allowed_types'] = 'jpg|png';
+                $config['max_size']      = '1048';
+                $config['upload_path'] 	 = './assets/img/logo/';
+                $config['file_name']     = $logo_name;
 
                 $this->load->library('upload', $config);
 
                 if ($this->upload->do_upload('logo_desa')) {
-                    $new_image = $this->upload->data('file_name');
-                    $this->db->set('logo_desa', $new_image);
+                    $old_file = $get['config_desa']['logo_desa'];
+                	$path = './assets/img/logo/';
+
+	                // hapus file lama
+	                if ($old_file) {
+	                    unlink(FCPATH . $path . $old_file);
+	                }
+	                // ganti file lama dengan baru
+	                $new_file = $this->upload->data('file_name');
+	                $this->db->set('logo_desa', $new_file);
                 } else {
-                    $this->session->set_flashdata('flash-error', 'Ukuran foto maks 2 MB!');
+                    $this->session->set_flashdata('flash-error', 'Ukuran foto maks 1 MB!');
 					redirect('identitas_desa');
                 }
             }
 
             //fungsi upload logo menu web
              if ($gbr_desa) {
-                $config['allowed_types'] = 'gif|jpg|png';
-                $config['max_size']      = '2048';
-                $config['upload_path'] = './assets/img/kantor/';
+                $config['allowed_types'] = 'jpg|png';
+                $config['max_size']      = '1048';
+                $config['upload_path'] 	 = './assets/img/kantor/';
+                $config['file_name']     = $logo_name;
 
                 $this->load->library('upload', $config);
 
                 if ($this->upload->do_upload('gambar_desa')) {
-                    $new_image = $this->upload->data('file_name');
-                    $this->db->set('gambar_desa', $new_image);
+                    $old_file1 = $get['config_desa']['gambar_desa'];
+                	$path1 = './assets/img/kantor/';
+
+	                // hapus file lama
+	                if ($old_file1) {
+	                    unlink(FCPATH . $path1 . $old_file1);
+	                }
+	                // ganti file lama dengan baru
+	                $new_file1 = $this->upload->data('file_name');
+	                $this->db->set('gambar_desa', $new_file1);
                 } else {
-                    $this->session->set_flashdata('flash-error', 'Ukuran foto maks 2 MB!');
+                    $this->session->set_flashdata('flash-error', 'Ukuran foto maks 1 MB!');
 					redirect('identitas_desa');
                 }
             }

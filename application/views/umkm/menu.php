@@ -1,19 +1,19 @@
       <div class="col-md-4 col-sm-6 col-xs-12">
         <a href="<?= site_url('umkm') ?>">
-           <div class="info-box bg-green">
+           <div class="info-box bg-aqua">
             <span class="info-box-icon"><ion-icon name="cart-outline"></ion-icon></span>
             <div class="info-box-content">
                <?php 
                 $queryProduk = $this->db->query('SELECT * FROM umkm');
                 $count = $queryProduk->num_rows();
                ?>
-              <span class="info-box-text">Produk</span>
+              <span class="info-box-text">UMKM</span>
               <span class="info-box-number"><?= $count; ?></span>
               <div class="progress">
                 <div class="progress-bar" style="width: <?= $count; ?>%;"></div>
               </div>
               <span class="progress-description">
-                    <?= $count; ?> Produk
+                    <?= $count; ?> Data
                   </span>
             </div>
           </div>
@@ -45,11 +45,11 @@
 
         <div class="col-md-4 col-sm-6 col-xs-12">
         <a href="<?= site_url('umkm/peta_umkm') ?>">
-           <div class="info-box bg-maroon">
-            <span class="info-box-icon"><ion-icon name="map-outline"></span>
+           <div class="info-box">
+            <span class="info-box-icon bg-red"><ion-icon name="navigate-circle-outline"></span>
             <div class="info-box-content">
               <br>
-              <h4 style="font-family: rubik, sans-serif;">PETA</h4>
+              <h4 style="font-family: rubik, sans-serif; color: black;">PETA</h4>
             </div>
           </div>
           </a>

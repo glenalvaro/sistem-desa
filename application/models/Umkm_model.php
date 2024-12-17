@@ -27,6 +27,18 @@ class Umkm_model extends CI_Model
         return $result;
     }
 
+    //untuk di view layanan penduduk
+    function get_all_limit()
+    {
+        $sql = "SELECT u.*, k.nama AS nama_kat, p.nama_penduduk as nama_pemilik
+        FROM umkm u 
+        LEFT JOIN kategori_umkm k ON u.id_kategori = k.id
+        LEFT JOIN data_penduduk p ON u.nik = p.nik
+        ORDER BY u.id DESC LIMIT 5";
+        $result = $this->db->query($sql)->result();
+        return $result;
+    }
+
     // get data by id
     function get_by_id($id)
     {
@@ -115,6 +127,10 @@ class Umkm_model extends CI_Model
 
     function tambah_umkm()
     {
+        //Siapkan nama gambar acak
+        $convert_bytes = random_bytes(5);
+        $hasil_bytes = bin2hex($convert_bytes);
+
         $gambar_utama = $_FILES['image']['name'];
 
         if ($gambar_utama ='') {
@@ -122,6 +138,7 @@ class Umkm_model extends CI_Model
             $config['allowed_types'] = 'jpg|png|jpeg';
             $config['max_size']     = '5048';
             $config['upload_path'] = './assets/img/foto_umkm/';
+            $config['file_name'] = $hasil_bytes; //beri nama acak pada gambar
             $this->load->library('upload', $config);
 
             if (!$this->upload->do_upload('image')) {
@@ -172,6 +189,10 @@ class Umkm_model extends CI_Model
 
     function update_umkm($id)
     {
+        //Siapkan nama gambar acak
+        $update_bytes = random_bytes(5);
+        $proses_bytes = bin2hex($update_bytes);
+
         $data['umkm'] = $this->db->get_where($this->table, ['id' => $id])->row_array();
 
         // cek jika ada gambar yang di upload/diupdate
@@ -181,6 +202,7 @@ class Umkm_model extends CI_Model
             $config['allowed_types'] = 'jpg|jpeg|png';
             $config['max_size']     = '5048';
             $config['upload_path'] = './assets/img/foto_umkm/';
+            $config['file_name'] = $proses_bytes; //update nama acak pada gambar
 
             $this->load->library('upload', $config);
 

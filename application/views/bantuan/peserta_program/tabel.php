@@ -1,5 +1,5 @@
 <div class="content-wrapper">
-     <section class="content-header">
+  <section class="content-header">
      <h1 class="tx-judul">
        Data Peserta Bantuan <?= set_ucwords($nama_program); ?>
       </h1>
@@ -8,10 +8,10 @@
         <li><a href="#"> Bantuan</a></li>
         <li class="active">Peserta</li>
       </ol>
-    </section>
+</section>
 
-    <section class="content">
-  	<div class="row">
+<section class="content">
+  <div class="row">
         <div class="col-md-12">
             <div class="box box-info">
                 <div class="box-header with-border">

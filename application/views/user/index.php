@@ -16,9 +16,9 @@
          <div class="col-md-12">
           <div class="box box-primary">
             <div class="box-header with-border">
-               <a href="<?= base_url('user/edit_profile'); ?>" class="btn btn-social btn-flat bg-olive btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"><i class="fa fa-edit"></i> Edit Profile</a>
+               <a href="<?= base_url('user/edit_profile'); ?>" class="btn btn-social bg-olive btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"><i class="fa fa-edit"></i> Edit Profile</a>
 
-                <a href="<?= base_url('user/changePassword'); ?>" class="btn btn-social btn-flat bg-maroon btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"><i class="fa fa-key"></i> Ganti Password</a>
+                <a href="<?= base_url('user/changePassword'); ?>" class="btn btn-social bg-maroon btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"><i class="fa fa-key"></i> Ganti Password</a>
             </div>
             <div class="box-body box-profile">
               <img class="profile-user-img img-responsive" src="<?= site_url('assets/img/profile/').$user['image']; ?>" alt="User profile picture">

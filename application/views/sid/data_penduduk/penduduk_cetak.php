@@ -26,7 +26,7 @@
 			<!-- Print Body -->
 			<div id="body">
 				<div class="header" align="center">
-					<label align="left">Desa : <?= $p['nama_desa'] ?> Kec. : <?= $p['nama_kecamatan'] ?> Kab. : <?= $p['nama_kabupaten'] ?></label>
+					<label align="left"><?= set_ucwords($s['sebutan_desa']); ?> : <?= $p['nama_desa'] ?> Kecamatan. : <?= $p['nama_kecamatan'] ?> <?= set_ucwords($s['sebutan_kabupaten']); ?>. : <?= $p['nama_kabupaten'] ?></label>
 					<h3> DATA PENDUDUK </h3>
 				</div>
 				<br>

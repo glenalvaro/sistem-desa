@@ -1,5 +1,5 @@
 <div class="content-wrapper">
-    <section class="content-header">
+  <section class="content-header">
        <h1 class="tx-judul">
        Buku Administrasi Penduduk
       </h1>

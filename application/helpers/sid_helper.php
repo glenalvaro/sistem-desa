@@ -1577,7 +1577,6 @@ function ttd_perangkat()
 }
 
 //digunakan untuk mengambil nama class dicontroller
-
 function nama_class($text)
 {
     // Replace underscores with spaces

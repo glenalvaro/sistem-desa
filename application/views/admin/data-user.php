@@ -1,15 +1,14 @@
 <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-       <h1 class="tx-judul">
-        Manajemen Pengguna
-      </h1>
-      <ol class="breadcrumb">
-        <li><a href="#"> Pengaturan</a></li>
-        <li class="active"><a href="#"> Kelola Data Pengguna</a></li>
-      </ol>
-    </section>
-    <!-- table kelola menu -->
+  <section class="content-header">
+  <h1 class="tx-judul">
+      Manajemen Pengguna
+  </h1>
+  <ol class="breadcrumb">
+      <li><a href="#"> Pengaturan</a></li>
+      <li class="active"><a href="#"> Kelola Data Pengguna</a></li>
+  </ol>
+</section>
+
 <section class="content">
       <div class="row">
         <div class="col-md-3">

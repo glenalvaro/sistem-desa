@@ -1,5 +1,5 @@
 <div class="content-wrapper">
-    <section class="content-header">
+  <section class="content-header">
       <h1 class="tx-judul">
         Dashboard
       </h1>
@@ -96,13 +96,17 @@
             <span class="info-box-icon bg-maroon"><ion-icon name="home-outline"></ion-icon></span>
 
             <div class="info-box-content">
-              <span class="info-box-text">Layanan Mandiri</span>
+              <span class="info-box-text">Layanan Penduduk</span>
               <span class="info-box-number">
-              
+              <?= $total_layanan; ?>
               </span>
             </div>
           </div>
         </div>
+
+
       </div>
 </section>
 </div>
+
+

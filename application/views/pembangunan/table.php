@@ -52,9 +52,6 @@
         		<th style="min-width:150px; text-align: center;">Sumber Dana</th>
         		<th style="min-width:120px; text-align: center;">Anggaran</th>
         		<th style="min-width:130px; text-align: center;">Presentase</th>
-        		<th style="min-width:100px; text-align: center;">Volume</th>
-        		<th style="min-width:70px; text-align: center;">Tahun</th>
-        		<th style="min-width:100px; text-align: center;">Pelaksana</th>
         		<th style="min-width:100px; text-align: center;">Lokasi</th>
         		<th style="min-width:100px; text-align: center;">Gambar</th>
             </tr>
@@ -66,18 +63,17 @@
             <tr>
 			<td width="10px"><?= ++$start ?></td>
             <td style="text-align:center" width="250px">
+                <a href="<?= base_url('pembangunan/dokumentasi_pembangunan/') . $pembangunan->id; ?>" class="btn bg-purple btn-sm" title="Dokumentasi"><i class="fa fa-bars"></i></a>
                 <a href="<?= base_url('pembangunan/update/') . $pembangunan->id; ?>" class="btn bg-orange btn-sm" title="Edit"><i class="fa fa-edit"></i></a>
                 <a href="<?= base_url('pembangunan/lokasi/') . $pembangunan->id; ?>" class="btn bg-olive btn-sm" title="Lokasi Pembangunan"><i class="fa fa-map"></i></a>
-                <a href="<?= base_url('pembangunan/dokumentasi_pembangunan/') . $pembangunan->id; ?>" class="btn bg-purple btn-sm" title="Dokumentasi"><i class="fa fa-list-ol"></i></a>
                 <?php if($pembangunan->status == '0') : ?>
                 <a href="<?= base_url('pembangunan/status_unlock/') . $pembangunan->id; ?>" class="btn bg-navy btn-sm"  title="Aktifkan"><i class="fa fa-lock">&nbsp;</i></a>
                 <?php elseif($pembangunan->status == '1') : ?>
                 <a href="<?= base_url('pembangunan/status_lock/') . $pembangunan->id; ?>" class="btn bg-navy btn-sm"  title="Nonaktifkan"><i class="fa fa-unlock"></i></a>
                 <?php endif; ?>
                 <a href="<?= base_url('pembangunan/delete/') . $pembangunan->id; ?>" class="btn bg-maroon btn-sm aksi-hapus" title="Hapus"><i class="fa fa-trash"></i></a>
-                <a href="<?= base_url('pembangunan/read/') . $pembangunan->id; ?>" class="btn btn-primary btn-sm" title="Edit Pengguna"><i class="fa fa-eye"></i></a>
             </td>
-			<td><?= set_ucwords($pembangunan->nama_kegiatan) ?></td>
+			<td><a href="<?= base_url('pembangunan/read/') . $pembangunan->id; ?>"><?= set_ucwords($pembangunan->nama_kegiatan) ?></a></td>
 			<td><?= $pembangunan->sumber_dana ?></td>
 			<td><?= rupiah($pembangunan->total_anggaran) ?></td>
 			<td align="center">
@@ -88,9 +84,6 @@
              ?>
              <?= $count->presentase; ?>         
             </td>
-			<td><?= $pembangunan->volume ?></td>
-			<td><?= $pembangunan->tahun_anggaran ?></td>
-			<td><?= $pembangunan->pelaksana_kegiatan ?></td>
 			<td><?= $pembangunan->lokasi_pembangunan ?></td>
 			<td class="text-center">
                 <img class="penduduk_kecil" src="<?= base_url('assets/img/pembangunan/') . $pembangunan->gambar_proyek; ?>" alt="Foto Pembangunan"/>

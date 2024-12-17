@@ -1,6 +1,5 @@
 <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-     <section class="content-header">
+<section class="content-header">
       <h1 class="tx-judul">
         Reset Password Pengguna
       </h1>
@@ -9,7 +8,7 @@
         <li><a href="#">Kelola Data Pengguna</a></li>
         <li class="active">Password</li>
       </ol>
-    </section>
+</section>
 
 <form method="POST" action="<?= base_url('admin/update_password/'); ?><?= $List['id']; ?>" enctype="multipart/form-data">
 <section class="content">

@@ -111,7 +111,7 @@ class Buku_surat_masuk_model extends CI_Model
         $file = $_FILES['file'];
         if ($file=''){
         }else{
-            $config['allowed_types']    = 'pdf|jpg|jpeg|png';
+            $config['allowed_types']    = 'pdf';
             $config['upload_path']      = './folder_arsip/surat_masuk/';
             $config['max_size']         = 4000;
             $config['file_name']        = $this->input->post('no_surat', true);
@@ -119,7 +119,7 @@ class Buku_surat_masuk_model extends CI_Model
             $this->load->library('upload',$config);
 
             if (!$this->upload->do_upload('file')){
-                $this->session->set_flashdata('flash-error', 'Type Atau Ukuran File Tidak Sesuai');
+                $this->session->set_flashdata('flash-error', 'File yang diunggah maksimal 4 MB Type Pdf');
                 redirect(site_url('buku_surat_masuk'));
             }else{
                 $file = $this->upload->data('file_name');
@@ -149,7 +149,7 @@ class Buku_surat_masuk_model extends CI_Model
 
         if ($upload_file1) {
              $config['upload_path']     ='./folder_arsip/surat_masuk/';
-            $config['allowed_types']    ='pdf|jpg|png';
+            $config['allowed_types']    ='pdf';
             $config['max_size']         = 4000;
             $config['file_name']        = $data['surat_masuk']['no_surat'];
 

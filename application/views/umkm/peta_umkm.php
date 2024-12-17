@@ -86,19 +86,17 @@
   border: 1px solid black;
 }
 </style>
-
+<div class="content-wrapper">
+ 
 <div id="sidebar">
-  
 </div>
 
-
-<div class="content-wrapper">
 <?php foreach($desa as $data ) : ?>
 <section class="content">
     <div class="box">
     <div id="map_umkm"></div>
     <div class="peta-title">
-        <h2 class="title-map" style="font-size:15px; color: black;">Peta Usaha Mikro <?= $data['nama_desa']; ?></h2>
+        <h2 class="title-map" style="font-size:15px; color: black;">Peta UMKM <?= $data['nama_desa']; ?></h2>
     </div>
     <div class="btn-group-vertical filter-map">
     <a class="btn btn-social btn-sm" data-toggle="dropdown"><i class="fa fa-filter"></i> Filter</a>
@@ -171,7 +169,7 @@ let myJSON=[
        lat          : <?= $data->latitude ?>,
        long         : <?= $data->longitude ?>,
        foto         : ["<img width='300px' height='105px' src='<?= base_url('assets/img/foto_umkm/') . $data->gambar; ?>' />"],
-       gambar_url   : ['<?= base_url('assets/img/foto_umkm/') . $data->gambar; ?>']
+       gambar_url   : ["<?= base_url('assets/img/foto_umkm/') . $data->gambar; ?>"]
      },
   <?php endforeach; ?>
 ]
@@ -251,7 +249,7 @@ map.addControl(sidebar);
 
             marker_hover.on('click', function(){
             //covert cordinat geojson
-            $.get("https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat="+myJSONcopy[i].lat+"&lon="+myJSONcopy[i].long+"", function(data){
+            jQuery.get("https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat="+myJSONcopy[i].lat+"&lon="+myJSONcopy[i].long+"", function(data){
             const alamat_lengkap = data.display_name;
             sidebar.show();
             sidebar.setContent(
@@ -284,7 +282,7 @@ map.addControl(sidebar);
                             "<span>DiSekitar</span>"+
                       "</div>"+
                       "<div class='col-xs-3 text-center'>"+
-                             "<a href='#'><ion-icon size='large' name='arrow-redo-circle-outline'></ion-icon></a>"+
+                             "<a href='#'><ion-icon size='large' name='share-social-outline'></ion-icon></a>"+
                             "<span>Bagikan</span>"+
                       "</div>"+
                   "</div>"+

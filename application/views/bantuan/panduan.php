@@ -1,15 +1,14 @@
 <div class="content-wrapper">
-    <section class="content-header">
-       <h1 class="tx-judul">
+<section class="content-header">
+    <h1 class="tx-judul">
         Panduan Program Bantuan
-      </h1>
-      <ol class="breadcrumb">
+    </h1>
+    <ol class="breadcrumb">
         <li><a href="#"> Menu</a></li>
         <li><a href="#"> Bantuan</a></li>
         <li><a href="#"> Panduan</a></li>
-      </ol>
-    </section>
-
+    </ol>
+</section>
 
  <section class="content">
     <div class="row">

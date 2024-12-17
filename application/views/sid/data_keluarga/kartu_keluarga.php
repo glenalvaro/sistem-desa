@@ -58,7 +58,7 @@
 						</div>
 						<div class="col-sm-4">
 							<div class="form-group">
-								<label class="col-sm-5 control-label">KABUPATEN</label>
+								<label class="col-sm-5 control-label">KABUPATEN / KOTA</label>
 								<div class="col-sm-7">
 									<p class="text-muted">: <?= $main['nama_kabupaten']; ?></p>
 								</div>

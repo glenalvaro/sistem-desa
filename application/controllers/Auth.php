@@ -5,7 +5,6 @@ class Auth extends CI_Controller{
     public function __construct(){
         parent::__construct();      
         $this->load->library('form_validation');
-
     }
 
     public function index()
@@ -30,7 +29,7 @@ class Auth extends CI_Controller{
 
         //validasi login
         if ($this->form_validation->run() == false) {
-             $data['title'] = 'Log In';
+             $data['title'] = 'Masuk';
              $this->load->view('temp_web/login', $data);
         } else {
             //validasi sukses
@@ -81,14 +80,9 @@ class Auth extends CI_Controller{
 
    public function logout()
    {
-    $this->session->unset_userdata('email');
-    $this->session->unset_userdata('role_id');
-    redirect('auth');
-   }
-
-   public function blocked()
-   {
-    $this->load->view('temp_web/block');
+        $this->session->unset_userdata('email');
+        $this->session->unset_userdata('role_id');
+        redirect('auth');
    }
 
 }

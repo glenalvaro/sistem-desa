@@ -1,8 +1,6 @@
 
 
 <!-- Digunakan untuk mencari rute dalam lokasi kordinat peta -->
-
-
 <!-- Ambil data di table setting -->
 <?php 
     $get        = $this->db->query('SELECT * FROM setting');

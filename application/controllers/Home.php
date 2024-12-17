@@ -28,6 +28,7 @@ class Home extends CI_Controller{
 		$data['total_kelompok'] = $this->home->jmlKelompok();
 		$data['total_wilayah'] = $this->home->jmlWilayah();
 		$data['total_pengguna'] = $this->home->jmlPengguna();
+		$data['total_layanan'] = $this->home->jmlLayananPenduduk();
 
 		$data['title'] = 'Home';
 		$this->load->view('templates/header', $data);

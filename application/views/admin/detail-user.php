@@ -3,7 +3,7 @@
     text-align: left;
 }
 
-  label {
+label {
     display: inline-block;
     max-width: 100%;
     margin-bottom: 5px;
@@ -13,21 +13,18 @@
 }
 </style>
 <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-      <h1 class="tx-judul">
-        Data Pengguna
-      </h1>
-      <ol class="breadcrumb">
-        <li><a href="#">Pengaturan</a></li>
-        <li><a href="#">Kelola Data Pengguna</a></li>
-        <li class="active">Detail</li>
-      </ol>
-    </section>
-
+<section class="content-header">
+  <h1 class="tx-judul">
+     Data Pengguna
+  </h1>
+  <ol class="breadcrumb">
+      <li><a href="#">Pengaturan</a></li>
+      <li><a href="#">Kelola Data Pengguna</a></li>
+      <li class="active">Detail</li>
+  </ol>
+</section>
 
 <?php foreach($detailUser as $ds) : ?>
-
 <section class="content form-horizontal">
       <div class="row">
         <div class="col-md-3">

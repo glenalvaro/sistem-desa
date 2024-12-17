@@ -1,5 +1,5 @@
 <div class="content-wrapper">
-    <section class="content-header">
+  <section class="content-header">
      <h1 class="tx-judul">
        Pembangunan
         <small><?= ($id ? 'Ubah' : 'Tambah') ?> Data</small> 
@@ -9,7 +9,7 @@
         <li><a href="#"> Pembangunan</a></li>
         <li class="active"><?= ($id ? 'Ubah' : 'Tambah') ?> Data</li>
       </ol>
-    </section>
+</section>
 
   <section class="content">
   	<form id="mainform" action="<?php echo $action; ?>" method="post" class="form-horizontal" autocomplete="off" enctype="multipart/form-data">

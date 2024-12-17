@@ -128,12 +128,23 @@ $('#hapus-terpilih').on('click', function (e) {
         confirmButtonText: 'Hapus'
     }).then((result) => {
         if (result.value) {
-             $("#form-delete").submit();
+             $("#delete_all").submit();
         }
     })
 
 });
 
-
+$('.pdf-preview').on('click', function(e) {
+    e.preventDefault();
+    const attr = $(this).attr('href');
+        Swal({
+            customClass: 'swal-lg',
+            title: 'Lihat',
+            html: `<object data="${attr}" style="width: 100%; min-height: 400px;" ></object>`,
+            showCancelButton: true,
+            cancelButtonText: 'Tutup',
+            showConfirmButton: false,
+    })
+});
 
 

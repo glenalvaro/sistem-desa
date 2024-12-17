@@ -75,7 +75,7 @@
                 <tr>
                   <td width="5%" class="text-center"><?= $no++; ?></td>
                   <td width="10%" class="text-center">
-                      <a href="<?= site_url('data_kelompok/anggota_kelompok/') . $data->id; ?>" class="btn bg-purple btn-sm" title="Rincian Kelompok"><i class="fa fa-list-ol"></i></a>
+                      <a href="<?= site_url('data_kelompok/anggota_kelompok/') . $data->id; ?>" class="btn bg-purple btn-sm" title="Rincian Kelompok"><i class="fa fa-bars"></i></a>
                       <a href="<?= site_url('data_kelompok/edit_kelompok/') . $data->id; ?>" class="btn btn-warning btn-sm" title="Edit Kelompok"><i class="fa fa-edit"></i></a>
                       <a href="<?= site_url('data_kelompok/hapus_kelompok/') . $data->id; ?>" class="btn bg-maroon btn-sm aksi-hapus" title="Hapus Kategori Kelompok"><i class="fa fa-trash"></i></a>
                   </td>

@@ -1,11 +1,11 @@
 <div class="content-wrapper">
     <section class="content-header">
        <h1 class="tx-judul">
-        Usaha Mikro
+        Usaha Mikro Kecil Menengah (UMKM)
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"> Menu</a></li>
-        <li><a href="#"> Usaha Mikro</a></li>
+        <li><a href="#"> Daftar Usaha</a></li>
       </ol>
     </section>
 
@@ -20,22 +20,21 @@
                 <a target="_blank" href="<?= site_url('umkm/cetak'); ?>" class="btn btn-social bg-purple btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"><i class="fa fa-print"></i> Cetak</a>
             </div>
 
-
         <div class="box-body">
         <div class="table-responsive">
         <table id="datatables-sistem" class="table table-striped table-hover table-bordered tabel-daftar" style="margin-bottom: 15px">
-        <thead class="color-palette">
+        <thead class="color-palette" style="font-size:10px;">
         <tr>
             <th style="min-width:10px; text-align: center;">No</th>
             <th style="min-width:150px; text-align: center;">Action</th>
     		<th style="min-width:200px; text-align: center;">Nama</th>
     		<th style="min-width:100px; text-align: center;">Telepon</th>
-    		<th style="min-width:200px; text-align: center;">Usaha Mikro</th>
+    		<th style="min-width:200px; text-align: center;">Nama Usaha</th>
     		<th style="min-width:100px; text-align: center;">Kategori</th>
     		<th style="min-width:100px; text-align: center;">Tgl Posting</th>
         </tr>
         </thead>
-        <tbody>
+        <tbody style="font-size:10px;">
              <?php
             foreach ($umkm_data as $umkm) : ?>
             <tr>

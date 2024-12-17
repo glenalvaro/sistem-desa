@@ -31,12 +31,12 @@
 		}
 	</style>
 	<body>
-		<div id="container">
+		<div id="container" class="page-landscape">
 			<link href="<?= base_url()?>assets/lib/print/report.css" rel="stylesheet" type="text/css">
 		<div id="body">
 			<div align="center">
 				<img src="<?= base_url('assets/img/logo/') . $n['logo_desa']; ?>" alt="" style="width:70px; height:auto">
-				<h1>PEMERINTAH <?= strtoupper($n['nama_kabupaten']); ?> </h1>
+				<h1>PEMERINTAH <?= strtoupper($j['sebutan_kabupaten']); ?> <?= strtoupper($n['nama_kabupaten']); ?> </h1>
 				<h1>KECAMATAN <?= strtoupper($n['nama_kecamatan']); ?> </h1>
 				<h1><?= strtoupper($j['sebutan_desa'] . ' ' . $n['nama_desa']); ?></h1>
 				<div style="padding: 5px 20px;">

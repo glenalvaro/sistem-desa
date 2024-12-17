@@ -271,7 +271,7 @@ class Umkm extends CI_Controller
 
         $list['setting'] = $this->db->get('setting')->result_array();
 
-        $list['umkm_kat'] = $this->db->get('kategori_umkm')->result_array();
+        $data['umkm_kat'] = $this->db->get('kategori_umkm')->result_array();
 
         $list['title'] = 'Usaha Mikro';
         $this->load->view('templates/header', $list);

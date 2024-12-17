@@ -1,16 +1,24 @@
 <style>
-  .user-panel>.info {
-    padding: 5px !important; 
-    line-height: 1;
-    position: absolute;
+  .user-panel .info {
+    padding: 2px !important; 
+    line-height: 0.5;
+    position: relative;
     text-align: center;
     left: 0;
     right: 0;
-    margin-top: 30px;
     color: #fff;
-    font-size: 7pt;
     text-transform: capitalize;
-}
+  }
+
+  .user-panel .info .nama_desa{
+    font-size: 11px;
+    letter-spacing: 0.5px;
+  }
+
+  .user-panel .info .nama_kab{
+    font-weight: normal !important;
+    font-size: 10px;
+  }
 </style>
 <?php foreach($setting as $data) : ?>
   <?php foreach($desa as $dt) : ?>
@@ -19,17 +27,18 @@
       <div class="user-panel">
         <div class="pull-left image">
         <center>
-          <img style="width: 22%; margin-top: 5px; margin-bottom: 30px;" src="<?= base_url('assets/img/logo/') . $dt['logo_desa']; ?>" class="img-responsive" alt="User Image">
+          <img style="width: 20%; margin-top: 5px; margin-bottom: 20px;" src="<?= base_url('assets/img/logo/') . $dt['logo_desa']; ?>" class="img-responsive" alt="User Image">
         </center>
         </div>
-        <br>
-        <br>
-        <div class="info" style="margin-top:38px;">
-          <p style="font-size: 9px; letter-spacing: 0.5px;"><?= $data['sebutan_desa'] ?> <?= $dt['nama_desa'] ?></p>
-          <p class="text-left" style="font-size: 9px;">Kec. <?= $dt['nama_kecamatan'] ?>, Kab. <?= $dt['nama_kabupaten'] ?></p>
+        <div class="info">
+          <p class="nama_desa"><?= $data['sebutan_desa'] ?> <?= $dt['nama_desa'] ?></p>
+          <?php if($data['sebutan_kabupaten'] == 'Kabupaten' ) : ?>
+          <p class="nama_kab">Kec. <?= $dt['nama_kecamatan'] ?>, Kab. <?= $dt['nama_kabupaten'] ?></p>
+           <?php elseif($data['sebutan_kabupaten'] == 'Kota' ) : ?>
+          <p class="nama_kab">Kec. <?= $dt['nama_kecamatan'] ?>, Kota. <?= $dt['nama_kabupaten'] ?></p>
+          <?php endif; ?>
         </div>
       </div>
-      <br>
 
        <form action="#" method="get" class="sidebar-form">
         <div class="input-group">
@@ -47,7 +56,7 @@
         <?php if($user['role_id'] == 1) : ?>
             <li class="<?php if ($this->uri->segment('1') == 'home') {echo 'active';} ?>">
               <a href="<?= base_url('home'); ?>">
-                <i class="<?php if ($this->uri->segment('1') == 'home') {echo 'text-blue';} ?> fa fa-home"></i> <span>Home</span></a>
+                <i class="<?php if ($this->uri->segment('1') == 'home') {echo 'text-red';} ?> fa fa-home"></i> <span class="<?php if ($this->uri->segment('1') == 'home') {echo 'text-red';} ?>">Home</span></a>
             </li>
         <?php endif; ?>
 
@@ -66,7 +75,7 @@
         <!-- LOOPING MENU -->
         <?php foreach ($menu as $m) : ?>
         <li class="header">
-          <small><?= $m['menu']; ?></small>
+          <small style="font-size: 11px;"><?= $m['menu']; ?></small>
         </li>
 
 
@@ -77,16 +86,41 @@
                                FROM `user_sub_menu` JOIN `user_menu` 
                                  ON `user_sub_menu`.`menu_id` = `user_menu`.`id`
                               WHERE `user_sub_menu`.`menu_id` = $menuId
-                                AND `user_sub_menu`.`is_active` = 1";
+                                AND `user_sub_menu`.`is_active` = 1
+                              ORDER BY `user_sub_menu`.`id` ASC";
                                 
         $subMenu = $this->db->query($querySubMenu)->result_array();
         ?>
 
         <?php foreach($subMenu as $sm) : ?>
-             <li class="<?php if ($this->uri->segment('1') == $sm['url']) {echo 'active';} ?>" style="font-size: 11px;">
+             <li class="
+             <?php 
+             if ($this->uri->uri_string('1') == $sm['url']) {
+                echo "active"; 
+              } elseif ($this->uri->segment('1') == $sm['url']) {
+                  echo "active";
+              }
+             ?>
+             " style="font-size: 11.5px;">
                     <a href="<?= base_url($sm['url']); ?>">
-                     <i class="<?php if ($this->uri->segment('1') == $sm['url']) {echo 'text-blue';} ?> <?= $sm['icon'] ?>"></i>
-                     <span> <?= $sm['title'] ?></span>
+                     <i class="
+                     <?php 
+                     if ($this->uri->uri_string('1') == $sm['url']) {
+                        echo "text-red"; 
+                      } elseif ($this->uri->segment('1') == $sm['url']) {
+                          echo "text-red";
+                      }
+                     ?> 
+                     <?= $sm['icon'] ?>"></i>
+                     <span class="
+                      <?php 
+                     if ($this->uri->uri_string('1') == $sm['url']) {
+                        echo "text-red"; 
+                      } elseif ($this->uri->segment('1') == $sm['url']) {
+                          echo "text-red";
+                      }
+                     ?>
+                     "> <?= $sm['title'] ?></span>
                     </a>
                   </li>
         <?php endforeach; ?>

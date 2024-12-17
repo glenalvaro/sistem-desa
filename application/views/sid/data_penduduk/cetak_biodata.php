@@ -57,7 +57,7 @@
 					<tr>
 						<td>
 							<h3>BIODATA PENDUDUK WARGA NEGARA INDONESIA</h3>
-							<h5>Kab. <?= $p['nama_kabupaten']?>, Kec. <?= $p['nama_kecamatan']?>, <?= $s['sebutan_desa'] ?>. <?= $p['nama_desa']?></h5>
+							<h5><?= set_ucwords($s['sebutan_kabupaten']); ?>. <?= $p['nama_kabupaten']?>, Kec. <?= $p['nama_kecamatan']?>, <?= $s['sebutan_desa'] ?>. <?= $p['nama_desa']?></h5>
 						</td>
 					</tr>
 			</table>

@@ -3,6 +3,7 @@
 define('FOTO_DEFAULT_PRIA', 'assets/img/sid_foto/kuser.png');
 define('FOTO_DEFAULT_WANITA', 'assets/img/sid_foto/wuser.png');
 define('LOKASI_USER_PICT', 'assets/img/pic_penduduk/');
+define("LOKASI_LOGO_DESA", 'assets/img/logo/');
 
 define('MIME_TYPE_SIMBOL', serialize([
     'image/png',  'image/x-png',
@@ -765,7 +766,7 @@ function upload_foto_penduduk($nama_file = null)
     return $nama_file;
 }
 
-function to_base64($file)
+function to_base64($file): string
 {
     $type = pathinfo($file, PATHINFO_EXTENSION);
     $data = file_get_contents($file);

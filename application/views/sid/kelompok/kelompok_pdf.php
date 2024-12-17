@@ -54,7 +54,7 @@
        <tbody><tr>
            <td width="110px" rowspan="6"><img src="<?= base_url('assets/img/logo/') . $p['logo_desa']; ?>" width="60px"></td>
           <td align="center">
-              <label class="headtitlekop" style="font-size: 16pt; text-transform: uppercase;">PEMERINTAH KABUPATEN <?= $p['nama_kabupaten'] ?><br>
+              <label class="headtitlekop" style="font-size: 16pt; text-transform: uppercase;">PEMERINTAH KABUPATEN <?= strtoupper($p['nama_kabupaten']); ?><br>
                <div style="font-size : 15pt; text-transform: uppercase;">KECAMATAN <?= $p['nama_kecamatan'] ?></div>
                <div style="font-size : 12pt; text-transform: uppercase;"><?= $s['sebutan_desa'] ?> <?= $p['nama_desa'] ?></div></label>
                <label style="font-size: 8pt;" class="header_address"><?= $p['alamat_kantor'] ?>, Kode Pos : <j class="kode"><?= $p['kode_pos'] ?></j>, E-mail : <j class="kode"><?= $p['email_desa'] ?></j> Telepon : <j class="kode"><?= $p['no_hp'] ?></j></label>

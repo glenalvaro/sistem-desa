@@ -1,5 +1,5 @@
 <div class="content-wrapper">
-     <section class="content-header">
+  <section class="content-header">
      <h1 class="tx-judul">
        Perangkat
        <small>Tambah Data</small>
@@ -113,7 +113,6 @@
                 <div class="form-group">
                   <label>Tanggal Lahir</label>
                   <input type="text" name="tgl_lahir" id="tgl_lahir" class="form-control input-sm form_perangkat" value="<?= $tgl_lahir; ?>" placeholder="Tanggal Lahir" data-parsley-required-message="Kolom ini diperlukan." required readonly>
-               
                 </div>
             </div>
 
@@ -214,6 +213,7 @@
 
 <script type="text/javascript">
 
+//fungsi ubah foto berdasarkan jenis kelamin
 function ubah_sex(sex) {
     var old_foto = $('#image').val();
 

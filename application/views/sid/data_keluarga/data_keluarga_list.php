@@ -25,7 +25,7 @@
                             <a class="btn btn-social bg-maroon btn-sm" data-toggle="dropdown"><i class='fa fa-arrow-circle-down'></i> Aksi Data Terpilih</a>
                             <ul class="dropdown-menu" role="menu">
                                 <li>
-                                    <button type="submit" name="delete_checklist" class="btn btn-social btn-block btn-sm" title="Ceklis pada data yang akan dihapus" disabled="">
+                                    <button type="submit" id="hapus-terpilih" name="delete_checklist" class="btn btn-social btn-block btn-sm" title="Ceklis pada data yang akan dihapus" disabled="">
                                         <i class="fa fa-trash"></i> Hapus Data Terpilih</a>
                                     </button>
                                 </li>

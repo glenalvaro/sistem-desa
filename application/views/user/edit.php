@@ -7,13 +7,11 @@
     display: inline-block;
     max-width: 100%;
     margin-bottom: 5px;
-    padding: 5px
-    font-weight: bold;
+    padding: 5px;
     font-size: 11px;
 }
 </style>
 <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1 class="tx-judul">
         Edit Profil

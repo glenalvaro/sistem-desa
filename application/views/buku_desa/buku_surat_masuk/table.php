@@ -1,6 +1,5 @@
 <div class="content-wrapper">
-
-    <section class="content-header">
+  <section class="content-header">
        <h1 class="tx-judul">
          Administrasi Umum <small>Surat Masuk</small>
       </h1>
@@ -65,17 +64,17 @@
         		<th style="min-width:250px; text-align: center;">Disposisi Kepada</th>
             </tr>
             </thead>
+            <tbody style="font-size: 10px;">
             <?php if($buku_surat_masuk_data) : ?>
             <?php
                 foreach ($buku_surat_masuk_data as $data) { ?>
-            <tbody style="font-size: 11px;">
             <tr>
     			<td width="10px"><?php echo ++$start ?></td>
                  <td style="text-align:center" width="150px">
                     <a href="<?= site_url('buku_surat_masuk/read/'.$data->id) ?>" class="btn btn-info btn-sm" title="Lihat"><i class="fa fa-eye"></i></a>
-                    <a href="<?= site_url('buku_surat_masuk/cetak_disposisi/'.$data->id) ?>" data-remote="false" data-toggle="modal" data-target="#cetak_dispo<?= $data->id; ?>" class="btn bg-maroon btn-sm" title="Cetak Disposisi Surat"><i class="fa fa-file-pdf-o"></i></a>
+                    <a href="<?= site_url('buku_surat_masuk/cetak_disposisi/'.$data->id) ?>" data-remote="false" data-toggle="modal" data-target="#cetak_dispo<?= $data->id; ?>" class="btn bg-purple btn-sm" title="Cetak Disposisi Surat"><i class="fa fa-print"></i></a>
                     <a href="<?= site_url('buku_surat_masuk/update/'.$data->id) ?>" class="btn bg-orange btn-sm" title="Ubah Data"><i class="fa fa-edit"></i></a>
-                    <a href="<?= site_url('buku_surat_masuk/delete/'.$data->id) ?>" class="btn btn-danger btn-sm aksi-hapus" title="Hapus Surat"><i class="fa fa-trash"></i></a>
+                    <a href="<?= site_url('buku_surat_masuk/delete/'.$data->id) ?>" class="btn bg-maroon btn-sm aksi-hapus" title="Hapus Surat"><i class="fa fa-trash"></i></a>
                  </td>
     			<td><?= $data->nama_surat ?></td>
     			<td><?= tgl_indo($data->tgl_terima) ?></td>

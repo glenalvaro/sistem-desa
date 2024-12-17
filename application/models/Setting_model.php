@@ -8,8 +8,26 @@ class Setting_model extends CI_Model
         return $this->db->get('setting')->result_array();
     }
 
+    //kirim ke form surat
+    public function get_data_desa()
+    {
+        $query = $this->db->select('*')->limit(1)->get('identitas_desa')->row_array();
+        return $query;
+    }
+
+    //kirim ke form surat
+    public function get_data_app()
+    {
+        $query = $this->db->select('*')->limit(1)->get('setting')->row_array();
+        return $query;
+    }
+
     public function editSettingById($id)
     {
+        //Siapkan nama gambar acak
+        $random_name = random_bytes(5);
+        $nama_random = bin2hex($random_name);
+
         $data['setting'] = $this->db->get_where('setting', ['id' => $id])->row_array();
 
         $title_admin           = $this->input->post('title_admin');
@@ -18,6 +36,7 @@ class Setting_model extends CI_Model
         $mode_perbaikan        = $this->input->post('mode_perbaikan');
         $sebutan_desa          = $this->input->post('sebutan_desa');
         $sebutan_dusun         = $this->input->post('sebutan_dusun');
+        $sebutan_kabupaten     = $this->input->post('sebutan_kabupaten');
         $tema_modul            = $this->input->post('tema_modul');
         $artikel_page          = $this->input->post('artikel_page');
         $vendor                = $this->input->post('vendor');
@@ -36,8 +55,9 @@ class Setting_model extends CI_Model
         //fungsi gambar latar website 1
          if ($latar1) {
                 $config['allowed_types'] = 'jpeg|jpg|png';
-                $config['max_size']      = '2048';
-                $config['upload_path'] = './assets/img/latar_modul/';
+                $config['max_size']      = '1048';
+                $config['upload_path']   = './assets/img/latar_modul/';
+                $config['file_name']     = $nama_random;
 
                 $this->load->library('upload', $config);
 
@@ -52,7 +72,7 @@ class Setting_model extends CI_Model
                     $new_image = $this->upload->data('file_name');
                     $this->db->set('latar_website', $new_image);
                 } else {
-                     $this->session->set_flashdata('flash-error', 'Gambar latar website gagal di upload ukuran melebihi 2 MB.');
+                     $this->session->set_flashdata('flash-error', 'Gambar latar website gagal di upload ukuran melebihi 1 MB.');
                      redirect('aplikasi');
                 }
             }
@@ -60,8 +80,9 @@ class Setting_model extends CI_Model
         //fungsi gambar latar login admin 2
          if ($latar2) {
                 $config['allowed_types'] = 'jpeg|jpg|png';
-                $config['max_size']      = '2048';
-                $config['upload_path'] = './assets/img/latar_admin/';
+                $config['max_size']      = '1048';
+                $config['upload_path']   = './assets/img/latar_admin/';
+                $config['file_name']     = $nama_random;
 
                 $this->load->library('upload', $config);
 
@@ -76,16 +97,17 @@ class Setting_model extends CI_Model
                     $new_image1 = $this->upload->data('file_name');
                     $this->db->set('latar_login_admin', $new_image1);
                 } else {
-                   $this->session->set_flashdata('flash-error', 'Gambar latar login admin gagal di upload ukuran melebihi 2 MB.');
+                   $this->session->set_flashdata('flash-error', 'Gambar latar login admin gagal di upload ukuran melebihi 1 MB.');
                      redirect('aplikasi');
                 }
             }
 
         //fungsi upload icon
          if ($icon_peta) {
-                $config['allowed_types'] = 'png';
-                $config['max_size']      = '2048';
-                $config['upload_path'] = './assets/img/icon/';
+                $config['allowed_types'] = 'jpeg|jpg|png';
+                $config['max_size']      = '1048';
+                $config['upload_path']   = './assets/img/icon/';
+                $config['file_name']     = $nama_random;
 
                 $this->load->library('upload', $config);
 
@@ -100,7 +122,7 @@ class Setting_model extends CI_Model
                     $new_image3 = $this->upload->data('file_name');
                     $this->db->set('icon_peta', $new_image3);
                 } else {
-                   $this->session->set_flashdata('flash-error', 'Icon gagal di upload ukuran melebihi 2 MB.');
+                   $this->session->set_flashdata('flash-error', 'Icon gagal di upload ukuran melebihi 1 MB.');
                      redirect('aplikasi');
                 }
             }
@@ -113,6 +135,7 @@ class Setting_model extends CI_Model
             'mode_perbaikan'    => $mode_perbaikan,
             'sebutan_desa'      => $sebutan_desa,
             'sebutan_dusun'     => $sebutan_dusun,
+            'sebutan_kabupaten' => $sebutan_kabupaten,
             'tema_modul'        => $tema_modul,
             'artikel_page'      => $artikel_page,
             'vendor'            => $vendor,

@@ -118,6 +118,22 @@ class Program_bantuan_model extends CI_Model
         $this->db->delete($table);
     }
 
+    //tampilkan peserta bantuan hanya sasaran penduduk di modul administrasi penduduk
+    function pes_bantuan_penduduk($userdata)
+    {
+        $sql = "SELECT k.*, j.no_kk as nomor_kk, p.nama_program as program_nama, dk.nama_kelompok as kelompok_nama, l.nama_penduduk as ketua_kelompok, dk.kode_kelompok as kode_klpk
+        FROM peserta_bantuan k 
+        LEFT JOIN data_penduduk j ON k.id_anggota = j.id
+        LEFT JOIN program_bantuan p ON k.id_program = p.id
+        LEFT JOIN data_kelompok dk ON k.id_anggota = dk.id
+        LEFT JOIN data_penduduk l ON dk.id_ketua = l.id
+        WHERE k.nik_peserta = $userdata
+        AND k.id_sasaran=1
+        ORDER BY k.id DESC";
+        $result = $this->db->query($sql)->result();
+        return $result;
+    }
+
 }
 
 /* End of file Program_bantuan_model.php */

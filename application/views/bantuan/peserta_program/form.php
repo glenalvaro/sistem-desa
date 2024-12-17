@@ -1,15 +1,15 @@
 <div class="content-wrapper">
-     <section class="content-header">
-     <h1 class="tx-judul">
+  <section class="content-header">
+    <h1 class="tx-judul">
       Peserta Program Bantuan
-      </h1>
-      <ol class="breadcrumb">
+    </h1>
+    <ol class="breadcrumb">
         <li><a href="#"> Menu</a></li>
         <li><a href="#"> Bantuan</a></li>
         <li class="#">Peserta</li>
         <li class="active">Tambah Peserta</li>
-      </ol>
-    </section>
+    </ol>
+</section>
 
 <?php foreach($detailProgram as $dp) : ?>
     <section class="content">

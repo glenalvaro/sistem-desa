@@ -1,5 +1,5 @@
 <div class="content-wrapper">
-    <section class="content-header">
+  <section class="content-header">
        <h1 class="tx-judul">
          Jabatan Perangkat
       </h1>
@@ -16,23 +16,20 @@
                 <div class="box box-primary">
                    <div class="box-header with-border">
                       <div class="btn-group-vertical">
-                         <a href="<?= site_url('perangkat_desa'); ?>" class="btn btn-social btn-info btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"><i class="fa fa-arrow-circle-left"></i> Kembali Ke Data Perangkat</a>
-                      </div>
-
-                      <div class="btn-group-vertical">
                          <a href="#" class="btn btn-social btn-success btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block" data-toggle="modal" data-target="#tambah_jab"><i class="fa fa-plus"></i> Tambah</a>
                       </div>
+                      <div class="btn-group-vertical">
+                         <a href="<?= site_url('perangkat_desa'); ?>" class="btn btn-social btn-info btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"><i class="fa fa-arrow-circle-left"></i> Kembali Ke Data Perangkat</a>
+                      </div>
                     </div>
-
-
         <div class="box-body">
         <div class="table-responsive" style="margin-bottom: 10px;">
-        <table id="datatables-sistem" class="table table-bordered table-hover" style="margin-bottom: 15px">
-            <thead class="bg-gray color-palette" style="font-size: 10px;">
+        <table id="datatables-sistem" class="table table-bordered table-hover table-daftar" style="margin-bottom: 15px">
+            <thead class="color-palette" style="font-size: 10px;">
             <tr>
-                <th style="min-width:10px; text-align: center;">No</th>
-                <th style="min-width:150px; text-align: center;">ACTION</th>
-                <th style="min-width:150px; text-align: center;">NAMA JABATAN</th>
+                <th style="min-width:10px;">No</th>
+                <th style="min-width:150px;">Aksi</th>
+                <th style="min-width:150px;">Nama Jabatan</th>
             </tr>
             </thead>
             <tbody style="font-size: 10px;">

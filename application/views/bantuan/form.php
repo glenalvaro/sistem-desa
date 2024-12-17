@@ -1,16 +1,14 @@
 <div class="content-wrapper">
-    <section class="content-header">
-       <h1 class="tx-judul">
-        Bantuan
-         <small><?= ($id ? 'Ubah' : 'Tambah') ?> Data</small>
-      </h1>
-      <ol class="breadcrumb">
+  <section class="content-header">
+    <h1 class="tx-judul">
+        Bantuan<small><?= ($id ? 'Ubah' : 'Tambah') ?> Data</small>
+    </h1>
+    <ol class="breadcrumb">
         <li><a href="#"> Menu</a></li>
         <li><a href="#"> Bantuan</a></li>
         <li class="active"><?= ($id ? 'Ubah' : 'Tambah') ?> Data</li>
-      </ol>
-    </section>
-
+    </ol>
+</section>
 
  <section class="content">
  <form id="mainform" action="<?php echo $action; ?>" method="post" class="form-horizontal" autocomplete="off" enctype="multipart/form-data">

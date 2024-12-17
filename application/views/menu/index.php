@@ -1,13 +1,13 @@
 <div class="content-wrapper">
-    <section class="content-header">
-       <h1 class="tx-judul">
+  <section class="content-header">
+      <h1 class="tx-judul">
         Modul
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"> Pengaturan</a></li>
         <li><a href="#"> Modul</a></li>
       </ol>
-    </section>
+</section>
 
 <!-- table kelola menu -->
 <section class="content">
@@ -17,15 +17,14 @@
             <div class="box-header with-border">
                <a href="" class="btn btn-social btn-success btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block" data-toggle="modal" data-target="#new-menu"><i class="fa fa-plus"></i> Tambah</a>
             </div>
-            <!-- /.box-header -->
             <div class="box-body">
                 <div class="table-responsive">
                 <table id="datatables-sistem" class="table table-striped table-hover table-bordered tabel-daftar">
-                <thead class="bg-gray color-palette">
+                <thead class="color-palette">
                 <tr>
                   <th class="text-center">No</th>
                   <th style="min-width:150px;" class="text-center">Aksi</th>
-                  <th class="text-center">Nama Menu</th>
+                  <th class="text-center">Modul</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -33,10 +32,10 @@
                     <?php foreach($menu as $m) : ?>
                 <tr>
                   <td width="5%" class="text-center"><?= $i; ?></td>
-                  <td width="15%" class="text-center">
-                      <a href="menu/sub_modul/<?php echo $m['id']; ?>" class="btn bg-olive btn-flat btn-sm" title="Lihat Sub Menu"><i class="fa fa-th-list"></i></a>
-                      <a href="" class="btn bg-orange btn-flat btn-sm" data-toggle="modal" data-target="#editMenu<?= $m['id']; ?>" title="Edit Menu"><i class="fa fa-edit"></i></a>
-                      <a href="<?php echo site_url('menu/hapus_menu/'.$m['id']) ?>" class="btn bg-maroon btn-flat btn-sm aksi-hapus"><i class="fa fa-trash"></i></a>
+                  <td width="10%" class="text-center">
+                      <a href="menu/sub_modul/<?php echo $m['id']; ?>" class="btn bg-purple btn-sm" title="Lihat Sub Modul"><i class="fa fa-bars"></i></a>
+                      <a href="" class="btn bg-orange btn-sm" data-toggle="modal" data-target="#editMenu<?= $m['id']; ?>" title="Edit Modul"><i class="fa fa-edit"></i></a>
+                      <a href="<?php echo site_url('menu/hapus_menu/'.$m['id']) ?>" class="btn bg-maroon btn-sm aksi-hapus disabled"><i class="fa fa-trash"></i></a>
                   </td>
                   <td><?= $m['menu']; ?></td>
                 </tr>
@@ -55,13 +54,13 @@
               <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" style="font-size: 15px; font-weight: bold;">Tambah Menu</h4>
+                <h4 class="modal-title" style="font-size: 15px; font-weight: bold;">Tambah Modul</h4>
               </div>
               <form id="validasi" action="<?= base_url('menu'); ?>" method="post">
               <div class="modal-body">
                <div class="form-group">
-                <label for="menu">Nama Menu</label>
-                     <input type="text" id="menu" name="menu" class="input-sm form-control required" value="" placeholder="Nama Menu">
+                <label for="menu">Nama Modul</label>
+                     <input type="text" id="menu" name="menu" class="input-sm form-control required" value="" placeholder="Nama Modul">
                  </div>
               </div>
               <div class="modal-footer">
@@ -82,7 +81,7 @@ foreach($getMenu as $gm) : $no++; ?>
               <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" style="font-size: 15px; font-weight: bold;">Edit Menu</h4>
+                <h4 class="modal-title" style="font-size: 15px; font-weight: bold;">Edit Modul</h4>
               </div>
               <form action="<?= base_url('menu/updateMenu/'); ?><?= $gm['id']; ?>" method="post">
               <div class="modal-body">

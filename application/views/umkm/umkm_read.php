@@ -95,17 +95,16 @@ div#geocoder-search {
 }
 </style>
 <?php endforeach; ?>
-
 <div class="content-wrapper">
-    <section class="content-header">
-       <h1 class="tx-judul">
-        Usaha Mikro <?= set_ucwords($nama_usaha); ?>
-      </h1>
-      <ol class="breadcrumb">
+<section class="content-header">
+    <h1 class="tx-judul">
+       Usaha Mikro <?= set_ucwords($nama_usaha); ?>
+    </h1>
+    <ol class="breadcrumb">
         <li><a href="#"> Menu</a></li>
         <li><a href="#"> Detail</a></li>
-      </ol>
-    </section>
+    </ol>
+</section>
 
   <section class="content">
     <div class="row">
@@ -117,7 +116,7 @@ div#geocoder-search {
                <div class="nav-tabs-custom">
 	            <ul class="nav nav-tabs">
 	              <li class="active"><a href="#data_umkm" data-toggle="tab">Data</a></li>
-	              <li><a href="#gal" data-toggle="tab">Galeri</a></li>
+	              <li><a href="#gal" data-toggle="tab">Galeri UMKM</a></li>
 	            </ul>
 	            <div class="tab-content">
 	              <div class="tab-pane active" id="data_umkm">

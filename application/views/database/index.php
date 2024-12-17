@@ -31,16 +31,15 @@
 </style>
 
 <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-       <h1 class="tx-judul">
+<section class="content-header">
+      <h1 class="tx-judul">
         Pengaturan Database
       </h1>
       <ol class="breadcrumb">
         <li>&nbsp;Pengaturan</a></li>
         <li>Database</li>
       </ol>
-    </section>
+</section>
 
 <!-- Hitung size folder -->
 <?php

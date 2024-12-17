@@ -1,5 +1,5 @@
 <div class="content-wrapper">
-    <section class="content-header">
+  <section class="content-header">
       <h1 class="tx-judul">
         Surat Masuk<small>Detail</small>
       </h1>
@@ -61,7 +61,8 @@
                 </tr>
                 <tr>
                   <td width="35%"><strong>File Surat</strong></td>
-                  <td> : <i class="fa fa-file-pdf-o"></i> <a href="<?= base_url(); ?>/folder_arsip/surat_masuk/<?= $file_surat_masuk; ?>" target="_blank" ><?php echo $file_surat_masuk ?></a>
+                  <td> : <i class="fa fa-file-pdf-o"></i>
+                    <a href="<?= base_url(); ?>/folder_arsip/surat_masuk/<?= $file_surat_masuk; ?>" onclick='window.open(this.href,"popupwindow","status=0,height=600,width=600,resizable=0");return false;' rel='noopener noreferrer' target='_blank' title='Lihat Icon'><?= $file_surat_masuk ?></a>
                   </td>
                 </tr>
               </table>

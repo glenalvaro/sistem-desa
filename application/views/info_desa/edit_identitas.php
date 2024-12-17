@@ -19,19 +19,19 @@
     border-radius: 2px;
 }
 </style>
-<?php foreach($setting as $main) : ?>
 <div class="content-wrapper">
-    <section class="content-header">
-      <h1 class="tx-judul">
+  <?php foreach($setting as $main) : ?>
+<section class="content-header">
+    <h1 class="tx-judul">
         Info <?= $main['sebutan_desa']; ?>
         <small>Ubah Data</small>
-      </h1>
-      <ol class="breadcrumb">
+    </h1>
+    <ol class="breadcrumb">
         <li>&nbsp;Menu</li>
         <li><a href="#">Informasi <?= $main['sebutan_desa']; ?></a></li>
         <li class="active">Ubah Data</li>
-      </ol>
-    </section>
+    </ol>
+</section>
 
 <?php 
     //ambil dan tampilkan data kepala desa atau kelurahan
@@ -82,7 +82,7 @@
         <div class="col-md-9">
           <div class="box box-primary">
              <div class="box-header with-border">
-              <a href="<?php echo base_url('identitas_desa/identitas_desa'); ?>" class="btn btn-social btn-flat btn-info btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"><i class="fa fa-arrow-circle-o-left"></i> Kembali Ke Identitas <?= $main['sebutan_desa']; ?></a>
+              <a href="<?php echo base_url('identitas_desa'); ?>" class="btn btn-social btn-flat btn-info btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"><i class="fa fa-arrow-circle-o-left"></i> Kembali Ke Identitas <?= $main['sebutan_desa']; ?></a>
             </div>
             <div class="box-body" style="margin-left: 10px;">
               <div class="form-group">
@@ -146,6 +146,13 @@
                     </div>
                   </div>
 
+                   <div class="form-group">
+                    <label class="col-sm-3 control-label">Kode Wilayah <?= $main['sebutan_desa']; ?></label>
+                    <div class="col-sm-8">
+                       <input type="text" name="kode_wilayah" class="form-control input-sm" value="<?= $key->kode_wilayah; ?>">
+                    </div>
+                  </div>
+
                 <div class="form-group">
                     <label class="col-sm-3 control-label"><u>KECAMATAN</u></label>
                   </div>
@@ -172,11 +179,11 @@
                   </div>
 
                   <div class="form-group">
-                    <label class="col-sm-3 control-label"><u>KABUPATEN</u></label>
+                    <label class="col-sm-3 control-label"><u><?= strtoupper($main['sebutan_kabupaten']); ?></u></label>
                   </div>
 
                   <div class="form-group">
-                    <label class="col-sm-3 control-label">Kabupaten</label>
+                    <label class="col-sm-3 control-label"><?= set_ucwords($main['sebutan_kabupaten']); ?></label>
                     <div class="col-sm-8">
                       <input type="text" name="nama_kabupaten" class="form-control input-sm" value="<?= $key->nama_kabupaten; ?>">
                     </div>
@@ -202,9 +209,9 @@
         </div>
       </div>    
     </form>
-<?php endforeach; ?>
 </section>
 </div>
+<?php endforeach; ?>
 <?php endforeach; ?>
 
 

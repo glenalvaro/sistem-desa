@@ -7,7 +7,7 @@
 </style>
 
 <div class="content-wrapper">
-    <section class="content-header">
+  <section class="content-header">
        <h1 class="tx-judul">
         Unggah Gambar
       </h1>
@@ -15,7 +15,7 @@
         <li><a href="#"> Usaha Mikro</a></li>
         <li><a href="#"> Unggah Gambar</a></li>
       </ol>
-    </section>
+  </section>
 
   <section class="content">
     <div class="row">

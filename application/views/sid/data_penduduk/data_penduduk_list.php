@@ -25,7 +25,7 @@
                                 </li>
 
                                 <li>
-                                    <button type="submit" name="delete_checklistPend" class="btn btn-social btn-block btn-sm" title="Ceklis pada data yang akan dihapus" disabled="">
+                                    <button type="submit" id="hapus-terpilih" name="delete_checklistPend" class="btn btn-social btn-block btn-sm" title="Ceklis pada data yang akan dihapus" disabled="">
                                         <i class="fa fa-trash bg-maroon"></i> Hapus Data Terpilih</a>
                                     </button>
                                 </li>
@@ -178,6 +178,9 @@
             'bSortable':false,
             'aTargets':['nosort'],
         }],
+         "language": {
+          "url": "https://cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Indonesian.json"
+      },
         "bLengthChange":true,
         "dom":'<"bottom">ct<"bottom"lp><"clear">',
          initComplete: function () {

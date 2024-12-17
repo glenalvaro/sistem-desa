@@ -1,4 +1,3 @@
-
 <div class="content-wrapper">
 <?php foreach($setting as $dta) : ?>
     <section class="content-header">

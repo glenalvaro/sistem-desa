@@ -1,5 +1,5 @@
 <div class="content-wrapper">
-    <section class="content-header">
+<section class="content-header">
        <h1 class="tx-judul">
         Pengaturan Grup
       </h1>
@@ -7,7 +7,7 @@
         <li><a href="#"> Pengaturan</a></li>
         <li><a href="#"> Grup</a></li>
       </ol>
-    </section>
+</section>
 
 <section class="content">
       <div class="row">
