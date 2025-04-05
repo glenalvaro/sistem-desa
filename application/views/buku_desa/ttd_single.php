@@ -21,13 +21,16 @@
 		<td width="50%"></td>
 		<td width="25%" align="center"><?= strtoupper($value['nama_desa']); ?>, <?= tgl_indo(date('Y m d')); ?></td>
 	</tr>
+	<tr>
 		<td width="50%"></td>
 		<td align="center" width="150"><?= strtoupper($get_jab->jabatan); ?> <?= strtoupper($value['nama_desa']); ?></td>
 	</tr>
+	<tr>
 		<tr><td>&nbsp;</td></tr>
 		<tr><td>&nbsp;</td></tr>
 		<tr><td>&nbsp;</td></tr>
 		<tr><td>&nbsp;</td></tr>
+	</tr>
 	<tr>
 		<td width="50%"></td>
 		<td width="25%" align="center" width="150"><u><?= strtoupper($get_jab->nama_pegawai); ?></u></td>

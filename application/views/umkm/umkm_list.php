@@ -41,16 +41,14 @@
 			<td width="10px"><?php echo ++$start ?></td>
             <td style="text-align:center" width="200px">
                 <?php  
-                echo anchor(site_url('umkm/unggah_gambar/'.$umkm->id),'<i class="fa fa-image fa-sm" aria-hidden="true"></i>','class="btn bg-purple btn-sm"'); 
-                echo '  ';
-                echo anchor(site_url('umkm/read/'.$umkm->id),'<i class="fa fa-eye fa-sm" aria-hidden="true"></i>','class="btn btn-info btn-sm"'); 
+                echo anchor(site_url('umkm/unggah_gambar/'.$umkm->id),'<i class="fa fa-image fa-sm" aria-hidden="true"></i>','class="btn btn-primary btn-sm"'); 
                 echo '  ';
                 echo anchor(site_url('umkm/update/'.$umkm->id),'<i class="fa fa-pencil-square-o" aria-hidden="true"></i>','class="btn bg-orange btn-sm"'); 
                 echo '  ';
                 echo anchor(site_url('umkm/delete/'.$umkm->id),'<i class="fa fa-trash" aria-hidden="true"></i>','class="btn bg-maroon btn-sm aksi-hapus" Delete','onclick="javasciprt: return confirm(\'Are You Sure ?\')"');
                 ?>
             </td>
-			<td><?= set_ucwords($umkm->nama_pemilik); ?></td>
+			<td><a href="<?= site_url('umkm/read/'.$umkm->id); ?>"><?= set_ucwords($umkm->nama_pemilik); ?></a></td>
 			<td><?= format_telpon($umkm->no_tlp); ?></td>
 			<td><?= set_ucwords($umkm->nama_usaha); ?></td>
 			<td><?= set_ucwords($umkm->nama_kat); ?></td>

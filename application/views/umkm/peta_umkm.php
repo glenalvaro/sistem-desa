@@ -85,6 +85,10 @@
 #list-foto img:hover {
   border: 1px solid black;
 }
+
+.icon-map-sidebar{
+    font-size: 20px !important;
+}
 </style>
 <div class="content-wrapper">
  
@@ -270,19 +274,19 @@ map.addControl(sidebar);
                 "<div class='tab-pane tab-detail-map active' id='ringkasan'>"+
                   "<div class='row list-icon'>"+
                       "<div class='col-xs-3 text-center'>"+
-                          "<a class='lokUsaha' data-lat="+ myJSONcopy[i].lat +" data-long="+ myJSONcopy[i].long +" href='#'><ion-icon size='large' name='navigate-circle-outline'></ion-icon></a>"+
+                          "<a class='lokUsaha' data-lat="+ myJSONcopy[i].lat +" data-long="+ myJSONcopy[i].long +" href='#'><i class='ion-ios-navigate-outline icon-map-sidebar'></i></a>"+
                           "<span>Rute</span>"+
                       "</div>"+
                       "<div class='col-xs-3 text-center'>"+
-                           "<a href='#'><ion-icon size='large' name='bookmark-outline'></ion-icon></a>"+
+                           "<a href='#'><i class='ion-ios-pricetag-outline icon-map-sidebar'></i></a>"+
                           "<span>Simpan</span>"+
                       "</div>"+
                       "<div class='col-xs-3 text-center'>"+
-                            "<a href='#'><ion-icon size='large' name='map-outline'></ion-icon></a>"+
+                            "<a href='#'><i class='ion-social-rss-outline icon-map-sidebar'></i></a>"+
                             "<span>DiSekitar</span>"+
                       "</div>"+
                       "<div class='col-xs-3 text-center'>"+
-                             "<a href='#'><ion-icon size='large' name='share-social-outline'></ion-icon></a>"+
+                             "<a href='#'><i class='ion-forward icon-map-sidebar'></i></a>"+
                             "<span>Bagikan</span>"+
                       "</div>"+
                   "</div>"+
@@ -290,27 +294,27 @@ map.addControl(sidebar);
                   "<hr style='border-top: 1px solid #d2d6de;'>"+
                   "<div class='box-body chat list-detail-map'>"+
                     "<div class='item'>"+
-                      "<ion-icon size='small' name='location-outline'></ion-icon>"+
+                      "<i class='ion-ios-more-outline icon-map-sidebar'></i>"+
                       "<p class='message'>"+ myJSONcopy[i].alamat[al]  +"</p>"+
                     "</div>"+
 
                     "<div class='item'>"+
-                      "<ion-icon size='small' name='pricetags-outline'></ion-icon>"+
+                      "<i class='ion-ios-pricetags-outline icon-map-sidebar'></i>"+
                       "<p class='message'>Rp."+ myJSONcopy[i].harga[h] +"/"+myJSONcopy[i].satuan[s]+"</p>"+
                     "</div>"+
 
                     "<div class='item'>"+
-                      "<ion-icon size='small' name='call-outline'></ion-icon>"+
+                      "<i class='ion-ios-telephone-outline icon-map-sidebar'></i>"+
                       "<p class='message'>"+ myJSONcopy[i].no_tlp[t]  +"</p>"+
                     "</div>"+
 
                     "<div class='item'>"+
-                      "<ion-icon size='small' name='locate-outline'></ion-icon>"+
+                      "<i class='ion-ios-location-outline icon-map-sidebar'></i>"+
                       "<p class='message'>"+ alamat_lengkap +"</p>"+
                     "</div>"+
 
                     "<div class='item'>"+
-                      "<ion-icon size='small' name='stopwatch-outline'></ion-icon>"+
+                      "<i class='ion-ios-information-outline icon-map-sidebar'></i>"+
                       "<p class='message'><span class='text-red'>Buka</span> - 07.00 - 20.00</p>"+
                     "</div>"+
                  "</div>"+

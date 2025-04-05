@@ -26,10 +26,9 @@
                 <tr>
                   <th class="text-center">No</th>
                   <th style="min-width:150px;" class="text-center">Aksi</th>
-                  <th style="min-width:100px;" class="text-center">Sub Modul</th>
-                  <th style="min-width:150px;" class="text-center">Url</th>
-                  <th style="min-width:100px;" class="text-center">Icon</th>
-                  <th style="min-width:50px;" class="text-center">Tampil</th>
+                  <th style="min-width:100px;" class="text-center">NAMA</th>
+                  <th style="min-width:150px;" class="text-center">URL</th>
+                  <th style="min-width:50px;" class="text-center">ICON</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -49,8 +48,9 @@
                   <?php endif; ?>
                   </td>
                   <td><?= $smd->title; ?></td>
-                  <td><code><?= $smd->url; ?></code></td>
-                  <td class="text-center"><?= $smd->icon; ?></td>
+                  <td>
+                     <a href="<?= base_url($smd->url); ?>"><?= base_url($smd->url); ?></a>
+                  </td>
                   <td class="text-center"><i style="font-size: 18px;" class="<?= $smd->icon; ?>"></i></td>
                 </tr>
                     <?php $i++; ?>

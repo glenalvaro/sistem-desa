@@ -21,6 +21,7 @@ class Data_penduduk extends CI_Controller
         parent::__construct();
         cek_login();
         $this->load->model('Data_penduduk_model');
+        $this->load->model('Dokumen_model');
         $this->load->library('form_validation');
     }
 
@@ -591,6 +592,75 @@ class Data_penduduk extends CI_Controller
         $data['setting'] = $this->db->get('setting')->result_array();
         $data['penduduk'] = $this->Data_penduduk_model->get_penduduk_id($id);
         $this->load->view('sid/data_penduduk/cetak_biodata', $data);
+    }
+
+    public function dokumen($id) 
+    {
+        $list['user'] = $this->db->get_where('user', ['email' => 
+        $this->session->userdata('email')])->row_array();
+
+        $list['desa'] = $this->db->get('identitas_desa')->result_array();
+
+        $list['setting'] = $this->db->get('setting')->result_array();
+
+        //ambil data dokumen dari table persyaratan
+        $data['list_dp'] = $this->db->get('daftar_persyaratan')->result_array();
+
+        $data['dok_data'] = $this->Dokumen_model->daftar_dokumen($id);
+
+        $data['dp'] = $this->Data_penduduk_model->get_by_id($id);
+
+        $list['title'] = 'Manajemen Dokumen';
+        $this->load->view('templates/header', $list);
+        $this->load->view('templates/sidebar', $list);
+        $this->load->view('sid/data_penduduk/dokumen', $data);
+        $this->load->view('templates/footer');
+    }
+
+    public function tambah_dokumen()
+    {
+        $derect = $_SERVER['HTTP_REFERER'];
+        $this->Dokumen_model->unggah_dk();
+        $this->session->set_flashdata('flash','Dokumen di tambahkan');
+        redirect($derect);
+    }
+
+    public function hapus_dokumen($id) 
+    {
+        $dir1 = $_SERVER['HTTP_REFERER'];
+        $row = $this->Dokumen_model->get_by_id($id);
+
+        if ($row) {
+            // Hapus file difolder arsip dokumen
+            $file_dk1 = './folder_arsip/dokumen/' . $row->file;
+            if (is_file($file_dk1)) {
+                unlink($file_dk1);
+                //break;
+            }
+            $this->Dokumen_model->hapus_dok($id);
+            $this->session->set_flashdata('flash','Dokumen di hapus');
+            redirect($dir1);
+        } else {
+            $this->session->set_flashdata('flash-error','Dokumen tidak ditemukan');
+            redirect($dir1);
+        }
+    }
+
+    //cek duplicate nama dokumen sebelum upload
+    public function cek_duplicate($id)
+    {
+        $dkn = $_POST["isi_val"];
+        if(!empty($dkn)) {
+          $query = "SELECT * FROM dokumen_penduduk WHERE id_penduduk=$id AND nama='" . $dkn . "'";
+          $result = $this->db->query($query);
+          $count = $result->num_rows();
+          if($count>0) {
+            echo "<span> Dokumen ini sudah terdaftar .</span>";
+            echo "<script>$('#btndok').prop('disabled',true);</script>";
+          }else{
+            echo "<script>$('#btndok').prop('disabled',false);</script>";
+          }
+        }
     }
 }
 

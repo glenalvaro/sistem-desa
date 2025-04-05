@@ -3,7 +3,7 @@
     <div class="container">
        <section class="content-header">
       <h1 class="tx-title">
-        Profil
+        Biodata Penduduk
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-home"></i> Home</a></li>
@@ -12,12 +12,10 @@
     </section>
       <section class="content">
       <div class="row">
-        <?php $this->load->view('layanan/template/side'); ?>
-       
-        <div class="col-md-8">
+     <div class="col-md-12">
           <div class="box box-primary">
             <div class="box-header with-border">
-              Biodata Penduduk
+               <a href="<?= base_url('/layanan/profil/cetak') ?>" onclick='window.open(this.href,"popupwindow","status=0,height=800,width=800,resizable=0,top=50,left=100");return false;' rel='noopener noreferrer' target='_blank' class="btn btn-social btn-warning btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"><i class="fa fa-print"></i> Print</a>
             </div>
             <div class="box-body">
               <div class="table-responsive">

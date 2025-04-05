@@ -5,6 +5,7 @@ $(document).ready(function(){
         if (id) {
           $('.show_form').prop('hidden', false);
           $('.show_kk_list').prop('hidden', true);
+          $('.show_dok_list').prop('hidden', true);
           $.ajax({
           url : "<?= base_url('layanan_surat/ajax_get_nik');?>",
           method : "post",
@@ -13,6 +14,7 @@ $(document).ready(function(){
                id : id
           },
           success: function(array){
+            var id_pd = '';
             var nik = '';
             var pend_nama = '';
             var pend_kk = '';
@@ -27,6 +29,7 @@ $(document).ready(function(){
             var pekerjaan_pend = '';
             var kawin_status = '';
             for(let index = 0; index < array.length; index++){
+              id_pd += "" + array[index].id + ""
               nik += "" + array[index].nik + ""
               pend_nama += "" + array[index].nama_penduduk + ""
               pend_kk += "" + array[index].no_kk + ""
@@ -54,6 +57,13 @@ $(document).ready(function(){
             $('#wilayah_pend').val(wilayah_pend);
             $('#pekerjaan_pend').val(pekerjaan_pend);
             $('#kawin_status').val(kawin_status);
+            $('#id_ped').val(id_pd);
+
+            document.querySelector("#manajemen_dok").addEventListener("click", 
+            function (e){
+               myLink = "<?= base_url('data_penduduk/dokumen/') ?>" + id_pd;
+                   window.open(myLink, "_blank");
+            });
         }
       })
     } else {
@@ -91,6 +101,38 @@ $(document).ready(function(){
       })
       } else {
         $('.show_kk_list').prop('hidden', true);
+    }
+});
+
+});
+</script>
+
+<script>
+$(document).ready(function(){
+  $("#daftar_dok").on('click', function() {
+    var dok_id = document.getElementById("id_ped").value;
+     //alert(dok_id);
+      if (dok_id) {
+        $('.show_dok_list').prop('hidden', false);
+         $.ajax({
+          url : "<?= base_url('layanan_surat/ajax_get_dok');?>",
+          method : "post",
+          dataType : "json",
+          data : {
+               dok_id : dok_id
+          },
+          success: function (response) {
+            var no=1;
+            var trHTML = '';
+            $.each(response, function (i, val) {
+                trHTML += '<tr><td>' + no++ + '</td><td><a href="<?= base_url(); ?>folder_arsip/dokumen/' + val.file + '" target="_blank" class="btn btn-primary btn-sm">Lihat</a></td><td>' + 
+                          val.nama + '</td></tr>';
+                });
+            $('#record_dok').html(trHTML);
+          }
+      })
+      } else {
+        $('.show_dok_list').prop('hidden', true);
     }
 });
 

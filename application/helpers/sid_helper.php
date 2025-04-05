@@ -1583,3 +1583,29 @@ function nama_class($text)
     $new_text = str_replace('_', ' ', htmlentities($text));
     return set_ucwords($new_text); // Output: hello world php
 }
+
+function sebutan_desa()
+{
+    $GT =& get_instance();
+    $GT->load->model('setting_model');
+
+    $result = $GT->setting_model->get_sebutan_desa();  
+    return $result;  
+}
+
+
+//fungsi_slug url web
+function slug_url($string, $spaceRepl = "-")
+{
+    $string = str_replace("&", "and", $string);
+
+    $string = preg_replace("/[^a-zA-Z0-9 _-]/", "", $string);
+
+    $string = strtolower($string);
+
+    $string = preg_replace("/[ ]+/", " ", $string);
+
+    $string = str_replace(" ", $spaceRepl, $string);
+
+    return $string;
+}

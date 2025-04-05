@@ -70,7 +70,7 @@
 									<tr>
 										<td class="padat"><?= $no++; ?></td>
 										<td class="aksi">
-											<a href="<?= site_url("pembangunan/edit_dok/{$data->id_pembangunan}/{$data->id}"); ?>" class="btn bg-orange btn-sm" title="Ubah"><i class="fa fa-edit"></i></a>
+											<!-- <a href="<?= site_url("pembangunan/edit_dok/{$data->id_pembangunan}/{$data->id}"); ?>" class="btn bg-orange btn-sm" title="Ubah"><i class="fa fa-edit"></i></a> -->
 											<a href="<?= site_url('pembangunan/hapus_dok/') . $data->id; ?>" title="Hapus" class="btn bg-maroon btn-sm aksi-hapus"><i class='fa fa-trash'></i></a>
 										</td>
 										<td align="center">

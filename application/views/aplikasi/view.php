@@ -66,6 +66,7 @@
             <ul class="nav nav-tabs">
               <li class="active"><a href="#app" data-toggle="tab">Aplikasi</a></li>
               <li><a href="#peta_app" data-toggle="tab">Peta</a></li>
+              <li><a href="#log_app" data-toggle="tab">Log Aplikasi</a></li>
               <li class="pull-right"><a href="#" class="text-muted"><i class="fa fa-gear"></i></a></li>
             </ul>
             <div class="tab-content">
@@ -81,16 +82,6 @@
                     <label>Judul Aplikasi :</label>
                       <input type="text" name="title_login" id="title_login" class="form-control input-sm" style="width: 100%;" value="<?= $st['title_login']; ?>" required>
                       <span style="font-size: 10px;" class="help-block">Nama aplikasi modul admnistrasi layanan penduduk</span>
-                </div>
-
-                 <div class="form-group">
-                    <label>Statistik :</label>
-                    <br>
-                      <select name="statistik_data" class="form-control select-filter" style="width: 100%" title="<?= $st['statistik_data']; ?>">
-                          <option value="Ya" <?= selected($st['statistik_data'], 'Ya'); ?>>Ya</option>
-                          <option value="Tidak" <?= selected($st['statistik_data'], 'Tidak'); ?>>Tidak</option>
-                      </select>
-                      <span style="font-size: 10px;" class="help-block">Apakah akan menampilkan data statistik ke website</span>
                 </div>
 
                 <div class="form-group">
@@ -210,6 +201,16 @@
                     </div>
                        <span style="font-size: 10px;" class="help-block" style="margin-top:10px;">(Kosongkan jika tidak ingin mengubah gambar, Type png)</span>
                 </div>
+              </div>
+              <div class="tab-pane" id="log_app">
+                <div style="height: 500px; overflow-y: scroll;">
+                    <code>
+                      <pre><?= $log_app; ?></pre>
+                    </code>
+                </div>
+
+
+                  
               </div>
               <div class='box-footer'>
                     <button type="reset" class="btn btn-social btn-flat btn-danger btn-sm"><i class="fa fa-times"></i> Batal</button>

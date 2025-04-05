@@ -116,6 +116,20 @@ $(document).ready(function() {
       format: 'dd-mm-yyyy',
       language: 'id',
     });
+    $('#tgl-agenda').datepicker({
+      autoclose: true,
+      todayHighlight:true,
+      format: 'yyyy-mm-dd',
+      language: 'id',
+    });
+    $('#jam-agenda').timepicker({
+      showInputs: false,
+       showMeridian: false 
+    });
+     $('#jam').timepicker({
+      showInputs: false,
+       showMeridian: false 
+    })
 });
 
 //show hidden tidak terdata di form perangkat desa
@@ -353,12 +367,6 @@ $(function() {
     });
 });
 
-
-/* Format Uang */
-var tanpa_rupiah = document.querySelector('#tanpa-rupiah');
-    tanpa_rupiah.addEventListener('keyup', function(e){
-    tanpa_rupiah.value = formatRupiah(this.value);
-});
 
 /* Fungsi Format Uang*/
 function formatRupiah(angka, prefix){

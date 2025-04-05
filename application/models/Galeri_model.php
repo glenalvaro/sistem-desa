@@ -90,7 +90,7 @@ class Galeri_model extends CI_Model
         if ($gbr_album=''){
         }else{
             $config['upload_path']      ='./assets/img/galeri';
-            $config['allowed_types']    ='jpg|png';
+            $config['allowed_types']    ='jpeg|jpg|png';
             $config['max_size']         = 2000;
             $config['file_name']        = $gbr_bytes;
 
@@ -127,7 +127,7 @@ class Galeri_model extends CI_Model
 
         if ($edit_file) {
             $config['upload_path']     ='./assets/img/galeri/';
-            $config['allowed_types']    ='jpg|png';
+            $config['allowed_types']    ='jpeg|jpg|png';
             $config['max_size']         = 2000;
             $config['file_name']        = $new_byt;
 
@@ -192,7 +192,7 @@ class Galeri_model extends CI_Model
         if ($gambar_album_id=''){
         }else{
             $config['upload_path']      ='./assets/img/galeri/album';
-            $config['allowed_types']    ='jpg|png';
+            $config['allowed_types']    ='jpeg|jpg|png';
             $config['max_size']         = 2000;
             $config['file_name']        = $album_byt;
 
@@ -249,7 +249,7 @@ class Galeri_model extends CI_Model
 
         if ($edit_file) {
             $config['upload_path']     ='./assets/img/galeri/album/';
-            $config['allowed_types']    ='jpg|png';
+            $config['allowed_types']    ='jpeg|jpg|png';
             $config['max_size']         = 2000;
             $config['file_name']        = $new_byt2;
 

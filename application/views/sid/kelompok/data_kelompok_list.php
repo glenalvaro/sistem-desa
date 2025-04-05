@@ -12,7 +12,7 @@
     <section class="content">
       <div class="row">
       <div class="col-md-3">
-      <a href="<?= base_url('data_kelompok/kelola_kategori'); ?>" class="btn btn-social btn-primary btn-sm btn-block margin-bottom"><i class="fa fa-sort"></i> KELOLA KATEGORI KELOMPOK</a>
+      <a href="<?= base_url('data_kelompok/kelola_kategori'); ?>" class="btn btn-social btn-primary btn-sm btn-block margin-bottom"><i class="fa fa-bars"></i> KELOLA KATEGORI KELOMPOK</a>
           <div class="box box-solid">
             <div class="box-header with-border">
               <h4 style="font-size: 14px;" class="box-title">FILTER KELOMPOK</h4>

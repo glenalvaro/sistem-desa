@@ -1,11 +1,11 @@
 <div class="content-wrapper">
     <section class="content-header">
        <h1 class="tx-judul">
-        Pengaturan Surat
+        Pengaturan Header Surat
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"> Layanan Surat</a></li>
-        <li><a href="#"> Pengaturan Surat</a></li>
+        <li><a href="#"> Pengaturan</a></li>
       </ol>
     </section>
 

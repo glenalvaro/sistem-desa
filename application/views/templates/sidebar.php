@@ -42,9 +42,9 @@
 
        <form action="#" method="get" class="sidebar-form">
         <div class="input-group">
-          <input type="text" name="q" class="input-sm form-control" placeholder="Search...">
+          <input type="text" id="search_menu" name="search_menu" class="input-sm form-control" placeholder="Cari...">
           <span class="input-group-btn">
-                <button type="submit" name="search" id="search-btn" class="btn btn-flat btn-sm">
+                <button type="button" class="btn btn-flat btn-sm">
                   <i class="fa fa-search"></i>
                 </button>
               </span>
@@ -54,7 +54,7 @@
         <ul class="sidebar-menu" data-widget="tree">
 
         <?php if($user['role_id'] == 1) : ?>
-            <li class="<?php if ($this->uri->segment('1') == 'home') {echo 'active';} ?>">
+            <li class="menu_list <?php if ($this->uri->segment('1') == 'home') {echo 'active';} ?>">
               <a href="<?= base_url('home'); ?>">
                 <i class="<?php if ($this->uri->segment('1') == 'home') {echo 'text-red';} ?> fa fa-home"></i> <span class="<?php if ($this->uri->segment('1') == 'home') {echo 'text-red';} ?>">Home</span></a>
             </li>
@@ -74,7 +74,7 @@
 
         <!-- LOOPING MENU -->
         <?php foreach ($menu as $m) : ?>
-        <li class="header">
+        <li class="menu_list header">
           <small style="font-size: 11px;"><?= $m['menu']; ?></small>
         </li>
 
@@ -93,7 +93,7 @@
         ?>
 
         <?php foreach($subMenu as $sm) : ?>
-             <li class="
+             <li class="menu_list
              <?php 
              if ($this->uri->uri_string('1') == $sm['url']) {
                 echo "active"; 
@@ -131,3 +131,22 @@
   </aside>
   <?php endforeach; ?>
 <?php endforeach; ?>
+
+
+
+<script>
+$(document).ready(function () {
+   
+$("#search_menu").on("keyup", function () {
+if (this.value.length > 0) {   
+  $(".menu_list").hide().filter(function () {
+    return $(this).text().toLowerCase().indexOf($("#search_menu").val().toLowerCase()) != -1;
+  }).show(); 
+}  
+else { 
+  $(".menu_list").show();
+}
+}); 
+
+});
+</script>

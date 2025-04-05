@@ -4,7 +4,7 @@
     <?php foreach($setting as $j) : ?>
   	<?php foreach($desa as $n) : ?>
 	<title>
-   		Cetak Data Kelompok | <?= $j['sebutan_desa'] ?> <?= $j['nama_desa'] ?>
+   		Cetak Data Kelompok | <?= $j['sebutan_desa'] ?> <?= $n['nama_desa'] ?>
 	</title>
     <link rel="stylesheet" href="<?= base_url()?>assets/lib/print/css/960.css" type="text/css" media="screen">
 	<link rel="stylesheet" href="<?= base_url()?>assets/lib/print/css/screen.css" type="text/css" media="screen" />

@@ -21,6 +21,9 @@ class Aplikasi extends CI_Controller{
 		//tampil data dari table setting
 		$data['setting'] = $this->setting->getDataSetting();
 
+		//get file log
+		$data['log_app'] = file_get_contents(base_url().'/assets/log/log_aplikasi.txt');
+
 		$data['title'] = 'Aplikasi';
 		$this->load->view('templates/header', $data);
 		$this->load->view('templates/sidebar', $data);

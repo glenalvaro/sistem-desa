@@ -29,7 +29,7 @@
                         <th style="min-width:150px;">Aksi</th>
                         <th style="min-width:150px;">Nama Surat</th>
                         <th style="min-width:90px;">Url</th>
-                        <th style="min-width:30px;">Status</th>
+                        <th style="min-width:30px;">Status Layanan</th>
                     </tr>
                 </thead>
                 <tbody style="font-size: 11px;">
@@ -50,10 +50,10 @@
                         <td><?= set_ucwords($data->nama); ?></td>
                         <td><code><?= $data->url ?></code></td>
                         <td style="text-align: center;">
-                            <?php if($data->tampil_surat == 1) : ?>
-                                <span class="label label-success">Tersedia dilayanan penduduk</span>
+                            <?php if($data->tampil_surat == 1) : ?> 
+                                <small><button type="button" class="btn btn-info btn-sm" title="Surat ini tersedia di administrasi layanan kependudukan">Tersedia</button></small>
                             <?php elseif($data->tampil_surat == 0) : ?>
-                                <span class="label label-danger">Tidak Tersedia dilayanan penduduk</span>
+                                <small><button type="button" class="btn btn-danger btn-sm">Tidak Tersedia</button></small>
                             <?php endif; ?>
                         </td>
                     </tr>
@@ -154,7 +154,7 @@ foreach($daftar_surat as $row) : $no++; ?>
                  </div>
 
                   <div class="form-group">
-                    <label for="tampil_surat">Sediakan Surat diLayanan Penduduk</label>
+                    <label for="tampil_surat">Sediakan Surat DiLayanan Penduduk</label>
                       <select id="tampil_surat" name="tampil_surat" class="select-filter form-control required" style="width:100%;"> 
                             <option value="">--Pilih Status Surat--</option>
                             <option value="0" <?=($row->tampil_surat=='0')?'selected="selected"':''?>>Tidak</option>

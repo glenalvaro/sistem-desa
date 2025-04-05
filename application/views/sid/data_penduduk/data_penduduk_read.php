@@ -46,6 +46,8 @@
                   <a target="_blank" href="<?= site_url('data_penduduk/cetak_biodata/'.$id) ?>" class="btn btn-social bg-purple btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"><i class="fa fa-print"></i> Cetak Biodata</a>
 
                   <a href="<?= site_url('data_penduduk/update/'.$id) ?>" class="btn btn-social bg-yellow btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"><i class="fa fa-edit"></i> Ubah Biodata</a>
+
+                  <a href="<?= site_url('data_penduduk/dokumen/'.$id) ?>" class="btn btn-social btn-primary btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"><i class="fa fa-file-pdf-o"></i> Manajemen Dokumen</a>
               </div>
               <br>
               <h4 style="font-size: 15px;" class="box-title">Biodata Penduduk (NIK : <?= $nik; ?>)</h4>

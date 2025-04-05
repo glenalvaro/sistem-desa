@@ -67,7 +67,7 @@ class Media_sosial_model extends CI_Model
         if ($file=''){
         }else{
             $config['upload_path']      ='./assets/img/icon/media_sosial';
-            $config['allowed_types']    ='jpg|png';
+            $config['allowed_types']    ='jpeg|jpg|png';
             $config['max_size']         = 1000;
             $config['file_name']        = $bytes_rand;
 
@@ -100,7 +100,7 @@ class Media_sosial_model extends CI_Model
 
         if ($edit_file) {
             $config['upload_path']      ='./assets/img/icon/media_sosial/';
-            $config['allowed_types']    ='jpg|png';
+            $config['allowed_types']    ='jpeg|jpg|png';
             $config['max_size']         = 1000;
             $config['file_name']        = $data['media_sosial']['icon'];
 

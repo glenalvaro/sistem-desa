@@ -17,22 +17,26 @@ class Menu_model extends CI_Model
 	return $this->db->get_where($table,$where);
 	}
 
-	function update_data($where,$data,$table){
+	function update_data($where,$data,$table)
+	{
 		$this->db->where($where);
 		$this->db->update($table,$data);
 	}
 
-	function hapus_data($where,$table){
+	function hapus_data($where,$table)
+	{
 		$this->db->where($where);
 		$this->db->delete($table);
 	}
 
-	function update_sub($where,$data,$table){
+	function update_sub($where,$data,$table)
+	{
 		$this->db->where($where);
 		$this->db->update($table,$data);
 	}
 
-	function hapus_sub($where, $table){
+	function hapus_sub($where, $table)
+	{
 		$this->db->where($where);
 		$this->db->delete($table);
 	}

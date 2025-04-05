@@ -3,7 +3,7 @@
     <div class="container">
        <section class="content-header">
       <h1 class="tx-title">
-        Perangkat Desa
+        Perangkat
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-home"></i> Home</a></li>
@@ -12,12 +12,10 @@
     </section>
       <section class="content">
       <div class="row">
-        <?php $this->load->view('layanan/template/side'); ?>
-       
-        <div class="col-md-8">
+        <div class="col-md-12">
           <div class="box box-primary">
             <div class="box-header with-border">
-              Data Perangkat Desa
+              Data Perangkat
             </div>
             <div class="box-body">
               <div class="table-responsive">

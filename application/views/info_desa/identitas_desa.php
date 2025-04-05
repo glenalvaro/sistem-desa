@@ -18,6 +18,7 @@
     background: url(<?= base_url('assets/img/kantor/') . $ids['gambar_desa']; ?>);
     background-repeat: no-repeat;
     background-position: center center;
+    background-size: cover;
   }
 
   .img-identitas {

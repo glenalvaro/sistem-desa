@@ -46,7 +46,7 @@
                       <input type="file" id="file" name="file" value="<?= $gambar; ?>" class="custom-file-input">
                       <label class="custom-file-label" for="file"></label>
                     </div>
-                     <span>Batas maksimal pengunggahan berkas 2 MB.</span>
+                     <span>Batas maksimal pengunggahan gambar 2 MB.</span>
                     </div>
                   </div>
 

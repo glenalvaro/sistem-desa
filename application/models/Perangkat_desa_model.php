@@ -15,6 +15,17 @@ class Perangkat_desa_model extends CI_Model
         parent::__construct();
     }
 
+    //ambil hanya data jabatan kepala desa kirim ke view web
+    function get_kepdes_web()
+    {
+        $sql = "SELECT p.*, j.nama as jabatan
+        FROM perangkat_desa p 
+        LEFT JOIN jabatan_perangkat j ON p.jabatan_pegawai = j.id
+        WHERE p.jabatan_pegawai=1";
+        $result = $this->db->query($sql)->row_array();
+        return $result;
+    }
+
     // get all
     function get_all()
     {

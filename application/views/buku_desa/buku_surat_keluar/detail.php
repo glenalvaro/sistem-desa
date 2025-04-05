@@ -43,7 +43,7 @@
                 </tr>
                 <tr>
                   <th>File Surat</th>
-                  <td><i class="fa fa-file-pdf-o"></i> <a href="<?= base_url(); ?>/folder_arsip/surat_keluar/<?= $file_surat; ?>" target="_blank" ><?php echo $file_surat ?></a>
+                  <td><i class="fa fa-file-pdf-o"></i> <a href="<?= base_url(); ?>folder_arsip/surat_keluar/<?= $file_surat; ?>" target="_blank" ><?php echo $file_surat ?></a>
                   </td>
                 </tr>
               </table>

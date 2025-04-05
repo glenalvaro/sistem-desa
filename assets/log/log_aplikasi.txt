@@ -1,0 +1,103 @@
+18-03-2025 20:19:32-admin@gmail.com-Administrator-0-Login
+18-03-2025 20:20:56-admin@gmail.com-Administrator-1-Logout
+18-03-2025 20:21:16-admin@gmail.com-Administrator-0-Login
+18-03-2025 20:21:27-admin@gmail.com-Administrator-3-Mengubah data informasi desa/kelurahan
+18-03-2025 21:54:11-admin@gmail.com-Administrator-3-Mengubah data penduduk
+18-03-2025 22:02:21-admin@gmail.com-Administrator-1-Logout
+18-03-2025 22:04:37-admin@gmail.com-Administrator-0-Login
+18-03-2025 22:04:50-admin@gmail.com-Administrator-3-Mengubah data aplikasi
+18-03-2025 22:05:27-admin@gmail.com-Administrator-1-Logout
+18-03-2025 22:05:53-admin@gmail.com-Administrator-0-Login
+18-03-2025 22:06:09-admin@gmail.com-Administrator-3-Mengubah data aplikasi
+18-03-2025 22:14:45-admin@gmail.com-Administrator-1-Logout
+19-03-2025 10:27:05-admin@gmail.com-Administrator-0-Login
+19-03-2025 12:26:37-admin@gmail.com-Administrator-0-Login
+19-03-2025 14:20:05-admin@gmail.com-Administrator-1-Logout
+19-03-2025 14:20:21-admin@gmail.com-Administrator-0-Login
+19-03-2025 14:31:38-admin@gmail.com-Administrator-3-Mengubah data penduduk
+19-03-2025 14:33:23-admin@gmail.com-Administrator-3-Mengubah sub modul
+19-03-2025 14:34:44-admin@gmail.com-Administrator-3-Mengubah modul
+19-03-2025 14:34:57-admin@gmail.com-Administrator-3-Mengubah modul
+19-03-2025 18:19:59-admin@gmail.com-Administrator-1-Logout
+19-03-2025 18:25:58-admin@gmail.com-Administrator-0-Login
+20-03-2025 10:10:19-admin@gmail.com-Administrator-0-Login
+20-03-2025 18:52:28-admin@gmail.com-Administrator-0-Login
+20-03-2025 20:28:47-admin@gmail.com-Administrator-1-Logout
+22-03-2025 00:04:17-admin@gmail.com-Administrator-0-Login
+22-03-2025 01:14:42-admin@gmail.com-Administrator-3-Mengubah sub modul
+22-03-2025 01:19:56-admin@gmail.com-Administrator-3-Mengubah sub modul
+22-03-2025 01:26:42-admin@gmail.com-Administrator-3-Mengubah sub modul
+22-03-2025 01:33:02-admin@gmail.com-Administrator-3-Mengubah sub modul
+22-03-2025 01:34:14-admin@gmail.com-Administrator-3-Mengubah sub modul
+22-03-2025 02:37:37-admin@gmail.com-Administrator-1-Logout
+22-03-2025 02:37:52-admin@gmail.com-Administrator-0-Login
+23-03-2025 01:11:09---1-Logout
+23-03-2025 01:12:03-admin@gmail.com-Administrator-0-Login
+23-03-2025 02:37:02-admin@gmail.com-Administrator-1-Logout
+23-03-2025 21:47:14-admin@gmail.com-Administrator-0-Login
+23-03-2025 21:48:31-admin@gmail.com-Administrator-1-Logout
+24-03-2025 01:31:11-admin@gmail.com-Administrator-0-Login
+24-03-2025 01:48:48-admin@gmail.com-Administrator-1-Logout
+24-03-2025 02:17:59-admin@gmail.com-Administrator-0-Login
+24-03-2025 03:01:57-admin@gmail.com-Administrator-1-Logout
+25-03-2025 14:29:59-admin@gmail.com-Administrator-0-Login
+25-03-2025 14:30:59-admin@gmail.com-Administrator-1-Logout
+25-03-2025 14:47:03-admin@gmail.com-Administrator-0-Login
+25-03-2025 15:22:24-admin@gmail.com-Administrator-1-Logout
+25-03-2025 16:24:16-admin@gmail.com-Administrator-0-Login
+25-03-2025 16:56:58-admin@gmail.com-Administrator-1-Logout
+25-03-2025 17:12:54-admin@gmail.com-Administrator-0-Login
+25-03-2025 17:33:21-admin@gmail.com-Administrator-1-Logout
+25-03-2025 18:28:14-admin@gmail.com-Administrator-0-Login
+25-03-2025 18:28:46-admin@gmail.com-Administrator-3-Mengubah sub modul
+25-03-2025 18:45:17-admin@gmail.com-Administrator-1-Logout
+25-03-2025 21:53:46-admin@gmail.com-Administrator-0-Login
+25-03-2025 21:53:56-admin@gmail.com-Administrator-1-Logout
+27-03-2025 02:14:42-admin@gmail.com-Administrator-0-Login
+27-03-2025 02:45:41-admin@gmail.com-Administrator-3-Mengubah data aplikasi
+27-03-2025 02:46:34-admin@gmail.com-Administrator-3-Mengubah data aplikasi
+27-03-2025 02:51:44-admin@gmail.com-Administrator-1-Logout
+28-03-2025 02:57:16-admin@gmail.com-Administrator-0-Login
+28-03-2025 03:04:56-admin@gmail.com-Administrator-3-Mengubah data aplikasi
+28-03-2025 03:10:17-admin@gmail.com-Administrator-1-Logout
+28-03-2025 15:54:21-admin@gmail.com-Administrator-0-Login
+28-03-2025 16:05:26-admin@gmail.com-Administrator-1-Logout
+28-03-2025 16:20:26-admin@gmail.com-Administrator-0-Login
+28-03-2025 16:23:49-admin@gmail.com-Administrator-1-Logout
+28-03-2025 18:34:39-admin@gmail.com-Administrator-0-Login
+28-03-2025 19:32:18-admin@gmail.com-Administrator-1-Logout
+28-03-2025 20:15:40-admin@gmail.com-Administrator-0-Login
+28-03-2025 21:00:22-admin@gmail.com-Administrator-1-Logout
+28-03-2025 21:00:29--Administrator-1-Logout
+28-03-2025 22:02:47-admin@gmail.com-Administrator-0-Login
+28-03-2025 22:11:15-admin@gmail.com-Administrator-1-Logout
+29-03-2025 02:20:48-admin@gmail.com-Administrator-0-Login
+29-03-2025 03:34:29-admin@gmail.com-Administrator-1-Logout
+29-03-2025 19:04:09-admin@gmail.com-Administrator-0-Login
+29-03-2025 21:25:42-admin@gmail.com-Administrator-1-Logout
+29-03-2025 21:25:54-admin@gmail.com-Administrator-0-Login
+29-03-2025 21:49:06-admin@gmail.com-Administrator-1-Logout
+29-03-2025 21:51:02-admin@gmail.com-Administrator-0-Login
+29-03-2025 21:56:17-admin@gmail.com-Administrator-1-Logout
+29-03-2025 21:57:33-admin@gmail.com-Administrator-0-Login
+29-03-2025 22:01:03-admin@gmail.com-Administrator-1-Logout
+29-03-2025 22:01:14-admin@gmail.com-Administrator-0-Login
+29-03-2025 22:15:24-admin@gmail.com-Administrator-1-Logout
+29-03-2025 22:15:48-admin@gmail.com-Administrator-0-Login
+29-03-2025 22:16:55-admin@gmail.com-Administrator-1-Logout
+29-03-2025 22:17:57-admin@gmail.com-Administrator-0-Login
+29-03-2025 22:19:07-admin@gmail.com-Administrator-1-Logout
+29-03-2025 22:20:06-admin@gmail.com-Administrator-0-Login
+29-03-2025 22:26:01-admin@gmail.com-Administrator-1-Logout
+29-03-2025 22:26:30-admin@gmail.com-Administrator-0-Login
+29-03-2025 22:26:40-admin@gmail.com-Administrator-1-Logout
+31-03-2025 13:52:37-admin@gmail.com-Administrator-0-Login
+31-03-2025 14:54:09-admin@gmail.com-Administrator-1-Logout
+31-03-2025 14:54:58-admin@gmail.com-Administrator-0-Login
+31-03-2025 17:17:30-admin@gmail.com-Administrator-1-Logout
+31-03-2025 17:22:52-admin@gmail.com-Administrator-0-Login
+31-03-2025 17:27:15-admin@gmail.com-Administrator-1-Logout
+06-04-2025 01:30:37-admin@gmail.com-Administrator-0-Login
+06-04-2025 02:48:30-admin@gmail.com-Administrator-1-Logout
+06-04-2025 02:51:38-admin@gmail.com-Administrator-0-Login
+06-04-2025 02:53:21-admin@gmail.com-Administrator-1-Logout

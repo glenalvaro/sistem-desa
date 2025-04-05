@@ -16,23 +16,15 @@
 	<link rel="icon" href="<?= base_url('assets/img/logo/') . $p['logo_desa']; ?>">
 	<script src="<?= base_url()?>assets/lib/print/js/jquery.tools.min.js"></script>
 	<script src="<?= base_url()?>assets/lib/print/js/jquery.print-preview.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		$(function(){
+			$("#feature > div").scrollable({interval: 2000}).autoscroll();
+			$('#aside').prepend('<a class="print-preview">Cetak </a>');
+			$('a.print-preview').printPreview();
 
-		<script type="text/javascript">
-			$(function()
-			{
-				$("#feature > div").scrollable({interval: 2000}).autoscroll();
-
-				$('#aside').prepend('<a class="print-preview">Cetak </a>');
-				$('a.print-preview').printPreview();
-
-				//$(document).bind('keydown', function(e) {
-				var code = 80;
-				//if (code == 80 && !$('#print-modal').length) {
-				$.printPreview.loadPrintPreview();
-				//return false;
-				//}
-				//});
-			});
+			var code = 80;
+			$.printPreview.loadPrintPreview();	
+		});
 		</script>
 </head>
 <body>
@@ -52,11 +44,11 @@
 			</table>
 			<table width="100%" style="border: solid 0px black; text-align: center;">
 					<tr>
-						<td align="center"><img style="width: 15%;" src="<?= base_url('assets/img/logo/') . $p['logo_desa']; ?>" alt="<?= $p['nama_desa']?>"  class="logo_mandiri">
+						<td align="center"><img style="width: 7%;" src="<?= base_url('assets/img/logo/') . $p['logo_desa']; ?>" alt="<?= $p['nama_desa']?>"  class="logo_mandiri">
 					</tr>
 					<tr>
 						<td>
-							<h3>BIODATA PENDUDUK WARGA NEGARA INDONESIA</h3>
+							<h4>BIODATA PENDUDUK WARGA NEGARA INDONESIA</h4>
 							<h5>Kab/Kota. <?= $p['nama_kabupaten']?>, Kec. <?= $p['nama_kecamatan']?>, <?= $s['sebutan_desa'] ?>. <?= $p['nama_desa']?></h5>
 						</td>
 					</tr>
@@ -70,7 +62,7 @@
 						<td><?= strtoupper($penduduk['nama_pend'])?> </td>
 						<td rowspan="18" style="vertical-align: top;">
 							<?php if ($data_pend->foto): ?>
-								<img class="pas_foto" src="<?= AmbilFoto($penduduk['foto_pend'], '', $penduduk['sex'])?>" style="width: 100%; max-width: 150px; height: auto; border: solid 2px black;"/>
+								<img class="pas_foto" src="<?= AmbilFoto($penduduk['foto_pend'], '', $penduduk['sex'])?>" style="width: 50%; max-width: 150px; height: auto; border: solid 2px black;"/>
 							<?php endif; ?>
 						</td>
 					</tr>

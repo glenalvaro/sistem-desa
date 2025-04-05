@@ -1,8 +1,5 @@
 <div class="noprint">
     <footer style="font-size: 11px;" class="main-footer">
-    <div class="pull-right hidden-xs">
-      <strong>Versi</strong>  <span>5.1.2</span>
-    </div>
     <?php
       $querySetting = "SELECT * FROM `setting`";
       $hasil = $this->db->query($querySetting)->result_array();
@@ -26,8 +23,14 @@
 <script src="<?= base_url() ?>assets/progressive-image/progressive-image.js"></script>
 <!-- leaflet control -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-locatecontrol/0.82.0/L.Control.Locate.min.js"></script>
+<!-- summernote -->
+<script src="<?= base_url() ?>assets/vendor/summernote/summernote.min.js"></script>
 <!-- Datepicker -->
 <script src="<?= base_url() ?>assets/vendor/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+<!-- bootstrap color picker -->
+<script src="<?= base_url() ?>assets/vendor/bootstrap-colorpicker/dist/js/bootstrap-colorpicker.min.js"></script>
+<!-- bootstrap time picker -->
+<script src="<?= base_url() ?>assets/vendor/timepicker/bootstrap-timepicker.min.js"></script>
 <!-- Sweet Alert -->
 <script src="<?= base_url() ?>assets/vendor/sweet-alert/sweetalert2.all.min.js"></script>
 <script src="<?= base_url() ?>assets/vendor/sweet-alert/script.js"></script>
@@ -71,8 +74,8 @@
         });
     });
 </script>
-<!-- link JS-->
 <script>
+    //Link JS EXTERNAL
     var SITE_URL = "<?php echo base_url(); ?>";
     function site_url(url){
         var bu = "<?php echo base_url(); ?>";
@@ -87,6 +90,45 @@ $(document).ready(function(){
         trigger: "hover",
     });       
 });
+</script>
+<script>
+  $(function () {
+    // Editor Text
+    $('#editor-text').summernote({
+       height : 400,
+       codeviewFilter: true,
+       codeviewIframeFilter: true,
+       fontSizes: ['8','9','10','11','12','14','16','18','22','24','30','36'],
+        toolbar: [
+          ['style', ['bold', 'italic', 'underline', 'clear']],
+          ['fontname', ['fontname']],
+          ['fontsize', ['fontsize']],
+          ['color', ['color']],
+          ['para', ['ul', 'ol', 'paragraph']],
+          ['table', ['table']],
+          ['insert', ['link', 'video', 'hr']],
+          ['view', ['codeview', 'help', 'fullscreen']]
+        ],
+        link: [
+          ['link', ['linkDialogShow', 'unlink']]
+        ],
+        table: [
+          ['add', ['addRowDown', 'addRowUp', 'addColLeft', 'addColRight']],
+          ['delete', ['deleteRow', 'deleteCol', 'deleteTable']],
+        ],
+        air: [
+          ['color', ['color']],
+          ['font', ['bold', 'underline', 'clear']],
+          ['para', ['ul', 'paragraph']],
+          ['table', ['table']],
+          ['insert', ['link', 'picture']]
+        ]
+      });
+
+  $('#editor-text').summernote('fontName', 'Rubik');
+  $('#editor-text').summernote('fontSize', 14);
+
+  });
 </script>
 </body>
 </html>

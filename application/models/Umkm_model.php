@@ -27,14 +27,14 @@ class Umkm_model extends CI_Model
         return $result;
     }
 
-    //untuk di view layanan penduduk
+    //untuk di view layanan penduduk dan web
     function get_all_limit()
     {
         $sql = "SELECT u.*, k.nama AS nama_kat, p.nama_penduduk as nama_pemilik
         FROM umkm u 
         LEFT JOIN kategori_umkm k ON u.id_kategori = k.id
         LEFT JOIN data_penduduk p ON u.nik = p.nik
-        ORDER BY u.id DESC LIMIT 5";
+        ORDER BY u.id DESC LIMIT 8";
         $result = $this->db->query($sql)->result();
         return $result;
     }

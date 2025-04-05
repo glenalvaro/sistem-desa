@@ -24,6 +24,7 @@ class Setting_model extends CI_Model
 
     public function editSettingById($id)
     {
+        helper_log("edit", "Mengubah data aplikasi");
         //Siapkan nama gambar acak
         $random_name = random_bytes(5);
         $nama_random = bin2hex($random_name);
@@ -32,7 +33,6 @@ class Setting_model extends CI_Model
 
         $title_admin           = $this->input->post('title_admin');
         $title_login           = $this->input->post('title_login');
-        $statistik_data        = $this->input->post('statistik_data');
         $mode_perbaikan        = $this->input->post('mode_perbaikan');
         $sebutan_desa          = $this->input->post('sebutan_desa');
         $sebutan_dusun         = $this->input->post('sebutan_dusun');
@@ -131,7 +131,6 @@ class Setting_model extends CI_Model
 
             'title_admin'       => $title_admin,
             'title_login'       => $title_login,
-            'statistik_data'    => $statistik_data,
             'mode_perbaikan'    => $mode_perbaikan,
             'sebutan_desa'      => $sebutan_desa,
             'sebutan_dusun'     => $sebutan_dusun,
@@ -192,5 +191,13 @@ class Setting_model extends CI_Model
 
         $this->db->where('id', $this->input->post('id'));
         $this->db->update('identitas_desa', $data);
+    }
+
+    //ambil hanya nama sebutan didesa
+    public function get_sebutan_desa()
+    {
+        $sql = "SELECT sebutan_desa FROM setting";
+        $result = $this->db->query($sql)->result();
+        return $result;
     }
 }

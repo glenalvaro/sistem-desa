@@ -11,9 +11,7 @@
     </section>
       <section class="content">
       <div class="row">
-        <?php $this->load->view('layanan/template/side'); ?>
-       
-        <div class="col-md-8">
+        <div class="col-md-12">
           <!-- Pesan tambah data -->
           <small><span> <?= $this->session->flashdata('pesan'); ?></span></small>
           <div class="box box-primary">

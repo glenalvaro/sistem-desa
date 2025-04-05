@@ -30,7 +30,7 @@ class Auth extends CI_Controller{
         //validasi login
         if ($this->form_validation->run() == false) {
              $data['title'] = 'Masuk';
-             $this->load->view('temp_web/login', $data);
+             $this->load->view('sid/login', $data);
         } else {
             //validasi sukses
             $this->_login();
@@ -52,12 +52,16 @@ class Auth extends CI_Controller{
             if(password_verify($password, $user['password'])){
                 $data = [
                     'email' => $user['email'],
-                    'role_id' => $user['role_id']
+                    'role_id' => $user['role_id'],
+                    'name' => $user['name']
                 ];
                 $this->session->set_userdata($data);
+                //cek hak akses
                     if($user['role_id'] == 1){
+                        helper_log("login", "Login");
                         redirect('home');
                     } else {
+                        helper_log("login", "Login");
                         redirect('user');
                     }
             } else {
@@ -80,6 +84,7 @@ class Auth extends CI_Controller{
 
    public function logout()
    {
+        helper_log("logout", "Logout");
         $this->session->unset_userdata('email');
         $this->session->unset_userdata('role_id');
         redirect('auth');

@@ -12,9 +12,7 @@
     </section>
       <section class="content">
       <div class="row">
-        <?php $this->load->view('layanan/template/side'); ?>
-       
-        <div class="col-md-8">
+        <div class="col-md-12">
           <div class="box box-primary">
             <div class="box-header with-border">
             Daftar Penerima Bantuan
@@ -27,8 +25,8 @@
                     <th style="min-width:10px;">No</th>
                     <th style="min-width:90px;">Nomor Kartu</th>
                     <th style="min-width:200px;">Nama Peserta</th>
-                    <th style="min-width:90px;">Bantuan</th>
-                    <th style="min-width:90px;">Alamat</th>
+                    <th style="min-width:90px;">Kategori Bantuan</th>
+                    <th style="min-width:90px;">Alamat Penerima</th>
                 </tr>
                 </thead>
                 <tbody style="font-size: 11px;">

@@ -28,9 +28,7 @@
     </section>
       <section class="content">
       <div class="row">
-        <?php $this->load->view('layanan/template/side'); ?>
-       
-        <div class="col-md-8">
+        <div class="col-md-12">
           <div class="box box-primary">
             <div class="box-header with-border">
               <a href="<?=site_url('/layanan/umkm/list_all')?>" class="btn btn-social bg-purple btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"><i class="fa fa-book"></i> Kembali ke UMKM</a>

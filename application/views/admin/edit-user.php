@@ -25,7 +25,7 @@ label {
 </section>
 
 <section class="content form-horizontal">
-  <form action=" <?= base_url('admin/edit_UserAdmin/'); ?><?= $user_data['id']; ?>" method="POST" enctype="multipart/form-data">
+  <form action="<?= base_url('admin/edit_UserAdmin/'); ?><?= $user_data['id']; ?>" method="POST" enctype="multipart/form-data">
       <div class="row">
         <div class="col-md-3">
           <div class="box box-danger">

@@ -53,6 +53,7 @@ class Identitas_desa extends CI_Controller{
 
 	public function update_identitasDesa()
 	{
+		helper_log("edit", "Mengubah data informasi desa/kelurahan");
 		//Siapkan nama gambar acak
         $name_rand = random_bytes(5);
         $logo_name = bin2hex($name_rand);
@@ -96,9 +97,9 @@ class Identitas_desa extends CI_Controller{
 			'kode_wilayah' => $kode_wilayah,
 		];
 
-		//fungsi upload logo web
+		//fungsi upload logo
 		 if ($logo_desa) {
-                $config['allowed_types'] = 'jpg|png';
+                $config['allowed_types'] = 'jpeg|jpg|png';
                 $config['max_size']      = '1048';
                 $config['upload_path'] 	 = './assets/img/logo/';
                 $config['file_name']     = $logo_name;
@@ -117,15 +118,15 @@ class Identitas_desa extends CI_Controller{
 	                $new_file = $this->upload->data('file_name');
 	                $this->db->set('logo_desa', $new_file);
                 } else {
-                    $this->session->set_flashdata('flash-error', 'Ukuran foto maks 1 MB!');
+                    $this->session->set_flashdata('flash-error', 'Ukuran logo maks 1 MB!');
 					redirect('identitas_desa');
                 }
             }
 
-            //fungsi upload logo menu web
+            //fungsi upload gambar kantor
              if ($gbr_desa) {
-                $config['allowed_types'] = 'jpg|png';
-                $config['max_size']      = '1048';
+                $config['allowed_types'] = 'jpeg|jpg|png';
+                $config['max_size']      = '4028';
                 $config['upload_path'] 	 = './assets/img/kantor/';
                 $config['file_name']     = $logo_name;
 
@@ -143,7 +144,7 @@ class Identitas_desa extends CI_Controller{
 	                $new_file1 = $this->upload->data('file_name');
 	                $this->db->set('gambar_desa', $new_file1);
                 } else {
-                    $this->session->set_flashdata('flash-error', 'Ukuran foto maks 1 MB!');
+                    $this->session->set_flashdata('flash-error', 'Ukuran gambar maks 4 MB!');
 					redirect('identitas_desa');
                 }
             }
@@ -179,14 +180,14 @@ class Identitas_desa extends CI_Controller{
         ]);
 
         if ($this->form_validation->run() == false) {
-	        $data['title'] = 'Informasi Desa';
+	        $data['title'] = 'Lokasi Kantor';
 			$this->load->view('templates/header', $data);
 			$this->load->view('templates/sidebar', $data);
 			$this->load->view('info_desa/lokasi_kantor', $data);
 			$this->load->view('templates/footer');
         } else {
             $this->setting->editLokasi($id);
-            $this->session->set_flashdata('flash', 'Lokasi Kantor Desa Diupdate!');
+            $this->session->set_flashdata('flash', 'Lokasi Kantor Diupdate!');
             redirect('identitas_desa');
         }
     }
@@ -206,19 +207,19 @@ class Identitas_desa extends CI_Controller{
       //ambil data yang akan diedit
       $data['wilayah_edit'] = $this->setting->getWilayahById($id);
 
-        $this->form_validation->set_rules('wilayah_desa', 'Wilayah Desa', 'required|trim',[
+        $this->form_validation->set_rules('wilayah_desa', 'Wilayah', 'required|trim',[
         	'required' => 'Kolom ini harus di isi'
         ]);
 
         if ($this->form_validation->run() == false) {
-	        $data['title'] = 'Informasi Desa';
+	        $data['title'] = 'Wilayah';
 			$this->load->view('templates/header', $data);
 			$this->load->view('templates/sidebar', $data);
 			$this->load->view('info_desa/wilayah_desa', $data);
 			$this->load->view('templates/footer');
         } else {
             $this->setting->editWilayah($id);
-            $this->session->set_flashdata('flash', 'Wilayah Desa Diupdate!');
+            $this->session->set_flashdata('flash', 'Wilayah Diupdate!');
             redirect('identitas_desa');
         }
     }

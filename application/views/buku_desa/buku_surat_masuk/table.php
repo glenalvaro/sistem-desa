@@ -55,7 +55,7 @@
             <thead class="bg-gray color-palette" style="font-size: 10px;">
             <tr>
                 <th>No</th>
-                <th style="min-width:200px; text-align: center;">Action</th>
+                <th style="min-width:200px; text-align: center;">Aksi</th>
         		<th style="min-width:150px; text-align: center;">Nama Surat</th>
         		<th style="min-width:100px; text-align: center;">Tgl Terima</th>
         		<th style="min-width:115px; text-align: center;">No Surat</th>

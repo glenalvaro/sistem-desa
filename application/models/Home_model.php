@@ -115,4 +115,85 @@ class Home_model extends CI_Model{
     }
   }
 
+  function logsurat()
+  {   
+    //jika nomor surat tidak sama dengan 0 surat sudah tercetak
+    $query = $this->db->query("SELECT * FROM log_surat where no_surat !=0");
+    if($query->num_rows()>0)
+    {
+      return $query->num_rows();
+    }
+    else
+    {
+      return 0;
+    }
+  }
+
+  function get_pria()
+  {   
+    //penduduk pria
+    $query = $this->db->query("SELECT * FROM data_penduduk where jenis_kelamin =1");
+    if($query->num_rows()>0)
+    {
+      return $query->num_rows();
+    }
+    else
+    {
+      return 0;
+    }
+  }
+
+  function get_wanita()
+  {   
+    //penduduk wanita
+    $query = $this->db->query("SELECT * FROM data_penduduk where jenis_kelamin =2");
+    if($query->num_rows()>0)
+    {
+      return $query->num_rows();
+    }
+    else
+    {
+      return 0;
+    }
+  }
+
+  function penduduk_sementara()
+  {   
+    $query = $this->db->query("SELECT * FROM data_penduduk where status_penduduk_id =2");
+    if($query->num_rows()>0)
+    {
+      return $query->num_rows();
+    }
+    else
+    {
+      return 0;
+    }
+  }
+
+  function layanan_surat()
+  {   
+    $query = $this->db->get('surat_master');
+    if($query->num_rows()>0)
+    {
+      return $query->num_rows();
+    }
+    else
+    {
+      return 0;
+    }
+  }
+
+  function get_umkm()
+  {   
+    $query = $this->db->get('umkm');
+    if($query->num_rows()>0)
+    {
+      return $query->num_rows();
+    }
+    else
+    {
+      return 0;
+    }
+  }
+
 }

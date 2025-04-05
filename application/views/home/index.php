@@ -12,7 +12,7 @@
      <div class="row">
         <div class="col-md-3 col-sm-6 col-xs-12">
           <div class="info-box">
-            <span class="info-box-icon bg-aqua"><ion-icon name="man-outline"></ion-icon></span>
+            <span class="info-box-icon bg-aqua"><i class="ion-man"></i></span>
             <div class="info-box-content">
               <span class="info-box-text">Penduduk</span>
               <span class="info-box-number"><?= $total_penduduk; ?></span>
@@ -21,7 +21,7 @@
         </div>
         <div class="col-md-3 col-sm-6 col-xs-12">
           <div class="info-box">
-            <span class="info-box-icon bg-purple"><ion-icon name="people-outline"></ion-icon></span>
+            <span class="info-box-icon bg-purple"><i class="ion-ios-people-outline"></i></span>
 
             <div class="info-box-content">
               <span class="info-box-text">Keluarga</span>
@@ -32,7 +32,7 @@
 
         <div class="col-md-3 col-sm-6 col-xs-12">
           <div class="info-box">
-            <span class="info-box-icon bg-olive"><ion-icon name="options-outline"></ion-icon></span>
+            <span class="info-box-icon bg-olive"><i class="ion-android-people"></i></span>
             <div class="info-box-content">
               <span class="info-box-text">Kelompok</span>
               <span class="info-box-number"><?= $total_kelompok; ?></span>
@@ -42,7 +42,7 @@
 
         <div class="col-md-3 col-sm-6 col-xs-12">
           <div class="info-box">
-            <span class="info-box-icon bg-gray"><ion-icon name="navigate-circle-outline"></ion-icon></span>
+            <span class="info-box-icon bg-gray"><i class="ion-android-map"></i></span>
             <div class="info-box-content">
               <span class="info-box-text">Wilayah Desa</span>
               <span class="info-box-number"><?= $total_wilayah; ?></span>
@@ -53,8 +53,7 @@
 
         <div class="col-md-3 col-sm-6 col-xs-12">
           <div class="info-box">
-            <span class="info-box-icon bg-yellow"><ion-icon name="help-circle-outline"></ion-icon></span>
-
+            <span class="info-box-icon bg-yellow"><i class="ion-ios-help-outline"></i></span>
             <div class="info-box-content">
               <span class="info-box-text">Pengaduan</span>
               <span class="info-box-number">
@@ -67,20 +66,17 @@
 
          <div class="col-md-3 col-sm-6 col-xs-12">
           <div class="info-box">
-            <span class="info-box-icon bg-green"><ion-icon name="print-outline"></ion-icon></span>
-
+            <span class="info-box-icon bg-blue"><i class="ion-ios-email-outline"></i></span>
             <div class="info-box-content">
               <span class="info-box-text">Surat Tercetak</span>
-              <span class="info-box-number">
-              
-              </span>
+              <span class="info-box-number"><?= $total_surat; ?></span>
             </div>
           </div>
         </div>
 
         <div class="col-md-3 col-sm-6 col-xs-12">
           <div class="info-box">
-            <span class="info-box-icon bg-navy"><ion-icon name="bar-chart-outline"></ion-icon></span>
+            <span class="info-box-icon bg-navy"><i class="ion-ios-person-outline"></i></span>
 
             <div class="info-box-content">
               <span class="info-box-text">Pengguna</span>
@@ -93,7 +89,7 @@
 
         <div class="col-md-3 col-sm-6 col-xs-12">
           <div class="info-box">
-            <span class="info-box-icon bg-maroon"><ion-icon name="home-outline"></ion-icon></span>
+            <span class="info-box-icon bg-maroon"><i class="ion-person-stalker"></i></span>
 
             <div class="info-box-content">
               <span class="info-box-text">Layanan Penduduk</span>
@@ -103,10 +99,6 @@
             </div>
           </div>
         </div>
-
-
-      </div>
+     </div>
 </section>
 </div>
-
-

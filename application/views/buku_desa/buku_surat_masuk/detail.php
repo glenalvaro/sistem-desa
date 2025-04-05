@@ -62,7 +62,7 @@
                 <tr>
                   <td width="35%"><strong>File Surat</strong></td>
                   <td> : <i class="fa fa-file-pdf-o"></i>
-                    <a href="<?= base_url(); ?>/folder_arsip/surat_masuk/<?= $file_surat_masuk; ?>" onclick='window.open(this.href,"popupwindow","status=0,height=600,width=600,resizable=0");return false;' rel='noopener noreferrer' target='_blank' title='Lihat Icon'><?= $file_surat_masuk ?></a>
+                    <a href="<?= base_url(); ?>folder_arsip/surat_masuk/<?= $file_surat_masuk; ?>" onclick='window.open(this.href,"popupwindow","status=0,height=600,width=600,resizable=0");return false;' rel='noopener noreferrer' target='_blank' title='Lihat Icon'><?= $file_surat_masuk ?></a>
                   </td>
                 </tr>
               </table>

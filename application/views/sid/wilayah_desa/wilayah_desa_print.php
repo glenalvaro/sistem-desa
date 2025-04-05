@@ -81,7 +81,7 @@
          <tr>
             <td style="text-transform: uppercase;" colspan="2" class="judul">
                <br>
-               <u>DATA WILAYAH ADMINISTRATIF <?= $s['sebutan_dusun'] ?></u>
+               <u>DATA WILAYAH ADMINISTRATIF <?= $s['sebutan_dusun'] ?> <?= $p['nama_desa'] ?></u>
             </td>
          </tr>
       </tbody>

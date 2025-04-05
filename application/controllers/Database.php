@@ -54,18 +54,18 @@ class Database extends CI_Controller{
 	}
 
 	// backup files in directory
-	public function backup_files_sid()
-	{
-     $opt = array(
-       'src' => '../sistem-desa', // dir name to backup
-       'dst' => 'folder_arsip/backup_sid' // dir name backup output destination
-     );
+	// public function backup_files_sid()
+	// {
+  //    $opt = array(
+  //      'src' => '../sistem-desa', // dir name to backup
+  //      'dst' => 'folder_arsip/backup_sid' // dir name backup output destination
+  //    );
      
-     // Codeigniter v3x
-     $this->load->library('recurseZip_lib', $opt);
-     $download = $this->recursezip_lib->compress();
+  //    // Codeigniter v3x
+  //    $this->load->library('recurseZip_lib', $opt);
+  //    $download = $this->recursezip_lib->compress();
      
-     $this->session->set_flashdata('flash','Backup Folder Desa Berhasil');
-      redirect('database');
-	}
+  //    $this->session->set_flashdata('flash','Backup Folder Desa Berhasil');
+  //     redirect('database');
+	// }
 }

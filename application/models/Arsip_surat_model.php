@@ -15,17 +15,26 @@ class Arsip_surat_model extends CI_Model
         parent::__construct();
     }
 
+     // get data by id
+    function get_arsip_id($id)
+    {
+        $this->db->where($this->id, $id);
+        return $this->db->get($this->table)->row();
+    }
+
     function get_all()
     {
-        $sql = "SELECT l.*, s.nama AS nama_surat, p.nama_penduduk as pemohon 
+       $sql = "SELECT l.*, s.nama AS nama_surat, p.nama_penduduk as pemohon, st.nama as surat_status
         FROM log_surat l 
         LEFT JOIN surat_master s ON l.id_surat = s.id
         LEFT JOIN data_penduduk p ON l.id_pend = p.id
+        LEFT JOIN status_surat st ON l.id_status = st.id
         ORDER BY l.id DESC";
         $result = $this->db->query($sql)->result();
         return $result;
     }
 
+    //hitung data surat tampilkan di arsip grafik surat
     function count_surat()
     {
         $this->db->select("COALESCE(COUNT(s.id), 0) as jumlah_surat")
@@ -50,10 +59,12 @@ class Arsip_surat_model extends CI_Model
         $this->db->update('log_surat', $data);
     }
 
-    function hapus_arsip($where,$table)
+     // delete data
+    function delete($id)
     {
-        $this->db->where($where);
-        $this->db->delete($table);
+        helper_log("delete", "Menghapus data arsip surat");
+        $this->db->where($this->id, $id);
+        $this->db->delete($this->table);
     }
 
 }

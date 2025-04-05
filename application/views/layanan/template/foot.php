@@ -24,8 +24,10 @@
 <script src="<?= base_url() ?>assets/js/validasi.js"></script>
 <script src="<?= base_url() ?>assets/js/jquery.validate.min.js"></script>
 <script src="<?= base_url() ?>assets/aset/layanan_penduduk/slick/slick.min.js"></script>
+<script src="<?= base_url() ?>assets/vendor/sweet-alert/sweetalert2.all.min.js"></script>
+<script src="<?= base_url() ?>assets/vendor/sweet-alert/script.js"></script>
 <script>
-  //slider list buku di transaksi
+  //slick slider
 $(document).ready(function(){
   $(".items").slick({
     infinite: true,
@@ -42,6 +44,20 @@ $(document).ready(function(){
 
 $(function () {
     $('#tabel-data').DataTable({
+      'paging'      : true,
+      'lengthChange': true,
+      'searching'   : true,
+      'ordering'    : false,
+      'info'        : true,
+      'autoWidth'   : true,
+      "language": {
+          "url": "https://cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Indonesian.json"
+      }
+    })
+});
+
+$(function () {
+    $('#tabel-data1').DataTable({
       'paging'      : true,
       'lengthChange': true,
       'searching'   : true,

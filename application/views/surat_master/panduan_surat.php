@@ -29,7 +29,7 @@
                     <li>Pilih nama dan jabatan kepala desa atau perangkat desa yang berwenang melakukan pengesahan atas nama kepala desa.</li>
                     <li>Setelah semua kolom terisi dengan benar, surat bisa langsung dicetak dengan klik tombol "Cetak" di bagian kanan bawah, atau bisa diedit lebih lanjut ke versi pdf. dengan klik "Simpan Surat" di bagian kanan bawah.</li>
                     <li>Surat dapat dicetak dua eksemplar, 1 eks. untuk penduduk pemohon surat dan 1 eks. untuk arsip pemerintah desa.</li>
-                    <li>Setiap jenis surat yang tercetak akan tersimpan data lognya di Menu "Surat Keluar"</li>
+                    <li>Setiap jenis surat yang tercetak akan tersimpan data lognya di Menu "Arsip"</li>
                 </ol>
                 <p>Demikian panduan pembuatan surat dengan menggunakan aplikasi SID. Selamat menyelenggarakan pelayanan administrasi publik.</p>
             </div>

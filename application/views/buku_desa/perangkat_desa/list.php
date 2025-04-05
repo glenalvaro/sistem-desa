@@ -37,7 +37,7 @@
                         </div>
 
                          <div class="btn-group-vertical">
-                            <a href="<?= site_url('perangkat_desa/kelola_jabatan'); ?>" class="btn btn-social btn-primary btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"><i class="fa fa-list"></i>  Jabatan</a>
+                            <a href="<?= site_url('perangkat_desa/kelola_jabatan'); ?>" class="btn btn-social btn-primary btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"><i class="fa fa-bar-chart-o"></i>  Jabatan</a>
                         </div>
                     </div>
 
@@ -104,9 +104,7 @@
                     <?php elseif($data->status == 1) : ?>
                         <a href="<?= base_url('perangkat_desa/perangkat_lock/') . $data->id; ?>" class="btn bg-navy btn-sm"  title="Nonaktifkan"><i class="fa fa-unlock"></i></a>
                     <?php endif; ?>
-                    <?php if($data->jabatan_pegawai != 1) : ?>
                         <a href="<?= base_url('perangkat_desa/delete/') . $data->id; ?>" class="btn bg-maroon btn-sm aksi-hapus"  title="Hapus"><i class="fa fa-trash"></i></a>
-                    <?php endif; ?>
             </td>
                 <td>
                     <center>

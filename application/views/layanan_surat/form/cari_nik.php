@@ -13,7 +13,8 @@
 <div class="form-group show_form" hidden>
    <label for="nomor_surat" class="col-sm-3">NIK / Nama Pemohon</label>
       <div class="col-sm-4">
-           <input type="text" name="pend_nik" id="pend_nik" class="form-control input-sm" readonly>   
+           <input type="hidden" id="id_ped" readonly>
+           <input type="text" name="pend_nik" id="pend_nik" class="form-control input-sm" readonly>  
       </div>
       <div class="col-sm-4">
            <input type="text" name="pend_nama" id="pend_nama" class="form-control input-sm" disabled>  
@@ -76,9 +77,28 @@
 <div class="form-group show_form" hidden>
    <label for="nomor_surat" class="col-sm-3">Dokumen Persyaratan</label>
       <div class="col-sm-5">
-         <a href="" class="btn btn-social btn-success btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"><i class="fa fa-book"></i> Daftar Dokumen</a>
-         <a href="" class="btn btn-social btn-primary btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"><i class="fa fa-cogs"></i> Manajemen Dokumen</a>
+         <button type="button" id="daftar_dok" class="btn btn-social btn-success btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"><i class="fa fa-book"></i> Daftar Dokumen</button>
+         <button type="button" id="manajemen_dok" class="btn btn-social btn-primary btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"><i class="fa fa-cogs"></i> Manajemen Dokumen</button>
       </div>
+</div>
+
+<div class="form-group show_dok_list" hidden>
+   <label class="col-sm-3"></label>
+   <div class="col-sm-7">
+      <div class="table-responsive">
+        <table class="table table-striped table-hover table-bordered tabel-daftar" style="margin-bottom: 15px">
+        <thead class="bg-gray color-palette">
+        <tr>
+            <th style="min-width:5px;">No</th>
+            <th style="min-width:20px;">Aksi</th>
+            <th style="min-width:100px;">Nama Dokumen</th>
+        </tr>
+        </thead>
+        <tbody id="record_dok" style="font-size: 10px;">        
+        </tbody>
+        </table>
+        </div>
+   </div>
 </div>
 
 <div class="form-group show_form" hidden>

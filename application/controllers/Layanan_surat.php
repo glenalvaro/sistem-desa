@@ -12,6 +12,7 @@ class Layanan_surat extends CI_Controller{
         $this->load->model('Data_penduduk_model', 'penduduk');
         $this->load->model('Data_keluarga_model', 'keluarga');
         $this->load->model('Perangkat_desa_model', 'perangkat');
+        $this->load->model('Dokumen_model');
         $this->load->model('Setting_model', 'setting');
 	}
 
@@ -78,6 +79,13 @@ class Layanan_surat extends CI_Controller{
     {
         $kk = $this->input->post('kk_nomor');
         $data = $this->keluarga->anggota_KK($kk);
+        echo json_encode($data);
+    }
+
+    public function ajax_get_dok()
+    {
+        $id = $this->input->post('dok_id');
+        $data = $this->Dokumen_model->daftar_dokumen($id);
         echo json_encode($data);
     }
 
@@ -207,6 +215,10 @@ class Layanan_surat extends CI_Controller{
 
     public function proses_surat()
     {
+         //Siapkan nama dokumen acak
+        $rand_nme = random_bytes(5);
+        $nama_file = bin2hex($rand_nme);
+
         //Siapkan nama file surat
         $nama_surat     = $this->input->post('nama_surat');
         $url_surat      = $this->input->post('url');
@@ -214,7 +226,7 @@ class Layanan_surat extends CI_Controller{
         $tgl_surat      = date('Y-m-d');
         $tgl_buat       = date('Y-m-d H:i:s');
 
-        $file_surat = $url_surat."_".$nik_pend."_".$tgl_surat;
+        $file_surat = $nama_file;
 
         $data = [
                 'id_surat'     => $this->input->post('id_surat'),
@@ -224,10 +236,10 @@ class Layanan_surat extends CI_Controller{
                 'user'         => $this->input->post('user'),
                 'tanggal'      => $tgl_buat,
                 'no_surat'     => $this->input->post('no_surat'),
-                'file_surat'   => $file_surat,
+                'file_srt'     => $file_surat,
         ];
 
-        //ambil data dari form textare surat
+        //ambil data dari form textarea surat
         $content = $_POST['isian_surat'];
 
         try
@@ -236,7 +248,7 @@ class Layanan_surat extends CI_Controller{
             $html2pdf->pdf->SetTitle($nama_surat);
             $html2pdf->setDefaultFont('Arial');
             $html2pdf->writeHTML($content);
-            $html2pdf->Output("./folder_arsip/surat/".$file_surat.".pdf", 'F');
+            $html2pdf->Output("./folder_arsip/file_surat/".$file_surat.".pdf", 'F');
         }
         catch(HTML2PDF_exception $e) {
             echo $e;

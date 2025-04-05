@@ -5,7 +5,7 @@
     </page_header>
         <br>
         <h4 style="margin: 0; text-align: center;"><span style="text-decoration: underline;">SURAT <?= strtoupper($nama_surat) ?></span></h4>
-        <p style="margin: 0; text-align: center;">Nomor : <?= $nomor_surat; ?>/<?= $kode_wilayah; ?>/<?= strtoupper($singkatan_surat); ?>/<?= bulan_romawi(date('m')) ?>/<?= date('Y') ?><br><br>
+        <p style="margin: 0; text-align: center;">Nomor : <?= $nomor_surat; ?>/<?= $kode_wilayah; ?>/<?= strtoupper($singkatan_surat); ?>/<?= bulan_romawi(date('n')) ?>/<?= date('Y') ?><br><br>
         </p>
         <p style="text-align: justify; font-size: 10pt;">
             Yang bertandatangan di bawah ini :

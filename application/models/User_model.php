@@ -3,11 +3,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class User_model extends CI_Model
 {
+
+	//kirim ke file.txt
+	public function save_log($param)
+    {
+        if (!write_file(FCPATH .'/assets/log/log_aplikasi.txt', $param, 'a')){
+           echo 'Unable to write the file';
+        }
+        else{ 
+           echo 'File written!';
+        }
+
+    }
+
+
 	function getGrub()
-  {
+  	{
     $query ="SELECT `user`.`id`,`role_id`,`role` FROM `user_role` INNER JOIN `user` ON `user_role`.`id`=`user`.`id`";
      return $this->db->query($query)->result_array();
-  }
+  	}
 
 	function getUser()
 	{
@@ -16,9 +30,9 @@ class User_model extends CI_Model
 	}
 
 	public function getUserById($id)
-  {
+  	{
       return $this->db->get_where('user', ['id' => $id])->row_array();
-  }
+  	}
 
 	function edit_data($where,$table)
 	{
@@ -35,7 +49,9 @@ class User_model extends CI_Model
 		$this->db->update($table,$data);
 	}
 
-	function hapus_user($where,$table){
+	function hapus_user($where,$table)
+	{
+		helper_log("delete", "Menghapus data pengguna");
 		$this->db->where($where);
 		$this->db->delete($table);
 	}
@@ -84,6 +100,7 @@ class User_model extends CI_Model
 
    function updatePasswordById($id)
     {
+    	helper_log("edit", "Mengubah password pengguna");
         $password_baru = $this->input->post('pas_1');
         $password_security = password_hash($password_baru, PASSWORD_DEFAULT);
         $this->db->set('password', $password_security);
@@ -93,6 +110,7 @@ class User_model extends CI_Model
 
     function editUserById($id)
     {
+    	helper_log("edit", "Mengubah data pengguna");
         $data['user'] = $this->db->get_where('user', ['id' => $id])->row_array();
 
         // cek jika ada gambar yang di upload

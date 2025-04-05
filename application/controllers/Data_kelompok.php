@@ -277,7 +277,7 @@ class Data_kelompok extends CI_Controller
 			'nama_kategori' => $row->nama_kategori,
 			'deskripsi_kelompok' => $row->deskripsi_kelompok
 	    );
-
+	    
 		$data['list_anggota_kel'] = $this->kelompok->daftar_anggotaID($id);
 
 		$list['title'] = 'Kelompok';

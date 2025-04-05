@@ -25,24 +25,28 @@
 <link rel="stylesheet" href="<?= base_url() ?>assets/aset/dataTables.bootstrap.min.css">
 <!-- Date Picker -->
 <link rel="stylesheet" href="<?= base_url() ?>assets/vendor/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
+<!-- Bootstrap Color Picker -->
+<link rel="stylesheet" href="<?= base_url() ?>assets/vendor/bootstrap-colorpicker/dist/css/bootstrap-colorpicker.min.css">
+<!-- Bootstrap time Picker -->
+<link rel="stylesheet" href="<?= base_url() ?>assets/vendor/timepicker/bootstrap-timepicker.min.css">
 <!-- Sweet Alert -->
 <link rel="stylesheet" href="<?= base_url() ?>assets/vendor/sweet-alert/sweetalert2.min.css">
+<!-- Font Icon -->
+<link rel="stylesheet" href="<?= base_url() ?>assets/vendor/Ionicons/css/ionicons.min.css">
 <!-- Jquery -->
 <script src="<?= base_url() ?>assets/vendor/jquery/dist/jquery.min.js"></script>
 <!-- Dropzone File -->
 <link rel="stylesheet" href="<?= base_url() ?>assets/vendor/dropzone/min/dropzone.min.css">
 <script src="<?= base_url() ?>assets/vendor/dropzone/min/dropzone.min.js"></script>
+<!-- Summernote -->
+<link rel="stylesheet" href="<?= base_url() ?>assets/vendor/summernote/summernote.min.css">
 <!-- Font Sistem -->
 <link rel="stylesheet" href="<?= base_url() ?>assets/aset/font_family.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap">
 <!-- Theme style -->
 <link rel="stylesheet" href="<?= base_url() ?>assets/dist/css/AdminLTE.min.css">
 <link rel="stylesheet" href="<?= base_url() ?>assets/dist/css/skins/_all-skins.min.css">
-<!-- Font Icon -->
-<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 <link rel="stylesheet" href="<?= base_url() ?>assets/vendor/font-awesome/css/font-awesome.min.css">
-
 <!-- OpenStreetMap CSS-->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css" />
 <link rel="stylesheet" href="https://domoritz.github.io/leaflet-locatecontrol/dist/L.Control.Locate.min.css">
@@ -92,7 +96,7 @@
   ?>
 <div class="wrapper">
   <header class="main-header">
-    <a style="font-size: 15px;" href="#" class="logo">
+    <a target="_blank" style="font-size: 15px;" href="<?= base_url('web'); ?>" class="logo">
       <span class="logo-mini"><b>S</b>I</span>
       <span class="logo-lg"><p style="font-weight: bold; font-size: 16px;"><?= $st['sebutan_desa']; ?> Digital</p></span>
    </a>
@@ -103,16 +107,21 @@
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
           <li class="notifications-menu">
-            <a href="#" title="Cetak Surat">
-              <i class="fa fa-print"></i>
-              <span class="label bg-olive">2</span>
+            <a href="#" title="Tanggal Waktu">
+              <span class="hidden-xs hidden-md"><?= date('l, d : m : Y'); ?></span>
             </a>
           </li>
 
           <li class="notifications-menu">
-            <a href="#" title="Pesan">
-              <i class="fa fa-comments-o"></i>
-              <span class="label label-warning">8</span>
+            <a href="<?= base_url('permohonan'); ?>" title="Permohonan Surat">
+              <i class="fa fa-print"></i>
+               <?php 
+                $querySurat = $this->db->query('SELECT * FROM permohonan_surat WHERE id_status=1');
+                $get_permohonan = $querySurat->num_rows();
+               ?>
+               <?php if($get_permohonan) : ?>
+                <span class="label bg-olive"><?= $get_permohonan; ?></span>
+              <?php endif; ?>
             </a>
           </li>
 
@@ -125,26 +134,37 @@
           
           <li style="font-size: 11px;" class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <img src="<?= base_url('assets/img/profile/') . $user['image']; ?>" class="user-image" alt="User Image">
-              <span class="hidden-xs"><?= $user['name']; ?></span>
+              <img style="width: 20px; height: 20px; border: 2px solid #ffffff;" src="<?= base_url('assets/img/profile/') . $user['image']; ?>" class="img-circle" alt="User Image">
             </a>
-            <ul class="dropdown-menu">
-              <!-- User image -->
-              <li class="user-header">
-                <img src="<?= base_url('assets/img/profile/') . $user['image']; ?>" class="img-circle" alt="User Image">
-                <p style="font-size: 11px;"><?= $user['name']; ?><br>
-                 Terdaftar Tgl <?= date('d F Y', $user['date_created']); ?>
-                </p>
-              </li>
-              <li class="user-footer">
-                <div class="pull-left">
+            <?php
+            //get role
+              $query ="SELECT `user`.`id`,`role_id`,`role` FROM `user_role` INNER JOIN `user` ON `user_role`.`id`=`user`.`role_id`";
+              $result = $this->db->query($query)->result_array();
+             ?>
+            <div class="box box-widget widget-user-2 dropdown-menu">
+                <div class="widget-user-header bg-gray">
+                  <h4 style="text-align: center;"><?= $user['name']; ?></h4>
+                  <h5 style="font-size: 12px; text-align: center;">
+                  Anda masuk sebagai 
+                  <?php foreach($result as $rb) : ?>
+                    <?php 
+                      if ($this->session->userdata('role_id') == $rb['role_id']) {
+                          echo $rb['role'];
+                      } else {   
+                      }
+                    ?>
+                  <?php endforeach; ?>
+                  </h5>
+                </div>
+            <div class="box-footer">
+              <div class="pull-left">
                   <a href="<?= base_url('user'); ?>" class="btn bg-maroon btn-sm">Profil</a>
                 </div>
-                <div class="pull-right">
+              <div class="pull-right">
                   <a href="<?php echo base_url('auth/logout'); ?>" class="btn bg-maroon btn-sm">Keluar</a>
-                </div>
-              </li>
-            </ul>
+              </div>
+            </div>
+          </div>
           </li>
         </ul>
       </div>

@@ -316,6 +316,8 @@ class Data_penduduk_model extends CI_Model
 
     function update_penduduk($id)
     {
+    	helper_log("edit", "Mengubah data penduduk");
+
     	$data['penduduk'] = $this->db->get_where($this->table, ['id' => $id])->row_array();
 
     	// cek jika ada gambar yang di upload/diupdate
@@ -433,6 +435,7 @@ class Data_penduduk_model extends CI_Model
     // delete data penduduk
     function hapus_penduduk($id)
     {
+    	helper_log("delete", "Menghapus data penduduk");
         $this->db->where($this->id, $id);
         $this->db->delete($this->table);
     }
@@ -519,6 +522,7 @@ class Data_penduduk_model extends CI_Model
 
 	public function Delete_all($id)
     {
+    	helper_log("delete", "Menghapus semua data penduduk");
         $this->db->where_in('id', $id);
         $this->db->delete('data_penduduk');
     }

@@ -12,9 +12,7 @@
     </section>
       <section class="content">
       <div class="row">
-        <?php $this->load->view('layanan/template/side'); ?>
-       
-        <div class="col-md-8">
+        <div class="col-md-12">
           <div class="box box-primary">
             <div class="box-header with-border">
             Tambah Data Usaha

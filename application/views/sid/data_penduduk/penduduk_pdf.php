@@ -54,7 +54,7 @@
        <tbody><tr>
            <td width="110px" rowspan="6"><img src="<?= base_url('assets/img/logo/') . $p['logo_desa']; ?>" width="60px"></td>
           <td align="center">
-              <label class="headtitlekop" style="font-size: 16pt; text-transform: uppercase;">PEMERINTAH KABUPATEN <?= $p['nama_kabupaten'] ?><br>
+              <label class="headtitlekop" style="font-size: 16pt; text-transform: uppercase;">PEMERINTAH <?= strtoupper($s['sebutan_kabupaten']); ?> <?= strtoupper($p['nama_kabupaten']) ?><br>
                <div style="font-size : 15pt; text-transform: uppercase;">KECAMATAN <?= $p['nama_kecamatan'] ?></div>
                <div style="font-size : 12pt; text-transform: uppercase;"><?= $s['sebutan_desa'] ?> <?= $p['nama_desa'] ?></div></label>
                <label style="font-size: 8pt;" class="header_address"><?= $p['alamat_kantor'] ?>, Kode Pos : <j class="kode"><?= $p['kode_pos'] ?></j>, E-mail : <j class="kode"><?= $p['email_desa'] ?></j> Telepon : <j class="kode"><?= $p['no_hp'] ?></j></label>
@@ -75,7 +75,7 @@
          <tr>
             <td style="text-transform: uppercase;" colspan="2" class="judul">
                <br>
-               <u>DATA PENDUDUK DESA <?= set_ucwords($p['nama_desa']); ?></u>
+               <u>DATA PENDUDUK <?= strtoupper($s['sebutan_desa']) ?> <?= strtoupper($p['nama_desa']); ?></u>
             </td>
          </tr>
       </tbody>
@@ -113,10 +113,10 @@
          $no = 1;
          foreach ($list_penduduk as $row): ?>
          <tr>
-            <td align="center" width="8%"><?php echo $no++ ?></td>
-            <td class="text-center"><?= $row->nik; ?></td>
-            <td class="text-center"><?= $row->nama_penduduk; ?></td>
-            <td class="text-center"><?= $row->no_kk; ?></td>
+            <td align="center" width="2%"><?php echo $no++ ?></td>
+            <td class="text-center" width="10%"><?= $row->nik; ?></td>
+            <td class="text-center" width="15%"><?= $row->nama_penduduk; ?></td>
+            <td class="text-center" width="10%"><?= $row->no_kk; ?></td>
             <td class="text-center"><?= $row->hubungan; ?></td>
             <td class="text-center"><?= $row->agama; ?></td>
             <td class="text-center"><?= $row->status; ?></td>
@@ -171,7 +171,7 @@
                <tbody><tr>
                   <td align="left">
                   <span id="" style="display:none"></span>
-                  <span><?= $s['sebutan_desa'] ?> <?= $p['nama_desa'] ?>, <?php echo date('d M Y'); ?></span>
+                  <span><?= $s['sebutan_desa'] ?> <?= $p['nama_desa'] ?>, <?= tgl_indo(date('Y m d'))?></span>
                      <br>
                      <span>Kepala <?= $s['sebutan_desa'] ?>, </span><br>
                   </td>

@@ -47,6 +47,7 @@ class Menu extends CI_Controller
 
 	public function updateMenu($id)
 	{
+		helper_log("edit", "Mengubah modul");
 	   	$this->menu->updateMenuById($id);
        	$this->session->set_flashdata('flash', 'Menu Berhasil Diupdate!');
 		redirect('menu');
@@ -54,6 +55,7 @@ class Menu extends CI_Controller
 
 	public function hapus_menu($id)
 	{
+		helper_log("delete", "Menghapus modul");
 		$where = array('id' => $id);
 		$this->menu->hapus_data($where, 'user_menu');
 		$this->session->set_flashdata('flash', 'Menu Berhasil Dihapus!');
@@ -194,6 +196,7 @@ class Menu extends CI_Controller
 
 	public function hapus_sub($id)
 	{
+		helper_log("delete", "Menghapus sub modul");
 		$where = array('id' => $id);
 		$this->menu->hapus_sub($where, 'user_sub_menu');
 		$this->session->set_flashdata('flash', 'Menu berhasil dihapus!');
@@ -254,6 +257,7 @@ class Menu extends CI_Controller
 
 	public function hapus_submodul($id)
 	{
+		helper_log("delete", "Menghapus sub modul");
 		//jika berhasil alihkan ke halaman yang sama
 		$urldirect = $_SERVER['HTTP_REFERER'];
 		$where = array('id' => $id);
@@ -264,6 +268,7 @@ class Menu extends CI_Controller
 
 	public function edit_ModulById($id)
 	{
+		helper_log("edit", "Mengubah sub modul");
 		//jika berhasil alihkan ke halaman yang sama
 	   	$alih = $_SERVER['HTTP_REFERER'];
 	   	$this->menu->editSubModulById($id);
