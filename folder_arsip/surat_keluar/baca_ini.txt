@@ -1,0 +1,2 @@
+Folder ini bagian dari sistem informasi desa
+- Menyimpan file arsip surat keluar

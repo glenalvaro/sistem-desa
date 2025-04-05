@@ -1,0 +1,4 @@
+Folder ini bagian dari sistem informasi desa
+- Menyimpan folder backup sistem informasi desa
+- Pelacakan berkas sid
+- Gambar data pembangunan

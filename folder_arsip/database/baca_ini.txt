@@ -1,0 +1,3 @@
+Folder ini bagian dari sistem informasi desa
+- Menyimpan database sistem
+- Pelacakan berkas sid
