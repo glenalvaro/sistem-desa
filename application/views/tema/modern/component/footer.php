@@ -28,11 +28,9 @@
             <h1 class=" font-semibold 2xl:text-lg xl:text-lg lg:text-lg md:text-lg sm:text-[1.0625rem] phone:text-base">Akses Cepat</h1>
             <div class="flex flex-col 2xl:gap-3 xl:gap-3 lg:gap-3 md:gap-3 sm:gap-2 phone:gap-2">
                 <a target="_blank" href="<?= base_url('auth'); ?>" class="2xl:text-sm xl:text-sm lg:text-sm md:text-sm sm:text-[0.8125rem] phone:text-xs ease-in-out duration-300 transition hover:-translate-y-1 hover:text-gray-500">
-                    Login Admin</a>
+                    Masuk Admin</a>
                 <a target="_blank" href="<?= base_url('/layanan/masuk') ?>" class=" 2xl:text-sm xl:text-sm lg:text-sm md:text-sm sm:text-[0.8125rem] phone:text-xs ease-in-out duration-300 transition hover:-translate-y-1 hover:text-gray-500">
-                    Login Penduduk</a>
-                <a href="" class="2xl:text-sm xl:text-sm lg:text-sm md:text-sm sm:text-[0.8125rem] phone:text-xs ease-in-out duration-300 transition hover:-translate-y-1 hover:text-gray-500">
-                    Informasi</a>
+                    Layanan Penduduk</a>
             </div>
         </div>
         <div style="color: white;" class="basis-[30%] phone:w-full h-auto phone:flex phone:flex-row phone:justify-between self-start items-center">

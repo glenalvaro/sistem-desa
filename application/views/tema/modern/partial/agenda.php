@@ -15,8 +15,8 @@
                         <td class="pl-5 pr-3 bg-cover bg-center bg-no-repeat bg-origin-content p-2" style="background-image:url('<?= base_url('assets/img/kantor/') . $gambar_desa; ?>');">
                         </td>
                         <td class="px-2 py-2 whitespace-no-wrap">
-                            <a type="button" class="leading-5 text-gray-700 font-medium capitalize ease-in-out duration-300 transition-all hover:text-gray-900"><?= $agenda->nama_agenda; ?></a>
-                            <div class="leading-5 text-gray-900"><?= tgl_indo($agenda->tgl_agenda); ?>, Jam <?= $agenda->jam; ?></div>
+                            <a style="font-size: 14px;" type="button" class="leading-5 text-gray-700 font-medium capitalize ease-in-out duration-300 transition-all hover:text-gray-900"><?= $agenda->nama_agenda; ?></a>
+                            <div class="leading-5 text-gray-900">Tanggal : <?= tgl_indo($agenda->tgl_agenda); ?>, Jam <?= $agenda->jam; ?></div>
                             <div class="leading-5 text-gray-900">Kordinator : <?= $agenda->kordinator_lapangan; ?></div>
                             <div class="leading-5 text-gray-900">Tempat : <?= $agenda->lokasi_kegiatan; ?></div>
                         </td>

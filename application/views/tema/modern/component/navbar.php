@@ -980,15 +980,17 @@ font-size: 13px;
 
 .header-logo img{
     float: left;
-    height: 34px;
+    height: 33px;
     margin: 0 10px 0 0;
 }
 
 .header-logo h1{
-    font-size: 85%;
+    position: relative;
+    font-size: 86%;
     float: left;
     margin: 0;
     padding: 0;
+    bottom: 2px;
 }
 
 @media (max-width : 992px){
@@ -1045,9 +1047,7 @@ font-size: 13px;
         <div id="menu" class="flex justify-end items-center">
             <ul class="2xl:flex xl:flex lg:flex flex-row justify-between gap-4 px-2 py-3 mx-2 md:hidden sm:hidden phone:hidden">
                 <li class="flex flex-col gap-1">
-                    <a href="<?= base_url('web'); ?>" class="font-semibold text-[0.95rem] hover:text-white hover:-translate-y-1 text-white drop-shadow-md ease-in-out duration-150 active:translate-y-1">Beranda</a>
-                    <span style="background-color: #fff;" 
-                        class="w-10 h-1 self-center block"></span>
+                    <a href="<?= base_url('web'); ?>" class="font-semibold text-[0.95rem] hover:text-white text-white drop-shadow-md ease-in-out duration-150">Beranda</a>
                 </li>
                 <li class="text-gray-600 flex items-center justify-center">
                     <svg width="28" height="28" xmlns="http://www.w3.org/2000/svg" stroke-width="2"
@@ -1060,7 +1060,7 @@ font-size: 13px;
                 </li>
                 <!-- GET MENU  -->
                 <?php 
-                    $query = $this->db->query("SELECT * FROM menu_web ORDER BY id ASC");
+                    $query = $this->db->query("SELECT * FROM menu_web ORDER BY id ASC LIMIT 6");
                     $result = $query->result();
                 ?>
                 <!-- LOOPING MENU -->
@@ -1070,9 +1070,12 @@ font-size: 13px;
                     <div class="flex justify-between items-center gap-4">
                         <div class="flex flex-col gap-1">
                         <?php if($main->jenis_link == 3) : ?>
-                            <a href="<?= $main->link; ?>" class="text-[0.95rem] cursor-pointer ease-in-out duration-150 hover:-translate-y-1 active:translate-y-1 font-semibold hover:text-white text-white drop-shadow-md" aria-haspopup="true" aria-expanded="false"><?= $main->nama; ?></a>
+                            <a href="<?= $main->link; ?>" class="text-[0.95rem] cursor-pointer ease-in-out duration-150 font-semibold hover:text-white text-white drop-shadow-md" aria-haspopup="true" aria-expanded="false"><?= $main->nama; ?></a>
                         <?php else : ?>
-                            <a href="<?= base_url('web/'.$main->link.'/'.slug_url($main->nama)); ?>" class="text-[0.95rem] cursor-pointer ease-in-out duration-150 hover:-translate-y-1 active:translate-y-1 font-semibold hover:text-white text-white drop-shadow-md" aria-haspopup="true" aria-expanded="false"><?= $main->nama; ?></a>
+                            <a href="<?= base_url('web/'.$main->link.'/'.slug_url($main->nama)); ?>" class="text-[0.95rem] cursor-pointer ease-in-out duration-150 font-semibold hover:text-white text-white drop-shadow-md" aria-haspopup="true" aria-expanded="false"><?= $main->nama; ?></a>
+                            <?php if($this->uri->segment('2') == $main->link) : ?>
+                                <span style="background-color: #fff;" class="w-10 h-1 self-center block"></span>
+                            <?php endif; ?>
                         <?php endif ?>
                         </div>
                 <!-- QUERI SUB MENU -->
@@ -1097,9 +1100,9 @@ font-size: 13px;
                 <!-- LOOPING SUB MENU -->
                     <?php foreach($sub_menu as $val) : ?>
                         <?php if($val['tipe_link'] == 3) : ?>
-                            <a target="_blank" href="<?= $val['url']; ?>" class="link-color hover:cursor-pointer hover:translate-x-1 font-semibold hover:text-white ease-in-out duration-200 text-[0.90rem] focus:text-white focus:-translate-x-1 focus:shadow-md rounded-lg p-2" tabindex="-1" aria-role="menuitem"><?= $val['sub_nama']; ?></a>
+                            <a target="_blank" href="<?= $val['url']; ?>" class="link-color hover:cursor-pointer font-semibold hover:text-white ease-in-out duration-200 text-[0.90rem] focus:-translate-x-1 focus:shadow-md rounded-lg p-2" tabindex="-1" aria-role="menuitem"><?= $val['sub_nama']; ?></a>
                         <?php else : ?>
-                            <a href="<?= base_url('web/'.$val['url'].'/'.slug_url($val['sub_nama'])); ?>" class="link-color hover:cursor-pointer hover:translate-x-1 font-semibold hover:text-white ease-in-out duration-200 text-[0.90rem] focus:text-white focus:-translate-x-1 focus:shadow-md rounded-lg p-2" tabindex="-1" aria-role="menuitem"><?= $val['sub_nama']; ?></a>
+                            <a href="<?= base_url('web/'.$val['url'].'/'.slug_url($val['sub_nama'])); ?>" class="link-color hover:cursor-pointer font-semibold hover:text-white ease-in-out duration-200 text-[0.90rem] focus:-translate-x-1 focus:shadow-md rounded-lg p-2" tabindex="-1" aria-role="menuitem"><?= $val['sub_nama']; ?></a>
                         <?php endif; ?>
                             <li class="mx-2 border border-[#979797]"></li>
                     <?php endforeach; ?>
