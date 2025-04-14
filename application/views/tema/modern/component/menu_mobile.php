@@ -7,7 +7,7 @@
         <div class="flex justify-between items-center mb-8">
             <a href="#" class="h-full w-10">
                 <img src="<?= base_url('assets/img/logo/').$logo_desa; ?>" alt="<?= $nama_desa; ?>"
-                    alt="" class="bg-cover bg-center">
+                    alt="logo" class="bg-cover bg-center">
             </a>
             <button class="navbar-close">
                 <svg class="h-6 w-6 text-gray-400 cursor-pointer hover:text-gray-500"
@@ -20,7 +20,7 @@
         <div>
             <ul>
                 <li class="mb-1">
-                    <a class="w-full block p-4 text-sm font-semibold text-web hover:bg-green-50 hover:text-green-600 rounded" href="<?= base_url('web'); ?>">Beranda</a>
+                    <a class="w-full block p-4 text-sm font-semibold hover:bg-green-50 hover:text-green-600 rounded" href="<?= base_url('web'); ?>">Beranda</a>
                 </li>
                  <!-- GET MENU  -->
                 <?php 
@@ -36,7 +36,7 @@
                             <a href="<?= $main->link; ?>" class="w-full block p-4 text-sm font-semibold cursor-pointer"
                             aria-haspopup="true" aria-expanded="false"><?= $main->nama; ?></a>
                         <?php else : ?>
-                            <a href="<?= base_url('web/'.$main->link.'/'.slug_url($main->nama)); ?>" class="w-full block p-4 text-sm font-semibold cursor-pointer"
+                            <a href="<?= base_url('web/'.$main->link.'/'.slug_url($main->nama)); ?>" class="w-full block p-4 text-sm font-semibold cursor-pointer <?php if ($this->uri->segment('2') == $main->link) {echo 'text-web';} ?>"
                             aria-haspopup="true" aria-expanded="false"><?= $main->nama; ?></a>
                         <?php endif; ?>
                 <!-- QUERI SUB MENU -->

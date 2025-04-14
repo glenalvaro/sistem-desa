@@ -213,7 +213,7 @@ class Web extends CI_Controller{
             <tr>
                 <td data-title='No'>".$no++."</td>
                 <td data-title='Nama'>".set_ucwords($key->nama_peserta)."</td>
-                <td data-title='Umur'>".umur($key->tgl_lahir)."</td>
+                <td data-title='Umur'>".umur($key->tgl_lahir)." Tahun</td>
                 <td data-title='Penerima Bantuan'>{$key->program_nama}</td>
             </tr>";
         }

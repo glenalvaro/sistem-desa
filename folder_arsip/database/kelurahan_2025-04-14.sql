@@ -11,11 +11,7 @@ CREATE TABLE `agenda` (
   `kordinator_lapangan` varchar(200) NOT NULL,
   `lokasi_kegiatan` varchar(200) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
-
-INSERT INTO `agenda` (`id`, `nama_agenda`, `tgl_agenda`, `jam`, `kordinator_lapangan`, `lokasi_kegiatan`) VALUES (2, 'Rapat Tahunan Desa', '2025-03-31', '9:00', 'Bpk. Contoh', 'Hotel Manado');
-INSERT INTO `agenda` (`id`, `nama_agenda`, `tgl_agenda`, `jam`, `kordinator_lapangan`, `lokasi_kegiatan`) VALUES (3, 'Sosialisasi Pengadaan Bansos', '2025-03-30', '10:00', 'kepala Desa', 'Kantor Desa');
-
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 #
 # TABLE STRUCTURE FOR: anggota_kelompok
@@ -30,11 +26,7 @@ CREATE TABLE `anggota_kelompok` (
   `no_sk` varchar(128) DEFAULT NULL,
   `keterangan` varchar(128) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
-
-INSERT INTO `anggota_kelompok` (`id`, `id_anggota`, `id_kelompok`, `no_anggota`, `jabatan`, `no_sk`, `keterangan`) VALUES (6, '22', '13', '1123', '1', '', '');
-INSERT INTO `anggota_kelompok` (`id`, `id_anggota`, `id_kelompok`, `no_anggota`, `jabatan`, `no_sk`, `keterangan`) VALUES (7, '9', '13', '12345', '3', '', '');
-
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 #
 # TABLE STRUCTURE FOR: artikel
@@ -49,14 +41,9 @@ CREATE TABLE `artikel` (
   `aktif` int(11) NOT NULL,
   `tgl_created` varchar(128) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
-INSERT INTO `artikel` (`id`, `judul`, `isi`, `user`, `gambar`, `aktif`, `tgl_created`) VALUES (4, 'Makkela Kela Pererat Hubungan Antar Warga', '<p><span style=\"font-family: Rubik; font-size: 14px;\">﻿</span><span style=\"font-family: Rubik; font-size: 14px;\">﻿</span><span style=\"font-family: Rubik; font-size: 14px;\">﻿</span><span style=\"color: rgb(0, 0, 0); font-family: Rubik; font-size: 14px;\">“Makkela Kela” adalah sebuah tradisi makan bersama yang dilakukan oleh masyarakat Desa Kersik. Acara ini merupakan bentuk perayaan kebersamaan dan pelestarian budaya lokal. Dalam “Makkela Kela,” warga desa berkumpul untuk menikmati hidangan khas yang dibawa oleh masing-masing keluarga, serta terlibat dalam berbagai kegiatan budaya dan sosial. Tradisi ini bertujuan untuk mempererat hubungan antarwarga dan merayakan kekayaan budaya serta keragaman kuliner lokal.</span><br></p>', 'Administrator', '31369ac54f.jpeg', 1, '1741756068');
-INSERT INTO `artikel` (`id`, `judul`, `isi`, `user`, `gambar`, `aktif`, `tgl_created`) VALUES (9, 'Artikel, Contoh', '<p><span style=\"font-family: Rubik; font-size: 14px;\">﻿</span><span style=\"font-family: Rubik; font-size: 14px;\">﻿</span><span style=\"font-family: Rubik; font-size: 14px;\">﻿</span><span style=\"font-family: Rubik; font-size: 14px;\">﻿</span><span style=\"font-size: 14px; font-family: Rubik;\">﻿Dalam sambutannya, Sekretaris Desa Kersik, Jusman, menyampaikan pentingnya peran Linmas dalam menjaga ketertiban dan keamanan desa. “Pelatihan ini merupakan bagian dari upaya kami untuk memastikan bahwa Linmas dapat melaksanakan tugas mereka dengan lebih baik dan profesional,” ujarnya.</span></p><p><span style=\"color: rgb(0, 0, 0); font-family: Rubik; font-size: 14px; text-align: justify;\">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of \"de Finibus Bonorum et Malorum\" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, \"Lorem ipsum dolor sit amet..\", comes from a line in section 1.10.32.</span></p><p><span style=\"color: rgb(0, 0, 0); font-family: Rubik; font-size: 14px; text-align: justify;\">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of \"de Finibus Bonorum et Malorum\" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, \"Lorem ipsum dolor sit amet..\", comes from a line in section 1.10.32.</span></p><p><span style=\"color: rgb(0, 0, 0); font-family: Rubik; font-size: 14px; text-align: justify;\">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of \"de Finibus Bonorum et Malorum\" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, \"Lorem ipsum dolor sit amet..\", comes from a line in section 1.10.32.</span><span style=\"color: rgb(0, 0, 0); font-family: Rubik; font-size: 14px; text-align: justify;\"><br></span><span style=\"color: rgb(0, 0, 0); font-family: &quot;Open Sans&quot;, Arial, sans-serif; font-size: 14px; text-align: justify;\"><br></span><span style=\"font-size: 14px;\"><br></span><br></p>', 'Administrator', 'fc1f060d8e.jpg', 1, '1741760312');
-INSERT INTO `artikel` (`id`, `judul`, `isi`, `user`, `gambar`, `aktif`, `tgl_created`) VALUES (11, 'Pemerintah Desa Kersik Gelar Pelatihan Untuk Anggota Linmas', '<p><span style=\"font-family: Rubik; font-size: 14px;\">﻿</span><span style=\"font-family: Rubik; font-size: 14px;\">﻿</span><span style=\"font-size: 14px;\">﻿﻿Kersik – Pemerintah Desa Kersik baru-baru ini menyelenggarakan pelatihan intensif bagi anggota Perlindungan Masyarakat (Linmas) desa. Kegiatan ini bertujuan untuk meningkatkan keterampilan dan kesiapsiagaan Linmas dalam melaksanakan tugas mereka di tengah masyarakat.</span><br></p><p style=\"margin-bottom: var(--mantine-spacing-lg);\"><span style=\"margin-top: 0px; margin-bottom: 0px; font-size: 14px;\">Pelatihan yang dilaksanakan ini mencakup berbagai materi penting, termasuk penanganan keamanan lingkungan, dan prosedur pelayanan masyarakat serta pelatihan baris berbaris guna menanamkan kedisiplinan dan kekompakan antar linmas. Para peserta mendapatkan pemahaman mendalam tentang teknik-teknik terkini dalam merespons situasi darurat serta cara-cara efektif dalam menjaga keamanan dan ketertiban desa.</span></p><p style=\"margin-bottom: var(--mantine-spacing-lg);\"><span style=\"margin-top: 0px; margin-bottom: 0px; font-size: 14px;\"><br></span></p><p style=\"margin-bottom: var(--mantine-spacing-lg);\"><span style=\"margin-top: 0px; margin-bottom: 0px; font-size: 14px;\">Dalam sambutannya, Sekretaris Desa Kersik, Jusman, menyampaikan pentingnya peran Linmas dalam menjaga ketertiban dan keamanan desa. “Pelatihan ini merupakan bagian dari upaya kami untuk memastikan bahwa Linmas dapat melaksanakan tugas mereka dengan lebih baik dan profesional,” ujarnya.</span></p><p style=\"margin-bottom: var(--mantine-spacing-lg);\"><span style=\"margin-top: 0px; margin-bottom: 0px; font-size: 14px;\"><br></span></p><p style=\"margin-bottom: var(--mantine-spacing-lg);\"><span style=\"margin-top: 0px; margin-bottom: 0px; font-size: 14px;\">Pelatihan ini juga melibatkan Bhabinkantibmas dan Babinsa untuk memberikan materi dan pengalaman langsung kepada para peserta. Dengan demikian, diharapkan mereka dapat lebih siap dan tanggap dalam menghadapi berbagai situasi yang mungkin terjadi di masyarakat.</span></p><p style=\"margin-bottom: var(--mantine-spacing-lg);\"><span style=\"margin-top: 0px; font-size: 14px;\">Kegiatan ini dihadiri oleh seluruh anggota Linmas Desa Kersik. Melalui pelatihan ini, Pemerintah Desa Kersik berharap dapat memperkuat peran Linmas dalam mendukung keamanan dan kesejahteraan masyarakat desa.(jsm)</span></p>', 'Administrator', '4a38b6a59b.jpeg', 1, '1741761811');
-INSERT INTO `artikel` (`id`, `judul`, `isi`, `user`, `gambar`, `aktif`, `tgl_created`) VALUES (12, 'Pelatihan Teknologi Aplikasi Desa', '<p><span style=\"font-family: Rubik; font-size: 14px;\">﻿</span><span style=\"font-family: Rubik; font-size: 14px;\">﻿</span><span style=\"font-family: Rubik; font-size: 14px;\">﻿</span><span style=\"color: rgb(31, 31, 31); font-family: Rubik; font-size: 14px;\">Lorem ipsum, atau ringkasnya lipsum, adalah teks standar yang ditempatkan untuk mendemostrasikan elemen grafis atau presentasi visual seperti font, tipografi, dan tata letak.</span><br></p>', 'Administrator', 'a3daf15a06.jpg', 1, '1742198705');
-INSERT INTO `artikel` (`id`, `judul`, `isi`, `user`, `gambar`, `aktif`, `tgl_created`) VALUES (13, 'Teknologi Pemanfaatan Lahan Pertanian', '<p><span style=\"font-family: Rubik; font-size: 14px;\">﻿</span><span style=\"font-family: Rubik; font-size: 14px;\">﻿</span><span style=\"color: rgb(31, 31, 31); font-family: Rubik; font-size: 14px;\">Lorem ipsum, atau ringkasnya lipsum, adalah teks standar yang ditempatkan untuk mendemostrasikan elemen grafis atau presentasi visual seperti font, tipografi, dan tata letak.&nbsp;</span><span style=\"color: rgb(31, 31, 31); font-family: Rubik; font-size: 14px;\">Lorem ipsum, atau ringkasnya lipsum, adalah teks standar yang ditempatkan untuk mendemostrasikan elemen grafis atau presentasi visual seperti font, tipografi, dan tata letak.</span></p><p><br></p>', 'Administrator', 'bbe6afa4dc.jpg', 1, '1742198815');
-INSERT INTO `artikel` (`id`, `judul`, `isi`, `user`, `gambar`, `aktif`, `tgl_created`) VALUES (15, 'Pemanfaatan Umkm Rakyat', '<p><span style=\"font-family: Rubik; font-size: 14px;\">﻿</span><span style=\"font-family: Rubik; font-size: 14px;\">﻿</span><span style=\"font-family: Rubik; font-size: 14px;\">﻿</span><span style=\"color: rgb(31, 31, 31); font-family: &quot;Google Sans&quot;, Arial, sans-serif; font-size: 16px;\">Lorem ipsum</span><br></p>', 'Administrator', '86eceebdc2.jpg', 1, '1742354678');
+INSERT INTO `artikel` (`id`, `judul`, `isi`, `user`, `gambar`, `aktif`, `tgl_created`) VALUES (1, 'Membagikan Konten Web Via Sosial Media Sharing Button Tanpa Plugin', '<p><span style=\"font-size: 12px;\">﻿</span><span style=\"text-align: justify; font-size: 12px;\">Sosial media sebagai sarana bertukar informasi dan konten antar sesama pengguna, dapat digunakan sebagai media untuk menyebarkan konten suatu website dengan cepat. Membagikan konten website melalui media sosial seperti facebook, twitter, pinterest merupakan hal yang umum dilakukan oleh sebagian besar website. Hal ini akan membawa keuntungan tersendiri berupa meningkatnya traffic pengaksesan website via sosial media.</span><br></p><p style=\"margin-top: 15px; margin-bottom: 15px;\"><span style=\"font-size: 12px;\">Sosial media dikenal sebagai salah satu marketing channel (saluran pemasaran) yang sangat efektif untuk menjaring lebih banyak pengunjung ke website. Sosial media merupakan sumber lalu lintas kedua dalam pengaksesan suatu website setelah pencarian organik pada mesin pencari seperti google, msn, bing dan lainnya.</span></p><p style=\"margin-top: 15px; margin-bottom: 15px;\"><span style=\"font-size: 12px;\">Bagi anda yang sudah memiliki website yang sudah online tentu saja dapat menggunakan sarana sosial media untuk meningkatkan performa dan traffic website anda. Ada beberapa cara untuk membagikan halaman website melalui media sosial seperti menggunakan plugin pihak ketiga dan memasangnya pada website anda. Situs&nbsp;</span><a href=\"http://www.addthis.com/\" class=\"link_external\" target=\"_blank\" rel=\"nofollow\" style=\"\"><span style=\"font-size: 12px;\">addthis.com</span></a><span style=\"font-size: 12px;\">&nbsp;dan&nbsp;</span><a href=\"http://www.addthis.com/\" class=\"link_external\" target=\"_blank\" rel=\"nofollow\" style=\"\"><span style=\"font-size: 12px;\">sharethis.com</span></a><span style=\"font-size: 12px;\">&nbsp;menyediakan tombol berbagi via berbagai platform sosial media melalui plugin yang mereka miliki.</span></p><p style=\"margin-top: 15px; margin-bottom: 15px;\"><span style=\"font-size: 12px;\">Namun penggunaan plugin via pihak ketiga memiliki konsekuensi tersendiri seperti loading halaman web yang akan terasa lebih lambat. Anda juga tidak akan leluasa dalam memilih jenis platform tertentu yang akan digunakan. Untuk itu anda bisa membuat sendiri script untuk berbagi konten website via sosial media.</span></p>', 'Administrator', '1ae17111ee.jpg', 1, '1744614523');
 
 
 #
@@ -104,11 +91,7 @@ CREATE TABLE `daftar_album` (
   `tgl_dibuat` varchar(128) NOT NULL,
   `gambar` varchar(400) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
-
-INSERT INTO `daftar_album` (`id`, `id_album`, `nama_gambar`, `aktif`, `tgl_dibuat`, `gambar`) VALUES (1, 5, 'Pertanian', 1, '1742206007', '1aa9c7ec71.jpg');
-INSERT INTO `daftar_album` (`id`, `id_album`, `nama_gambar`, `aktif`, `tgl_dibuat`, `gambar`) VALUES (2, 5, 'Sawah Irigasi', 1, '1742206031', 'aca926ed56.jpg');
-
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 #
 # TABLE STRUCTURE FOR: daftar_persyaratan
@@ -147,12 +130,7 @@ CREATE TABLE `data_kelompok` (
   `id_ketua` varchar(200) NOT NULL,
   `deskripsi_kelompok` text,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
-
-INSERT INTO `data_kelompok` (`id`, `nama_kelompok`, `kode_kelompok`, `id_kategori`, `id_ketua`, `deskripsi_kelompok`) VALUES (13, 'Cingkeh', 123, '2', '10', 'Petani Cingkeh');
-INSERT INTO `data_kelompok` (`id`, `nama_kelompok`, `kode_kelompok`, `id_kategori`, `id_ketua`, `deskripsi_kelompok`) VALUES (14, 'Sejahtera', 12344, '4', '21', '');
-INSERT INTO `data_kelompok` (`id`, `nama_kelompok`, `kode_kelompok`, `id_kategori`, `id_ketua`, `deskripsi_kelompok`) VALUES (15, 'Sanggar Kolintang Desa', 12456, '6', '21', 'Kelompok Kesenian Desa');
-
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 #
 # TABLE STRUCTURE FOR: data_penduduk
@@ -249,11 +227,7 @@ CREATE TABLE `dokumentasi_pembangunan` (
   `ket` text NOT NULL,
   `tgl_rekam` varchar(128) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8;
-
-INSERT INTO `dokumentasi_pembangunan` (`id`, `id_pembangunan`, `presentase`, `foto_dok`, `ket`, `tgl_rekam`) VALUES (20, 6, '10%', 'OIP.jpg', 'Tahap 1', '2025-03-28');
-INSERT INTO `dokumentasi_pembangunan` (`id`, `id_pembangunan`, `presentase`, `foto_dok`, `ket`, `tgl_rekam`) VALUES (21, 6, '20%', 'OIP_(2).jpg', 'Tahap 2', '2025-03-28');
-
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 #
 # TABLE STRUCTURE FOR: galeri
@@ -266,14 +240,7 @@ CREATE TABLE `galeri` (
   `tgl_buat` varchar(128) NOT NULL,
   `gambar` varchar(400) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
-
-INSERT INTO `galeri` (`id`, `nama_album`, `aktif`, `tgl_buat`, `gambar`) VALUES (1, 'Pembangunan', 1, '1742203817', 'bda40d041d.jpg');
-INSERT INTO `galeri` (`id`, `nama_album`, `aktif`, `tgl_buat`, `gambar`) VALUES (2, 'Sosialisasi', 1, '1742204773', 'abf8154fc8.jpeg');
-INSERT INTO `galeri` (`id`, `nama_album`, `aktif`, `tgl_buat`, `gambar`) VALUES (3, 'Komputer', 1, '1742204808', 'f9bad44858.jpg');
-INSERT INTO `galeri` (`id`, `nama_album`, `aktif`, `tgl_buat`, `gambar`) VALUES (4, 'Tambak Ikan', 1, '1742205690', 'eff6421153.jpg');
-INSERT INTO `galeri` (`id`, `nama_album`, `aktif`, `tgl_buat`, `gambar`) VALUES (5, 'Sawah', 1, '1742205720', '4598c89785.jpg');
-
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 #
 # TABLE STRUCTURE FOR: galeri_umkm
@@ -285,15 +252,7 @@ CREATE TABLE `galeri_umkm` (
   `foto` varchar(200) NOT NULL,
   `token` varchar(128) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
-
-INSERT INTO `galeri_umkm` (`id`, `id_umkm`, `foto`, `token`) VALUES (1, 5, 'download_(2).jpg', '0.5156708069392422');
-INSERT INTO `galeri_umkm` (`id`, `id_umkm`, `foto`, `token`) VALUES (2, 5, 'download_(3).jpg', '0.5907975759360318');
-INSERT INTO `galeri_umkm` (`id`, `id_umkm`, `foto`, `token`) VALUES (3, 5, 'images_(3).jpg', '0.19151069327804704');
-INSERT INTO `galeri_umkm` (`id`, `id_umkm`, `foto`, `token`) VALUES (4, 5, 'images_(4).jpg', '0.44711993090182345');
-INSERT INTO `galeri_umkm` (`id`, `id_umkm`, `foto`, `token`) VALUES (5, 4, 'manado-city-2.jpg', '0.7598036557651662');
-INSERT INTO `galeri_umkm` (`id`, `id_umkm`, `foto`, `token`) VALUES (6, 4, 'images_(2).jpg', '0.41503876474084556');
-
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 #
 # TABLE STRUCTURE FOR: golongan_darah
@@ -451,7 +410,7 @@ CREATE TABLE `jabatan_perangkat` (
 ) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4;
 
 INSERT INTO `jabatan_perangkat` (`id`, `nama`) VALUES (1, 'Kepala Kelurahan');
-INSERT INTO `jabatan_perangkat` (`id`, `nama`) VALUES (5, 'Sekretaris Desa');
+INSERT INTO `jabatan_perangkat` (`id`, `nama`) VALUES (5, 'Sekretaris');
 INSERT INTO `jabatan_perangkat` (`id`, `nama`) VALUES (6, 'Kepala Urusan Tata Usaha dan Hukum');
 INSERT INTO `jabatan_perangkat` (`id`, `nama`) VALUES (7, 'Kepala Bidang Keuangan');
 INSERT INTO `jabatan_perangkat` (`id`, `nama`) VALUES (8, 'Kepala Bidang Perencanaan');
@@ -469,13 +428,7 @@ CREATE TABLE `kategori_kelompok` (
   `kategori_kelompok` varchar(200) NOT NULL,
   `deskripsi_kategori` text,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
-
-INSERT INTO `kategori_kelompok` (`id`, `kategori_kelompok`, `deskripsi_kategori`) VALUES (2, 'Pertanian', 'Bidang Pertanian Desa');
-INSERT INTO `kategori_kelompok` (`id`, `kategori_kelompok`, `deskripsi_kategori`) VALUES (3, 'Ternak', 'Bidang Peternakan Desa\r\n');
-INSERT INTO `kategori_kelompok` (`id`, `kategori_kelompok`, `deskripsi_kategori`) VALUES (4, 'Perikanan', 'Bidang Peternakan Desa Buyat');
-INSERT INTO `kategori_kelompok` (`id`, `kategori_kelompok`, `deskripsi_kategori`) VALUES (6, 'Kesenian', 'Bidang Seni');
-
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 #
 # TABLE STRUCTURE FOR: kategori_umkm
@@ -562,15 +515,7 @@ CREATE TABLE `log_surat` (
   `id_status` int(11) DEFAULT NULL,
   `file_srt` varchar(200) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
-
-INSERT INTO `log_surat` (`id`, `id_surat`, `id_pend`, `pamong`, `jabatan`, `user`, `tanggal`, `no_surat`, `keterangan`, `id_status`, `file_srt`) VALUES (6, 19, 10, 'Glen Alvaro, S.Pd', 'Kepala Kelurahan', 'Administrator', '2025-03-06 10:53:23', 1, 'Sudah Ambil', 5, 'd3074af95d');
-INSERT INTO `log_surat` (`id`, `id_surat`, `id_pend`, `pamong`, `jabatan`, `user`, `tanggal`, `no_surat`, `keterangan`, `id_status`, `file_srt`) VALUES (8, 16, 10, '-', '-', 'Administrator', '2025-03-06 11:01:24', 0, 'Tidak Lengkap', 3, '-');
-INSERT INTO `log_surat` (`id`, `id_surat`, `id_pend`, `pamong`, `jabatan`, `user`, `tanggal`, `no_surat`, `keterangan`, `id_status`, `file_srt`) VALUES (9, 11, 10, 'Glen Alvaro, S.Pd', 'Kepala Kelurahan', 'Administrator', '2025-03-06 11:19:53', 1, 'Sudah Ambil', NULL, 'b9189a5cf8');
-INSERT INTO `log_surat` (`id`, `id_surat`, `id_pend`, `pamong`, `jabatan`, `user`, `tanggal`, `no_surat`, `keterangan`, `id_status`, `file_srt`) VALUES (10, 16, 13, 'Glen Alvaro, S.Pd', 'Kepala Kelurahan', 'Administrator', '2025-03-06 11:59:43', 1, 'Sudah Ambil', 5, 'c56c81315b');
-INSERT INTO `log_surat` (`id`, `id_surat`, `id_pend`, `pamong`, `jabatan`, `user`, `tanggal`, `no_surat`, `keterangan`, `id_status`, `file_srt`) VALUES (11, 19, 13, '-', '-', 'Administrator', '2025-03-06 12:01:29', 0, 'Dokumen Tidak Lengkap', 3, '-');
-INSERT INTO `log_surat` (`id`, `id_surat`, `id_pend`, `pamong`, `jabatan`, `user`, `tanggal`, `no_surat`, `keterangan`, `id_status`, `file_srt`) VALUES (12, 6, 10, '-', '-', 'Operator Desa', '2025-03-06 12:17:34', 0, 'Tidak Lengkap dokumen syarat', 3, '-');
-
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 #
 # TABLE STRUCTURE FOR: media_sosial
@@ -586,7 +531,7 @@ CREATE TABLE `media_sosial` (
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 INSERT INTO `media_sosial` (`id`, `nama`, `link`, `icon`, `tampil`) VALUES (1, 'Facebook', 'https://faceboook.com', 'e3eb34f93f.png', 1);
-INSERT INTO `media_sosial` (`id`, `nama`, `link`, `icon`, `tampil`) VALUES (2, 'Twitter', 'https://twiter.com', 'c24021aeef.png', 0);
+INSERT INTO `media_sosial` (`id`, `nama`, `link`, `icon`, `tampil`) VALUES (2, 'Twitter', 'https://twiter.com', 'c24021aeef.png', 1);
 
 
 #
@@ -626,13 +571,14 @@ CREATE TABLE `menu_web` (
   `link` varchar(500) NOT NULL,
   `status` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
-INSERT INTO `menu_web` (`id`, `nama`, `jenis_link`, `link`, `status`) VALUES (1, 'Profil Kelurahan', 3, '#', 1);
+INSERT INTO `menu_web` (`id`, `nama`, `jenis_link`, `link`, `status`) VALUES (1, 'Profil', 3, '#', 1);
 INSERT INTO `menu_web` (`id`, `nama`, `jenis_link`, `link`, `status`) VALUES (2, 'Berita', 4, 'data_berita', 1);
 INSERT INTO `menu_web` (`id`, `nama`, `jenis_link`, `link`, `status`) VALUES (3, 'Pembangunan', 4, 'pembangunan', 1);
 INSERT INTO `menu_web` (`id`, `nama`, `jenis_link`, `link`, `status`) VALUES (4, 'Lembaga', 3, '#', 1);
 INSERT INTO `menu_web` (`id`, `nama`, `jenis_link`, `link`, `status`) VALUES (5, 'Publikasi', 6, 'informasi_publik', 1);
+INSERT INTO `menu_web` (`id`, `nama`, `jenis_link`, `link`, `status`) VALUES (6, 'Bantuan', 4, 'bantuan', 1);
 
 
 #
@@ -662,11 +608,7 @@ CREATE TABLE `pembangunan` (
   `longitude` varchar(200) NOT NULL,
   `status` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
-
-INSERT INTO `pembangunan` (`id`, `nama_kegiatan`, `volume`, `waktu`, `jenis_waktu`, `sumber_dana`, `tahun_anggaran`, `total_anggaran`, `biaya_pemerintah`, `biaya_provinsi`, `biaya_kab`, `biaya_swadaya`, `sifat_proyek`, `pelaksana_kegiatan`, `lokasi_pembangunan`, `manfaat`, `keterangan`, `gambar_proyek`, `latitude`, `longitude`, `status`) VALUES (6, 'Pembangunan Irigasi', '2500', '30', 'Hari', 'Alokasi Dana Desa', '2024', '1600000000', '40000000', '600000000', '60000000', '900000000', 'BARU', 'PT Trans Corp', 'Dusun 1', 'Sawah, Saluran', 'Irigasi', 'irigasi.jpg', '0.8502897302255552', '124.69442939281795', 1);
-INSERT INTO `pembangunan` (`id`, `nama_kegiatan`, `volume`, `waktu`, `jenis_waktu`, `sumber_dana`, `tahun_anggaran`, `total_anggaran`, `biaya_pemerintah`, `biaya_provinsi`, `biaya_kab`, `biaya_swadaya`, `sifat_proyek`, `pelaksana_kegiatan`, `lokasi_pembangunan`, `manfaat`, `keterangan`, `gambar_proyek`, `latitude`, `longitude`, `status`) VALUES (7, 'Pembangunan Jalan Desa', '2100', '30', 'Hari', 'Alokasi Anggaran Pendapatan dan Belanja Negara (Dana Desa)', '2024', '4000002', '1000000', '2000000', '1000000', '2.000', 'BARU', 'PT Jasa Marga', 'Dusun 1', 'Ekonomi Maju', 'Proyek tahap Awal', 'IMG-20240708-WA0087_1.jpg', '0.8572449317827578', '124.69388008117677', 1);
-
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 #
 # TABLE STRUCTURE FOR: penduduk_agama
@@ -1102,12 +1044,9 @@ CREATE TABLE `perangkat_desa` (
   `status` varchar(128) NOT NULL,
   `foto_pegawai` varchar(400) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4;
 
 INSERT INTO `perangkat_desa` (`id`, `nama_pegawai`, `gelar`, `nik_pegawai`, `nip`, `tempat_lahir`, `tgl_lahir`, `jenis_kelamin`, `pendidikan`, `agama`, `pangkat_golongan`, `jabatan_pegawai`, `status`, `foto_pegawai`) VALUES (11, 'Glen Alvaro', 'S.Pd', '7110020402010002', '18208040', 'Buyat', '04-02-2001', '1', 'SLTA / SEDERAJAT', 'KRISTEN', 'IV', '1', '1', '18208040.png');
-INSERT INTO `perangkat_desa` (`id`, `nama_pegawai`, `gelar`, `nik_pegawai`, `nip`, `tempat_lahir`, `tgl_lahir`, `jenis_kelamin`, `pendidikan`, `agama`, `pangkat_golongan`, `jabatan_pegawai`, `status`, `foto_pegawai`) VALUES (12, 'Hendrawan Igirisa', 'S.Pd', '7101102209000001', '-', 'Manado', '22-09-2000', '1', 'SLTA / SEDERAJAT', 'KRISTEN', 'III', '5', '1', '-.jpg');
-INSERT INTO `perangkat_desa` (`id`, `nama_pegawai`, `gelar`, `nik_pegawai`, `nip`, `tempat_lahir`, `tgl_lahir`, `jenis_kelamin`, `pendidikan`, `agama`, `pangkat_golongan`, `jabatan_pegawai`, `status`, `foto_pegawai`) VALUES (13, 'Avrilia Verlita Evelin Igirisa', 'S.Pd', '7101101604090002', '-', 'Dumooga', '16-04-2009', '2', 'SLTP/SEDERAJAT', 'KRISTEN', 'II', '6', '1', 'wuser.png');
-INSERT INTO `perangkat_desa` (`id`, `nama_pegawai`, `gelar`, `nik_pegawai`, `nip`, `tempat_lahir`, `tgl_lahir`, `jenis_kelamin`, `pendidikan`, `agama`, `pangkat_golongan`, `jabatan_pegawai`, `status`, `foto_pegawai`) VALUES (14, 'Alvaro Morata', 'S.Kom', '7110020402010004', '-', 'Manado', '17-12-2002', '1', 'SLTA / SEDERAJAT', 'KRISTEN', 'III', '7', '1', '-1.jpg');
 
 
 #
@@ -1149,15 +1088,7 @@ CREATE TABLE `peserta_bantuan` (
   `alamat_peserta` varchar(128) NOT NULL,
   `keterangan` varchar(128) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
-
-INSERT INTO `peserta_bantuan` (`id`, `id_program`, `id_anggota`, `id_sasaran`, `no_kartu`, `nik_peserta`, `nama_peserta`, `tmp_lahir`, `tgl_lahir`, `jk`, `alamat_peserta`, `keterangan`) VALUES (3, 9, 22, 2, '54321', '7110020302530002', 'Hans Lahope', 'Buyat', '03-02-1953', 'LAKI-LAKI', 'Dusun 1', 'HIDUP');
-INSERT INTO `peserta_bantuan` (`id`, `id_program`, `id_anggota`, `id_sasaran`, `no_kartu`, `nik_peserta`, `nama_peserta`, `tmp_lahir`, `tgl_lahir`, `jk`, `alamat_peserta`, `keterangan`) VALUES (7, 8, 15, 1, '123456', '7101101604090002', 'Avrilia Verlita Evelin Igirisa', 'Dumooga 1', '16-04-2009', 'PEREMPUAN', 'Dusun 2', 'HIDUP');
-INSERT INTO `peserta_bantuan` (`id`, `id_program`, `id_anggota`, `id_sasaran`, `no_kartu`, `nik_peserta`, `nama_peserta`, `tmp_lahir`, `tgl_lahir`, `jk`, `alamat_peserta`, `keterangan`) VALUES (8, 10, 13, 3, '111', '7110020402010002', 'GLENDY RONGKO', 'Buyat', '04-02-2001', 'LAKI-LAKI', 'Dusun 1', 'HIDUP');
-INSERT INTO `peserta_bantuan` (`id`, `id_program`, `id_anggota`, `id_sasaran`, `no_kartu`, `nik_peserta`, `nama_peserta`, `tmp_lahir`, `tgl_lahir`, `jk`, `alamat_peserta`, `keterangan`) VALUES (9, 8, 10, 1, '11111', '7110020402010002', 'GLENDY RONGKO', 'Buyat', '04-02-2001', 'LAKI-LAKI', 'Dusun 1', 'HIDUP');
-INSERT INTO `peserta_bantuan` (`id`, `id_program`, `id_anggota`, `id_sasaran`, `no_kartu`, `nik_peserta`, `nama_peserta`, `tmp_lahir`, `tgl_lahir`, `jk`, `alamat_peserta`, `keterangan`) VALUES (10, 6, 10, 1, '12321', '7110020402010002', 'GLENDY RONGKO', 'Buyat', '04-02-2001', 'LAKI-LAKI', 'Dusun 2', 'HIDUP');
-INSERT INTO `peserta_bantuan` (`id`, `id_program`, `id_anggota`, `id_sasaran`, `no_kartu`, `nik_peserta`, `nama_peserta`, `tmp_lahir`, `tgl_lahir`, `jk`, `alamat_peserta`, `keterangan`) VALUES (12, 11, 13, 3, '111111', '7110020402010002', 'GLENDY RONGKO', 'Buyat', '04-02-2001', 'LAKI-LAKI', 'Dusun 1', 'HIDUP');
-
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 #
 # TABLE STRUCTURE FOR: program_bantuan
@@ -1172,15 +1103,7 @@ CREATE TABLE `program_bantuan` (
   `sdate` varchar(100) NOT NULL,
   `edate` varchar(100) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
-
-INSERT INTO `program_bantuan` (`id`, `nama_program`, `sasaran_program`, `keterangan`, `asal_dana`, `sdate`, `edate`) VALUES (6, 'Bibit Jagung', '1', 'Bantuan berupa tanaman untuk petani desa yang di sposori oleh pemerintah kabupaten untuk mensejahterakhan petani khusunya petani kelapa dan cengkeh', 'Kab/Kota', '2024-06-09', '2024-06-11');
-INSERT INTO `program_bantuan` (`id`, `nama_program`, `sasaran_program`, `keterangan`, `asal_dana`, `sdate`, `edate`) VALUES (8, 'JAMKESMAS', '1', 'jamkesmas ( akronim dari Jaminan Kesehatan Masyarakat ) adalah sebuah program jaminan kesehatan untuk warga Indonesia yang memberikan perlindungan sosial dibidang kesehatan untuk menjamin masyarakat miskin dan tidak mampu yang iurannya dibayar oleh pemerintah agar kebutuhan dasar kesehatannya yang layak dapat terpenuhi.Program ini dijalankan oleh Departemen Kesehatan sejak 2008.', 'Pusat', '2024-06-09', '2024-06-15');
-INSERT INTO `program_bantuan` (`id`, `nama_program`, `sasaran_program`, `keterangan`, `asal_dana`, `sdate`, `edate`) VALUES (9, 'PKH', '2', 'Program Keluarga Harapan yang selanjutnya disebut PKH adalah program pemberian bantuan sosial bersyarat kepada Keluarga Miskin (KM) yang ditetapkan sebagai keluarga penerima manfaat PKH. Sebagai sebuah program bantuan sosial bersyarat, PKH membuka akses keluarga miskin terutama ibu hamil dan anak untuk memanfaatkan berbagai fasilitas layanan kesehatan (faskes) dan fasilitas layanan pendidikan (fasdik) yang tersedia di sekitar mereka.', 'Pusat', '2024-06-10', '2024-06-13');
-INSERT INTO `program_bantuan` (`id`, `nama_program`, `sasaran_program`, `keterangan`, `asal_dana`, `sdate`, `edate`) VALUES (10, 'PUPUK', '3', 'Bantuan pupuk kepada kelompok tani adalah salah satu bentuk dukungan yang diberikan oleh pemerintah atau lembaga terkait kepada kelompok tani untuk mendukung kegiatan pertanian dan peningkatan produksi hasil pertanian. Bantuan pupuk ini bertujuan untuk membantu kelompok tani dalam memenuhi kebutuhan pupuk yang diperlukan dalam usaha pertanian mereka.', 'Provinsi', '2024-06-09', '2024-06-15');
-INSERT INTO `program_bantuan` (`id`, `nama_program`, `sasaran_program`, `keterangan`, `asal_dana`, `sdate`, `edate`) VALUES (11, 'Pestisida', '3', 'Pestisida atau racun hama adalah bahan yang digunakan untuk mengendalikan, menolak, atau membasmi organisme pengganggu.', 'Provinsi', '2024-06-25', '2024-06-25');
-INSERT INTO `program_bantuan` (`id`, `nama_program`, `sasaran_program`, `keterangan`, `asal_dana`, `sdate`, `edate`) VALUES (12, 'BLT', '2', 'Bantuan Langsung Tunai atau disingkat BLT adalah program bantuan pemerintah berjenis pemberian uang tunai atau beragam bantuan lainnya, baik bersyarat maupun tak bersyarat untuk masyarakat miskin.', 'Pusat', '2024-06-25', '2024-06-25');
-
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 #
 # TABLE STRUCTURE FOR: sambutan_kepala
@@ -1220,7 +1143,7 @@ CREATE TABLE `setting` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
-INSERT INTO `setting` (`id`, `title_admin`, `title_login`, `mode_perbaikan`, `sebutan_desa`, `sebutan_dusun`, `sebutan_kabupaten`, `tema_modul`, `artikel_page`, `vendor`, `cek_internet`, `jenis_peta`, `token_peta`, `zoom_peta`, `icon_peta`, `latar_website`, `latar_login_admin`) VALUES (1, 'Sistem Informasi', 'Administrasi Kependudukan', 'Tidak', 'Kelurahan', 'Lingkungan', 'Kota', 'skin-purple-light', '4', 'PT Technologi Fintech Indonesia', 'Ya', 'leaflet', 'pk.eyJ1IjoiZ2xlbmFsdmFybzA5IiwiYSI6ImNseXpyajljbzJmcXAybHNneHEyanJieHkifQ.uTlRdIkxcUEHJQOLUkJKeQ', 12, 'gps.png', '33bb0de31e.JPG', '6dfce299f5.jpg');
+INSERT INTO `setting` (`id`, `title_admin`, `title_login`, `mode_perbaikan`, `sebutan_desa`, `sebutan_dusun`, `sebutan_kabupaten`, `tema_modul`, `artikel_page`, `vendor`, `cek_internet`, `jenis_peta`, `token_peta`, `zoom_peta`, `icon_peta`, `latar_website`, `latar_login_admin`) VALUES (1, 'Sistem Informasi', 'Administrasi Kependudukan', 'Tidak', 'Kelurahan', 'Lingkungan', 'Kota', 'skin-purple-light', '4', 'PT Technologi Fintech Indonesia', 'Ya', 'mapbox', 'pk.eyJ1IjoiZ2xlbmFsdmFybzA5IiwiYSI6ImNseXpyajljbzJmcXAybHNneHEyanJieHkifQ.uTlRdIkxcUEHJQOLUkJKeQ', 12, 'gps.png', '33bb0de31e.JPG', '6dfce299f5.jpg');
 
 
 #
@@ -1252,7 +1175,7 @@ CREATE TABLE `setting_web` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
-INSERT INTO `setting_web` (`id`, `layout_gambar`, `tema_warna`, `teks_warna`, `tampil_statistik`) VALUES (1, 1, '#a90003', 'rgba(216,28,43,0.6)', 1);
+INSERT INTO `setting_web` (`id`, `layout_gambar`, `tema_warna`, `teks_warna`, `tampil_statistik`) VALUES (1, 1, '#009791', 'rgba(0,185,170,0.6)', 1);
 
 
 #
@@ -1318,7 +1241,7 @@ CREATE TABLE `sub_menu_web` (
   `url` varchar(200) NOT NULL,
   `aktif` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 INSERT INTO `sub_menu_web` (`id`, `id_menu`, `sub_nama`, `tipe_link`, `url`, `aktif`) VALUES (1, 1, 'Visi Misi', 1, 'artikel/3', 1);
 INSERT INTO `sub_menu_web` (`id`, `id_menu`, `sub_nama`, `tipe_link`, `url`, `aktif`) VALUES (2, 1, 'Sejarah', 1, 'artikel/2', 1);
@@ -1326,6 +1249,7 @@ INSERT INTO `sub_menu_web` (`id`, `id_menu`, `sub_nama`, `tipe_link`, `url`, `ak
 INSERT INTO `sub_menu_web` (`id`, `id_menu`, `sub_nama`, `tipe_link`, `url`, `aktif`) VALUES (4, 1, 'Peta', 5, 'peta', 1);
 INSERT INTO `sub_menu_web` (`id`, `id_menu`, `sub_nama`, `tipe_link`, `url`, `aktif`) VALUES (5, 4, 'Lembaga Pemusyawaratan', 7, 'lembaga/1', 1);
 INSERT INTO `sub_menu_web` (`id`, `id_menu`, `sub_nama`, `tipe_link`, `url`, `aktif`) VALUES (6, 4, 'PKK', 7, 'lembaga/2', 1);
+INSERT INTO `sub_menu_web` (`id`, `id_menu`, `sub_nama`, `tipe_link`, `url`, `aktif`) VALUES (7, 1, 'UMKM', 4, 'data_umkm', 1);
 
 
 #
@@ -1461,14 +1385,7 @@ CREATE TABLE `umkm` (
   `tgl_posting` varchar(128) NOT NULL,
   `gambar` varchar(300) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
-
-INSERT INTO `umkm` (`id`, `nik`, `no_tlp`, `alamat`, `harga_produk`, `satuan_produk`, `nama_usaha`, `id_kategori`, `deskripsi`, `latitude`, `longitude`, `tgl_posting`, `gambar`) VALUES (1, '7101102209000001', '08124298534', 'Ratatotok', '2.500', 'bungkus', 'Keripik Jagung', '4', 'Keripik jagung adalah keripik yang terbuat dari olahan jagung yang dibuat tipis kemudian digoreng hingga renyah dengan tambahan aneka bumbu. Biasanya rasanya adalah asin dengan aroma bawang yang gurih.', '0.8689165810511181', '124.70340728759767', '2024-10-02', 'c3ac9d66a5.jpg');
-INSERT INTO `umkm` (`id`, `nik`, `no_tlp`, `alamat`, `harga_produk`, `satuan_produk`, `nama_usaha`, `id_kategori`, `deskripsi`, `latitude`, `longitude`, `tgl_posting`, `gambar`) VALUES (2, '7101105510790002', '087383456', 'Ratatotok', '1000', 'lembar', 'Fotocopy Komputer', '1', 'Fotokopi adalah salinan dokumen yang dibuat menggunakan mesin fotokopi dengan proses penyinaran. Kata fotokopi berasal dari kata \"foto\" dan \"kopi\", yang berarti cahaya dan salinan,', '0.8829911689285118', '124.70649719238283', '2024-10-02', '98875e6e49.jpg');
-INSERT INTO `umkm` (`id`, `nik`, `no_tlp`, `alamat`, `harga_produk`, `satuan_produk`, `nama_usaha`, `id_kategori`, `deskripsi`, `latitude`, `longitude`, `tgl_posting`, `gambar`) VALUES (3, '7101100308050302', '08263839454', 'Basaan', '1.000.000', 'kg', 'Ternak Lele', '5', 'Ternak 1000 ekor ikan lele membutuhkan modal sebesar Rp1.200.000. Modal usaha ini termasuk biaya investasi pembuatan terpal. Berapa keuntungan ternak 1000 ekor ikan lele? Keuntungan ternak 1000 ekor ikan lele yaitu sebesar Rp2.250.000 untuk satu siklus panen ikan lele.', '0.8967224228288146', '124.7102737426758', '2024-10-02', '63e2e9770b.jpg');
-INSERT INTO `umkm` (`id`, `nik`, `no_tlp`, `alamat`, `harga_produk`, `satuan_produk`, `nama_usaha`, `id_kategori`, `deskripsi`, `latitude`, `longitude`, `tgl_posting`, `gambar`) VALUES (4, '7110020402010002', '081242291179', 'Kotabunan', '1.000.000', 'paket', 'Developer Web', '1', 'Website adalah kumpulan halaman yang berisi informasi yang dapat diakses melalui internet. Informasi yang terdapat dalam website bisa berupa teks, gambar, video, animasi, dan suara.', '0.8181103215061231', '124.65499877929689', '2024-10-04', '50bf309c7d.jpg');
-INSERT INTO `umkm` (`id`, `nik`, `no_tlp`, `alamat`, `harga_produk`, `satuan_produk`, `nama_usaha`, `id_kategori`, `deskripsi`, `latitude`, `longitude`, `tgl_posting`, `gambar`) VALUES (5, '7101102209000001', '08253647566', 'Lakban', '20.000', 'paket', 'Pisang Goreng', '4', 'Lorem ipsum, atau ringkasnya lipsum, adalah teks standar yang ditempatkan untuk mendemostrasikan elemen grafis atau presentasi visual seperti font, tipografi, dan tata letak.', '0.855871794226443', '124.72263336181642', '2024-10-04', '404-image-not-found.jpg');
-
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 #
 # TABLE STRUCTURE FOR: user

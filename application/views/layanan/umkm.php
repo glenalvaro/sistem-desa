@@ -24,6 +24,7 @@
               <a href="<?=site_url('/layanan/umkm/list_all')?>" class="btn btn-social bg-purple btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"><i class="fa fa-book"></i> Lihat Semua</a>
             </div>
             <div class="box-body">
+              <?php if($data_umkm) : ?>
               <div class="items slider">
                   <?php foreach($data_umkm as $val) : ?>
                   <div>
@@ -47,6 +48,11 @@
                   </div>
                   <?php endforeach; ?>
                </div>
+             <?php else : ?>
+              <div class="col-xs-12 text-center">
+                <p>Data belum tersedia</p>
+              </div>
+             <?php endif; ?>
             </div>
           </div>
         </div>

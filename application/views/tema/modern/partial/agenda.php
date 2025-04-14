@@ -1,4 +1,5 @@
-<div class="reveal w-full flex flex-col gap-6 phone:gap-3 items-center mb-10">
+<?php if($data_agenda) : ?>
+    <div class="reveal w-full flex flex-col gap-6 phone:gap-3 items-center mb-10">
     <div class="flex flex-col items-center mb-2">
             <p class="text-web 2xl:text-3xl xl:text-3xl lg:text-3xl md:text-2xl sm:text-2xl phone:text-xl font-extrabold capitalize text-center reveal-grow-r py-1">Agenda</p>
             <span class="reveal hr_line 2xl:w-[10%] xl:w-[10%] lg:w-[10%] md:w-[13%] sm:w-[13%] phone:w-[13%] 2xl:h-1 xl:h-1 lg:h-1 md:h-[0.2rem] sm:h-[0.15rem] phone:h-[0.15rem] mb-2"></span>
@@ -27,5 +28,4 @@
           </div>
     </div>
 </div>
-
-
+<?php endif; ?>

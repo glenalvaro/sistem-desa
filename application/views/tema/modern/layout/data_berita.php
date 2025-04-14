@@ -19,8 +19,8 @@
         </li>
     </ol>
 </nav>
-<?php if($list_berita) : ?>
 <div class="card-berita">
+<?php if($list_berita) : ?>
 <?php foreach ($list_berita as $data) : ?>
     <?php if($data->aktif == 1) : ?>
     <figure class="card-box-berita">
@@ -38,8 +38,12 @@
     </figure>
     <?php endif; ?>
 <?php endforeach ?>
-</div>
+<?php else : ?>
+        <div class="w-full sm:w-full phone:w-full h-full p-4 tab">
+            <p class="font-medium italic text-gray-500 text-center">Berita belum tersedia</p>
+    </div>
 <?php endif; ?>
+</div>
 
 <div class="self-center">
     <?= $halaman_data; ?>

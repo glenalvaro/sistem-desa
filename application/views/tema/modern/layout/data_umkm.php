@@ -21,6 +21,7 @@
 </nav>
 
 <div class="card-box">
+<?php if($list_umkm) : ?>
  <?php foreach($list_umkm as $key) : ?>
     <div class="card-content">
         <div class="card-tumb">
@@ -39,6 +40,11 @@
         </div>
     </div>
 <?php endforeach; ?>
+<?php else : ?>
+        <div class="w-full sm:w-full phone:w-full h-full p-4 tab">
+            <p class="font-medium italic text-gray-500 text-center">UMKM belum tersedia</p>
+    </div>
+<?php endif; ?>
 </div>
 
 <div class="self-center">

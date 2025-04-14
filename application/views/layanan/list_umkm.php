@@ -19,6 +19,7 @@
              <a href="<?=site_url('/layanan/umkm')?>" class="btn btn-social btn-success btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"><i class="fa fa-arrow-left"></i> Kembali ke data UMKM</a>
             </div>
             <div class="box-body">
+                <?php if($list_umkm) : ?>
                 <div class="row clearfix">
                      <?php foreach($list_umkm as $data) : ?>
                          <div style="width: 100%; padding: 5px;">
@@ -38,6 +39,11 @@
                      <?php endforeach; ?>
                   </div>
                   <?= $pagination; ?>
+                   <?php else : ?>
+              <div class="col-xs-12 text-center">
+                <p>Data belum tersedia</p>
+              </div>
+             <?php endif; ?>
             </div>
           </div>
         </div>

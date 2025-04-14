@@ -223,6 +223,10 @@ class Program_bantuan extends CI_Controller
 
         if ($row) {
             $this->Program_bantuan_model->delete($id);
+            //hapus juga di table peserta bantuan jika ada
+            $this->db->delete('peserta_bantuan', array(
+                'id_program' => $id
+            ));
             $this->session->set_flashdata('flash', 'Data Program Bantuan dihapus');
             redirect(site_url('program_bantuan'));
         } else {

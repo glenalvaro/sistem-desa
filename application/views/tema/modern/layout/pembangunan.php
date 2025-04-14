@@ -44,7 +44,9 @@
     <?php endif; ?>
 <?php endforeach; ?>
 <?php else : ?>
-        <p class="text-gray-500"><center>-- Data pembangunan belum tersedia --</center></p>
+    <div class="2xl:w-[75%] xl:w-[75%] lg:w-[70%] md:w-full sm:w-full phone:w-full h-full p-4 tab">
+            <p class="font-medium italic text-gray-500 text-center">Pembangunan belum tersedia</p>
+    </div>
 <?php endif; ?>
 </div>
 

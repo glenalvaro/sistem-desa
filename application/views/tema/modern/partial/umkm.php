@@ -1,6 +1,7 @@
 <?php  if(!defined('BASEPATH')) exit('No direct script access allowed'); ?>
 
 <!-- View Mobile UMKM -->
+<?php if($umkm_data) : ?>
 <div class="reveal 2xl:my-10 xl:my-8 lg:my-6 md:my-6 sm:my-6 2xl:py-10 2xl:px-48 xl:px-44 xl:py-9 lg:px-20 lg:py-8 md:px-16 md:py-7 sm:px-10 sm:py-6 phone:px-2 phone:py-5">
     <div class="w-full flex flex-col gap-6 phone:gap-3">
         <div class="flex flex-col items-center mb-2">
@@ -35,3 +36,5 @@
 <?php endif; ?>
 </div>
 </div>
+<?php endif; ?>
+

@@ -33,9 +33,6 @@
      <?php endif; ?>
     <?php endforeach ?>
 </div>
-<?php if($galeri_data) : ?>
- <a href="" class="btn_more txt_more reveal-d p-2 self-center ease-in-out duration-300 phone:text-xs">Lihat Semua</a>
-<?php endif; ?>
 </div>
 </div>
 <?php endif; ?>
@@ -63,10 +60,6 @@
     </div>
 </div>
 </div>
-<?php else : ?>  
-    <div class="flex flex-col items-center">
-        <p class="reveal font-medium italic text-gray-500 text-center">-- Galeri belum tersedia --</p>
-    </div>
 <?php endif; ?>
 
 
