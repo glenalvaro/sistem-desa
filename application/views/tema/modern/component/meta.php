@@ -9,7 +9,7 @@
     <meta name='designer' content='Glen Alvaro' />
     <meta name='theme:designer' content='Glen Alvaro' />
     <meta name='theme:version' content='1.3.5' />
-    <meta name='keywords' content="<?= $sebutan_desa; ?> digital, sistem informasi <?= $sebutan_desa; ?> <?= $nama_desa; ?>, web, blog, informasi, website resmi <?= $sebutan_desa; ?> <?= $nama_desa; ?>, kecamatan <?= $nama_kecamatan; ?>, kabupaten <?= $nama_kabupaten; ?>, provinsi <?= $nama_provinsi; ?>, indonesia, kampung," />
+    <meta name='keywords' content="<?= $sebutan_desa; ?> digital, sistem informasi <?= $sebutan_desa; ?> <?= $nama_desa; ?>, web, blog, informasi, website resmi <?= $sebutan_desa; ?> <?= $nama_desa; ?>, kecamatan <?= $nama_kecamatan; ?>, kabupaten <?= $nama_kabupaten; ?>, provinsi <?= $nama_provinsi; ?>, indonesia" />
     <meta property="og:site_name" content="<?= $sebutan_desa; ?> <?= $nama_desa; ?>"/>
     <meta property="og:type" content="article"/>
     <link rel="icon" href="<?= base_url('assets/img/logo/') . $logo_desa; ?>">
