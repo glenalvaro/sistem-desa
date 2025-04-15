@@ -17,7 +17,7 @@
         <div class="col-md-12">
           <div class="box box-danger">
             <div class="box-header with-border">
-              <a href="<?php echo base_url('admin/list_user'); ?>" class="btn btn-social btn-flat btn-info btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"><i class="fa fa-arrow-circle-o-left"></i> Kembali Ke Data Pengguna</a>
+              <a href="<?php echo base_url('admin'); ?>" class="btn btn-social btn-flat btn-info btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"><i class="fa fa-arrow-circle-o-left"></i> Kembali Ke Data Pengguna</a>
             </div>
               <div class="box-body" style="margin-left: 10px; margin-right: 10px;">
                   <h6>Reset Kata Sandi Pengguna -- <?= $List['name'] ?></h6><br>

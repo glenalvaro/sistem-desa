@@ -69,7 +69,7 @@
             <select id="id_dk" onchange="clik_ini()" name="nama" class="select-filter form-control required" style="width: 100%;">
              <option value="">-- Pilih Dokumen --</option>               
                 <?php foreach($list_dp as $data) : ?>
-                  <small><option value="<?= $data['nama']; ?>"><?= $data['nama']; ?></option></small>
+                  <option value="<?= $data['nama']; ?>"><?= $data['nama']; ?></option>
                 <?php endforeach; ?>
             </select>
             <br>

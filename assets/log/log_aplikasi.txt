@@ -8,3 +8,22 @@
 14-04-2025 18:20:46-admin@gmail.com-Administrator-1-Logout
 14-04-2025 19:47:55-admin@gmail.com-Administrator-0-Login
 14-04-2025 19:48:20-admin@gmail.com-Administrator-1-Logout
+14-04-2025 21:02:09-admin@gmail.com-Administrator-0-Login
+14-04-2025 21:04:29-admin@gmail.com-Administrator-1-Logout
+14-04-2025 21:04:44-operator@gmail.com-Operator Desa-0-Login
+14-04-2025 21:06:41-operator@gmail.com-Operator Desa-1-Logout
+14-04-2025 21:13:26-admin@gmail.com-Administrator-0-Login
+14-04-2025 21:20:08-admin@gmail.com-Administrator-1-Logout
+16-04-2025 02:25:44-admin@gmail.com-Administrator-0-Login
+16-04-2025 02:26:03-admin@gmail.com-Administrator-3-Mengubah data pengguna
+16-04-2025 02:32:09-admin@gmail.com-Administrator-1-Logout
+16-04-2025 02:32:36-operator2@gmail.com-Operator 2-0-Login
+16-04-2025 02:37:17-operator2@gmail.com-Operator 2-1-Logout
+16-04-2025 02:37:26-admin@gmail.com-Administrator-0-Login
+16-04-2025 02:37:52-admin@gmail.com-Administrator-1-Logout
+16-04-2025 02:38:16-operator@gmail.com-Operator Desa-0-Login
+16-04-2025 02:42:32-operator@gmail.com-Operator Desa-1-Logout
+16-04-2025 02:42:47-redaksi@gmail.com-Redaksi Kelurahan-0-Login
+16-04-2025 02:42:56-redaksi@gmail.com-Redaksi Kelurahan-1-Logout
+16-04-2025 02:50:12-admin@gmail.com-Administrator-0-Login
+16-04-2025 02:53:39-admin@gmail.com-Administrator-1-Logout

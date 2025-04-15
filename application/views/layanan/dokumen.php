@@ -76,7 +76,7 @@
             <select id="select_dok" onchange="check_duplicate()" name="nama" class="select-filter has-error form-control required" style="width: 100%;">
              <option value="">-- Pilih Dokumen --</option>               
                 <?php foreach($list_dk as $data) : ?>
-                  <small><option value="<?= $data['nama']; ?>"><?= $data['nama']; ?></option></small>
+                  <option value="<?= $data['nama']; ?>"><?= $data['nama']; ?></option>
                 <?php endforeach; ?>
             </select>
             <br>

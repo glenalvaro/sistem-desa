@@ -137,23 +137,17 @@
               <img style="width: 20px; height: 20px; border: 2px solid #ffffff;" src="<?= base_url('assets/img/profile/') . $user['image']; ?>" class="img-circle" alt="User Image">
             </a>
             <?php
-            //get role
-              $query ="SELECT `user`.`id`,`role_id`,`role` FROM `user_role` INNER JOIN `user` ON `user_role`.`id`=`user`.`role_id`";
-              $result = $this->db->query($query)->result_array();
+            //get level
+              $level = $user['role_id'];
+              $query ="SELECT `user`.`id`,`role_id`,`role` FROM `user_role` INNER JOIN `user` ON `user_role`.`id`=`user`.`role_id` WHERE `role_id` = $level LIMIT 1";
+              $result = $this->db->query($query)->row();
              ?>
             <div class="box box-widget widget-user-2 dropdown-menu">
                 <div class="widget-user-header bg-gray">
                   <h4 style="text-align: center;"><?= $user['name']; ?></h4>
                   <h5 style="font-size: 12px; text-align: center;">
                   Anda masuk sebagai 
-                  <?php foreach($result as $rb) : ?>
-                    <?php 
-                      if ($this->session->userdata('role_id') == $rb['role_id']) {
-                          echo $rb['role'];
-                      } else {   
-                      }
-                    ?>
-                  <?php endforeach; ?>
+                  <?= $result->role; ?>
                   </h5>
                 </div>
             <div class="box-footer">

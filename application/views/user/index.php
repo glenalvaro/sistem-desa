@@ -20,18 +20,17 @@
 
                 <a href="<?= base_url('user/changePassword'); ?>" class="btn btn-social bg-maroon btn-sm visible-xs-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"><i class="fa fa-key"></i> Ganti Password</a>
             </div>
+            <?php
+            //get level
+              $level = $user['role_id'];
+              $query ="SELECT `user`.`id`,`role_id`,`role` FROM `user_role` INNER JOIN `user` ON `user_role`.`id`=`user`.`role_id` WHERE `role_id` = $level LIMIT 1";
+              $key = $this->db->query($query)->row();
+             ?>
             <div class="box-body box-profile">
               <img class="profile-user-img img-responsive" src="<?= site_url('assets/img/profile/').$user['image']; ?>" alt="User profile picture">
               <h3 class="profile-username text-center"><?= $user['name']; ?></h3>
               <p class="text-muted text-center">
-                 <?php foreach($group as $g) : ?>
-                    <?php 
-                      if ($this->session->userdata('role_id') == $g['role_id']) {
-                          echo $g['role'];
-                      } else {   
-                      }
-                    ?>
-                  <?php endforeach; ?>
+                  <?= $key->role; ?>
               </p>
               <ul class="list-group list-group-unbordered">
                 <div class="table-responsive">
